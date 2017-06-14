@@ -4,8 +4,8 @@ from recommonmark.parser import CommonMarkParser
 
 project = u'SiteWhere'
 copyright = u'2017, SiteWhere LLC'
-version = '1.11'
-release = '1.11.0'
+version = '1.11.0'
+release = '1.11.0 Community Edition'
 
 # General options
 needs_sphinx = '1.0'
