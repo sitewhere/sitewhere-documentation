@@ -2,4 +2,3 @@
 ####### example-requirements.txt #######
 #
 ###### Requirements without Version Specifiers ######
-sphinxcontrib.plantuml
