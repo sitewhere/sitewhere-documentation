@@ -6,9 +6,9 @@
    
 ----
    
-=========================================
-SiteWhere Community Edition Documentation
-=========================================
+####################################
+SiteWhere |version| CE Documentation
+####################################
 
 SiteWhere Community Edition is an open source IoT Application Enablement Platform. It
 provides a highly-configurable system that facilitates the ingestion, storage, processing,
@@ -24,14 +24,15 @@ The following guides are available to help with installing, configuring, and usi
    installation/index
    userguide/index
 
+************
 Key Features
-============
+************
 SiteWhere provides most of the features needed to enable building powerful IoT applications,
 speeding time-to-market and allowing the application developer to focus on the domain-specific
 details of the application being built. SiteWhere provides:
 
 On Premise or in the Cloud
---------------------------
+==========================
 
 .. figure:: /_static/images/logos/docker.png
    :scale: 30%
@@ -43,7 +44,7 @@ in the cloud depending on needs of the application. Docker images are provided f
 so that containers can be deployed in any Docker-compatible cloud provider (Amazon EC2, Azure, etc.)
 
 First-class Multitenancy Support
---------------------------------
+================================
 
 .. figure:: /_static/images/icons/people.png
    :scale: 30%
@@ -55,7 +56,7 @@ each with its own processing pipeline and independent data storage. Tenant data 
 that of other tenants and each tenant can be configured and managed independently.
 
 Comprehensive Device Management
--------------------------------
+===============================
 
 .. figure:: /_static/images/devices/waspmote.png
    :scale: 30%
@@ -68,7 +69,7 @@ manually (individually or in batch) via the SiteWhere REST services. SiteWhere s
 latest state of the device as well as historical information for events related to the device.
 
 High-performance Big Data Storage
----------------------------------
+=================================
 
 .. figure:: /_static/images/logos/mongodb.png
    :scale: 30%

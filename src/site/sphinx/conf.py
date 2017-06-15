@@ -2,6 +2,8 @@
 import sys, os
 from recommonmark.parser import CommonMarkParser
 
+sys.path.append(os.path.abspath('exts'))
+
 project = u'SiteWhere'
 copyright = u'2017, SiteWhere LLC'
 version = '1.11.0'
@@ -13,7 +15,7 @@ master_doc = 'index'
 pygments_style = 'tango'
 add_function_parentheses = True
 
-extensions = ['sphinx.ext.autodoc']
+extensions = ['sphinx.ext.autodoc', 'button']
 templates_path = ['_templates']
 exclude_trees = ['.build']
 source_suffix = ['.rst', '.md']

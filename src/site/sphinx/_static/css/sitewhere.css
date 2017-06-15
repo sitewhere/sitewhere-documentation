@@ -3,3 +3,12 @@
 div.highlight-xml {
 	max-height: 350px;
 }
+
+span.button {
+	border: 1px solid #ddd;
+	background-color: #eee;
+	padding: 8px;
+	color: #333;
+	font-size: 16px;
+	box-shadow: 2px 2px 8px grey;
+}
