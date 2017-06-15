@@ -6,10 +6,14 @@ import jinja2
 from sphinx.util.compat import Directive
 from docutils.parsers.rst.directives import unchanged
 
-BUTTON_TEMPLATE = jinja2.Template(u"""
+HTML_TEMPLATE = jinja2.Template(u"""
 <p>
 <a href="{{ link }}" target="blank"><span class="button">{{ text }}</span></a>
 </p>
+""")
+
+LATEX_TEMPLATE = jinja2.Template(u"""
+\hyperref[{{ link }}]{''{{ text }}''}
 """)
 
 # placeholder node for document graph
@@ -35,11 +39,15 @@ class ButtonDirective(Directive):
 
 # build phase visitor emits HTML to append to output
 def html_visit_button_node(self, node):
-    html = BUTTON_TEMPLATE.render(text=node['text'], link=node['link'])
+    html = HTML_TEMPLATE.render(text=node['text'], link=node['link'])
     self.body.append(html)
     raise nodes.SkipNode
 
 # if you want to be pedantic, define text, latex, manpage visitors too..
+def latex_visit_button_node(self, node):
+    latex = LATEX_TEMPLATE.render(text=node['text'], link=node['link'])
+    self.body.append(latex)
+    raise nodes.SkipNode
 
 def setup(app):
     app.add_node(button_node,
