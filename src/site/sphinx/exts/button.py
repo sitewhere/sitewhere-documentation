@@ -51,5 +51,6 @@ def latex_visit_button_node(self, node):
 
 def setup(app):
     app.add_node(button_node,
-                 html=(html_visit_button_node, None))
+                 html=(html_visit_button_node, None),
+                 latex=(latex_visit_button_node, None))
     app.add_directive('button', ButtonDirective)
