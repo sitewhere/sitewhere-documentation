@@ -8,7 +8,9 @@ from docutils.parsers.rst.directives import unchanged
 
 HTML_TEMPLATE = jinja2.Template(u"""
 <p class="button-wrapper">
-<a href="{{ link }}" target="blank"><span class="button">{{ text }}</span></a>
+<a href="{{ link }}" target="blank">
+<span class="button"><i class="fa fa-external-link-square toprightsmall"></i><i class="fa fa-{{ icon }} icon-spacer"></i> {{ text }}</span>
+</a>
 </p>
 """)
 
@@ -26,6 +28,7 @@ class ButtonDirective(Directive):
     option_spec = {
         'text': unchanged,
         'link': unchanged,
+        'icon': unchanged,
     }
 
     # this will execute when your directive is encountered
@@ -35,11 +38,17 @@ class ButtonDirective(Directive):
         node = button_node()
         node['text'] = self.options['text']
         node['link'] = self.options['link']
+        
+        if 'icon' in self.options:
+        	node['icon'] = self.options['icon']
+        else:
+            node['icon'] = 'download'
+            
         return [node]
 
 # build phase visitor emits HTML to append to output
 def html_visit_button_node(self, node):
-    html = HTML_TEMPLATE.render(text=node['text'], link=node['link'])
+    html = HTML_TEMPLATE.render(text=node['text'], link=node['link'], icon=node['icon'])
     self.body.append(html)
     raise nodes.SkipNode
 

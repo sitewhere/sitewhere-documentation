@@ -71,6 +71,7 @@ the server bootstraps. MongoDB can be downloaded from the following link:
 .. button::
    :text: MongoDB Community Edition Downloads
    :link: https://www.mongodb.com/download-center#community
+   :icon: download
    
 After downloading MongoDB, follow the steps in the installation guide to install it on
 your SiteWhere server:
@@ -78,6 +79,7 @@ your SiteWhere server:
 .. button::
    :text: MongoDB Community Edition Installation
    :link: https://docs.mongodb.com/manual/administration/install-community
+   :icon: book
    
 SiteWhere assumes that MongoDB is running on *localhost* on the default port (27017). If that is not
 the case, you will need to edit the :doc:`server configuration <../userguide/configuration/server>` file and update
@@ -99,6 +101,7 @@ the devices. HiveMQ can be downloaded from the following link:
 .. button::
    :text: HiveMQ Evaluation Downloads
    :link: http://www.hivemq.com/downloads/
+   :icon: download
    
 After downloading HiveMQ, follow their *Getting Started* guide to install and configure
 it for your system.
@@ -106,6 +109,7 @@ it for your system.
 .. button::
    :text: HiveMQ Getting Started Guide
    :link: http://www.hivemq.com/resources/getting-started/
+   :icon: book
   
 SiteWhere does not have direct dependencies on HiveMQ, but rather uses established
 generic MQTT clients to connect to the brokers. Any broker that implements the MQTT protocol
@@ -148,5 +152,14 @@ After downloading the archive appropriate for your operating system, unzip (or u
 into a folder on your machine. 
 
 .. note:: The top-level folder **sitewhere-server-x.xx.x** is considered the *SiteWhere Home* folder
-   and is available within a running SiteWhere instance via the *sitewhere.home* environment variable.
+   and is available within a running SiteWhere instance via the **sitewhere.home** environment variable.
 
+Assuming that the external dependencies outlined above have been installed, the SiteWhere server can
+be started by opening a command prompt to the *bin* folder and executing either *startup.bat* or 
+*startup.sh* depending on your operating system.
+
+.. code-block:: text
+
+   sitewhere/bin> ./startup.sh
+
+Server output will be shown in the console and also stored in the *logs/sitewhere.log* file.
