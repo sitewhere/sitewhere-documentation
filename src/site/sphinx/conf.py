@@ -4,6 +4,9 @@ from recommonmark.parser import CommonMarkParser
 
 sys.path.append(os.path.abspath('exts'))
 
+def setup(app):
+    app.add_stylesheet('css/sitewhere.css')
+    
 project = u'SiteWhere'
 copyright = u'2017, SiteWhere LLC'
 version = '1.11.0'
@@ -32,7 +35,6 @@ html_use_index = True
 html_use_smartypants = True
 html_show_sourcelink = False
 html_static_path = ['_static']
-html_style = 'css/sitewhere.css' 
 
 # PlantUML options
 plantuml = os.getenv('plantuml')
