@@ -4,6 +4,11 @@ div.highlight-xml {
 	max-height: 350px;
 }
 
+p.button-wrapper {
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
 span.button {
 	border: 1px solid #ddd;
 	background-color: #eee;

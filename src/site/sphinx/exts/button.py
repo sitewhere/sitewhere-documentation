@@ -7,7 +7,7 @@ from sphinx.util.compat import Directive
 from docutils.parsers.rst.directives import unchanged
 
 HTML_TEMPLATE = jinja2.Template(u"""
-<p>
+<p class="button-wrapper">
 <a href="{{ link }}" target="blank"><span class="button">{{ text }}</span></a>
 </p>
 """)

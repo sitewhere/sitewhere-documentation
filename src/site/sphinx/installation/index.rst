@@ -51,3 +51,6 @@ your SiteWhere server:
 SiteWhere assumes that MongoDB is running on *localhost* on the default port (27017). If that is not
 the case, you will need to edit the :doc:`server configuration <../userguide/configuration/server>` file and update
 the hostname, port, and any other attributes.
+
+Install HiveMQ
+==============
