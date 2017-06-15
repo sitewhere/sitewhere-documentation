@@ -163,3 +163,8 @@ be started by opening a command prompt to the *bin* folder and executing either 
    sitewhere/bin> ./startup.sh
 
 Server output will be shown in the console and also stored in the *logs/sitewhere.log* file.
+
+**************************
+Run SiteWhere Using Docker
+**************************
+
