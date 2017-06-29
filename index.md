@@ -1,5 +1,5 @@
 ---
-title: SiteWhere 1.6.0 Documentation
+title: SiteWhere 1.11.0 Documentation
 layout: default
 sidebar: combined-sidebar.html
 includeNavigation: false
