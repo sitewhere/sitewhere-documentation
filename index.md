@@ -9,7 +9,7 @@ includeNavigation: false
 
 ## Getting Started
 
-[System Overview]({{ site.url }}/overview.html) - A high-level overview of what SiteWhere does
+[System Overview]({{ site.url }}/overview.html) - High-level overview of what SiteWhere does
 and the technologies it uses.
 
 [System Architecture]({{ site.url }}/architecture.html) - A more detailed view of how the system is
