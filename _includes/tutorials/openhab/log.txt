@@ -1,0 +1,10 @@
+2015-12-02 07:59:35.619 [INFO ] [.s.internal.SiteWhereActivator] - SiteWhere persistence bundle has been started.
+2015-12-02 07:59:35.630 [INFO ] [.i.SiteWherePersistenceService] - About to connect using SiteWhere Agent...
+2015-12-02 07:59:35.633 [INFO ] [.i.SiteWherePersistenceService] - Sending event to device with hardware id: 123-OPENHAB-234908324
+2015-12-02 07:59:35.637 [INFO ] [.i.SiteWherePersistenceService] - If no device registered, using specification: 5a95f3f2-96f0-47f9-b98d-f5c081d01948
+2015-12-02 07:59:35.641 [INFO ] [.i.SiteWherePersistenceService] - MQTT Host: localhost
+2015-12-02 07:59:35.643 [INFO ] [.i.SiteWherePersistenceService] - MQTT Port: 1883
+2015-12-02 07:59:35.648 [WARN ] [com.sitewhere.agent.Agent     ] - Using default outbound SiteWhere MQTT topic: SiteWhere/input/protobuf
+2015-12-02 07:59:35.652 [WARN ] [com.sitewhere.agent.Agent     ] - Using default inbound SiteWhere MQTT topic: SiteWhere/system/123-OPENHAB-234908324
+2015-12-02 07:59:35.656 [WARN ] [com.sitewhere.agent.Agent     ] - Using default inbound command MQTT topic: SiteWhere/commands/123-OPENHAB-234908324
+2015-12-02 07:59:36.659 [INFO ] [.p.s.i.OpenHabCommandProcessor] - SiteWhere created a new registration for openHAB device.

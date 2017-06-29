@@ -1,2 +1,2 @@
-# SiteWhere Community Edition Documentation
-This repository contains artifacts used to generate documentation for SiteWhere Community Edition.
+# SiteWhere Documentation
+This project contains documentation for the SiteWhere platform.

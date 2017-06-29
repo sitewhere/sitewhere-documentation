@@ -1,0 +1,12 @@
+com.sitewhere.rest.model.server
+com.sitewhere.rest.spring
+com.sitewhere.spi.configuration
+com.sitewhere.spi.server
+com.sitewhere.spi.server.asset
+com.sitewhere.spi.server.debug
+com.sitewhere.spi.server.device
+com.sitewhere.spi.server.groovy
+com.sitewhere.spi.server.hazelcast
+com.sitewhere.spi.server.scheduling
+com.sitewhere.spi.server.tenant
+com.sitewhere.spi.server.user

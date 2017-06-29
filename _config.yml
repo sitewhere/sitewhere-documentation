@@ -1,0 +1,6 @@
+name: "SiteWhere Documentation"
+markdown: kramdown
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "tables", "with_toc_data"]
+gems:
+  - jekyll-sitemap

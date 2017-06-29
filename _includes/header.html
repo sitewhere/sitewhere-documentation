@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{site.name}} | {{page.title}}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ site.url }}/styles/style.css">
+<link rel="stylesheet" type="text/css" href="{{ site.url }}/styles/highlight.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.1/css/lightbox.min.css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet'
+	type='text/css'>
+	
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42457307-1', {'cookieDomain': 'sitewhere.org'});
+  ga('send', 'pageview');
+
+</script>
+
+<script type='text/javascript'>
+	/** Add table of contents */
+	function addContents() {
+		var html = "";
+		$("h1, h2, h3").each(function() {
+			if (this.tagName == 'H1') {
+				html += "<div class='toc-h1'><a href='#" +  this.id + "'>" + this.textContent + "</a></div>";
+			} else if (this.tagName == 'H2') {
+				html += "<div class='toc-h2'><a href='#" +  this.id + "'>" + this.textContent + "</a></div>";
+			}
+		});
+		$("#toc").html(html);
+	}
+
+	$(document).ready(function() {
+		addContents();
+
+		$("body").scrollspy({
+			target : "#sidebar",
+		})
+	});
+</script>
+
+</head>
+
+<body style="padding: 20px;">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 col-lg-3">
+				<div id="sidenav" class="affix">
+					<div class="sidebar-header" style="cursor: pointer;" onclick="document.location='/index.html'">
+						<img src="{{ site.url }}/images/sitewhere.png" class="header-logo">
+					</div>
+					<div class="sidebar-header">{% include {{page.sidebar}} %}</div>
+					{% if page.includeNavigation != false %}
+					<div class="sidebar-header">
+						<div class="navlink">
+							<i class="fa fa-home"></i><a href="/index.html">Table of Contents</a>
+						</div>
+						<div class="navlink">
+							<i class="fa fa-arrow-left"></i><a href="/{{ page.prevLink }}">{{ page.prevTitle }}</a>
+						</div>
+						<div class="navlink">
+							<i class="fa fa-arrow-right"></i><a href="/{{ page.nextLink }}">{{ page.nextTitle }}</a>
+						</div>
+					</div>
+					{% endif %}
+					<div class="sidebar-header sw-copyright">
+						Copyright 2009-2016 <strong>SiteWhere LLC.</strong>
+					</div>
+				</div>
+			</div>
+			<div id="content" class="col-md-8 col-lg-9" style="padding-left: 40px;">
