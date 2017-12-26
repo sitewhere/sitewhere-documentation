@@ -19,6 +19,7 @@ def loadGitBranchInformation() {
     proc.in.eachLine { line -> branch = line }
     proc.err.eachLine { line -> println line }
     proc.waitFor()
+    println 'Detected branch ' + branch
     project.ext.gitBranchName = branch.substring(10)
 }
 
