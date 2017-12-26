@@ -32,13 +32,17 @@ sphinx {
 
 apply plugin: 'java'
 
+// Prepare by pulling sitewhere gh-pages repository.
 task beforeSphinxBuild() {
+	// Load username/password from Gradle properties or ENV variables.
+	def username = (docgenUser != null) ? docgenUser : System.getenv('DOCGEN_USER')
+	def password = (docgenPassword != null) ? docgenPassword : System.getenv('DOCGEN_PASSWORD')
 	
 	// Clone SiteWhere repository.
 	delete "${buildDir}/sitewhere"
 	project.ext.gitRepository = Grgit.clone(dir: "${buildDir}/sitewhere", 
 		uri: 'https://github.com/sitewhere/sitewhere.git', refToCheckout: 'gh-pages',
-		credentials: new Credentials(docgenUser, docgenPassword))
+		credentials: new Credentials(username, password))
 	
 	// Remove existing documentation for generated version.
 	delete "${buildDir}/sitewhere/docs/" + project.ext.gitBranchName
@@ -53,6 +57,8 @@ task buildSphinxConfig(type: Copy) {
 
 task docs(dependsOn: ['beforeSphinxBuild', 'buildSphinxConfig', 'site']) {
 	doLast {
+		delete "${buildDir}/sitewhere/docs/" + project.ext.gitBranchName + "/.doctrees"
+		
 		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: false) 
 		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: true)
 		project.ext.gitRepository.commit(message: 'Automated documentation update.')
