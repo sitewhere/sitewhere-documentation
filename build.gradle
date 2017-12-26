@@ -14,13 +14,12 @@ buildscript {
 
 // Get version information from GIT branch.
 def loadGitBranchInformation() {
-    def branch = "sitewhere-x.x.x"
-    def proc = "git rev-parse --abbrev-ref HEAD".execute()
-    proc.in.eachLine { line -> branch = line }
-    proc.err.eachLine { line -> println line }
-    proc.waitFor()
-    println 'Detected branch ' + branch
-    project.ext.gitBranchName = branch.substring(10)
+	def repo = Grgit.open {
+		dir = project.file('.')
+	}
+	project.ext.gitBranchName = repo.branch.current.name.substring(10)
+	println 'Working from branch ' + repo.branch.current.name
+	repo.close()
 }
 
 apply plugin: 'kr.motd.sphinx'
