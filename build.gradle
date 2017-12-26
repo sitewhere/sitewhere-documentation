@@ -42,8 +42,8 @@ apply plugin: 'java'
 // Prepare by pulling sitewhere gh-pages repository.
 task beforeSphinxBuild() {
 	// Load username/password from Gradle properties or ENV variables.
-	def username = (docgenUser != null) ? docgenUser : System.getenv('DOCGEN_USER')
-	def password = (docgenPassword != null) ? docgenPassword : System.getenv('DOCGEN_PASSWORD')
+	def username = project.hasProperty('docgenUser') ? docgenUser : System.getenv('DOCGEN_USER')
+	def password = project.hasProperty('docgenPassword') ? docgenPassword : System.getenv('DOCGEN_PASSWORD')
 	
 	// Clone SiteWhere repository.
 	delete "${buildDir}/sitewhere"
