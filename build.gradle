@@ -1,11 +1,56 @@
+import org.ajoberstar.grgit.*
+
 buildscript {
   repositories {
-    mavenLocal()
     mavenCentral()
+    jcenter()
   }
   dependencies {
     classpath group: 'kr.motd.gradle', name: 'sphinx-gradle-plugin', version: '1.0.3.Final'
+    classpath group: 'org.ajoberstar', name: 'grgit', version: '2.1.0'
   }
 }
 
+// Get version information from GIT branch.
+def loadGitBranchInformation() {
+    def branch = "sitewhere-x.x.x"
+    def proc = "git rev-parse --abbrev-ref HEAD".execute()
+    proc.in.eachLine { line -> branch = line }
+    proc.err.eachLine { line -> println line }
+    proc.waitFor()
+    project.ext.gitBranchName = branch.substring(10)
+}
+
 apply plugin: 'kr.motd.sphinx'
+sphinx {
+	// Load information for current branch.
+	loadGitBranchInformation()
+	
+	outputDirectory = "${buildDir}/sitewhere/docs/" + project.ext.gitBranchName
+}
+
+apply plugin: 'java'
+
+task beforeSphinxBuild() {
+	
+	// Clone SiteWhere repository.
+	delete "${buildDir}/sitewhere"
+	project.ext.gitRepository = Grgit.clone(dir: "${buildDir}/sitewhere", 
+		uri: 'https://github.com/sitewhere/sitewhere.git', refToCheckout: 'gh-pages',
+		credentials: new Credentials(docgenUser, docgenPassword))
+	
+	// Remove existing documentation for generated version.
+	delete "${buildDir}/sitewhere/docs/" + project.ext.gitBranchName
+}
+
+task docs(dependsOn: ['beforeSphinxBuild', 'site']) {
+	doLast {
+		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: false) 
+		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: true)
+		project.ext.gitRepository.commit(message: 'Automated documentation update.')
+		project.ext.gitRepository.push(refsOrSpecs: ['gh-pages'])
+		
+		// Close repository.
+		project.ext.gitRepository.close()
+	}
+}
