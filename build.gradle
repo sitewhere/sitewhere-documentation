@@ -1,4 +1,5 @@
 import org.ajoberstar.grgit.*
+import org.apache.tools.ant.filters.ReplaceTokens
 
 buildscript {
   repositories {
@@ -43,7 +44,14 @@ task beforeSphinxBuild() {
 	delete "${buildDir}/sitewhere/docs/" + project.ext.gitBranchName
 }
 
-task docs(dependsOn: ['beforeSphinxBuild', 'site']) {
+task buildSphinxConfig(type: Copy) {
+    from 'src/templates/sphinx'
+    into 'src/site/sphinx'
+    include 'conf.py'
+    filter(ReplaceTokens, tokens: [version: project.ext.gitBranchName])
+}
+
+task docs(dependsOn: ['beforeSphinxBuild', 'buildSphinxConfig', 'site']) {
 	doLast {
 		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: false) 
 		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: true)

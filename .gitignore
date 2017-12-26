@@ -2,3 +2,4 @@
 /build/
 **/*py.class
 /.settings/
+/src/site/sphinx/conf.py
