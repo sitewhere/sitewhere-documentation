@@ -23,8 +23,8 @@ def loadGitBranchInformation() {
 	if (repo.branch.current.name.length() > 10) {
 		project.ext.gitBranchName = repo.branch.current.name.substring(10)
 	} else {
-		println 'REAL_BRANCH=' + System.getenv('REAL_BRANCH')
-		project.ext.gitBranchName = System.getenv('REAL_BRANCH')
+		println 'Travis using branch ' + System.getenv('REAL_BRANCH')
+		project.ext.gitBranchName = System.getenv('REAL_BRANCH').substring(10)
 	}
 	repo.close()
 }
