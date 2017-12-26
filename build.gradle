@@ -34,7 +34,7 @@ sphinx {
 	// Load information for current branch.
 	loadGitBranchInformation()
 	
-	outputDirectory = "${buildDir}/sitewhere/docs/" + project.ext.gitBranchName
+	outputDirectory = "${buildDir}/sitewhere.github.io/docs/" + project.ext.gitBranchName
 }
 
 apply plugin: 'java'
@@ -46,13 +46,13 @@ task beforeSphinxBuild() {
 	def password = project.hasProperty('docgenPassword') ? docgenPassword : System.getenv('DOCGEN_PASSWORD')
 	
 	// Clone SiteWhere repository.
-	delete "${buildDir}/sitewhere"
-	project.ext.gitRepository = Grgit.clone(dir: "${buildDir}/sitewhere", 
-		uri: 'https://github.com/sitewhere/sitewhere.git', refToCheckout: 'gh-pages',
+	delete "${buildDir}/sitewhere.github.io"
+	project.ext.gitRepository = Grgit.clone(dir: "${buildDir}/sitewhere.github.io", 
+		uri: 'https://github.com/sitewhere/sitewhere.github.io.git', refToCheckout: 'master',
 		credentials: new Credentials(username, password))
 	
 	// Remove existing documentation for generated version.
-	delete "${buildDir}/sitewhere/docs/" + project.ext.gitBranchName
+	delete "${buildDir}/sitewhere.github.io/docs/" + project.ext.gitBranchName
 }
 
 task buildSphinxConfig(type: Copy) {
@@ -64,12 +64,12 @@ task buildSphinxConfig(type: Copy) {
 
 task docs(dependsOn: ['beforeSphinxBuild', 'buildSphinxConfig', 'site']) {
 	doLast {
-		delete "${buildDir}/sitewhere/docs/" + project.ext.gitBranchName + "/.doctrees"
+		delete "${buildDir}/sitewhere.github.io/docs/" + project.ext.gitBranchName + "/.doctrees"
 		
 		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: false) 
 		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: true)
 		project.ext.gitRepository.commit(message: 'Automated documentation update.')
-		project.ext.gitRepository.push(refsOrSpecs: ['gh-pages'])
+		project.ext.gitRepository.push(refsOrSpecs: ['master'])
 		
 		// Close repository.
 		project.ext.gitRepository.close()
