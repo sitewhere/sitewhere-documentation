@@ -12,13 +12,20 @@ buildscript {
   }
 }
 
+defaultTasks 'docs'
+
 // Get version information from GIT branch.
 def loadGitBranchInformation() {
 	def repo = Grgit.open {
 		dir = project.file('.')
 	}
-	project.ext.gitBranchName = repo.branch.current.name.substring(10)
 	println 'Working from branch ' + repo.branch.current.name
+	if (repo.branch.current.name.length() > 10) {
+		project.ext.gitBranchName = repo.branch.current.name.substring(10)
+	} else {
+		println 'Could not detect version for branch'
+		project.ext.gitBranchName = 'default'
+	}
 	repo.close()
 }
 
