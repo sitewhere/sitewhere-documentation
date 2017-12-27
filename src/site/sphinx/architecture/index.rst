@@ -43,15 +43,11 @@ system and should continue to pay dividends as more features are added.
 
 Scale What You Need. Leave Out What You Don't
 ---------------------------------------------
-The 2.0 architecture allows individual functional areas of the system to be scaled
+The microservice architecture allows individual functional areas of the system to be scaled
 independently or left out completely. In use cases where REST processing tends to
-be a bottleneck, multiple REST services can be run concurrently to handle the load.
-Conversely, services such as presence management may not be needed and can be left
+be a bottleneck, multiple REST microservices can be run concurrently to handle the load.
+Conversely, services such as presence management that may not be required can be left
 out so that processing power can be dedicated to other aspects of the system.
-
-Global vs. Multitenant Microservices
-------------------------------------
-SiteWhere implements two types of microservices.
 
 Instance Management
 ===================
@@ -64,7 +60,7 @@ can be spread across tens or hundreds of machines using technologies such as
 
 Configuration Management with Apache ZooKeeper
 ==============================================
-SiteWhere 2.0 has moved system configuration from the filesystem into
+SiteWhere 2.0 moves system configuration from the filesystem into
 `Apache ZooKeeper <https://zookeeper.apache.org/>`_ to allow for a centralized,
 coordinated approach to configuration management. ZooKeeper contains a
 hierarchical structure which represents the configuration for a SiteWhere instance
@@ -79,20 +75,77 @@ keeping services in sync as system configuration is updated.
 
 Event Processing with Apache Kafka
 ==================================
-SiteWhere microservices are connected using Apache Kafka.
+The event processing pipeline in SiteWhere 2.0 has been completely redesigned and uses
+`Apache Kafka <https://kafka.apache.org/>`_ to provide a resilient, high-performance
+mechanism for progressively processing device event data. Each microservice plugs into
+key points in the event processing pipeline, reading data from well-known inbound topics,
+processing data, then sending data to well-known outbound topics. External entites that
+are interested in data at any point in the pipeline can act as consumers of the SiteWhere
+topics to use the data as it move through the system.
+
+In the SiteWhere 1.x architecture, the pipeline for outbound processing used a blocking
+approach which meant that any single outbound processor could block the outbound pipeline.
+In SiteWhere 2.0, each outbound consumer is a true Kafka consumer with its own offset 
+marker into the event stream. This mechanism allows for outbound processors to process data
+at their own pace without slowing down other processors.
+
+Using Kafka also has other advantages that are leveraged by SiteWhere. Since all data for 
+the distributed log is stored on disk, it is possible to "replay" the event stream based 
+on previously gathered data. This is extremely valuable for aspects such as debugging
+processing logic or load testing the system.
 
 Inter-Microservice Communication with GRPC
 ==========================================
-Microservices communicate directly with each other via high-performance GRPC pipes.
+While device event data generally flows in a pipeline from microservice to microservice on
+Kafka topics, there are some operations that need to occur directly between microservices.
+For instance, device management and event management persistence are each contained in
+separate microservices, so as new events come in to the system, the inbound processing microservice
+has to connect with the event persistence microservice to store the events. SiteWhere 2.0
+uses `GRPC <https://grpc.io/>`_ to establish a long-lived connection between microservices
+that need to communicate with each other. Since GRPC uses persistent HTTP2 connections,
+the overhead for interactions is greatly reduced, allowing for decoupling without a
+significant performance penalty.
 
-Common Data Model and APIs
-==========================
-SiteWhere provides a common object model for IoT entities such as devices and 
-events.
+The entire SiteWhere data model has been captured in 
+`Google Protocol Buffers <https://developers.google.com/protocol-buffers/>`_ format so that
+it can be used within GRPC services. All of the SiteWhere APIs are now exposed directly as
+GRPC services as well, allowing for high-performance, low-latency access to what was previously
+only accessible via REST. The REST APIs are still made available via the Web/REST microservice,
+but they use the GRPC APIs underneath to provide a consistent approach to accessing data.
 
-GRPC Model and Services
------------------------
+Since the number of instances of a given microservice can change over time as the service is
+scaled up or down, SiteWhere automatically handles the process of connecting/disconnecting the 
+GRPC pipes between microservices. Each outbound GRPC client is demulitplexed across the pool 
+of services that can satisfy the requests, allowing the requests to be processed in parallel.
 
-Data Persistence Abstraction
-============================
-Data can be persisted into multiple backends.
+Distributed Multitenancy
+========================
+The SiteWhere 1.x approach to multitenancy was to use a separate "tenant engine" for each tenant.
+The engine supported all tenant-specific tasks such as data persistence, event processing, etc.
+Since SiteWhere 2.0 has moved to a microservices architecture, the multitenant model has been
+distributed as well. SiteWhere supports two types of microservices: global and multitenant.
+
+Global Microservices
+--------------------
+Global microservices do not handle tenant-specific tasks. These services handle aspects such
+as instance-wide user management and tenant management that are not specific to individual
+system tenants. The Web/REST microservice that supports the administrative application and 
+REST services is a global service, since supporting a separate web container for each tenant
+would be cumbersome and would break existing SiteWhere 1.x applications. There is also a 
+global instance management microservice that monitors various aspects of the entire instance
+and reports updates to the individual microservces via Kafka.
+
+Multitenant Microservices
+-------------------------
+Most of the SiteWhere 2.0 services are multitenant microservices which delegate traffic
+to tenant engines that do the actual processing. For instance, the inbound processing microservice
+actually consists of many inbound processing tenant engines, each of which is configured separately 
+and can be started/stopped/reconfigured without affecting other tenant engines.
+
+The new approach to tenant engines changes the dynamics of SiteWhere event processing. It is now
+possible to stop a single tenant engine without the need for stopping tenant engines running in 
+other microservices. For instance, inbound processing for a tenant can be stopped 
+and reconfigured while the rest of the tenant pipeline continues processing. 
+Since new events can be allowed to stack up in Kafka, the tenant engine can be stopped, reconfigured,
+and restarted, then resume where it left off with no data loss.
+
