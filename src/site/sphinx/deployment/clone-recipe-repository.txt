@@ -1,0 +1,1 @@
+git clone https://github.com/sitewhere/sitewhere-recipes.git

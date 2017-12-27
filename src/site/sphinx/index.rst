@@ -22,6 +22,6 @@ The following guides are available to help with installing, configuring, and usi
    :maxdepth: 2
 
    architecture/index
-   installation/index
+   deployment/index
    userguide/index
 
