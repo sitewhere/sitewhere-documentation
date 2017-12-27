@@ -7,7 +7,7 @@ buildscript {
     jcenter()
   }
   dependencies {
-    classpath group: 'kr.motd.gradle', name: 'sphinx-gradle-plugin', version: '1.0.3.Final'
+    classpath group: 'kr.motd.gradle', name: 'sphinx-gradle-plugin', version: '1.0.6'
     classpath group: 'org.ajoberstar', name: 'grgit', version: '2.1.0'
   }
 }
@@ -34,7 +34,7 @@ sphinx {
 	// Load information for current branch.
 	loadGitBranchInformation()
 	
-	outputDirectory = "${buildDir}/sitewhere.github.io/docs/" + project.ext.gitBranchName
+	outputDirectory = "${buildDir}/sitewhere.github.io/docs/en/" + project.ext.gitBranchName
 }
 
 apply plugin: 'java'
@@ -52,7 +52,7 @@ task beforeSphinxBuild() {
 		credentials: new Credentials(username, password))
 	
 	// Remove existing documentation for generated version.
-	delete "${buildDir}/sitewhere.github.io/docs/" + project.ext.gitBranchName
+	delete "${buildDir}/sitewhere.github.io/docs/en/" + project.ext.gitBranchName
 }
 
 task buildSphinxConfig(type: Copy) {
@@ -64,10 +64,10 @@ task buildSphinxConfig(type: Copy) {
 
 task docs(dependsOn: ['beforeSphinxBuild', 'buildSphinxConfig', 'site']) {
 	doLast {
-		delete "${buildDir}/sitewhere.github.io/docs/" + project.ext.gitBranchName + "/.doctrees"
+		delete "${buildDir}/sitewhere.github.io/docs/en/" + project.ext.gitBranchName + "/.doctrees"
 		
-		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: false) 
-		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.gitBranchName], update: true)
+		project.ext.gitRepository.add(patterns: ["docs/en/" + project.ext.gitBranchName], update: false) 
+		project.ext.gitRepository.add(patterns: ["docs/en/" + project.ext.gitBranchName], update: true)
 		project.ext.gitRepository.commit(message: 'Automated documentation update.')
 		project.ext.gitRepository.push(refsOrSpecs: ['master'])
 		
