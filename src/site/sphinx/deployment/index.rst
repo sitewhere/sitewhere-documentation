@@ -23,9 +23,13 @@ processes running concurrently has increased, which in turn requires
 more memory and processing power. The minimum hardware specifications
 for a single machine running a SiteWhere instance is:
 
-* 16GB RAM
-* 2 CPUs
-* 80GB Hard disk/SSD
++----------------+-----------------+
+| Memory         |  16GB RAM       |
++----------------+-----------------+
+| CPU            |  2 CPUs         |
++----------------+-----------------+
+| Hard Disk/SSD  |  80GB           |
++----------------+-----------------+
 
 When distributing microservices across multiple machines using
 `Docker Swarm <https://github.com/docker/swarm>`_ or other orchestration
