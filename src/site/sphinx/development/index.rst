@@ -11,34 +11,38 @@ SiteWhere Development Guide
 ###########################
 
 This guide provides information intended for developers interested
-in building SiteWhere components from source code and understanding 
-how the code is organized.
+in building SiteWhere components from source code. It provides details
+about downloading the source code, installing the required build tools, 
+then building Docker images that can be used to deploy an instance.
 
 Accessing Source Code on GitHub
 ===============================
 The source code for SiteWhere is available on `GitHub <https://github.com/>`_ 
-in a number of separate repositories. The core SiteWhere server code is 
-available at the following location:
+at the following location:
 
 .. button::
    :text: SiteWhere Core Repository
    :link: https://github.com/sitewhere/sitewhere
    
+The repository includes source code as well as issue tracking and other
+aspects of the development ecosystem.
+   
 Branch Structure for Repository
 -------------------------------
-The source code checked in to the *master* branch is always the
+Source code checked in to the *master* branch is always from the
 latest released version of SiteWhere. Each release is tagged and may be 
 accessed by downloading an archive from the 
 `releases <https://github.com/sitewhere/sitewhere/releases>`_ page or
 by cloning the repository and checking out the branch corresponding to 
-the release. The branch for the current release is available below:
+the release. The branch for the upcoming SiteWhere 2.0 release is available 
+at the location below:
 
 .. button::
    :text: SiteWhere 2.0.0 Branch
    :link: https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.0
    
 New functionality is always developed in a separate branch and is
-eventually merged to *master* as part of a release.
+eventually merged to *master* as part of the release cycle.
 
 Pulling Source Code From GitHub
 -------------------------------
