@@ -17,7 +17,7 @@ data model and APIs from the 1.x platform, but to do so in a more modular fashio
 that embraces modern development and deployment workflows.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    architecture
    features

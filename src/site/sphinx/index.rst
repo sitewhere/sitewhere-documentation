@@ -19,7 +19,7 @@ and dynamic scalability using technologies such as Apache Kafka and Docker.
 The following guides are available to help with installing, configuring, and using SiteWhere:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    platform/index
    development/index
