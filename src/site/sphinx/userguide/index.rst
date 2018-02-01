@@ -15,4 +15,4 @@ This guide will help you use SiteWhere.
 .. toctree::
    :maxdepth: 1
 
-   configuration/server
+   startup
