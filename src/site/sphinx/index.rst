@@ -10,10 +10,10 @@
 SiteWhere |version| CE Documentation
 ####################################
 
-SiteWhere Community Edition is an industrial-strength open source IoT Application 
-Enablement Platform that facilitates the ingestion, storage, processing, and integration 
-of device data at massive scale. SiteWhere is based on a modern microservices architecture
-and has been designed from the ground up for reliable, high throughput, low latency processing
+SiteWhere is an industrial-strength open source IoT Application Enablement Platform 
+that facilitates the ingestion, storage, processing, and integration of device data 
+at massive scale. SiteWhere is based on a modern microservices architecture and has 
+been designed from the ground up for reliable, high throughput, low latency processing
 and dynamic scalability using technologies such as Apache Kafka and Docker.
 
 The following guides are available to help with installing, configuring, and using SiteWhere:
@@ -21,8 +21,7 @@ The following guides are available to help with installing, configuring, and usi
 .. toctree::
    :maxdepth: 2
 
-   architecture/index
+   platform/index
    development/index
    deployment/index
    userguide/index
-
