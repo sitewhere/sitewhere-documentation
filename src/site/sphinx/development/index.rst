@@ -101,6 +101,10 @@ below:
 
 .. image:: /_static/images/development/docker-engine-version.png
 
+Configure the Docker daemon is to listen on TCP port 2375. This is the default API
+port, but most installations do not enable the port by default. An example of the
+required update for Ubuntu 16.04 can be found 
+`here <https://www.ivankrizsan.se/2016/05/18/enabling-docker-remote-api-on-ubuntu-16-04/>`_.
 
 Execute Gradle Build Script
 ---------------------------
@@ -109,7 +113,7 @@ script (*build.gradle*) that compiles the Java code, packages it into Docker ima
 the images to a Docker repository. By default, the Gradle script will attempt to
 push the images to a repository running on *localhost*. Information for another
 repository can be added as an override by adding the following lines the
-*gradle.properties* file in your default user directory:
+*gradle.properties* (or *~/.gradle* on Unix) file in your default user directory:
 
 .. literalinclude:: gradle-docker-repo-props.txt
    :language: properties
