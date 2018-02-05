@@ -15,7 +15,10 @@ specific subset of functionality that is clearly defined and delineated from
 the work done by other microservices. This allows parts of the system to be scaled
 independently while allowing some pieces to be left out completely if not used. The 
 microservices approach also decouples the code so that it is easier to understand
-and manage from a development perspective.
+and manage from a development perspective. The diagram below shows the microservices
+and the general flow of data between them:
+
+.. image:: /_static/images/platform/microservices-diagram.png
 
 Infrastructure Components
 =========================
