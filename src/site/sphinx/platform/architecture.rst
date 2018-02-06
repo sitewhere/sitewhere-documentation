@@ -81,11 +81,11 @@ mechanism for progressively processing device event data. Each microservice plug
 key points in the event processing pipeline, reading data from well-known inbound topics,
 processing data, then sending data to well-known outbound topics. External entites that
 are interested in data at any point in the pipeline can act as consumers of the SiteWhere
-topics to use the data as it move through the system.
+topics to use the data as it moves through the system.
 
 In the SiteWhere 1.x architecture, the pipeline for outbound processing used a blocking
 approach which meant that any single outbound processor could block the outbound pipeline.
-In SiteWhere 2.0, each outbound consumer is a true Kafka consumer with its own offset 
+In SiteWhere 2.0, each outbound connector is a true Kafka consumer with its own offset 
 marker into the event stream. This mechanism allows for outbound processors to process data
 at their own pace without slowing down other processors.
 
@@ -101,21 +101,21 @@ Kafka topics, there are some operations that need to occur directly between micr
 For instance, device management and event management persistence are each contained in
 separate microservices, so as new events come in to the system, the inbound processing microservice
 has to connect with the event persistence microservice to store the events. SiteWhere 2.0
-uses `GRPC <https://grpc.io/>`_ to establish a long-lived connection between microservices
-that need to communicate with each other. Since GRPC uses persistent HTTP2 connections,
+uses `gRPC <https://grpc.io/>`_ to establish a long-lived connection between microservices
+that need to communicate with each other. Since gRPC uses persistent HTTP2 connections,
 the overhead for interactions is greatly reduced, allowing for decoupling without a
 significant performance penalty.
 
 The entire SiteWhere data model has been captured in 
 `Google Protocol Buffers <https://developers.google.com/protocol-buffers/>`_ format so that
 it can be used within GRPC services. All of the SiteWhere APIs are now exposed directly as
-GRPC services as well, allowing for high-performance, low-latency access to what was previously
+gRPC services as well, allowing for high-performance, low-latency access to what was previously
 only accessible via REST. The REST APIs are still made available via the Web/REST microservice,
-but they use the GRPC APIs underneath to provide a consistent approach to accessing data.
+but they use the gRPC APIs underneath to provide a consistent approach to accessing data.
 
 Since the number of instances of a given microservice can change over time as the service is
 scaled up or down, SiteWhere automatically handles the process of connecting/disconnecting the 
-GRPC pipes between microservices. Each outbound GRPC client is demulitplexed across the pool 
+gRPC pipes between microservices. Each outbound gRPC client is demulitplexed across the pool 
 of services that can satisfy the requests, allowing the requests to be processed in parallel.
 
 Distributed Multitenancy
@@ -130,7 +130,7 @@ Global Microservices
 Global microservices do not handle tenant-specific tasks. These services handle aspects such
 as instance-wide user management and tenant management that are not specific to individual
 system tenants. The Web/REST microservice that supports the administrative application and 
-REST services is a global service, since supporting a separate web container for each tenant
+REST services is also a global service, since supporting a separate web container for each tenant
 would be cumbersome and would break existing SiteWhere 1.x applications. There is also a 
 global instance management microservice that monitors various aspects of the entire instance
 and reports updates to the individual microservces via Kafka.
@@ -140,7 +140,7 @@ Multitenant Microservices
 Most of the SiteWhere 2.0 services are multitenant microservices which delegate traffic
 to tenant engines that do the actual processing. For instance, the inbound processing microservice
 actually consists of many inbound processing tenant engines, each of which is configured separately 
-and can be started/stopped/reconfigured without affecting other tenant engines.
+and can be started/stopped/reconfigured without affecting the other tenant engines.
 
 The new approach to tenant engines changes the dynamics of SiteWhere event processing. It is now
 possible to stop a single tenant engine without the need for stopping tenant engines running in 
