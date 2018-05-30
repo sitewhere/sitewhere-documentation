@@ -134,6 +134,21 @@ SiteWhere microservices:
 
 .. image:: /_static/images/development/docker-image-list.png
 
+Creating Debug Images
+---------------------
+In addition to the standard microservice images, the Gradle build may be parameterized
+to generate debug images which expose a port for remote Java debugging. In order to 
+generate debug images, execute the following command:
+
+.. literalinclude:: build-debug-images.txt
+   :language: sh
+   
+The debug images use a version identifier prefixed with *debug-* to prevent confusing
+them with non-debug images. Note that there is a separate SiteWhere recipe for running
+the debug Docker images since the debug port for each microservice must be remapped
+to a different port. Using the debug images allows you to connect from a remote debugger
+(such as the one in Eclipse) and set breakpoints in the running microservices.
+
 Next Steps
 ==========
 Now that Docker images have been generated for the microservices, follow the steps in the
