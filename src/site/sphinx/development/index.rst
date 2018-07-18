@@ -38,8 +38,8 @@ the release. The branch for the upcoming SiteWhere 2.0 release is available
 at the location below:
 
 .. button::
-   :text: SiteWhere 2.0.EA5 Branch
-   :link: https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.ea5
+   :text: SiteWhere 2.0.RC1 Branch
+   :link: https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.rc1
    
 New functionality is always developed in a separate branch and is
 eventually merged to *master* as part of the release cycle.
