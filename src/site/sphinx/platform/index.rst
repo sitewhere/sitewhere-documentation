@@ -22,4 +22,5 @@ that embraces modern development and deployment workflows.
    architecture
    features
    microservice-overview
+   twelve-factor
    
