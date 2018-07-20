@@ -58,7 +58,6 @@ Engine can be installed based on the process detailed in the link below:
    
 Install Docker Compose
 ----------------------
-
 In Addition to Docker Engine, some form of orchestration engine should be installed
 to allow for many Docker services to be deployed at once rather than manually 
 deploying them individually. In production deployments, SiteWhere 2.0 will leverage
@@ -107,13 +106,15 @@ Once the repository has been cloned, navigate into the **sitewhere-recipes/docke
 subdirectory. This directory contains sample configurations for many common SiteWhere
 deployment scenarios. 
 
-Start Infrastructure Recipe
----------------------------
-To better emulate a production environment, a separate recipe is
-used for infrastructure services such as Apache ZooKeeper and Apache Kafka. To start
-the infrastructure containers, navigate to the **sitewhere-recipes/docker-compose/infrastructure** 
-subdirectory. Execute the following command which will start the infrastructure based on the
-configuration outlined in the **docker-compose.yml** file.
+Start Infrastructure Services
+-----------------------------
+To better emulate a production environment, separate recipes are provided for 
+infrastructure services such as Apache ZooKeeper, Kafka, MQTT brokers, databases, and 
+other non-SiteWhere components. To start the infrastructure containers, navigate to the 
+**sitewhere-recipes/docker-compose/infrastructure_default** subdirectory (or one of the other
+recipes depending on which components should be loaded). Execute the following command which 
+will start the infrastructure based on the configuration outlined in the 
+**docker-compose.yml** file.
 
 .. literalinclude:: docker-compose-up.txt
    :language: sh
@@ -121,9 +122,9 @@ configuration outlined in the **docker-compose.yml** file.
 Start SiteWhere Microservices
 -----------------------------
 In a separate terminal, navigate to the **sitewhere-recipes/docker-compose/default**
-subdirectory. This recipe contains all of the SiteWhere microservices along with
-dependencies such as MongoDB and Mosquitto. As with the infrastructure recipe, run
-the following command to start SiteWhere:
+subdirectory. This recipe contains all of the SiteWhere microservices and expects
+other infrastructure services to already be running. As with the infrastructure recipe, 
+run the following command to start SiteWhere:
 
 .. literalinclude:: docker-compose-up.txt
    :language: sh

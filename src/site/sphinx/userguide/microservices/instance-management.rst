@@ -11,8 +11,8 @@ Instance Management Microservice
 ################################
 The instance management microservice is used to bootstrap a SiteWhere instance and is
 required to be present when starting an uninitialized SiteWhere instance. The instance
-management microservice does not currently provide any services other than system
-bootstrapping, so it may be left out of instances that have already been configured.
+management microservice also manages updates to global instance settings such as shared 
+database and connector configurations.
 
 Microservice Dependencies
 =========================
@@ -21,60 +21,37 @@ Microservice Dependencies
 - **Tenant Management** - Required in order to bootstrap default system tenants based on
   the chosen instance template.
 
+Configuration Schema
+====================
+`Instance Management Configuration XML Schema <http://sitewhere.io/schema/sitewhere/microservice/instance-management/current/instance-management.xsd>`_
+
+Example Configuration
+---------------------
+.. literalinclude:: instance-management.xml
+   :language: xml
+
 Zookeeper Bootstrapping
 =======================
 The instance management microservice is responsible for connecting to Zookeeper and
 creating the base tree where all other configuration data for the instance is stored.
-
-Zookeeper Connectivity
-----------------------
-All SiteWhere microservices rely on Zookeeper to provide configuration information
-at runtime. The microservices use the following environment variables and default 
-values for connecting to Zookeeper:
-
-+----------------+--------------------------+---------------+
-| Setting        | Environment Variable     | Default Value |
-+================+==========================+===============+
-| Zookeeper Host | sitewhere.zookeeper.host | localhost     |
-+----------------+--------------------------+---------------+
-| Zookeeper Port | sitewhere.zookeeper.port | 2181          |
-+----------------+--------------------------+---------------+
-
-.. note::  The Docker Compose configuration should pass a Zookeeper hostname that can be resolved
-           on the Docker network that the microservices are attached to. Note that the Zookeeper
-           environment variables must be passed for every microservice.
-
-Zookeeper Tree Settings
------------------------
-Once connected to Zookeeper, the instance management microservice is responsible
-for creating the base of the instance Zookeeper tree based on the following 
-variables and default values:
-
-+-------------+-----------------------+---------------+
-| Setting     | Environment Variable  | Default Value |
-+=============+=======================+===============+
-| Product Id  | sitewhere.product.id  | sitewhere     |
-+-------------+-----------------------+---------------+
-| Instance Id | sitewhere.instance.id | sitewhere1    |
-+-------------+-----------------------+---------------+
-
-For the default system values, the Zookeeper tree will be rooted at ``sitewhere/sitewhere1`` 
-and all other instance configuration data will be located relative to that root. If 
-multiple instances of SiteWhere are to be run concurrently using the same Zookeeper cluster, 
-they should provide different values for ``sitewhere.instance.id`` so that the configuration data 
-does not overlap. This can be accomplished by setting the ``sitewhere.instance.id`` 
-environment variable via the Docker Compose configuration. 
-
-.. note::  All of the microservices intended to run in the same instance should use the same 
-           values for ``sitewhere.product.id`` and ``sitewhere.instance.id``.
+For more information about connectivity to Zookeeper and how the base of the configuration 
+tree is populated, see the `Apache Zookeper configuration guide <../zookeeper-configuration.html>`_.
 
 Instance Templates
 ==================
-An *instance template* is used to specify the scripts that will be exceuted to populate the 
+An *instance template* is used to specify the scripts that will be executed to populate the 
 default users and tenants for the instance. A list of instance templates is packaged as part 
 of the Docker image for the instance management microservice. Each template has a JSON descriptor
 that includes a unique id which may be passed if the instance is to be initialized by that 
-template's scripts. 
+template's scripts. Below is an example of the JSON descriptor:
+
+.. literalinclude:: instance-template.json
+   :language: json
+
+Adding a Custom Instance Template
+---------------------------------
+Additional instance templates may be added by mounting them into the filesystem of the
+instance management Docker image under the templates folder.
 
 Changing the Instance Template
 ------------------------------
@@ -103,6 +80,3 @@ Once the initialization scripts have run, the instance is considered to be initi
 a ``bootstrapped`` marker is pushed to Zookeeper to prevent re-running the scripts every
 time the instance starts. Removing the marker will cause the instance template data to be
 loaded over the existing data, which may cause problems with duplicate key exceptions.
-
-After initialization, instance management does not serve any other role in the system
-and may be shut down to conserve resources.

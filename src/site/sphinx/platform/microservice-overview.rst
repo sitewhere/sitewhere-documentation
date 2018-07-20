@@ -108,7 +108,7 @@ All other microservices wait for the Zookeeper data to be initialized before
 starting, so the instance management microservice must be present in an uninitialized
 SiteWhere instance or all other microservices will fail to start.
 
-See the instance management `runtime guide <./microservices/instance-management.html>`_ 
+See the instance management `guide <../userguide/microservices/instance-management.html>`_ 
 for more details.
 
 User Management

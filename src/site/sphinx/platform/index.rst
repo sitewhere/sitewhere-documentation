@@ -22,5 +22,4 @@ that embraces modern development and deployment workflows.
    architecture
    features
    microservice-overview
-   microservices/index
    

@@ -1,4 +1,3 @@
-
 .. image:: /_static/images/sitewhere-with-tagline.png
    :scale: 70%
    :alt: SiteWhere

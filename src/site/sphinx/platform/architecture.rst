@@ -61,15 +61,14 @@ can be spread across tens or hundreds of machines using technologies such as
 Configuration Management with Apache ZooKeeper
 ==============================================
 SiteWhere 2.0 moves system configuration from the filesystem into
-`Apache ZooKeeper <https://zookeeper.apache.org/>`_ to allow for a centralized,
-coordinated approach to configuration management. ZooKeeper contains a
-hierarchical structure which represents the configuration for a SiteWhere instance
-and all of the microservices that are used to realize it.
+`Apache ZooKeeper <https://zookeeper.apache.org/>`_ to allow for a centralized
+approach to configuration management. ZooKeeper contains a hierarchical structure 
+which represents the configuration for one or more SiteWhere instances
+and all of the microservices that are used to realize them.
 
 Each microservice has a direct connection to ZooKeeper and uses the
-hierarchy to determine information such as the instance it belongs to
-and the configuration it should use. Microservices listen for changes to
-the configuration data and react dynamically to updates. No configuration
+hierarchy to determine its configuration at runtime. Microservices listen for changes 
+to the configuration data and react dynamically to updates. No configuration
 is stored locally within the microservice, which prevents problems with
 keeping services in sync as system configuration is updated.
 

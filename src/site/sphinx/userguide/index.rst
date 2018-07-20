@@ -10,9 +10,13 @@
 SiteWhere User Guide
 ####################
 
-This guide will help you use SiteWhere.
+The following pages cover the core SiteWhere system components and how they
+are configured and managed at runtime.
 
 .. toctree::
    :maxdepth: 1
 
-   startup
+   zookeeper-configuration
+   kafka-configuration
+   microservices/index
+ 
