@@ -18,8 +18,6 @@ microservices approach also decouples the code so that it is easier to understan
 and manage from a development perspective. The diagram below shows the microservices
 and the general flow of data between them:
 
-.. image:: /_static/images/platform/microservices-diagram.png
-
 Infrastructure Components
 =========================
 SiteWhere microservices make a few assumptions about the underlying infrastructure
@@ -95,24 +93,23 @@ falling back to a database request.
 
 List of Core Microservices
 ==========================
-Below is a list of the core microservices included in SiteWhere 2.0. As we move toward
-general availability, more information will be released regarding the configuration schemas,
-Kafka interactions, etc. for each microservice.
+Below is a list of the core microservices included in SiteWhere 2.0. Each service handles
+a specific area of system functionality and is independent of other microservices in terms of
+runtime processing, data storage and configuration. Some microservices do, however, have
+dependencies on the APIs offered by other services and can not run in isolation. Below is a 
+high-level overview of the individual services along with links to more detailed
+explanations of each service.
 
 Instance Management
 -------------------
-The instance management microservice is used to bootstrap a SiteWhere instance.
-This includes verifying that the root ZooKeeper node and base configuration hierarchy
-have been created. This baseline configuration is required before anything else can be 
-done with the system. As such, all other microservices look for a *bootstrapped* indicator 
-which is created by this microservice to know when the system has been successfully initialized.
+The instance management microservice is used to bootstrap a SiteWhere instance with
+the initial Zookeeper configuration structure required by the other microservices.
+All other microservices wait for the Zookeeper data to be initialized before 
+starting, so the instance management microservice must be present in an uninitialized
+SiteWhere instance or all other microservices will fail to start.
 
-An *instance template* is used to choose the scripts that will be used to populate the 
-default users and tenants for the instance. Instance management waits for user/tenant management
-microservices to start before running the scripts to push data via the respective APIs. Once
-the initialization scripts have run, the instance is considered to be initialized.
-After initialization, instance management does not serve any other role in the system
-and may be shut down to conserve resources.
+See the instance management `runtime guide <./microservices/instance-management.html>`_ 
+for more details.
 
 User Management
 ---------------

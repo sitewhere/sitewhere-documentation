@@ -6,9 +6,9 @@
    
 ----
    
-###############################
-SiteWhere Platform Introduction
-###############################
+##################
+SiteWhere Platform
+##################
 The SiteWhere 2.x platform introduces an entirely redesigned architecture based 
 on a modern microservices approach. It has been designed from the ground up for reliable, 
 high throughput, low latency processing and dynamic scalability using technologies 
@@ -20,6 +20,7 @@ that embraces modern development and deployment workflows.
    :maxdepth: 2
 
    architecture
-   microservices
    features
+   microservice-overview
+   microservices/index
    
