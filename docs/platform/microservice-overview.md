@@ -9,6 +9,8 @@ microservices approach also decouples the code so that it is easier to understan
 and manage from a development perspective. The diagram below shows the microservices
 and the general flow of data between them:
 
+<InlineImage src="/images/platform/microservices-diagram.png" caption="Microservices"/>
+
 ## Infrastructure Components
 
 SiteWhere microservices make a few assumptions about the underlying infrastructure
