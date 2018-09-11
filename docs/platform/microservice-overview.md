@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # Microservices Overview
 
 The transition from a monilithic architecture to one based on microservices is

@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # Instance Management Microservice
 
 The instance management microservice is used to bootstrap a SiteWhere instance and is
