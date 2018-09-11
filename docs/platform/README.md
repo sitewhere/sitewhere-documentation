@@ -9,7 +9,7 @@ that embraces modern development and deployment workflows.
 
 [[toc]]
 
-architecture
-features
-microservice-overview
-twelve-factor
+[Architecture](./architecture.md)
+[Features](./features.md)
+[Microservice Overview](./microservice-overview.md)
+[Twelve-Factor Application](./twelve-factor.md)

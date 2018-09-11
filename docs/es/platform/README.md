@@ -1,15 +1,15 @@
 # SiteWhere Platform
 
-The SiteWhere 2.x platform introduces an entirely redesigned architecture based
-on a modern microservices approach. It has been designed from the ground up for reliable,
-high throughput, low latency processing and dynamic scalability using technologies
-such as Apache Kafka and Docker. The intent is to continue to support most of the
-data model and APIs from the 1.x platform, but to do so in a more modular fashion
-that embraces modern development and deployment workflows.
+La plataforma SiteWhere 2.x presenta una arquitectura completamente rediseñada basada
+en un enfoque moderno de microservicios. Ha sido diseñado desde cero para ser confiable,
+de alto rendimiento, de baja latencia y escalabilidad dinámica utilizando tecnologías
+como Apache Kafka y Docker. La intención es continuar soportando la mayoría de
+modelo de datos y API de la plataforma 1.x, pero hacínedolo de una manera más modular
+la cual se adherirse a los flujos de trabajo de desarrollo e implementación modernos.
 
 [[toc]]
 
-architecture
-features
-microservice-overview
-twelve-factor
+arquitectura
+características
+descripcion-microservicios
+doce-factores
