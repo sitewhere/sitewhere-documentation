@@ -22,7 +22,7 @@ microservices architecture also allows persistence settings to be controlled
 at a finer level (e.g. different databases for tenant device management and
 asset management) if desired.
 
-![persistence configuration](./persistence-configurations.png "Persistence Configuration")
+<InlineImage src="/images/platform/persistence-configurations.png" caption="Persistence Configuration"/>
 
 ### Variable Replacement in Datastore Configuration
 
@@ -39,7 +39,7 @@ variables to override configuration settings. Using this approach, the microserv
 can be configured externally (in the Docker compose file) to pass variables to
 configure SiteWhere components.
 
-![variable sustitution](./db-variable-substitution.png "Variable Sustitution")
+<InlineImage src="/images/platform/db-variable-substitution.png" caption="Variable Sustitution"/>
 
 ### InfluxDB Improvements
 
@@ -59,7 +59,7 @@ more efficient development workflow. The longer-term plan is to release
 reusable component libraries so that SiteWhere UI/API components can easily
 be used in other Vue projects.
 
-![vue user interface](./vue-user-interface.png "Admin User Interface")
+<InlineImage src="/images/platform/vue-user-interface.png" caption="Vue User Interface"/>
 
 ## Tenant Management Workflow Improvements
 
@@ -70,7 +70,7 @@ added and configured without the need to log out of the application as before.
 The new approach also fixes issues with being unable to reconfigure tenants that
 failed to start.
 
-![tenant management](./tenant-management.png "Tenant Management")
+<InlineImage src="/images/platform/tenant-management.png" caption="Tenant Management"/>
 
 ## Improved Scripting Support
 
@@ -110,7 +110,7 @@ interface, which supports syntax highlighting and many other features
 via the [CodeMirror](https://codemirror.net/) editor. New versions
 may be added and activated via the user interface.
 
-![scripting ui](./scripting-ui.png "Scripting User Interface")
+<InlineImage src="/images/platform/scripting-ui.png" caption="Scripting User Interface"/>
 
 ## Security Improvements
 
