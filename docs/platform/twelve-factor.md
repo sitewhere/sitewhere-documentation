@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # SiteWhere as a Twelve-Factor App
 
 In recent years, there has been a strong push to move from older methodologies

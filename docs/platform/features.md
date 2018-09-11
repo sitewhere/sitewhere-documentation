@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # New Platform 2.0 Features
 
 Beyond the core architectural changes, the SiteWhere 2.0 platform introduces
