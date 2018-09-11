@@ -1,0 +1,30 @@
+{
+  "name": "sitewhere-documentation",
+  "productName": "SiteWhere CE Documentation",
+  "version": "2.0.0-rc2",
+  "description": "Documentation for the community edition of the SiteWhere open source IoT platform",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitewhere/sitewhere-documentation.git"
+  },
+  "keywords": [
+    "sitewhere",
+    "documentation"
+  ],
+  "author": "Derek Adams <derek.adams@sitewhere.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sitewhere/sitewhere-documentation/issues"
+  },
+  "homepage": "https://github.com/sitewhere/sitewhere-documentation#readme",
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "vuepress": "^0.14.2"
+  },
+  "dependencies": {}
+}
