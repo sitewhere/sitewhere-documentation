@@ -46,11 +46,7 @@ With a Git client installed, start by cloning the SiteWhere core repository.
 If using the command line client you can execute the following
 commands to clone the repository and change to the current branch:
 
-```sh
-git clone https://github.com/sitewhere/sitewhere.git
-cd sitewhere
-git checkout --force sitewhere-2.0.rc2
-```
+<<< @/docs/development/clone-repository.sh
 
 The result of the commands should look similar to the output below:
 
@@ -102,21 +98,14 @@ push the images to a repository running on _localhost_. Information for another
 repository can be added as an override by adding the following lines the
 _gradle.properties_ (or _~/.gradle_ on Unix) file in your default user directory:
 
-```properties
-dockerProtocol=tcp
-dockerHostname=192.168.171.100
-dockerPort=2375
-dockerRepository=docker.io
-```
+<<< @/docs/development/gradle-docker-repo-props.properties
 
 SiteWhere includes Gradle [Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
 artifacts, so that there is no need to install Gradle independently. To build all of the core
 libraries, package the microservices into Docker images and push them into your local
 repository, execute the following command.
 
-```sh
-gradlew clean dockerImage
-```
+<<< @/docs/development/build-docker-images.sh
 
 The first time the build executes will take significantly longer since Gradle
 must download all of the dependencies and cache them for later use. When
@@ -132,9 +121,7 @@ In addition to the standard microservice images, the Gradle build may be paramet
 to generate debug images which expose a port for remote Java debugging. In order to
 generate debug images, execute the following command:
 
-```sh
-gradlew clean dockerImage -Pdebug
-```
+<<< @/docs/development/build-debug-images.sh
 
 The debug images use a version identifier prefixed with _debug-_ to prevent confusing
 them with non-debug images. Note that there is a separate SiteWhere recipe for running

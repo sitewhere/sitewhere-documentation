@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # SiteWhere Platform
 
 The SiteWhere 2.x platform introduces an entirely redesigned architecture based
@@ -7,7 +11,7 @@ such as Apache Kafka and Docker. The intent is to continue to support most of th
 data model and APIs from the 1.x platform, but to do so in a more modular fashion
 that embraces modern development and deployment workflows.
 
-[[toc]]
+## Table of Content
 
 - [Architecture](./architecture.md)
 - [Features](./features.md)

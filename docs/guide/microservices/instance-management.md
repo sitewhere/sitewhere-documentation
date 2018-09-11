@@ -22,57 +22,7 @@ database and connector configurations.
 
 ### Example Configuration
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:im="http://sitewhere.io/schema/sitewhere/microservice/instance-management"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-  http://sitewhere.io/schema/sitewhere/microservice/instance-management
-  http://sitewhere.io/schema/sitewhere/microservice/instance-management/current/instance-management.xsd">
-  <!-- Allow property placeholder substitution -->
-  <context:property-placeholder />
-  <!-- Instance global configuration -->
-  <im:instance-management>
-    <!-- Reusable persistence configurations -->
-    <im:persistence-configurations>
-      <!-- MongoDB global configuration management -->
-      <im:mongodb-configurations>
-        <!-- Configuration used for global services -->
-        <im:mongodb-configuration id="global"
-          hostname="${mongodb.host:mongodb}"
-          port="${mongodb.port:27017}"
-          databaseName="${mongodb.database:sitewhere}"
-          replicaSetName="${mongodb.replicaset:}" />
-        <!-- Configuration used for tenant microservices -->
-        <im:mongodb-configuration id="tenant"
-          hostname="${mongodb.host:mongodb}"
-          port="${mongodb.port:27017}"
-          databaseName="${mongodb.tenant.prefix:tenant-[[tenant.id]]}"
-          replicaSetName="${mongodb.replicaset:}" />
-      </im:mongodb-configurations>
-      <!-- InfluxDB global configuration management -->
-      <im:influxdb-configurations>
-        <!-- Default configuration for InfluxDB data access -->
-        <im:influxdb-configuration id="tenant"
-          hostname="${influxdb.host:influxdb}"
-          port="${influxdb.port:8086}"
-          database="${influxdb.database:[[tenant.id]]}" />
-      </im:influxdb-configurations>
-      <!-- Apache Cassandra global configuration management -->
-      <im:cassandra-configurations>
-        <im:cassandra-configuration id="tenant"
-          contactPoints="${cassandra.contact.points:cassandra}"
-          keyspace="${cassandra.keyspace:tenant_[[tenant.id]]}" />
-      </im:cassandra-configurations>
-    </im:persistence-configurations>
-    <!-- Global connector configurations -->
-    <im:connector-configurations>
-    </im:connector-configurations>
-  </im:instance-management>
-</beans>
-```
+<<< @/docs/guide/microservices/instance-management.xml
 
 # Zookeeper Bootstrapping
 
@@ -89,16 +39,7 @@ of the Docker image for the instance management microservice. Each template has 
 that includes a unique id which may be passed if the instance is to be initialized by that
 template's scripts. Below is an example of the JSON descriptor:
 
-```json
-{
-  "id": "default",
-  "name": "Default",
-  "initializers": {
-    "userManagement": ["scripts/groovy/initializer/userModel.groovy"],
-    "tenantManagement": ["scripts/groovy/initializer/tenantModel.groovy"]
-  }
-}
-```
+<<< @/docs/guide/microservices/instance-template.json
 
 ## Adding a Custom Instance Template
 
