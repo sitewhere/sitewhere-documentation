@@ -16,9 +16,7 @@ values for connecting to Zookeeper:
 | Zookeeper Host | sitewhere.zookeeper.host | localhost     |
 | Zookeeper Port | sitewhere.zookeeper.port | 2181          |
 
-.. note::  The Docker Compose configuration should pass a Zookeeper hostname that can be resolved
-           on the Docker network that the microservices are attached to. Note that the Zookeeper
-           environment variables must be passed for every microservice.
+> **Note**: The Docker Compose configuration should pass a Zookeeper hostname that can be resolved on the Docker network that the microservices are attached to. Note that the Zookeeper environment variables must be passed for every microservice.
 
 Zookeeper Tree Structure
 ========================
@@ -38,8 +36,8 @@ they should provide different values for ``sitewhere.instance.id`` so that the c
 does not overlap. This can be accomplished by setting the ``sitewhere.instance.id`` 
 environment variable via the Docker Compose configuration. 
 
-.. note::  All of the microservices intended to run in the same instance should use the same 
-           values for ``sitewhere.product.id`` and ``sitewhere.instance.id``.
+> **Note**: All of the microservices intended to run in the same instance should use the same 
+values for ``sitewhere.product.id`` and ``sitewhere.instance.id``.
 
 Zookeeper Data Persistence
 ==========================
