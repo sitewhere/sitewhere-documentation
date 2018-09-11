@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # Apache Zookeeper Configuration
 
 [Apache ZooKeeper](https://zookeeper.apache.org/) is used for centralized configuration

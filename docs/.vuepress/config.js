@@ -21,6 +21,22 @@ module.exports = {
   },
   themeConfig: {
     logo: "/images/logo.png",
+    sidebar: {
+      "/platform/": [
+        "",
+        "architecture",
+        "features",
+        "microservice-overview",
+        "twelve-factor"
+      ],
+
+      "/guide/": [
+        "",
+        "zookeeper-configuration",
+        "kafka-configuration",
+        "microservices/instance-management"
+      ]
+    },
     locales: {
       "/": {
         label: "English",

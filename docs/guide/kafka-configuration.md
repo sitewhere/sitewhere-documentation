@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # Apache Kafka Configuration
 
 [Apache Kafka](https://kafka.apache.org/) is used by SiteWhere to provide a
