@@ -114,9 +114,11 @@ will be used for initialization:
 | -------------------- | ------------------------------ | ------------- |
 | Instance Template Id | sitewhere.instance.template.id | default       |
 
-> **Note**: The ``default`` template that is packaged in the Docker image loads the default ``admin`` and
+::: tip
+The ``default`` template that is packaged in the Docker image loads the default ``admin`` and
 ``noadmin`` users normally expected in a new system along with a default tenant based on
 the ``mongo`` tenant template and ``construction`` dataset.
+:::
 
 Instance Data Boostrapping
 --------------------------
