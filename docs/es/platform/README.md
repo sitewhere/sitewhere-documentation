@@ -1,4 +1,4 @@
-# SiteWhere Platform
+# Plataforma SiteWhere
 
 La plataforma SiteWhere 2.x presenta una arquitectura completamente rediseñada basada
 en un enfoque moderno de microservicios. Ha sido diseñado desde cero para ser confiable,
@@ -9,7 +9,7 @@ la cual se adherirse a los flujos de trabajo de desarrollo e implementación mod
 
 [[toc]]
 
-arquitectura
-características
-descripcion-microservicios
-doce-factores
+- [Arquitectura](./arquitectura.md)
+- [Características](./caracteristicas.md)
+- [Descripción de Microservicios](./descripcion-microservicios.md)
+- [Aplicación de Doce Factores](./doce-factores.md)

@@ -50,7 +50,7 @@ git checkout --force sitewhere-2.0.rc2
 
 The result of the commands should look similar to the output below:
 
-![git command line clone](./git-command-line-clone.png "Git Command Line Clone")
+<InlineImage src="/images/development/git-command-line-clone.png" caption="Git Command Line Clone"/>
 
 ### Building from Source
 
@@ -68,7 +68,7 @@ be 1.8 or above.
 
 Once installed, the version can be verified as shown below:
 
-![java version check](./java-version-check.png "Java Version Check")
+<InlineImage src="/images/development/java-version-check.png" caption="Java Version Check"/>
 
 ### Install Docker Engine
 
@@ -82,7 +82,7 @@ a local copy of Docker Engine as explained below:
 Verify that Docker Engine has been installed successfully by running the command
 below:
 
-![docker engine version](./docker-engine-version.png "Docker Engine Version")
+<InlineImage src="/images/development/docker-engine-version.png" caption="Docker Engine Version"/>
 
 Configure the Docker daemon is to listen on TCP port 2375. This is the default API
 port, but most installations do not enable the port by default. An example of the
@@ -120,7 +120,7 @@ the build script completes, execute the following command to view the
 list of Docker images which should now include images for all of the 
 SiteWhere microservices:
 
-![docker image list](./docker-image-list.png "Docker Image List")
+<InlineImage src="/images/development/docker-image-list.png" caption="Docker Image List"/>
 
 ### Creating Debug Images
 
