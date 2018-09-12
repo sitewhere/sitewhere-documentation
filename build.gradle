@@ -11,7 +11,6 @@ buildscript {
     }
   }
   dependencies {
-    classpath group: 'kr.motd.gradle', name: 'sphinx-gradle-plugin', version: '1.0.6'
     classpath group: 'org.ajoberstar', name: 'grgit', version: '2.2.1'
     classpath group: 'com.moowork.gradle', name:'gradle-node-plugin', version: '1.2.0'
   }
