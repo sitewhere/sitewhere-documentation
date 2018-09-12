@@ -1,6 +1,6 @@
 <template>
-  <a :href="src">
-    <img :src="src" alt="" :title="caption" />
+  <a :href="$withBase(src)">
+    <img :src="$withBase(src)" alt="" :title="caption" />
   </a>
 </template>
 
