@@ -35,7 +35,9 @@ module.exports = {
         "zookeeper-configuration",
         "kafka-configuration",
         "microservices/instance-management"
-      ]
+      ],
+      "/deployment/": [""],
+      "/development/": [""]
     },
     locales: {
       "/": {
