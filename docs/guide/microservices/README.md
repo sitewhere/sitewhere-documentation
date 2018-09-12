@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # Microservice Guides
 
 The following pages provide detailed explanations of how each microservice works including

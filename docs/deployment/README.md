@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # SiteWhere Deployment Guide
 
 This guide covers the SiteWhere 2.0 deployment process which has changed
