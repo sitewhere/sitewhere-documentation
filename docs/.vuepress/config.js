@@ -5,6 +5,7 @@ module.exports = {
   description:
     "SiteWhere CE " + pkginfo.version.toUpperCase() + " Documentation",
   dest: "dist",
+  base: "/docs/" + pkginfo.version + "/",
   locales: {
     "/": {
       lang: "en-US",
