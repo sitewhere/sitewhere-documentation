@@ -42,7 +42,11 @@ Con un cliente de Git instalado, comience por clonar el repositorio central de S
 Si usa el cliente de línea de comando, puede ejecutar los siguientes
 comandos para clonar el repositorio y cambiar a la rama actual:
 
-<<< @/docs/development/clone-repository.sh
+```sh
+git clone https://github.com/sitewhere/sitewhere.git
+cd sitewhere
+git checkout --force sitewhere-2.0.rc2
+```
 
 El resultado de los comandos debería ser similar al siguiente resultado:
 
@@ -94,13 +98,20 @@ empujar las imágenes al repositorio que se ejecuta en _localhost_. Se puede agr
 para otro repositorio sobrescribiendo las siguientes líneas del archivo _gradle.properties_
 (o _~/.gradle_ en Unix) en su directorio de usuario predeterminado:
 
-<<< @/docs/development/gradle-docker-repo-props.properties
+```properties
+dockerProtocol=tcp
+dockerHostname=192.168.171.100
+dockerPort=2375
+dockerRepository=docker.io
+```
 
 SiteWhere incluye los artefactos de Gradle [Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html),
 por lo que no es necesario instalar Gradle de forma independiente. Para construir toda las bibliotecas núcleo,
 empaquetar los microservicios en imágenes Docker e introducirlos en su repositorio, ejecute el siguiente comando:
 
-<<< @/docs/development/build-docker-images.sh
+```sh
+gradlew clean dockerImage
+```
 
 La primera vez que se ejecuta la compilación tomará mucho más tiempo ya que Gradle
 debe descargar todas las dependencias y almacenarlas en caché para usarlas posteriormente. Cuando
@@ -116,7 +127,9 @@ Además de las imágenes standar de microservicio, la construcción de Gradle se
 para generar imágenes de depuración que exponen un puerto para la depuración remota de Java. Para poder
 generar imágenes de depuración, ejecute el siguiente comando:
 
-<<< @/docs/development/build-debug-images.sh
+```sh
+gradlew clean dockerImage -Pdebug
+```
 
 Las imágenes de depuración usan un identificador de versión con el prefijo _debug-_ para evitar confusiones
 con las imágenes sin depuración. Tenga en cuenta que hay una receta SiteWhere separada para ejecutar

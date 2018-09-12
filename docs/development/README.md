@@ -42,7 +42,11 @@ With a Git client installed, start by cloning the SiteWhere core repository.
 If using the command line client you can execute the following
 commands to clone the repository and change to the current branch:
 
-<<< @/docs/development/clone-repository.sh
+```sh
+git clone https://github.com/sitewhere/sitewhere.git
+cd sitewhere
+git checkout --force sitewhere-2.0.rc2
+```
 
 The result of the commands should look similar to the output below:
 
