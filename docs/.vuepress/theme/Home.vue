@@ -68,6 +68,10 @@ export default {
 };
 </script>
 
+<style lang="css">
+@import "~roboto-fontface/css/roboto/roboto-fontface.css";
+</style>
+
 <style lang="stylus">
 @import './styles/config.styl';
 
