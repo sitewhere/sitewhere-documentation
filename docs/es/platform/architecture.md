@@ -1,4 +1,4 @@
-# SiteWhere Architecture
+# Arquitectura de SiteWhere
 
 SiteWhere ha sido diseñado desde cero para aprovechar las últimas novedades
 tecnologías para escalar de manera eficiente a las cargas esperadas en IoT grande
