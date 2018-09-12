@@ -20,14 +20,14 @@ database and connector configurations.
 
 <<< @/docs/guide/microservices/instance-management.xml
 
-# Zookeeper Bootstrapping
+## Zookeeper Bootstrapping
 
 The instance management microservice is responsible for connecting to Zookeeper and
 creating the base tree where all other configuration data for the instance is stored.
 For more information about connectivity to Zookeeper and how the base of the configuration
 tree is populated, see the [Apache Zookeper configuration guide](../zookeeper-configuration.md).
 
-# Instance Templates
+## Instance Templates
 
 An _instance template_ is used to specify the scripts that will be executed to populate the
 default users and tenants for the instance. A list of instance templates is packaged as part
@@ -37,12 +37,12 @@ template's scripts. Below is an example of the JSON descriptor:
 
 <<< @/docs/guide/microservices/instance-template.json
 
-## Adding a Custom Instance Template
+### Adding a Custom Instance Template
 
 Additional instance templates may be added by mounting them into the filesystem of the
 instance management Docker image under the templates folder.
 
-## Changing the Instance Template
+### Changing the Instance Template
 
 The following environment variable is used to indicate which template
 will be used for initialization:
@@ -57,7 +57,7 @@ The `default` template that is packaged in the Docker image loads the default `a
 the `mongo` tenant template and `construction` dataset.
 :::
 
-## Instance Data Boostrapping
+### Instance Data Boostrapping
 
 If no `bootstrapped` marker is found in the `state` subfolder of Zookeeper for
 the instance, the instance management microservice will attempt to use the instance
