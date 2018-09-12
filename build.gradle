@@ -74,8 +74,6 @@ task buildVuePressConfig(type: Copy) {
 
 task docs(dependsOn: ['beforeVuePressBuild', 'buildVuePress', 'buildVuePressConfig']) {
 	doLast {
-		delete "${buildDir}/sitewhere.github.io/docs/" + project.ext.version + "/.doctrees"
-		
 		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.version], update: false) 
 		project.ext.gitRepository.add(patterns: ["docs/" + project.ext.version], update: true)
 		project.ext.gitRepository.commit(message: 'Automated documentation update.')
