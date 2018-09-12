@@ -9,7 +9,7 @@ la cual se adherirse a los flujos de trabajo de desarrollo e implementación mod
 
 [[toc]]
 
-- [Arquitectura](./arquitectura.md)
-- [Características](./caracteristicas.md)
-- [Descripción de Microservicios](./descripcion-microservicios.md)
-- [Aplicación de Doce Factores](./doce-factores.md)
+- [Arquitectura](./architecture.md)
+- [Características](./features.md)
+- [Descripción de Microservicios](./microservice-overview.md)
+- [Aplicación de Doce Factores](./twelve-factor.md)

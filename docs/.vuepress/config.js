@@ -64,7 +64,24 @@ module.exports = {
           { text: "Despliegue", link: "/es/deployment/" },
           { text: "Desarrollo", link: "/es/development/" },
           { text: "GitHub", link: "https://github.com/sitewhere/sitewhere" }
-        ]
+        ],
+        sidebar: {
+          "/es/platform/": [
+            "",
+            "architecture",
+            "features",
+            "microservice-overview",
+            "twelve-factor"
+          ],
+          "/es/guide/": [
+            "",
+            "zookeeper-configuration",
+            "kafka-configuration",
+            "microservices/instance-management"
+          ],
+          "/es/deployment/": [""],
+          "/es/development/": [""]
+        }
       }
     }
   },
