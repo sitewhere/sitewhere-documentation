@@ -1,5 +1,5 @@
 <template>
-  <a :href="$withBase(src)">
+  <a class="inline-image" :href="$withBase(src)">
     <img :src="$withBase(src)" alt="" :title="caption" />
   </a>
 </template>
@@ -33,9 +33,12 @@ export default {
 </script>
 
 <style>
-.inline-image a img {
+.inline-image img {
   width: 100%;
   height: auto;
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.32);
+  -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.32);
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.32);
   -webkit-transition: -webkit-transform 0.15s ease;
   -moz-transition: -moz-transform 0.15s ease;
   -o-transition: -o-transform 0.15s ease;
@@ -49,5 +52,10 @@ export default {
 .sl-overlay {
   opacity: 0.9;
   background: #fff;
+}
+.sl-image {
+  -webkit-box-shadow: 0px 5px 65px -6px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 5px 65px -6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 5px 65px -6px rgba(0, 0, 0, 0.4);
 }
 </style>
