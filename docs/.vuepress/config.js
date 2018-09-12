@@ -21,7 +21,7 @@ module.exports = {
     }
   },
   themeConfig: {
-    logo: "/images/logo.png",
+    logo: "/images/logo.svg",
     sidebar: {
       "/platform/": [
         "",
