@@ -1,63 +1,98 @@
 # SiteWhere como una Aplicación Twelve-Factor
 
-In recent years, there has been a strong push to move from older methodologies
-of delivering monolithic software to an approach that supports agile, portable,
-cloud-capable applications that are easy to scale.
+En los últimos años, ha habido un fuerte impulso para pasar de las metodologías
+más antiguas de entrega de software monolítico a un enfoque que admite aplicaciones ágiles,
+portátiles y con capacidad para la nube que son fáciles de escalar.
 
-The [Heroku](https://www.heroku.com/)
-team came up with a list of twelve factors that they considered important in moving
-toward these goals. They released a [website](https://12factor.net/) that
-describes the twelve factors in detail and gives examples of how to build, manage,
-and deploy applications that conform to the approach. The sections below discuss
-how SiteWhere's architecture and deployment process align with those of a
-twelve-factor application.
+El equipo [Heroku](https://www.heroku.com/) creó una lista de doce factores que consideraron
+importantes en el movimiento hacia estos objetivos. Lanzaron un [sitio web](https://12factor.net/) que
+describe los doce factores en detalle y da ejemplos de cómo construir, administrar,
+y despliegue aplicaciones que se ajusten al enfoque. Las siguientes secciones discuten
+cómo la arquitectura de SiteWhere y el proceso de implementación se alinean con los de un
+aplicación de doce factores.
 
-## I. Codebase
+## I. Base de código
 
-**"One codebase tracked in revision control, many deploys"**
+**"Una base de código rastreada en control de revisión, muchas implementaciones"**
 
-SiteWhere uses a [GitHub repository](https://github.com/sitewhere/sitewhere) for versioning
-its source code. Each microservice is separated into its own Gradle submodule with common code
-pushed into libraries that are included as artifacts in the Gradle build process.
-The same codebase is used across all types of deployments.
+SiteWhere utiliza un [repositorio de GitHub](https://github.com/sitewhere/sitewhere) para
+versionar su código fuente. Cada microservicio está separado en su propio submódulo de
+Gradle con código común insertado en bibliotecas que se incluyen como artefactos en el
+proceso de compilación de Gradle. La misma base de código se usa en todos los tipos de
+implementaciones.
 
-## II. Dependencies
+## II. Dependencias
 
-**"Explicitly declare and isolate dependencies"**
+**"Declarar y aislar dependencias explícitamente"**
 
-SiteWhere uses [Gradle](https://gradle.org/) for build management and packages each microservice
-into its own submodule. The modules each contain a Gradle build script which clearly defines the
-dependencies. There are no assumptions about tools being installed on the system
-and no external libraries are directly packaged into the SiteWhere code base. In addition,
-SiteWhere uses the [Spring Platform's](http://platform.spring.io/platform/)
-Gradle plugin and BOM to assure that library versions used work together without issues.
+SiteWhere utiliza [Gradle](https://gradle.org/) para la administración de compilación y empaquetado
+de cada microservicio en su propio submódulo. Los módulos contienen cada uno un script de construcción
+de Gradle que define claramente las dependencias. No hay suposiciones sobre las herramientas que se
+instalan en el sistema y ninguna biblioteca externa se empaqueta directamente en la base de código
+de SiteWhere. Además, SiteWhere utiliza el plugin [Spring Platform](http://platform.spring.io/platform/)
+Gradle y la lista de materiales (BOM) para garantizar que las versiones de la biblioteca utilizadas
+funcionen juntas sin problemas.
 
-## III. Config
+## III. Configuración
 
-**"Store config in the environment"**
+**"Almacene la configuración en el entorno"**
 
-SiteWhere manages system configuration by using a combination of environment variables and
-externalized Apache Zookeeper storage. When microservices are started, many aspects of their
-behavior may be controlled via environment variables injected by the Docker Compose
-scripts used for orchestration.
+SiteWhere administra la configuración del sistema mediante el uso de una combinación de
+variables de entorno y el almacenamiento externalizado de Apache Zookeeper. Cuando se
+inician los microservicios, muchos aspectos de su comportamiento se pueden controlar
+a través de variables de entorno inyectadas por los scripts Docker Compose utilizados
+para la orquestación.
 
 ## IV. Backing Services
 
-**"Treat backing services as attached resources"**
+**"Trate los backing servicios como recursos adjuntos"**
 
-All backing services such as databases, brokers, and cloud provider connections act as
-attached resources that may be connected/disconnected by making changes an externalized
-configuration. SiteWhere supports isolation of most configuration elements at the tenant
-level while also allowing for some global configuration elements (still external to the
-codebase) to be used to simplify large multitenant installations. Each system component
-supports a full lifecycle that allows it to be intialized/started/stopped independently
-of other aspects of the system so that changing configuration/attached resources for
-one tenant does not affect the lifecycle of other running tenants.
+Todos los servicios de respaldo, como las bases de datos, los brokers y las conexiones
+de proveedores en la nube, actúan como recursos adjuntos que pueden conectarse/desconectarse
+haciendo que los cambios sean una configuración externalizada. SiteWhere admite el aislamiento
+de la mayoría de los elementos de configuración en el nivel de tenant, al mismo tiempo que
+permite que algunos elementos de configuración global (aún externos a la base de código)
+se usen para simplificar las instalaciones grandes de múltiples usuarios. Cada componente
+del sistema admite un ciclo de vida completo que le permite inicializarse/iniciarse/detenerse
+independientemente de otros aspectos del sistema, de modo que el cambio de
+configuración/recursos asociados para un inquilino no afecte el ciclo de vida de otros tenant activos.
 
-## V. Build, release, run
+## V. Construir, lanzar, correr
 
-**"Strictly separate build and run stages"**
+**"Estricta separación de las fases de contrucción y ejecución"**
 
 ::: warning ADVERTENCIA
-This document is still a work in progress
+Este documento todavía es un trabajo en progreso
 :::
+
+## VI. Procesos
+
+**"Execute the app as one or more stateless processes"**
+
+::: warning ADVERTENCIA
+Este documento todavía es un trabajo en progreso
+:::
+
+## VII. Enlace de puerto
+
+**"Exporta servicios via Enlace de Puerto"**
+
+## VIII. Concurrencia
+
+**"Escala via el modelo de procesos"**
+
+## IX. Desechable
+
+**"Maximice la robustez con un inicio rápido y un apagado correcto"**
+
+## X. Paridad Dev/prod
+
+**"Mantenga el desarrollo, staging y producción lo más similar posible"**
+
+## XI. Logs
+
+**"Tratar registros como secuencias de eventos"**
+
+## XII. Procesos Administrativos
+
+**"Ejecute tareas de administración/administración como procesos únicos"**
