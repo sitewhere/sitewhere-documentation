@@ -77,22 +77,46 @@ Este documento todavía es un trabajo en progreso
 
 **"Exporta servicios via Enlace de Puerto"**
 
+::: warning ADVERTENCIA
+Este documento todavía es un trabajo en progreso
+:::
+
 ## VIII. Concurrencia
 
 **"Escala via el modelo de procesos"**
+
+::: warning ADVERTENCIA
+Este documento todavía es un trabajo en progreso
+:::
 
 ## IX. Desechable
 
 **"Maximice la robustez con un inicio rápido y un apagado correcto"**
 
+::: warning ADVERTENCIA
+Este documento todavía es un trabajo en progreso
+:::
+
 ## X. Paridad Dev/prod
 
 **"Mantenga el desarrollo, staging y producción lo más similar posible"**
+
+::: warning ADVERTENCIA
+Este documento todavía es un trabajo en progreso
+:::
 
 ## XI. Logs
 
 **"Tratar registros como secuencias de eventos"**
 
+::: warning ADVERTENCIA
+Este documento todavía es un trabajo en progreso
+:::
+
 ## XII. Procesos Administrativos
 
 **"Ejecute tareas de administración/administración como procesos únicos"**
+
+::: warning ADVERTENCIA
+Este documento todavía es un trabajo en progreso
+:::
