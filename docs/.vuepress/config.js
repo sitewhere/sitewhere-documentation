@@ -84,7 +84,12 @@ module.exports = {
           "/es/development/": [""]
         }
       }
-    }
+    },
+    repo: "sitewhere/sitewhere-documentation",
+    docsDir: "docs",
+    docsBranch: "master",
+    editLinks: true,
+    editLinkText: "Help us improve this page!"
   },
   chainWebpack(config) {
     config.resolve.alias.set("vue", "vue/dist/vue.common.js");
