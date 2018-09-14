@@ -5,4 +5,4 @@
 /node_modules/
 **/*py.class
 /.settings/
-/src/site/sphinx/conf.py
+/bin/
