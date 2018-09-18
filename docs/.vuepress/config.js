@@ -4,11 +4,10 @@ module.exports = {
   title: "SiteWhere",
   description:
     "SiteWhere CE " + pkginfo.version.toUpperCase() + " Documentation",
-  head: [
-    ['link', { rel: 'icon', href: '/images/favicon.png' }]
-  ],
+  head: [["link", { rel: "icon", href: "/images/favicon.png" }]],
   dest: "dist",
   base: "/docs/" + pkginfo.version + "/",
+  ga: "UA-122806506-1",
   locales: {
     "/": {
       lang: "en-US",
