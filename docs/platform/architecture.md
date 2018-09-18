@@ -118,8 +118,8 @@ distributed as well. SiteWhere supports two types of microservices: global and m
 
 Global microservices do not handle tenant-specific tasks. These services handle aspects such
 as instance-wide user management and tenant management that are not specific to individual
-system tenants. The Web/REST microservice that supports the administrative application and
-REST services is also a global service, since supporting a separate web container for each tenant
+system tenants. The Web/REST microservice that supports the REST services and Swagger user
+interface is also a global service, since supporting a separate web container for each tenant
 would be cumbersome and would break existing SiteWhere 1.x applications. There is also a
 global instance management microservice that monitors various aspects of the entire instance
 and reports updates to the individual microservces via Kafka.
@@ -134,6 +134,6 @@ and can be started/stopped/reconfigured without affecting the other tenant engin
 The new approach to tenant engines changes the dynamics of SiteWhere event processing. It is now
 possible to stop a single tenant engine without the need for stopping tenant engines running in
 other microservices. For instance, inbound processing for a tenant can be stopped
-and reconfigured while the rest of the tenant pipeline continues processing.
-Since new events can be allowed to stack up in Kafka, the tenant engine can be stopped, reconfigured,
+and reconfigured while the rest of the tenant pipeline continues processing. Since new
+events can be allowed to stack up in Kafka, the tenant engine can be stopped, reconfigured,
 and restarted, then resume where it left off with no data loss.
