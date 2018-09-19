@@ -10,7 +10,7 @@
       "url": "https://github.com/sitewhere/sitewhere/blob/master/LICENSE.txt"
     }
   },
-  "host": "192.168.171.129:8080",
+  "host": "localhost:8080",
   "basePath": "/sitewhere/api",
   "tags": [
     {
