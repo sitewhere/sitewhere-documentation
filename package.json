@@ -25,6 +25,7 @@
   "devDependencies": {
     "eslint": "^5.5.0",
     "simplelightbox": "^1.13.0",
+    "spectacle-docs": "^1.0.5",
     "vuepress": "^0.14.2"
   },
   "dependencies": {

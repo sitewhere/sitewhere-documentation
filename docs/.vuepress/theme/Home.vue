@@ -19,10 +19,8 @@
         class="action"
         v-if="data.actionText && data.actionLink"
       >
-        <NavLink
-          class="action-button"
-          :item="actionLink"
-        />
+        <NavLink class="api-button" :item="{'text': 'REST API', 'link': '/api/index'}" />
+        <NavLink class="action-button" :item="actionLink" />
       </p>
     </div>
 
@@ -109,6 +107,21 @@ export default {
       line-height: 1.3;
       color: $textColor;
       padding-top: 30px;
+    }
+
+    .api-button {
+      display: inline-block;
+      font-size: 1.2rem;
+      color: $accentColor;
+      border: 3px solid $accentColor;
+      padding: 0.65rem 1.6rem;
+      border-radius: 4px;
+      transition: background-color 0.1s ease;
+      box-sizing: border-box;
+
+      &:hover {
+        border: 3px solid lighten($accentColor, 10%);
+      }
     }
 
     .action-button {
