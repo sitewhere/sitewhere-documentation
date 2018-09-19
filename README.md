@@ -18,4 +18,12 @@ npm install
 npm run docs:dev
 ```
 
+Build OpenAPI Static Documentation
+
+```sh
+cd docs/.vuepress/public/api2/
+redoc-cli bundle sitewhere-api.json --options.theme.colors.primary.main=#dc0000 -t sitewhere-docs.hbs
+mv redoc-static.html index.html
+```
+
 Access the documentation at this [url](http://localhost:8080/).

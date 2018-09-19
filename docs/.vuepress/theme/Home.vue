@@ -19,7 +19,7 @@
         class="action"
         v-if="data.actionText && data.actionLink"
       >
-        <a class="api-button" href="api/">REST API</a>
+        <a class="api-button" href="api2/">REST API</a>
         <NavLink class="action-button" :item="actionLink" />
       </p>
     </div>
