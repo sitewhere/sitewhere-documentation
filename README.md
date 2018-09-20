@@ -22,6 +22,7 @@ Build OpenAPI Static Documentation
 
 ```sh
 cd docs/.vuepress/public/api2/
+wget -O sitewhere-api.json http://localhost:8080/sitewhere/api/v2/api-docs
 redoc-cli bundle sitewhere-api.json --options.theme.colors.primary.main=#dc0000 -t sitewhere-docs.hbs
 mv redoc-static.html index.html
 ```
