@@ -1,7 +1,7 @@
 {
   "name": "sitewhere-documentation",
   "productName": "SiteWhere CE Documentation",
-  "version": "2.0.0-rc2",
+  "version": "2.0.0",
   "description": "Documentation for the community edition of the SiteWhere open source IoT platform",
   "main": "index.js",
   "scripts": {

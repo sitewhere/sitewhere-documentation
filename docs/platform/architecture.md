@@ -3,9 +3,11 @@
 SiteWhere has been designed from the ground up to take advantage of the latest
 technologies in order to scale efficiently to the loads expected in large IoT
 projects. Rather than using a monolithic architecture, SiteWhere embraces
-a completely distributed approach using microservices to allow scaling at the
-component level so that the system may be tailored to the customer
-use case. The system is built with a framework approach using clearly defined
+a completely distributed architecture using [Kubernetes](https://kubernetes.io/) 
+as the infrastructure and a variety of microservices to build out the system.
+This approach allows customization and scaling at a fine-grained level 
+so that the system may be tailored to the customer use case. The 
+system is built with a framework approach using clearly defined
 APIs so that new technologies can easily be integrated as the IoT ecosystem
 evolves. The remainder of this guide covers the core technologies used by
 SiteWhere and how they fit together to build a comprehensive system.
