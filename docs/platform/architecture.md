@@ -74,6 +74,18 @@ to the configuration data and react dynamically to updates. No configuration
 is stored locally within the microservice, which prevents problems with
 keeping services in sync as system configuration is updated.
 
+### Distributed Storage with Rook.io
+
+Since many of the system components such as Zookeeper, Kafka, and various
+databases require access to persistent storage, SiteWhere 2.0 uses
+[Rook.io](https://rook.io/) within Kubernetes to supply distributed,
+replicated block storage that is resilient to hardware failures while
+still offering good performance characteristics. As storage and throughput
+needs increase over time, new storage devices can be made available
+dynamically. The underlying [Ceph](https://ceph.com/) architecture
+used by Rook.io can handle _exobytes_ of data while allowing data
+to be resilient to failures at the node, rack, or even datacenter level.
+
 ### Service Discovery with HashiCorp Consul
 
 With the dynamic nature of the microservices architecture, it is imporant
