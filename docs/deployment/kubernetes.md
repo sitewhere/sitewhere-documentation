@@ -14,7 +14,7 @@ for a single node Kubernete cluster running a SiteWhere instance is:
 | Hard Disk/SSD | 80GB      |
 
 When distributing microservices across multiple node in the
-[Kubernetes](https://kubernetes.io) cluster, the per-node requirements 
+[Kubernetes](https://kubernetes.io) cluster, the per-node requirements
 can be lower since the load is distributed.
 
 Another consideration in deploying SiteWhere is whether the
@@ -29,7 +29,7 @@ architecture nears general availability.
 ## Install Kubernetes
 
 SiteWhere 2.0 uses Kubernetes as Production-Grade Container Orchestration technology,
-which is supported in all major cloud environments. For single-node installations, 
+which is supported in all major cloud environments. For single-node installations,
 Minikube can be installed based on the process detailed in the link below:
 
 [Minikube Setup](https://kubernetes.io/docs/setup/minikube/)
@@ -65,13 +65,18 @@ deployment scenarios.
 
 ## Install Helm
 
-SiteWhere 2.0 can be deploy on a running Kubernetes Cluster. We provide a [Helm](https://helm.sh/) Chart, as part of SiteWhere Recipes, to install SiteWhere on Kubernetes.
+SiteWhere 2.0 can be deploy on a running Kubernetes Cluster. We provide a
+[Helm](https://helm.sh/) Chart, as part of SiteWhere Recipes, to install SiteWhere
+on Kubernetes.
 
-In order to deploy SiteWhere, Helm needs to be installed. Follow [this](https://docs.helm.sh/using_helm/#installing-helm) instruction to install Helm on your machine.
+In order to deploy SiteWhere, Helm needs to be installed. Follow
+[this](https://docs.helm.sh/using_helm/#installing-helm) instruction to install
+Helm on your machine.
 
 ## Install Rook
 
-If you need File, Block, and Object Storage Services for your Cloud-Native Environments, install [Rook Ceph](https://rook.io), with the following commands:
+If you need File, Block, and Object Storage Services for your Cloud-Native Environments,
+install [Rook Ceph](https://rook.io), with the following commands:
 
 ```sh
 kubectl create -f rook/operator.yaml
@@ -103,7 +108,9 @@ Storage Class, use the following command:
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
 
-To remove sitewhere, execute the following command
+## Remove SiteWhere
+
+To remove SiteWhere, execute the following command
 
 ```sh
 helm del --purge sitewhere
