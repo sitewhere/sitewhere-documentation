@@ -103,6 +103,9 @@ dockerProtocol=tcp
 dockerHostname=192.168.171.100
 dockerPort=2375
 dockerRepository=docker.io
+registryUsername=(your docker username)
+registryPassword=(your docker password)
+registryEmail=(your docker email address)
 ```
 
 SiteWhere incluye los artefactos de Gradle [Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html),
