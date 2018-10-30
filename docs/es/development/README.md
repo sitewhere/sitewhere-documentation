@@ -25,7 +25,7 @@ clonando el repositorio y accediendo a la rama correspondiente al release.
 La rama para la próxima versión de SiteWhere 2.0 está disponible
 en la siguiete ubicación:
 
-[SiteWhere Branch 2.0.RC2](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.rc1)
+[SiteWhere Branch 2.0.0](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.0)
 
 La nueva funcionalidad siempre se desarrolla en una rama separada y es
 finalmente se fusionó con _master_ como parte del ciclo de publicación.
@@ -45,7 +45,7 @@ comandos para clonar el repositorio y cambiar a la rama actual:
 ```sh
 git clone https://github.com/sitewhere/sitewhere.git
 cd sitewhere
-git checkout --force sitewhere-2.0.rc2
+git checkout --force sitewhere-2.0.0
 ```
 
 El resultado de los comandos debería ser similar al siguiente resultado:

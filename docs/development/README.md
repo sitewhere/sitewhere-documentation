@@ -25,7 +25,7 @@ by cloning the repository and checking out the branch corresponding to
 the release. The branch for the upcoming SiteWhere 2.0 release is available
 at the location below:
 
-[SiteWhere 2.0.RC2 Branch](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.rc1)
+[SiteWhere 2.0.0 Branch](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.0)
 
 New functionality is always developed in a separate branch and is
 eventually merged to _master_ as part of the release cycle.
@@ -45,7 +45,7 @@ commands to clone the repository and change to the current branch:
 ```sh
 git clone https://github.com/sitewhere/sitewhere.git
 cd sitewhere
-git checkout --force sitewhere-2.0.rc2
+git checkout --force sitewhere-2.0.0
 ```
 
 The result of the commands should look similar to the output below:
