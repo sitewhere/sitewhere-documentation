@@ -46,30 +46,21 @@ For other setup use the following link:
 
 [Setup Kubernetes](https://kubernetes.io/docs/setup/)
 
-## Using SiteWhere Recipes to Build an Instance
+## Using SiteWhere Kubernetes Helm Chart to Build an Instance
 
 Since the architecture and system configuration for SiteWhere allow for many
 different combinations of components for developing custom systems, the
-SiteWhere team provides a list of _recipes_ for common system configurations
+SiteWhere team provides a _Helm Chart_ for common system configurations
 that act as a starting point for building instances. The repository for
-SiteWhere 2.0 recipes can be accessed via the link below:
+SiteWhere 2.0 Kubernetes can be accessed via the link below:
 
-[SiteWhere Recipes Repository](https://github.com/sitewhere/sitewhere-recipes)
+[SiteWhere Kubernetes Repository](https://github.com/sitewhere/sitewhere-k8s)
 
-### Clone the Recipes Repository
+### Install kubectl
 
-Open a terminal and start by cloning the recipes repository to the machine
-where you have the Docker environment configured. The repository can be cloned
-with the following command:
-
-```sh
-git clone https://github.com/sitewhere/sitewhere-recipes.git
-```
-
-Once the repository has been cloned, navigate into the **sitewhere-recipes/charts**
-subdirectory. This directory contains Helm Charts and Kuberntes resources for SiteWhere
-deployment scenarios.
-
+Install `kubectl` in workstation where you can manage you Kubernet Cluster.
+Follow [this](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instructions
+to install kubectl on your platform of choice.
 
 ## Install Helm
 
@@ -80,6 +71,21 @@ on Kubernetes.
 In order to deploy SiteWhere, Helm needs to be installed. Follow
 [this](https://docs.helm.sh/using_helm/#installing-helm) instruction to install
 Helm on your machine.
+
+### Clone the Recipes Repository
+
+Open a terminal and start by cloning the repository to the machine
+where you have `kubectl` and Helm installed. The repository can be cloned
+with the following command:
+
+```sh
+git clone https://github.com/sitewhere/sitewhere-k8s.git
+```
+
+Once the repository has been cloned, navigate into the **sitewhere-k8s/charts**
+subdirectory. This directory contains Helm Charts and Kuberntes resources for SiteWhere
+deployment scenarios.
+
 
 ## Install Rook
 
