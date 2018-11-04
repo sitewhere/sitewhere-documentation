@@ -126,9 +126,9 @@ to create references to the persistent data which is made available across the k
 cluster in a replicated, highly-available fashion and lives beyond system restarts.
 The underlying data is only deleted if the PVCs/PVs are manually deleted.
 
-## Start SiteWhere
+## Install SiteWhere
 
-To start SiteWhere with the default configuration (including all microservices and
+To install SiteWhere with the default configuration (including all microservices and
 the default infrastructure components) run:
 
 ```
@@ -156,6 +156,30 @@ Storage Class, use the following command:
 ```
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
+
+## Interact with SiteWhere Services
+
+Once SiteWhere has been installed, there are many ways of interacting with the system
+to verify that the microservices have started successfully. Any of the standard 
+Kubernetes tooling may be used to introspect the SiteWhere pods.
+
+### Using Visual Studio Code Kubernetes Support
+
+[Visual Studio Code](https://code.visualstudio.com/) offers an optional Kubernetes 
+plugin which supports management of many aspects of a running cluster. The extension
+is published as an [open source](https://github.com/Azure/vscode-kubernetes-tools)
+repository and may be installed via the VS Code extension manager.
+
+<InlineImage src="/images/deployment/vs-code-kubernetes-plugin.png" caption="Kubernetes Plugin"/>
+
+After installing the plugin, browse into the Kubernetes nodes to see the running services.
+Once all of the infrastructure services have started, the SiteWhere services will start.
+To browse the logs for the individual services, right-click on a pod in the tree and choose
+`Follow Logs` to attach to the logs for that microservice in a terminal. Multiple terminals
+may be opened concurrently to track logs for multiple services.
+
+<InlineImage src="/images/deployment/vs-code-sitewhere-services.png" caption="SiteWhere Services"/>
+
 
 ## Remove SiteWhere
 
@@ -199,7 +223,7 @@ follow the instructions to remove the components and related data.
 
 ::: tip
 To delete the persistent data associated with SiteWhere, it is not necessary
-to ininstall Rook. As detailed above, the k8s persistence claims may be 
+to uninstall Rook. As detailed above, the k8s persistence claims may be 
 deleted to remove existing data and start with a clean system.
 :::
 
