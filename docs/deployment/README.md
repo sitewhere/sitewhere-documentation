@@ -11,71 +11,86 @@ architecture is based on many microservices which are deployed into a
 Because SiteWhere 2.0 uses a microservices architecture, the number of
 processes running concurrently has increased, which in turn requires
 more memory and processing power. The minimum hardware specifications
-for a single node Kubernete cluster running a SiteWhere instance is:
+for a single node Kubernetes cluster running a SiteWhere instance is:
 
 | Resource      | Min Value |
 | ------------- | --------- |
 | Memory        | 16GB RAM  |
-| CPU           | 2 CPUs    |
-| Hard Disk/SSD | 80GB      |
+| CPU           | 4 CPUs    |
+| Hard Disk/SSD | 100GB     |
 
-For production grade environments, we recoment using a cluster with a
-minimum of 3 `worker` nodes, each with similiar requirements of table
-above. When distributing microservices across multiple node in the
-[Kubernetes](https://kubernetes.io) cluster, the per-node requirements
-can be lower since the load is distributed.
-
-Another consideration in deploying SiteWhere is whether the
-[Apache Kafka](https://kafka.apache.org/) and
-[Apache ZooKeeper](https://zookeeper.apache.org/) instances are running
-in Kuberntes or managed separately. In production environments, Kafka and
-ZooKeeper clusters should be managed externally from the SiteWhere instance
-using best practices defined by the individual technologies. The SiteWhere
-team will release more information on preferred topologies as the 2.0
-architecture nears general availability.
+In most real-world deployment scenarios, a multi-node Kubernetes cluster
+will be used so that the system can be made highly available. In cases
+where microservices are distributed across multiple k8s nodes,
+the per-node requirements can be adjusted based on the number of
+microservices per node (generally 500MB of memory per microservice).
 
 ## Install Kubernetes
 
-SiteWhere 2.0 uses Kubernetes as Production-Grade Container Orchestration technology,
-which is supported in all major cloud environments. For single-node installations,
-Minikube can be installed based on the process detailed in the link below:
+SiteWhere 2.0 uses Kubernetes as a production-grade container orchestration solution
+which may be installed both locally/on-premise and in all major cloud environments.
+Kubernetes clusters are available as a service on
+[Google Cloud](https://cloud.google.com/kubernetes-engine/),
+[Amazon AWS](https://aws.amazon.com/eks/),
+[Azure](https://azure.microsoft.com/en-us/services/kubernetes-service/) and
+most of the other cloud providers.
 
-[Minikube Setup](https://kubernetes.io/docs/setup/minikube/)
+### Installing a Single-Node Development Environment
 
-For other setup use the following link:
+A single-node Kubernetes cluster may be deployed for SiteWhere development
+and testing. Depending on the underlying operating system used, there are
+a few options for running a local k8s instance.
 
-[Setup Kubernetes](https://kubernetes.io/docs/setup/)
+#### Using Docker/Kubernetes Integration
 
-## Using SiteWhere Kubernetes Helm Chart to Build an Instance
+[Docker](https://www.docker.com/) provides the default container implementation
+used by most Kubernetes providers. The Docker ecosystem has embraced Kubernetes
+and offers out-of-the-box support for running a single-node instance via
+their [Docker for Windows](https://docs.docker.com/v17.09/docker-for-windows/install/)
+and [Docker for Mac](https://docs.docker.com/v17.09/docker-for-mac/install/)
+offerings. After installing the core Docker components, Kubernetes support
+may be enabled directly from within the Docker settings. For most users, this
+is the fastest path to getting a local Kubernetes environment running. For more
+details see [this blog](https://blog.docker.com/2018/07/kubernetes-is-now-available-in-docker-desktop-stable-channel/)
+from the Docker team.
 
-Since the architecture and system configuration for SiteWhere allow for many
-different combinations of components for developing custom systems, the
-SiteWhere team provides a _Helm Chart_ for common system configurations
-that act as a starting point for building instances. The repository for
-SiteWhere 2.0 Kubernetes can be accessed via the link below:
+#### Using Minikube
 
-[SiteWhere Kubernetes Repository](https://github.com/sitewhere/sitewhere-k8s)
+[Minikube](https://github.com/kubernetes/minikube) is a tool that makes it easy
+to run a single-node Kubernetes cluster inside a virtual machine. Environments supported
+include [VirtualBox](https://www.virtualbox.org/),
+[VMware Fusion](https://www.vmware.com/products/fusion.html)
+and many others. For complete instuctions on installing/deploying Minikube
+see their [setup guide](https://kubernetes.io/docs/setup/minikube/).
 
-### Install kubectl
+#### More Options
 
-Install `kubectl` in workstation where you can manage you Kubernet Cluster.
-Follow [this](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instructions
-to install kubectl on your platform of choice.
+For a complete list of other options for deploying Kubernetes, see the
+[Kubernetes Setup Guide](https://kubernetes.io/docs/setup/).
 
 ## Install Helm
 
-SiteWhere 2.0 can be deploy on a running Kubernetes Cluster. We provide a
-[Helm](https://helm.sh/) Chart, as part of SiteWhere Recipes, to install SiteWhere
-on Kubernetes.
+The preferred method of deploying a SiteWhere 2.0 instance to a running Kubernetes
+Cluster is by using [Helm](https://helm.sh/), which supports a streamlined,
+configurable deployment process. SiteWhere provides Helm
+[charts](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts) which
+can be used to bootstrap the system in various configurations depending
+on the profiles and other configuration options selected.
 
 In order to deploy SiteWhere, Helm needs to be installed. Follow
-[this](https://docs.helm.sh/using_helm/#installing-helm) instruction to install
-Helm on your machine.
+[these](https://docs.helm.sh/using_helm/#installing-helm) instructions to install
+Helm in your environment.
 
-### Clone the Recipes Repository
+## Get SiteWhere Kubernetes Components from GitHub
 
-Open a terminal and start by cloning the repository to the machine
-where you have `kubectl` and Helm installed. The repository can be cloned
+In order to make the process of installing the various SiteWhere infrastructure
+components easier, a separate [repository](https://github.com/sitewhere/sitewhere-k8s)
+is made available for the various k8s artifacts.
+
+### Clone the Repository
+
+Using a [Git](https://git-scm.com/) client, clone the repository to the machine
+where you have the Kubernetes environment configured. The repository can be cloned
 with the following command:
 
 ```sh
@@ -83,20 +98,33 @@ git clone https://github.com/sitewhere/sitewhere-k8s.git
 ```
 
 Once the repository has been cloned, navigate into the **sitewhere-k8s/charts**
-subdirectory. This directory contains Helm Charts and Kuberntes resources for SiteWhere
+subdirectory. This directory contains Helm Charts and Kubernetes resources for SiteWhere
 deployment scenarios.
-
 
 ## Install Rook
 
-If you need File, Block, and Object Storage Services for your Cloud-Native Environments,
-install [Rook Ceph](https://rook.io), with the following commands:
+In order to support multi-node persistent storage for SiteWhere infrastucture components
+such as Kafka, Zookeeper, and the various database technologies, a distributed
+storage system such as [Ceph](https://ceph.com/) should be used. The
+[Rook](https://rook.io) project supports a streamlined process for deploying
+Ceph in a Kubernetes environment, allowing for scalable, reliable persistent
+storage that may be used directly from standard k8s stoage APIs.
+
+By executing the following list of commands, a Rook cluster will be bootstrapped
+and made available for use by SiteWhere.
 
 ```sh
 kubectl create -f rook/operator.yaml
 kubectl create -f rook/cluster.yaml
 kubectl create -f rook/storageclass.yaml
 ```
+
+Note that the Rook components allow persistent information such as databases
+or other system state to be kept outside of the SiteWhere instance. SiteWhere
+uses k8s [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+to create references to the persistent data which is made available across the k8s
+cluster in a replicated, highly-available fashion and lives beyond system restarts.
+The underlying data is only deleted if the PVCs/PVs are manually deleted.
 
 ## Start SiteWhere
 
@@ -106,7 +134,7 @@ To start default configuration run:
 helm install --name sitewhere ./sitewhere
 ```
 
-Also, if you wish to run SiteWhere in a low resource cluster, use the 
+Also, if you wish to run SiteWhere in a low resource cluster, use the
 minimal recipes and install this Helm Chart with the following command:
 
 ```sh
@@ -116,7 +144,7 @@ helm install --name sitewhere --set services.profile=minimal ./sitewhere
 If you don't need Rook.io, you can skip the Rook.io install and install
 SiteWhere Helm Chart setting the `persistence.storageClass` property to
 other than `rook-ceph-block`, for example to use `hostpath` Persistence
-Storage Class, use the following command:  
+Storage Class, use the following command:
 
 ```sh
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
