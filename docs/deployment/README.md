@@ -93,7 +93,7 @@ Using a [Git](https://git-scm.com/) client, clone the repository to the machine
 where you have the Kubernetes environment configured. The repository can be cloned
 with the following command:
 
-```sh
+```
 git clone https://github.com/sitewhere/sitewhere-k8s.git
 ```
 
@@ -108,12 +108,12 @@ such as Kafka, Zookeeper, and the various database technologies, a distributed
 storage system such as [Ceph](https://ceph.com/) should be used. The
 [Rook](https://rook.io) project supports a streamlined process for deploying
 Ceph in a Kubernetes environment, allowing for scalable, reliable persistent
-storage that may be used directly from standard k8s stoage APIs.
+storage that may be used directly from standard k8s storage APIs.
 
 By executing the following list of commands, a Rook cluster will be bootstrapped
 and made available for use by SiteWhere.
 
-```sh
+```
 kubectl create -f rook/operator.yaml
 kubectl create -f rook/cluster.yaml
 kubectl create -f rook/storageclass.yaml
@@ -128,25 +128,32 @@ The underlying data is only deleted if the PVCs/PVs are manually deleted.
 
 ## Start SiteWhere
 
-To start default configuration run:
+To start SiteWhere with the default configuration (including all microservices and
+the default infrastructure components) run:
 
-```sh
+```
 helm install --name sitewhere ./sitewhere
 ```
+### Running with Constrained Resources
+If you wish to run SiteWhere in a low resource cluster, use the _minimal_ profile 
+with the Helm Chart to only install the core microservices required to bootstrap
+the system:
 
-Also, if you wish to run SiteWhere in a low resource cluster, use the
-minimal recipes and install this Helm Chart with the following command:
-
-```sh
+```
 helm install --name sitewhere --set services.profile=minimal ./sitewhere
 ```
 
+In this configuration, some services will not be available and the corresponding
+APIs will return error codes indicating that requests for the service can not
+be satisfied.
+
+### Running with Host Storage
 If you don't need Rook.io, you can skip the Rook.io install and install
 SiteWhere Helm Chart setting the `persistence.storageClass` property to
 other than `rook-ceph-block`, for example to use `hostpath` Persistence
 Storage Class, use the following command:
 
-```sh
+```
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
 
@@ -154,11 +161,45 @@ helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewher
 
 To remove SiteWhere, execute the following command
 
-```sh
+```
 helm del --purge sitewhere
+```
+
+### Remove SiteWhere Persistent Data
+In order to remove all SiteWhere data and start with a clean system, you need remove the 
+[persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) 
+that the SiteWhere infrastructure components create. The following commands may be
+used to delete data added by the default SiteWhere configuration:
+
+#### Delete Consul Metadata
+```
+kubectl delete pvc/data-sitewhere-consul-server-0
+```
+
+#### Delete Kafka Data
+```
+kubectl delete pvc/sitewhere-kafka-pv-sitewhere-kafka-0
+```
+
+#### Delete MongoDB Database
+```
+kubectl delete pvc/sitewhere-mongodb-pv-sitewhere-mongodb-0
+```
+
+#### Delete Zookeeper Metadata
+```
+kubectl delete pvc/sitewhere-zookeeper-pv-sitewhere-zookeeper-0
 ```
 
 ## Uninstall Rook
 
-To uninstall Rook Ceph that a look at this [document](https://rook.io/docs/rook/v0.8/ceph-teardown.html),
-and follow the instructions on how to uninstall Rook Ceph from Kuberntes.
+To uninstall Rook and the Ceph components it wraps, refer to this 
+[document](https://rook.io/docs/rook/v0.8/ceph-teardown.html), and 
+follow the instructions to remove the components and related data.
+
+::: tip
+To delete the persistent data associated with SiteWhere, it is not necessary
+to ininstall Rook. As detailed above, the k8s persistence claims may be 
+deleted to remove existing data and start with a clean system.
+:::
+
