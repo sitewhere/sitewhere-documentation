@@ -81,7 +81,7 @@ In order to deploy SiteWhere, Helm needs to be installed. Follow
 [these](https://docs.helm.sh/using_helm/#installing-helm) instructions to install
 Helm in your environment.
 
-## Get SiteWhere Kubernetes Components from GitHub
+## Pull SiteWhere Kubernetes Repository
 
 In order to make the process of installing the various SiteWhere infrastructure
 components easier, a separate [repository](https://github.com/sitewhere/sitewhere-k8s)
@@ -157,7 +157,7 @@ Storage Class, use the following command:
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
 
-## Interact with SiteWhere Services
+## Monitor SiteWhere Services
 
 Once SiteWhere has been installed, there are many ways of interacting with the system
 to verify that the microservices have started successfully. Any of the standard 
@@ -180,6 +180,27 @@ may be opened concurrently to track logs for multiple services.
 
 <InlineImage src="/images/deployment/vs-code-sitewhere-services.png" caption="SiteWhere Services"/>
 
+### Using Kubernetes Dashboard UI
+
+The Kubernetes project includes a dashboard user interface that may be used to view the
+cluster components for tasks such as monitoring component status and viewing logs. For complete
+instructions on installing the Kubernetes Dashboard UI, refer to the dashboard deployment
+[documentation](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#deploying-the-dashboard-ui).
+
+## Run the Administrative Application
+
+Once a SiteWhere instance has been deployed, the SiteWhere administrative application may be
+used to connect to the instance and configure it. The administrative application is based on
+[Electron](https://electronjs.org/) and may be downloaded from directly from the project 
+[releases](https://github.com/sitewhere/sitewhere-admin-ui/releases) page. After installing
+the application, open it and log in using the default administrative credentials:
+
+**username**: `admin`
+**password**: `password`
+
+<InlineImage src="/images/platform/login.png" caption="Administrative Application"/>
+
+See the user guide for more information about using the administrative application.
 
 ## Remove SiteWhere
 
