@@ -141,6 +141,8 @@ the debug Docker images since the debug port for each microservice must be remap
 to a different port. Using the debug images allows you to connect from a remote debugger
 (such as the one in Eclipse) and set breakpoints in the running microservices.
 
+Read [this](./debug.md) to connect a debugger to SiteWhere.
+
 ## Next Steps
 
 Now that Docker images have been generated for the microservices, follow the steps in the
