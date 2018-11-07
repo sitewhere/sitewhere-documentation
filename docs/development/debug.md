@@ -1,6 +1,6 @@
-# Debuging SiteWhere
+# Debugging SiteWhere
 
-In order to debug SiteWhere debug images need to be deploy on the Kuberntes clusters.
+In order to debug SiteWhere debug images need to be deploy on the Kubernetes clusters.
 SiteWhere debug microservices images uses [Java Debug Wire Protocol](https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/jdwp-spec.html) for
 communication between a debugger and the Java virtual machine (VM) that runs
 the microservice. To this end, each microservice exposes JDWP on port 8001 and
@@ -36,7 +36,7 @@ how to build SiteWhere debug images.
 
 ## Using Helm to Install Debug Images
 
-SiteWhere Helm Chart provides the tooling necesary to install _debug_ images on Kubernetes.
+SiteWhere Helm Chart provides the tooling necessary to install _debug_ images on Kubernetes.
 To install SiteWhere debug image set `services.debug` to `true`. For example, to install
 SiteWhere _default_ profile debug images use the following command:
 
@@ -76,7 +76,7 @@ host, add break points and see the threads running like in the image below.
 <InlineImage src="/images/development/debug-connect-debugger.png" caption="Debug Remove Java Application"/>
 
 If you get an error like the image below, please check that you running the debug images, that you
-have forwarded the port of the micrservice you want to debug and that you have enter the hostname and port
+have forwarded the port of the microservice you want to debug and that you have enter the hostname and port
 correctly.
 
 <InlineImage src="/images/development/debug-fail-to-connect.png" caption="Debug Fail to Connect"/>
