@@ -113,17 +113,13 @@ import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Measurem
 
 ...
 
-SiteWhere.DeviceEvent.DeviceMeasurements.Builder builder =
-  SiteWhere.DeviceEvent.DeviceMeasurements.newBuilder();
+SiteWhere.DeviceEvent.DeviceRegistrationRequest.Builder builder =
+  SiteWhere.DeviceEvent.DeviceRegistrationRequest.newBuilder();
 
-builder.getEventDateBuilder().setValue(new Date().getTime());
+builder.setAreaToken(GOptionalString.newBuilder().setValue("myareatoken"));
+builder.setCustomerToken(GOptionalString.newBuilder().setValue("mycustomertoken"));
+builder.setDeviceTypeToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
+builder.putAllMetadata(myMetadata);
 
-builder.addMeasurement(Measurement.newBuilder()
-  .setMeasurementId(builder.addMeasurementBuilder().getMeasurementIdBuilder()
-    .setValue("temp").build())
-  .setMeasurementValue(builder.addMeasurementBuilder().getMeasurementValueBuilder()
-    .setValue(34.7).build())
-  .build());
-
-SiteWhere.DeviceEvent.DeviceMeasurements payload = builder.build();
+SiteWhere.DeviceEvent.DeviceRegistrationRequest payload = builder.build();
 ```
