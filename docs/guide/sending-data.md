@@ -24,14 +24,18 @@ some common information as shown below:
 }
 ```
 
-| Field       | Description                               |
-| ----------- | ----------------------------------------- |
+| Field       | Description                                                                                                               |
+| ------------| ------------------------------------------------------------------------------------------------------------------------- |
 | deviceToken | Device token that uniquely identifies a device within a tenant. This informs the system which device is generating events.|
-| type        | The type of request for the device. This indicates how the data in the _request_ section should be interpreted. |
-| originator  | ?? |
-| request     | The request content which is specific to the type of packet being sent as indicated by the _type_ field. |
+| type        | The type of request for the device. This indicates how the data in the _request_ section should be interpreted.           |
+| originator  | This field is used by devices if they are sending an event in response to a command, indicating the _id_ of the command.  |
+| request     | The request content which is specific to the type of packet being sent as indicated by the _type_ field.                  |
 
-### Register a Device
+### Registering a Device with JSON
+
+Before devices can send event data, they must be registered with the system. SiteWhere will send back a
+response on the system command channel to indicate whether the device could be registered. It will also
+indicate if the device was already registered or not. The JSON packet below can be used to register a device:
 
 ```json
 {
@@ -58,6 +62,11 @@ some common information as shown below:
 | deviceTypeToken | A token that specifiies the `Device Type` being registered |
 | metadata        | The metadata of the device being registered                |
 
+### Send Device Measurement with JSON
+
+SiteWhere supports storing measurements related to a device as event data.
+The JSON format for sending a device measurement is shown below:
+
 ```json
 {
   "type":"DeviceMeasurement",
@@ -76,15 +85,83 @@ some common information as shown below:
 }
 ```
 
+| Field           | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| type            | `DeviceMeasurement`                                        |
+| name            | Name of the measurement being send.                        |
+| value           | Value of the measurement being send.                       |
+| updateState     | if `true`, it updates the `DeviceState` of the Assignement |
+| eventDate       | Timestamp of the event.                                    |
+| metadata        | The metadata of the event.                                 |
+
+### Send Device Location with JSON
+
+SiteWhere supports storing locations related to a device as event data.
+The JSON format for sending a device locacation is shown below:
+
+```json
+{
+  "type":"DeviceLocation",
+  "originator":"device",
+  "deviceToken":"mydevicetoken",
+  "request": {
+    "latitude": "33.75",
+    "latitude": "-84.39",
+    "elevation": "1",
+    "updateState": true,
+    "eventDate": "2018-11-03T19:40:03.390Z"
+  }
+}
+```
+
+| Field           | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| type            | `DeviceLocation`                                           |
+| latitude        | Latitud of the Location being send.                        |
+| latitude        | Longitud of the Location being send.                       |
+| elevation       | Elevation of the Location being send.                      |
+| updateState     | if `true`, it updates the `DeviceState` of the Assignement |
+| eventDate       | Timestamp of the event.                                    |
+| metadata        | The metadata of the event.                                 |
+
+### Sending Device Alert with JSON
+
+SiteWhere supports storing alerts for exceptional conditions as event data.
+The JSON format for sending a device alert is shown below:
+
+```json
+{
+  "type":"DeviceAlert",
+  "originator":"device",
+  "deviceToken":"mydevicetoken",
+  "request": {
+    "type": "Warning",
+    "message": "Engine overheat.",
+    "eventDate": "2018-11-03T19:40:03.390Z"
+  }
+}
+```
+
+| Field           | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| type            | `DeviceAlert`                                              |
+| type            | Type of the Alter `Info`,`Warning`,`Error`,`Fatal`         |
+| message         | Message assosiated with the Alert.                         |
+| eventDate       | Timestamp of the event.                                    |
+| metadata        | The metadata of the event.                                 |
+
 ## Sending Device Data Using Profocol Buffer
 
 ```gradle
     compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.0-SNAPSHOT'
 ```
 
+### Registering a Device with Protocol Buffer
+
 ```java
 import com.sitewhere.communication.protobuf.proto.SiteWhere;
 import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Command;
+
 ...
 
 // Header
@@ -92,8 +169,9 @@ SiteWhere.DeviceEvent.Header.Builder headerBuilder = SiteWhere.DeviceEvent.Heade
 // Command
 headerBuilder.setCommand(Command.SendRegistration);
 // Device Token
-headerBuilder.setDeviceToken(
-  headerBuilder.getDeviceTokenBuilder().setValue("mydevicetoken").build());
+headerBuilder.setDeviceToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
+//Originator
+headerBuilder.setOriginator(GOptionalString.newBuilder().setValue("originator"));
 
 // Payload
 SiteWhere.DeviceEvent.DeviceRegistrationRequest.Builder builder =
@@ -107,19 +185,79 @@ builder.putAllMetadata(myMetadata);
 SiteWhere.DeviceEvent.DeviceRegistrationRequest payload = builder.build();
 ```
 
+### Send Device Measurement with Protocol Buffers
+
 ```java
 import com.sitewhere.communication.protobuf.proto.SiteWhere;
-import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Measurement;
+import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Command;
 
 ...
 
-SiteWhere.DeviceEvent.DeviceRegistrationRequest.Builder builder =
-  SiteWhere.DeviceEvent.DeviceRegistrationRequest.newBuilder();
+// Header
+SiteWhere.DeviceEvent.Header.Builder headerBuilder = SiteWhere.DeviceEvent.Header.newBuilder();
+// Command
+headerBuilder.setCommand(Command.SendMeasurement);
+// Device Token
+headerBuilder.setDeviceToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
+//Originator
+headerBuilder.setOriginator(GOptionalString.newBuilder().setValue("originator"));
 
-builder.setAreaToken(GOptionalString.newBuilder().setValue("myareatoken"));
-builder.setCustomerToken(GOptionalString.newBuilder().setValue("mycustomertoken"));
-builder.setDeviceTypeToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
-builder.putAllMetadata(myMetadata);
+// Payload
+SiteWhere.DeviceEvent.DeviceMeasurement.Builder builder = SiteWhere.DeviceEvent.DeviceMeasurement.newBuilder();
+builder.setEventDate(GOptionalFixed64.newBuilder().setValue(new Date().getTime()));
+builder.setMeasurementName(GOptionalString.newBuilder().setValue("temp"));
+builder.setMeasurementValue(GOptionalDouble.newBuilder().setValue(34.7));
 
-SiteWhere.DeviceEvent.DeviceRegistrationRequest payload = builder.build();
+SiteWhere.DeviceEvent.DeviceMeasurement payload = builder.build();
+```
+
+### Send Device Location with Protocol Buffers
+
+```java
+import com.sitewhere.communication.protobuf.proto.SiteWhere;
+import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Command;
+
+...
+
+// Header
+SiteWhere.DeviceEvent.Header.Builder headerBuilder = SiteWhere.DeviceEvent.Header.newBuilder();
+// Command
+headerBuilder.setCommand(Command.SendLocation);
+// Device Token
+headerBuilder.setDeviceToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
+//Originator
+headerBuilder.setOriginator(GOptionalString.newBuilder().setValue("originator"));
+
+// Payload
+SiteWhere.DeviceEvent.DeviceMeasurement.Builder builder = SiteWhere.DeviceEvent.DeviceMeasurement.newBuilder();
+builder.setEventDate(GOptionalFixed64.newBuilder().setValue(new Date().getTime()));
+builder.setMeasurementName(GOptionalString.newBuilder().setValue("temp"));
+builder.setMeasurementValue(GOptionalDouble.newBuilder().setValue(34.7));
+
+SiteWhere.DeviceEvent.DeviceMeasurement payload = builder.build();
+```
+
+### Send Device Alert
+
+```java
+import com.sitewhere.communication.protobuf.proto.SiteWhere;
+import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Command;
+
+...
+
+// Header
+SiteWhere.DeviceEvent.Header.Builder headerBuilder = SiteWhere.DeviceEvent.Header.newBuilder();
+// Command
+headerBuilder.setCommand(Command.SendAlert);
+// Device Token
+headerBuilder.setDeviceToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
+//Originator
+headerBuilder.setOriginator(GOptionalString.newBuilder().setValue("originator"));
+
+// Payload
+SiteWhere.DeviceEvent.DeviceAlert.Builder builder = SiteWhere.DeviceEvent.DeviceAlert.newBuilder();
+builder.setEventDate(GOptionalFixed64.newBuilder().setValue(new Date().getTime()));
+builder.setAlertType(GOptionalString.newBuilder().setValue("Warning"));
+builder.setAlertMessage(GOptionalString.newBuilder().setValue("Engine overheat."));
+SiteWhere.DeviceEvent.DeviceAlert payload = builder.build();
 ```
