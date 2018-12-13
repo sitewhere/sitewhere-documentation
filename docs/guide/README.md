@@ -7,3 +7,4 @@ are configured and managed at runtime.
 * [Apache Kafka Configuration](./kafka-configuration.md)
 * [Microservice Configuration](./microservices/README.md)
 * [Sending Data to SiteWhere](./sending-data.md)
+* [Instance Management Microservice](./microservices/instace-management.md)

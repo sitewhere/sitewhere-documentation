@@ -37,6 +37,7 @@ module.exports = {
         "",
         "zookeeper-configuration",
         "kafka-configuration",
+        "sending-data",
         "microservices/instance-management"
       ],
       "/deployment/": [""],
