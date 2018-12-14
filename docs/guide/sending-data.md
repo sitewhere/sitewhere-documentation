@@ -6,7 +6,7 @@ to be easily extended. Each system tenant can have any number of protocols confi
 devices. By default, tenants are configured to communicate over MQTT with support for multiple encodings
 to allow for interactions with many types of devices.
 
-## Sending Device Data Using JSON
+## Sending Device Data
 
 ### JSON Packet Format
 
@@ -31,11 +31,21 @@ some common information as shown below:
 | originator  | This field is used by devices if they are sending an event in response to a command, indicating the _id_ of the command.  |
 | request     | The request content which is specific to the type of packet being sent as indicated by the _type_ field.                  |
 
-### Registering a Device with JSON
+### Sending Device Data Using Profocol Buffer
+
+```gradle
+compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.0-SNAPSHOT'
+```
+
+### Registering a Device
 
 Before devices can send event data, they must be registered with the system. SiteWhere will send back a
 response on the system command channel to indicate whether the device could be registered. It will also
-indicate if the device was already registered or not. The JSON packet below can be used to register a device:
+indicate if the device was already registered or not. 
+
+#### Registering a Device with JSON
+
+The JSON packet below can be used to register a device:
 
 ```json
 {
@@ -62,9 +72,43 @@ indicate if the device was already registered or not. The JSON packet below can 
 | deviceTypeToken | A token that specifiies the `Device Type` being registered |
 | metadata        | The metadata of the device being registered                |
 
-### Send Device Measurement with JSON
+#### Registering a Device with Protocol Buffer
+
+The Protocol Buffer packet below can be used to register a device:
+
+```java
+import com.sitewhere.communication.protobuf.proto.SiteWhere;
+import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Command;
+
+...
+
+// Header
+SiteWhere.DeviceEvent.Header.Builder headerBuilder = SiteWhere.DeviceEvent.Header.newBuilder();
+// Command
+headerBuilder.setCommand(Command.SendRegistration);
+// Device Token
+headerBuilder.setDeviceToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
+//Originator
+headerBuilder.setOriginator(GOptionalString.newBuilder().setValue("originator"));
+
+// Payload
+SiteWhere.DeviceEvent.DeviceRegistrationRequest.Builder builder =
+  SiteWhere.DeviceEvent.DeviceRegistrationRequest.newBuilder();
+
+builder.getAreaTokenBuilder().setValue("myareatoken");
+builder.getCustomerTokenBuilder().setValue("mycustomertoken");
+builder.getDeviceTypeTokenBuilder().setValue("mydevicetoken");
+builder.putAllMetadata(myMetadata);
+
+SiteWhere.DeviceEvent.DeviceRegistrationRequest payload = builder.build();
+```
+
+### Send Device Measurement
 
 SiteWhere supports storing measurements related to a device as event data.
+
+#### Send Device Measurement with JSON
+
 The JSON format for sending a device measurement is shown below:
 
 ```json
@@ -94,9 +138,40 @@ The JSON format for sending a device measurement is shown below:
 | eventDate       | Timestamp of the event.                                    |
 | metadata        | The metadata of the event.                                 |
 
-### Send Device Location with JSON
+#### Send Device Measurement with Protocol Buffers
+
+The Protocol Buffers format for sending a device measurement is shown below:
+
+```java
+import com.sitewhere.communication.protobuf.proto.SiteWhere;
+import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Command;
+
+...
+
+// Header
+SiteWhere.DeviceEvent.Header.Builder headerBuilder = SiteWhere.DeviceEvent.Header.newBuilder();
+// Command
+headerBuilder.setCommand(Command.SendMeasurement);
+// Device Token
+headerBuilder.setDeviceToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
+//Originator
+headerBuilder.setOriginator(GOptionalString.newBuilder().setValue("originator"));
+
+// Payload
+SiteWhere.DeviceEvent.DeviceMeasurement.Builder builder = SiteWhere.DeviceEvent.DeviceMeasurement.newBuilder();
+builder.setEventDate(GOptionalFixed64.newBuilder().setValue(new Date().getTime()));
+builder.setMeasurementName(GOptionalString.newBuilder().setValue("temp"));
+builder.setMeasurementValue(GOptionalDouble.newBuilder().setValue(34.7));
+
+SiteWhere.DeviceEvent.DeviceMeasurement payload = builder.build();
+```
+
+### Send Device Location
 
 SiteWhere supports storing locations related to a device as event data.
+
+#### Send Device Location with JSON
+
 The JSON format for sending a device locacation is shown below:
 
 ```json
@@ -124,94 +199,9 @@ The JSON format for sending a device locacation is shown below:
 | eventDate       | Timestamp of the event.                                    |
 | metadata        | The metadata of the event.                                 |
 
-### Sending Device Alert with JSON
+#### Send Device Location with Protocol Buffers
 
-SiteWhere supports storing alerts for exceptional conditions as event data.
-The JSON format for sending a device alert is shown below:
-
-```json
-{
-  "type":"DeviceAlert",
-  "originator":"device",
-  "deviceToken":"mydevicetoken",
-  "request": {
-    "type": "Warning",
-    "message": "Engine overheat.",
-    "eventDate": "2018-11-03T19:40:03.390Z"
-  }
-}
-```
-
-| Field           | Description                                                |
-| --------------- | ---------------------------------------------------------- |
-| type            | `DeviceAlert`                                              |
-| type            | Type of the Alter `Info`,`Warning`,`Error`,`Fatal`         |
-| message         | Message assosiated with the Alert.                         |
-| eventDate       | Timestamp of the event.                                    |
-| metadata        | The metadata of the event.                                 |
-
-## Sending Device Data Using Profocol Buffer
-
-```gradle
-    compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.0-SNAPSHOT'
-```
-
-### Registering a Device with Protocol Buffer
-
-```java
-import com.sitewhere.communication.protobuf.proto.SiteWhere;
-import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Command;
-
-...
-
-// Header
-SiteWhere.DeviceEvent.Header.Builder headerBuilder = SiteWhere.DeviceEvent.Header.newBuilder();
-// Command
-headerBuilder.setCommand(Command.SendRegistration);
-// Device Token
-headerBuilder.setDeviceToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
-//Originator
-headerBuilder.setOriginator(GOptionalString.newBuilder().setValue("originator"));
-
-// Payload
-SiteWhere.DeviceEvent.DeviceRegistrationRequest.Builder builder =
-  SiteWhere.DeviceEvent.DeviceRegistrationRequest.newBuilder();
-
-builder.getAreaTokenBuilder().setValue("myareatoken");
-builder.getCustomerTokenBuilder().setValue("mycustomertoken");
-builder.getDeviceTypeTokenBuilder().setValue("mydevicetoken");
-builder.putAllMetadata(myMetadata);
-
-SiteWhere.DeviceEvent.DeviceRegistrationRequest payload = builder.build();
-```
-
-### Send Device Measurement with Protocol Buffers
-
-```java
-import com.sitewhere.communication.protobuf.proto.SiteWhere;
-import com.sitewhere.communication.protobuf.proto.SiteWhere.DeviceEvent.Command;
-
-...
-
-// Header
-SiteWhere.DeviceEvent.Header.Builder headerBuilder = SiteWhere.DeviceEvent.Header.newBuilder();
-// Command
-headerBuilder.setCommand(Command.SendMeasurement);
-// Device Token
-headerBuilder.setDeviceToken(GOptionalString.newBuilder().setValue("mydevicetoken"));
-//Originator
-headerBuilder.setOriginator(GOptionalString.newBuilder().setValue("originator"));
-
-// Payload
-SiteWhere.DeviceEvent.DeviceMeasurement.Builder builder = SiteWhere.DeviceEvent.DeviceMeasurement.newBuilder();
-builder.setEventDate(GOptionalFixed64.newBuilder().setValue(new Date().getTime()));
-builder.setMeasurementName(GOptionalString.newBuilder().setValue("temp"));
-builder.setMeasurementValue(GOptionalDouble.newBuilder().setValue(34.7));
-
-SiteWhere.DeviceEvent.DeviceMeasurement payload = builder.build();
-```
-
-### Send Device Location with Protocol Buffers
+The Protocol Buffers format for sending a device locacation is shown below:
 
 ```java
 import com.sitewhere.communication.protobuf.proto.SiteWhere;
@@ -237,7 +227,38 @@ builder.setMeasurementValue(GOptionalDouble.newBuilder().setValue(34.7));
 SiteWhere.DeviceEvent.DeviceMeasurement payload = builder.build();
 ```
 
-### Send Device Alert
+### Sending Device Alert
+
+SiteWhere supports storing alerts for exceptional conditions as event data.
+
+#### Sending Device Alert with JSON
+
+The JSON format for sending a device alert is shown below:
+
+```json
+{
+  "type":"DeviceAlert",
+  "originator":"device",
+  "deviceToken":"mydevicetoken",
+  "request": {
+    "type": "Warning",
+    "message": "Engine overheat.",
+    "eventDate": "2018-11-03T19:40:03.390Z"
+  }
+}
+```
+
+| Field           | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| type            | `DeviceAlert`                                              |
+| type            | Type of the Alter `Info`,`Warning`,`Error`,`Fatal`         |
+| message         | Message assosiated with the Alert.                         |
+| eventDate       | Timestamp of the event.                                    |
+| metadata        | The metadata of the event.                                 |
+
+#### Send Device Alert with Protocol Buffers
+
+The Protocol Buffers format for sending a device alert is shown below:
 
 ```java
 import com.sitewhere.communication.protobuf.proto.SiteWhere;
