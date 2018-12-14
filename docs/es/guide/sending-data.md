@@ -32,7 +32,7 @@ Todos los paquetes JSON comparten información común como se muestra a continua
 | originator  | Este campo es utilizado por los dispositivos si envían un evento en respuesta a un comando, indicando el _id_ del comando.|
 | request     | El contenido de la solicitud que es específico para el tipo de paquete que se envía, como lo indica el campo _type_.      |
 
-## Enviando datos del dispositivo usando Profocol Buffer
+### Enviando datos del dispositivo usando Profocol Buffer
 
 To send data to SiteWhere using Protocol Buffers, use the `sitewhere-device-protobuf` library provided by
 the SiteWhere development team. To import it using [Gradle](https://gradle.org) use the instruction.
