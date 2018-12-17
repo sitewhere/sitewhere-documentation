@@ -255,7 +255,7 @@ connectors.
 ### Device Registration
 
 The multitenant device registration microservice ingests data from a Kafka topic
-populated by the inbound processing microservice when events reference a hardware id
+populated by the inbound processing microservice when events reference a _device token_
 for a device that is not currently registered in the system. Each tenant engine has
 a device registration manager which may be configured to indicate how unregistered
 devices are to be treated. The device registration manager processes each inbound
