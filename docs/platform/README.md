@@ -46,7 +46,8 @@ information about deploying a SiteWhere instance, check out the
 
 SiteWhere provides an administrative application based on [Electron](https://electronjs.org/),
 which allows SiteWhere instances to be easily administered from the convenience
-of a desktop application. Use one of the available Helm [charts](https://github.com/sitewhere/sitewhere-recipes/tree/master/charts)
+of a desktop application. Use one of the available Helm
+[charts](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts)
 to bootstrap a SiteWhere instance on Kubernetes, then point the administrative application
 to the instance to manage it. The new administrative application supports all of
 the new SiteWhere 2.0 features and offers automated updates to streamline the
