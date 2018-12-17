@@ -8,26 +8,25 @@ as the infrastructure and a variety of microservices to build out the system.
 This approach allows customization and scaling at a fine-grained level
 so that the system may be tailored to many potential IoT use cases. SiteWhere
 is built with a framework approach using clearly defined APIs so that new
-technologies can easily be integrated as the IoT ecosystem evolves.
+technologies may easily be integrated as the IoT ecosystem evolves.
 
 ## Kubernetes
 
 SiteWhere is composed of Java-based microservices which are built as
 [Docker](https://www.docker.com/) images and deployed to Kubernetes for
-orchestration. To simplify deployement, [Helm](https://helm.sh/) is used to
+orchestration. To simplify deployment, [Helm](https://helm.sh/) is used to
 provide standard templates for various deployment scenarios. Helm
 [charts](https://github.com/sitewhere/sitewhere-recipes/tree/master/charts)
-are provided which supply all of the dependencies needed to run a complete
-SiteWhere instance, including both the microservices and infrastructure
-components such as Apache Zookeeper, Kafka, Mosquitto MQTT broker,
-and other supporting technologies.
+supply all of the dependencies needed to run a complete SiteWhere
+instance, including both the microservices and infrastructure
+components such as Apache Zookeeper, Apache Kafka and Mosquitto MQTT broker.
 
 ## Microservices
 
-SiteWhere 2.0 introduces a much different architectural approach than was used
-in the 1.x platform. While the core APIs are mostly unchanged, the system implementation
-has moved from a monolithic structure to one based on microservices. This approach
-provides a number of advantages over the previous architecture.
+A SiteWhere _instance_ is a distributed system composed of many microservices,
+each of which serves a specific function and is completely decoupled from
+the other services. The microservices use a service discovery mechanism to
+self-assemble into a working system.
 
 ### Separation of Concerns
 
@@ -62,10 +61,10 @@ load.
 
 ### Centralized Configuration Management with Apache ZooKeeper
 
-SiteWhere 2.0 moves system configuration from the filesystem into
-[Apache ZooKeeper](https://zookeeper.apache.org/) to allow for a centralized
-approach to configuration management. ZooKeeper contains a hierarchical structure
-which represents the configuration for one or more SiteWhere instances
+SiteWhere 2.0 moves system configuration to [Apache ZooKeeper](https://zookeeper.apache.org/)
+which allows configuration management to be externalized and
+made highly-available. ZooKeeper contains a hierarchical
+structure which represents the configuration for one or more SiteWhere instances
 and all of the microservices that are used to realize them.
 
 Each microservice has a direct connection to ZooKeeper and uses the
@@ -88,7 +87,7 @@ to be resilient to failures at the node, rack, or even datacenter level.
 
 ### Service Discovery with HashiCorp Consul
 
-With the dynamic nature of the microservices architecture, it is imporant
+With the dynamic nature of the microservices architecture, it is important
 for microservices to be able to efficiently locate running instances of
 the various other services they interact with. SiteWhere 2.0 leverages
 [Consul](https://www.consul.io/) for service discovery. Each microservice
@@ -109,13 +108,17 @@ topics to use the data as it moves through the system.
 
 ### Fully Asynchronous Pipeline Processing
 
-In the SiteWhere 1.x architecture, the pipeline for outbound processing used a blocking
-approach which meant that any single outbound processor could block the outbound pipeline.
 In SiteWhere 2.0, each outbound connector is a true Kafka consumer with its own offset
 marker into the event stream. This mechanism allows for outbound processors to process data
 at their own pace without slowing down other processors. It also allows services to
 leverage Kafka's consumer groups to distribute load across multiple consumers and
 scale processing accordingly.
+
+::: tip
+In the SiteWhere 1.x architecture, the pipeline for outbound processing used a blocking
+approach which meant that any single outbound processor could block the outbound pipeline.
+This is no longer an issue with the 2.0 architecture.
+:::
 
 Using Kafka also has other advantages that are leveraged by SiteWhere. Since all data for
 the distributed log is stored on disk, it is possible to "replay" the event stream based
@@ -140,12 +143,13 @@ connection between microservices that need to communicate with each other. Since
 persistent HTTP2 connections, the overhead for interactions is greatly reduced, allowing
 for decoupling without a significant performance penalty.
 
-The entire SiteWhere data model has been captured in
+The entire SiteWhere [data model](https://github.com/sitewhere/sitewhere-java-api) has been captured in
 [Google Protocol Buffers](https://developers.google.com/protocol-buffers/) format so that
 it can be used within GRPC services. All of the SiteWhere APIs are now exposed directly as
 gRPC services as well, allowing for high-performance, low-latency access to what was previously
 only accessible via REST. The REST APIs are still made available via the Web/REST microservice,
-but they use the gRPC APIs underneath to provide a consistent approach to accessing data.
+but they use the [gRPC APIs](https://github.com/sitewhere/sitewhere-grpc-api) underneath
+to provide a consistent approach to accessing data.
 
 Since the number of instances of a given microservice can change over time as the service is
 scaled up or down, SiteWhere automatically handles the process of connecting/disconnecting the
