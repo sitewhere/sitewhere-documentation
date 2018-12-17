@@ -1,65 +1,82 @@
 # Microservices Overview
 
-The transition from a monilithic architecture to one based on microservices is
-a key feature of the SiteWhere 2.0 architecture. Each microservice handles a
-specific subset of functionality that is clearly defined and delineated from
-the work done by other microservices. This allows parts of the system to be scaled
-independently while allowing some pieces to be left out completely if not used. The
-microservices approach also decouples the code so that it is easier to understand
-and manage from a development perspective. The diagram below shows the microservices
-and the general flow of data between them:
+A SiteWhere instance is comprised of many microservices, each handling a
+specific piece of functionality. Upon deployment, the microservices
+are orchestrated into a distributed system on top of the Kubernetes
+infrastucture. A Helm chart is used to configure the list of SiteWhere
+microservices and other components which need to be started in order to
+realize a given configuration. Once started, the microservices self-assemble
+and then make themselves available for processing tasks.
 
 <InlineImage src="/images/platform/microservices-diagram.png" caption="Microservices"/>
 
-## Infrastructure Components
+## Microservice Structure
 
-SiteWhere microservices make a few assumptions about the underlying infrastructure
-that they are running on. At a minimum, instances of Apache ZooKeeper
-and Apache Kafka must be available in order for the system to function properly.
-By default, SiteWhere also produces distributed tracing data via the
-[open tracing](http://opentracing.io/) standard for runtime performance analysis.
-A server backend that supports the API may be configured to store and analyze the data.
+All SiteWhere microservices are based on a custom library defined in
+the [sitewhere-microservice](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.0/sitewhere-microservice)
+module of the core SiteWhere repository. This library includes the common
+code used for SiteWhere microservices including service lifecycle, configuration,
+logging, service discovery, distributed tracing, and other cross-cutting concerns.
 
-### Infrastructure Recipes
+### Spring Boot Application
 
-When launching from Docker Compose or Swarm, there are
-[recipes](https://github.com/sitewhere/sitewhere-recipes) available that
-may be used to provide the expected infrastructure components. The recipes include
-the required components such as ZooKeeper and Kafka as well as other supporting components
-such as [Jaeger](https://github.com/jaegertracing/jaeger) for tracing support
-and [ZooNavigator](https://github.com/elkozmon/zoonavigator) for introspecting
-the ZooKeeper store.
+SiteWhere microservices are packaged as Spring Boot applications which use a common
+base class [`MicroserviceApplication`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.0.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/MicroserviceApplication.java) that standardizes the service startup/shutdown
+behavior. The application wraps an instance of a [`Microservice`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.0.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/Microservice.java) subclass
+which implements much of the common behavior such as microservice lifecycle,
+service discovery, common Kafka and gRPC services, as well as hooks for
+the standard lifecycle behaviors. Microservice subclasses use the
+various hooks to customize the lifecycle to add new functionality.
 
-## Production Deployments
+The SiteWhere microservice library uses Spring Boot environment settings
+to configure various aspects of each microservice. The settings may be overridden
+by injecting environment variables when deploying the microservices. The default
+Helm chart for SiteWhere handles this transparently, but there may be cases
+where the values need to be overridden manually. The table below covers the list of
+standard instance-wide environment settings:
 
-In a production scenario, ZooKeeper and Kafka should be configured outside
-of Docker and properly scaled to account for fault tolerance and availability.
-The SiteWhere team will offer more details about best practices as we approach
-the 2.0 GA release.
+| Setting                           | Default        | Description                                                                   |
+| :-------------------------------- | :------------- | :---------------------------------------------------------------------------- |
+| sitewhere.product.id              | sitewhere      | Name of top-level node in Zookeeper tree                                      |
+| sitewhere.instance.id             | sitewhere1     | Instance name used in Zookeeper and Kafka topic naming                        |
+| sitewhere.instance.template.id    | default        | Template from instance management used to initialize system tenants and users |
+| sitewhere.consul.host             | consul         | Hostname used to contact Consul for service discovery                         |
+| sitewhere.consul.port             | 8080           | Port used to contact Consul for service discovery                             |
+| sitewhere.zookeeper.host          | localhost      | Hostname used to contact Zookeeper for configuration                          |
+| sitewhere.zookeeper.port          | 2181           | Port used to contact Zookeeper for configuration                              |
+| sitewhere.kafka.bootstrap.servers | kafka:9092     | Kafka bootstrap servers list                                                  |
+| sitewhere.filesystem.storage.root | /var/sitewhere | File system root for microservices that persist data locally for caching      |
+| sitewhere.grpc.port               | 9000           | Port used to expose microservice-specific gRPC APIs                           |
+| sitewhere.management.grpc.port    | 9001           | Port used to expose gRPC management interface                                 |
+| sitewhere.tracer.server           | jaeger         | Hostname used for publishing distributed tracing output                       |
+| sitewhere.log.metrics             | false          | Indicates whether metrics should be logged for microservice                   |
+| sitewhere.k8s.pod.ip              | null           | Injected to let microservice know its Kubernetes pod IP                       |
 
-## Microservice Deployment Model
+### Base Docker Image
 
-Each microservice is packaged as a Spring Boot application and deployed as an
-independent Docker image. Since each microservice runs in a separate Docker container,
-each accounts for a separate Java process as opposed to all services running within
-the same process in 1.x.
+All SiteWhere microservices are built on top of the same base Docker image to
+lower the runtime overhead of the images. The `openjdk:8-jre-alpine` image is
+currently used due to its small footprint which includes the Java 8 runtime
+needed to execute the applications. There are future plans to leverage features
+of Java 9 to further reduce the image sizes and runtime requirements for
+the microservices.
 
 ### System Resource Usage
 
-SiteWhere 2.0 currently uses around 20 microservices, so the underlying hardware should be
+SiteWhere currently uses around 20 microservices, so the underlying hardware should be
 able to support running 20 concurrent Java processes, each with a footprint of around
-750MB. As such, the hardware requirements for 2.0 are higher than 1.x, though most
-modern desktop computers can easily run a complete system. The intent for SiteWhere 2.0
-is to make use of orchestration engines such as Docker Swarm to distribute the microservices
-across a cluster of machines, which lowers the hardware requirements for a single node.
-In the end, though SiteWhere 2.0 has a larger footprint, the architecture supports
-much more scalable systems that can leverage large clusters of hardware and scale dynamically.
+500MB. The requirements are significant, though most modern desktop computers can easily
+run a complete system. The SiteWhere Helm chart includes a `minimal` profile which
+only loads the required microservices in order to lower the resource requirements.
+However, the intent for SiteWhere 2.0 is to distribute the system components
+across a cluster of machines, which lowers the hardware requirements
+for a single node and increases fault-tolerance.
 
 ## Inter-Microservice Connectivity
 
 Microservices do not operate in a vacuum and, as such, a high-performance RPC mechanism
 is needed to allow the services to communicate. SiteWhere leverages [gRPC](https://grpc.io/)
-for moving data between microservices and offering performant binary APIs to external consumers.
+for moving data between microservices and offers performant binary APIs to external consumers.
 All API calls and data entities have been made available to gRPC via the Google
 Protocol Buffers data format. Using gRPC rather than REST for communication can increase API
 performance by more than 10x.
@@ -75,14 +92,24 @@ microservices dynamically. As the number of services is scaled up/down SiteWhere
 connects/disconnects the piping between them. All inter-microservice communication happens via
 this mechanism.
 
-## Distributed Cache Support
+### API Cache Support
 
 Even with the high performance of gRPC, requesting commonly used data repeatedly across
 the network connection has a significant cost. Master information for entites such as devices,
-assignments, and assets is rarely updated and may be cached within an in-memory data grid
-rather than incurring the cost of reading from the database. SiteWhere 2.0 uses a Hazelcast in-memory
-grid to provide a distributed cache of a subset of master data. This cache is queried before
-falling back to a database request.
+assignments, and assets is rarely updated and may be cached locally in the microservice
+rather than incurring the cost of reading from the database. SiteWhere 2.0 uses a ehCache
+to provide a local cache of a subset of master data. This cache is queried before
+falling back to a remote gRPC request.
+
+## Infrastructure Components
+
+SiteWhere microservices make a few assumptions about the underlying infrastructure
+that they are running on. At a minimum, instances of
+[Apache ZooKeeper](https://zookeeper.apache.org/), [Apache Kafka](https://kafka.apache.org/) and
+[Hashicorp Consul](https://www.consul.io/) must be available in order for the system
+to function properly. By default, SiteWhere also produces distributed tracing data via the
+[open tracing](http://opentracing.io/) standard for runtime performance analysis.
+A server backend that supports the API may be configured to store and analyze the data.
 
 ## List of Core Microservices
 
@@ -197,10 +224,6 @@ Each batch operations tenant engine also contains a batch operation manager that
 be configured to process batch operations that are created via the APIs. The batch operation
 manager will turn the batch request into many smaller operations to achieve the batch goal.
 
-::: warning
-This microservice is not fully implemented in 2.0
-:::
-
 ### Event Sources
 
 The multitenant event sources microservice hosts tenant engines that may be configured
@@ -250,7 +273,7 @@ can use embedded complex event processing (WSO2 Siddhi) to detect patterns in th
 stream and fire new events as the result.
 
 ::: warning
-This microservice is not fully implemented in 2.0
+This microservice is not implemented in 2.0
 :::
 
 ### Command Delivery
@@ -292,10 +315,6 @@ to do complex faceted queries that can not be generically supported via the Site
 tenant engines for this microservice may be configured to proxy queries to the underlying service
 and return the results to the Web/REST microservice for use by external clients.
 
-::: warning
-This microservice is not fully implemented in 2.0
-:::
-
 ### Streaming Media
 
 The multitenant streaming media microservice is intended to allow streaming storage of binary
@@ -303,7 +322,3 @@ data such as audio and video streams. Some basic APIs for streaming were availab
 but were not documented or considered production quality. SiteWhere 2.0 will formalize the
 streaming media APIs, though integration with various encoding/decoding technologies may
 extend beyond the 2.0 GA release cycle.
-
-::: warning
-This microservice is not fully implemented in 2.0
-:::
