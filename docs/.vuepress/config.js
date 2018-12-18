@@ -33,13 +33,28 @@ module.exports = {
         "twelve-factor"
       ],
 
-      "/guide/": [
-        "",
-        "zookeeper-configuration",
-        "kafka-configuration",
-        "sending-data",
-        "microservices/instance-management"
+      "/guide/microservices/": [
+        "asset-management",
+        "batch-operations",
+        "command-delivery",
+        "device-management",
+        "device-registration",
+        "device-state",
+        "event-management",
+        "event-search",
+        "event-sources",
+        "inbound-processing",
+        "instance-management",
+        "label-generation",
+        "outbound-connectors",
+        "rule-processing",
+        "schedule-management",
+        "streaming-media",
+        "tenant-management",
+        "user-management",
+        "web-rest"
       ],
+      "/guide/": ["", "sending-data", "microservices/"],
       "/deployment/": [""],
       "/development/": [""]
     },
@@ -77,13 +92,7 @@ module.exports = {
             "microservice-overview",
             "twelve-factor"
           ],
-          "/es/guide/": [
-            "",
-            "zookeeper-configuration",
-            "kafka-configuration",
-            "sending-data",
-            "microservices/instance-management"
-          ],
+          "/es/guide/": ["", "sending-data", "microservices/"],
           "/es/deployment/": [""],
           "/es/development/": [""]
         }
