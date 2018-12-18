@@ -20,9 +20,11 @@ with SiteWhere 2.0 MQTT URL, as shown in the image below.
 
 <InlineImage src="/images/guide/kura-mqtt.png" caption="SiteWhere Kura MQTT Settings"/>
 
-Alse, you need to configure SiteWhere Kura Cloud Service with the information needed to register the device:
+Also, you need to configure _SiteWhere Kura Cloud Service_ with the information needed to register the device:
 
 <InlineImage src="/images/guide/kura-cloud.png" caption="SiteWhere Kura Cloud Connector"/>
+
+The following table show the configuration fields for _SiteWhere Kura Cloud Service_.
 
 | Field           | Description                                                |
 | --------------- | ---------------------------------------------------------- |
