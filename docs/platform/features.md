@@ -1,4 +1,4 @@
-# New Platform 2.0 Features
+# New Features
 
 Beyond the core architectural changes, the SiteWhere 2.0 platform introduces
 a number of new features intended to make it easier to use while improving
@@ -36,8 +36,8 @@ in the hostname.
 
 The user interface also now directly supports the mapping of system environment
 variables to override configuration settings. Using this approach, the microservice
-can be configured externally (in the Docker compose file) to pass variables to
-configure SiteWhere components.
+can be configured externally (e.g. via Helm chart) to pass variables to configure
+SiteWhere components.
 
 <InlineImage src="/images/platform/db-variable-substitution.png" caption="Variable Sustitution"/>
 
