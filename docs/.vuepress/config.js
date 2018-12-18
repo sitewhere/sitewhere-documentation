@@ -32,7 +32,7 @@ module.exports = {
         "microservice-overview",
         "twelve-factor"
       ],
-
+      "/guide/devices/": ["sending-data", "android", "kura"],
       "/guide/microservices/": [
         "asset-management",
         "batch-operations",
@@ -54,7 +54,7 @@ module.exports = {
         "user-management",
         "web-rest"
       ],
-      "/guide/": ["", "sending-data", "microservices/"],
+      "/guide/": ["", "devices/", "microservices/"],
       "/deployment/": [""],
       "/development/": [""]
     },
@@ -92,7 +92,29 @@ module.exports = {
             "microservice-overview",
             "twelve-factor"
           ],
-          "/es/guide/": ["", "sending-data", "microservices/"],
+          "/es/guide/devices/": ["sending-data", "android", "kura"],
+          "/es/guide/microservices/": [
+            "asset-management",
+            "batch-operations",
+            "command-delivery",
+            "device-management",
+            "device-registration",
+            "device-state",
+            "event-management",
+            "event-search",
+            "event-sources",
+            "inbound-processing",
+            "instance-management",
+            "label-generation",
+            "outbound-connectors",
+            "rule-processing",
+            "schedule-management",
+            "streaming-media",
+            "tenant-management",
+            "user-management",
+            "web-rest"
+          ],
+          "/es/guide/": ["", "devices/", "microservices/"],
           "/es/deployment/": [""],
           "/es/development/": [""]
         }

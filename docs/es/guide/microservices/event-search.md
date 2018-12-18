@@ -1,0 +1,46 @@
+# Event Search Microservice
+
+The multitenant event search microservice provides an API for searching external data sources
+that contain SiteWhere event information in a non-standard format. For instance, when events
+are indexed into Apache Solr via an outbound connector, there may be a need to query Solr directly
+to do complex faceted queries that can not be generically supported via the SiteWhere APIs. The
+tenant engines for this microservice may be configured to proxy queries to the underlying service
+and return the results to the Web/REST microservice for use by external clients.
+
+## Microservice Dependencies
+
+- **Instance Management** - Required to initially bootstrap Zookeeper data.
+
+## Configuration Schema
+
+[Event Search Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/event-search/current/event-search.xsd)
+
+### Example Configuration
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:sw="http://sitewhere.io/schema/sitewhere/microservice/common"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:es="http://sitewhere.io/schema/sitewhere/microservice/event-search"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+           http://sitewhere.io/schema/sitewhere/microservice/common http://sitewhere.io/schema/sitewhere/microservice/common/current/microservice-common.xsd
+           http://sitewhere.io/schema/sitewhere/microservice/event-search http://sitewhere.io/schema/sitewhere/microservice/event-search/current/event-search.xsd">
+
+	<!-- Allow property placeholder substitution -->
+	<context:property-placeholder />
+
+	<!-- Event Search -->
+	<es:event-search>
+
+		<!-- List of available search providers -->
+		<es:search-providers>
+		</es:search-providers>
+
+	</es:event-search>
+
+</beans>
+```
