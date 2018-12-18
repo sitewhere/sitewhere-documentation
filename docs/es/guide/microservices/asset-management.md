@@ -1,22 +1,23 @@
 # Asset Management Microservice
 
-The multitenant asset management microservice provides the core APIs and data persistence
-for managing assets for each tenant in a SiteWhere instance. The asset model is initially
-populated based on the scripts included in the tenant template used when creating the tenant.
-For instance, the "Construction" template populates assets such as heavy equipment, storage
-trailers, and various types of tracking devices. If using the "Empty" template, no asset
-management data will be populated.
+El microservicio de gestión de activos (_Asset Management_) multitenant proporciona
+las API principales y la persistencia de datos para administrar los activos para cada
+inquilino (_tenant_) en una instancia de SiteWhere. El modelo de activo se rellena
+inicialmente en función de los scripts incluidos en la plantilla del tenant utilizada al crear el tenant.
+Por ejemplo, la plantilla "Construcción" rellena activos como equipos pesados, remolques de almacenamiento
+y varios tipos de dispositivos de rastreo. Si utiliza la plantilla "Vacía", no se completarán
+los datos de administración de activos.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Required by a subset of asset management tasks.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Requerido por un subconjunto de tareas de gestión de activos.
 
-## Configuration Schema
+## Configuración del Esquema
 
 [Asset Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/asset-management/current/asset-management.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
