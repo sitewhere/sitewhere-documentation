@@ -1,19 +1,20 @@
 # User Management Microservice
 
-The global user management microservice provides the core APIs and data persistence used
-to manage system users. It is initially used by the instance management microservice
-to bootstrap the system with base users. Afterward, it is called by the Web/REST
-microservice to allow the list of users to be managed.
+El microservicio de administración de usuarios global proporciona las API principales
+y la persistencia de los datos que se utilizan para administrar usuarios del sistema.
+Inicialmente, el microservicio de administración de instancias lo utiliza para arrancar
+el sistema con usuarios base. Luego, es llamado por el microservicio Web/REST para
+permitir la gestión de la lista de usuarios.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [User Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/user-management/current/user-management.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -1,20 +1,21 @@
 # Schedule Management Microservice
 
-The multitenant schedule management microservice provides the core APIs and data persistence
-for managing schedules for each tenant in a SiteWhere instance. The schedule model is initially
-populated based on the scripts included in the tenant template used when creating the tenant.
-Most tenant templates include a few example schedules. If using the "Empty" template, no schedule
-management data will be populated.
+El microservicio de administración de horarios multitenant proporciona las API principales
+y la persistencia de datos para administrar los cronogramas de cada inquilino en una instancia
+de SiteWhere. El modelo de programación se completa inicialmente en función de los scripts
+incluidos en la plantilla del arrendatario que se utiliza al crear el arrendatario. La mayoría
+de las plantillas de inquilinos incluyen algunos ejemplos de horarios Si se usa la plantilla
+"Vacía", no se completarán los datos de administración de la programación.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Schedule Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/schedule-management/current/schedule-management.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -1,24 +1,26 @@
 # Event Sources Microservice
 
-The multitenant event sources microservice hosts tenant engines that may be configured
-to ingest data from many types of data producers. Some examples include consuming data
-from MQTT topics, CoAP requests, direct TCP/IP socket connections, WebSockets, REST calls
-via push or pull models, and many other potential sources. After events are ingested,
-they are decoded into a standardized data model and pushed to a tenant-specific Kafka
-topic for further processing. Kafka topics are also registered for events that can not
-be parsed or are detected as duplicates by deduplication processing.
+El microservicio de orígenes de eventos multitenant aloja motores de arrendamiento que
+pueden configurarse para ingerir datos de muchos tipos de productores de datos. Algunos
+ejemplos incluyen datos de consumo de topicos de MQTT, peticiones de CoAP, conexiones
+directas de socket TCP/IP, WebSockets, peticiones REST a través de modelos push o pull,
+y muchas otras fuentes potenciales. Después de ingerir los eventos, se descodifican en
+un modelo de datos estandarizado y se envían a un tópico de Kafka específico del
+inquilino para su posterior procesamiento. Los topicos de Kafka también se registran
+para eventos que no se pueden analizar o se detectan como duplicados por el proceso de
+deduplicación.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used for event deduplication and Groovy scripting.
-- **Event Management** - Used for event deduplication and Groovy scripting.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Se utiliza para la deduplicación de eventos y las secuencias de comandos Groovy.
+- **Event Management** - Se utiliza para la deduplicación de eventos y las secuencias de comandos Groovy.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Event Sources Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/event-sources/current/event-sources.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -1,20 +1,21 @@
 # Label Generation Microservice
 
-The multitenant label generation microservice responds to API requests for label resources such
-as QR codes, bar codes, or custom device labels. Each tenant engine has a symbol generation
-manager that may be customized to generate specific types of output unique to the tenant.
+El microservicio de generación de etiquetas multitenant responde a solicitudes de API para
+recursos de etiquetas como códigos QR, códigos de barras o etiquetas personalizadas de dispositivos.
+Cada motor de arrendatario tiene un administrador de generación de símbolos que puede personalizarse
+para generar tipos específicos de salida únicos para el arrendatario.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to load device data used in label processing.
-- **Asset Management** - Used for load asset data used in label processing.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Se utiliza para cargar datos de dispositivos utilizados en el procesamiento de etiquetas.
+- **Asset Management** - Se utiliza para cargar datos de activos utilizados en el procesamiento de etiquetas.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Label Generation Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/label-generation/current/label-generation.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -1,21 +1,23 @@
 # Event Search Microservice
 
-The multitenant event search microservice provides an API for searching external data sources
-that contain SiteWhere event information in a non-standard format. For instance, when events
-are indexed into Apache Solr via an outbound connector, there may be a need to query Solr directly
-to do complex faceted queries that can not be generically supported via the SiteWhere APIs. The
-tenant engines for this microservice may be configured to proxy queries to the underlying service
-and return the results to the Web/REST microservice for use by external clients.
+El microservicio de búsqueda de eventos multitenant proporciona una API para buscar fuentes
+de datos externas que contienen información de eventos de SiteWhere en un formato no estándar.
+Por ejemplo, cuando los eventos se indexan en Apache Solr a través de un conector de salida,
+es posible que sea necesario consultar directamente a Solr para realizar consultas complejas
+que no pueden ser admitidas genéricamente a través de las API de SiteWhere. Los motores de los
+inquilinos para este microservicio pueden configurarse para realizar consultas de proxy al
+servicio subyacente y devolver los resultados al microservicio Web/REST para su uso por
+clientes externos.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Event Search Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/event-search/current/event-search.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

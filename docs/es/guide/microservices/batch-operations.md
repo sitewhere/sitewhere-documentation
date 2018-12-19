@@ -17,7 +17,7 @@ la solicitud de lotes en muchas operaciones más pequeñas para lograr el objeti
 - **Device Management** - Se utiliza para localizar información del dispositivo al resolver elementos de lote.
 - **Device Event Management** - Se utiliza para crear eventos de invocación de comandos para comandos por lotes.
 
-## Configuración del Esquema
+## Esquema de Configuración
 
 [Batch Operations Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/batch-operations/current/batch-operations.xsd)
 

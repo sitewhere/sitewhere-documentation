@@ -1,34 +1,38 @@
 # Tenant Management Microservice
 
-The global tenant management microservice provides the core APIs and data persistence for
-managing system tenants. It is initially used by the instance management microservice
-to bootstrap the system with base tenants. Afterward, it is called by the Web/REST
-microservice to allow the list of system tenants to be managed.
+El microservicio global de administración de inquilinos proporciona las API principales
+y la persistencia de datos para administrar inquilinos del sistema. Inicialmente, el
+microservicio de administración de instancias lo utiliza para iniciar el sistema con
+inquilinos base. Posteriormente, es llamado por el microservicio Web/REST para permitir
+la administración de la lista de inquilinos del sistema.
 
-When a tenant is added/updated/deleted, the tenant data is pushed to a Kafka topic
-so that other interested listeners can act on the update. By default, a listener is
-registered to boostrap newly created tenants by adding the expected tenant configuration
-hierarchy in ZooKeeper. This process includes copying the per-microservice XML configuration
-files from the tenant template into ZooKeeper, then executing the list of initialization
-scripts included with the template. Once this process is complete, the tenant configuration
-is marked as boostrapped so that other microservices can react to the added tenant. For
-instance, the device management microservice will notice that a new tenant has been configured
-and will wait for the bootstrapped indicator, then will load the device-management.xml
-configuration file to initialize a new device management tenant engine for the added tenant.
-Any time that files within a tenant are changed, the changes are broadcast to tenant engines
-running on all other microservices so they can react to the changes. In the previous example,
-if multiple device management microservices are running (scale > 1), each microservice will
-detect the updates and reload the tenant engines to reflect the updates.
+Cuando se agrega/actualiza/elimina un inquilino, los datos del inquilino se envían
+a un tema Kafka para que otros oyentes interesados ​​puedan actuar en la actualización.
+De forma predeterminada, un oyente está registrado para impulsar a los inquilinos recién
+creados al agregar la jerarquía de configuración de inquilinos esperada en ZooKeeper.
+Este proceso incluye copiar los archivos de configuración XML por microservicio de la
+plantilla del arrendatario en ZooKeeper, luego ejecutar la lista de scripts de inicialización
+incluidos con la plantilla. Una vez que se completa este proceso, la configuración del
+arrendatario se marca como reforzada para que otros microservicios puedan reaccionar al
+arrendatario agregado. Por ejemplo, el microservicio de administración de dispositivos
+notará que se ha configurado un nuevo inquilino y esperará el indicador de arranque,
+luego cargará el archivo de configuración device-management.xml para inicializar un nuevo
+motor de inquilino de administración de dispositivos para el inquilino agregado. Cada vez
+que se cambian los archivos dentro de un inquilino, los cambios se transmiten a los motores
+de inquilinos que se ejecutan en todos los demás microservicios para que puedan reaccionar
+a los cambios. En el ejemplo anterior, si se están ejecutando varios microservicios de
+administración de dispositivos (escala> 1), cada microservicio detectará las actualizaciones
+y volverá a cargar los motores de inquilinos para reflejar las actualizaciones.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Tenant Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/tenant-management/current/tenant-management.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

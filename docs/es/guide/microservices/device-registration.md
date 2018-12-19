@@ -1,26 +1,28 @@
 # Device Registration Microservice
 
-The multitenant device registration microservice ingests data from a Kafka topic
-populated by the inbound processing microservice and acts on events where the device token
-indicates a device that is not currently registered in the system. Each tenant engine has
-a device registration manager which may be configured to indicate how unregistered
-devices are to be treated. The device registration manager processes each inbound
-event and can potentially register the device automatically before adding the event
-to a re-processing topic to have it processed by the inbound processing microservice.
+El microservicio de registro de dispositivos multitenant ingiere datos de un tópico de
+Kafka poblado por el microservicio de procesamiento de entrada y actúa en eventos donde
+el token del dispositivo indica un dispositivo que no está registrado actualmente en el
+sistema. Cada motor de arrendatario tiene un administrador de registro de dispositivos
+que puede configurarse para indicar cómo deben tratarse los dispositivos no registrados.
+El administrador de registro del dispositivo procesa cada evento entrante y potencialmente
+puede registrar el dispositivo automáticamente antes de agregar el evento a un tópico
+de reprocesamiento para que sea procesado por el microservicio de procesamiento entrante.
 
-Events that do not result in auto-registration of a device are pushed to a "dead letter"
-topic in Kafka so that they can be tracked or processed out-of-band by external processors.
+Los eventos que no dan como resultado el registro automático de un dispositivo se
+envían a un tópico de "letra muerta" en Kafka para que puedan ser rastreados o procesados
+fuera de banda por procesadores externos.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to locate devices and assignments for registration processing.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Se utiliza para localizar dispositivos y asignaciones para el proceso de registro.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Device Registration Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/device-registration/current/device-registration.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

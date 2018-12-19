@@ -1,23 +1,25 @@
 # Event Management Microservice
 
-The multitenant event management microservice provides the core APIs and data persistence
-for managing device events (locations, measurements, alerts, command invocations, etc) for
-each tenant in a SiteWhere instance. The device event model is initially populated based on
-the scripts included in the tenant template used when creating the tenant. For instance, the
-"Construction" template populates example location, measurement and alert data relevant to
-machines at a construction site. If using the "Empty" template, no event management data
-will be populated.
+El microservicio de gestión de eventos multitenant proporciona las API principales y la
+persistencia de datos para administrar eventos del dispositivo (ubicaciones, medidas,
+alertas, invocaciones de comandos, etc.) para cada inquilino en una instancia de SiteWhere.
+El modelo de evento del dispositivo se rellena inicialmente en función de los scripts
+incluidos en la plantilla de inquilino utilizada al crear el inquilino. Por ejemplo, la
+plantilla "Construcción" rellena el ejemplo de ubicación, medición y datos de alerta
+relevantes para las máquinas en un sitio de construcción. Si se utiliza la plantilla
+"Vacía", no se completarán los datos de gestión de eventos.
 
-## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to look up device assignment information.
+## Dependencias del Microservicio
 
-## Configuration Schema
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Se utiliza para buscar información de asignación de dispositivo.
+
+## Esquema de Configuración
 
 [Event Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/event-management/current/event-management.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

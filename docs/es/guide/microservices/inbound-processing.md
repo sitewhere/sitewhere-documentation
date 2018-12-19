@@ -1,32 +1,33 @@
 # Inbound Processing Microservice
 
-The multitenant inbound processing microservice ingests data that was produced by the
-event sources microservice (after decoding and deduplication has completed). This microservice
-validates the inbound data by interacting with the device management microservice to
-verify that the inbound event relates to a registered device. The inbound payload is enriched
-with device/assignment data so the information may be used by subsequent processing steps
-without the need to look it up again. If the device is not registered, the payload is
-passed to the device registration microservice for additional processing. If the device becomes
-registered as a result, the event is pushed onto a re-processing topic so that it may be
-processed again with the newly registered device.
+El microservicio de procesamiento entrante multitenant ingiere datos que fueron producidos
+por el microservicio de orígenes de eventos (después de que se haya completado la descodificación
+y la deduplicación). Este microservicio valida los datos entrantes al interactuar con el
+microservicio de administración de dispositivos para verificar que el evento entrante se relaciona
+con un dispositivo registrado. La carga útil entrante se enriquece con los datos del
+dispositivo/asignación, por lo que la información se puede usar en los siguientes pasos de
+procesamiento sin la necesidad de buscarla nuevamente. Si el dispositivo no está registrado,
+la carga útil se pasa al microservicio de registro del dispositivo para un procesamiento adicional.
+Si el dispositivo se registra como resultado, el evento se envía a un tema de reprocesamiento para
+que pueda procesarse nuevamente con el dispositivo recién registrado.
 
-Once the inbound event has been enriched, it is forwarded to the event management
-microservice for persistence. The persisted event is eventually (asynchronously) returned
-to inbound processing where it is added to a topic for pre-processed events that may
-in turn be consumed by other microservices such a rule processing and outbound
-connectors.
+Una vez que el evento de entrada se ha enriquecido, se reenvía al microservicio de administración
+de eventos para su persistencia. El evento persistente finalmente se devuelve (asincrónicamente)
+al procesamiento de entrada, donde se agrega a un tema para los eventos preprocesados que, a su vez,
+pueden ser consumidos por otros microservicios, como el procesamiento de reglas y los conectores de
+salida.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to enrich inbound events with device data.
-- **Event Management** - Used for persistence of inbound event payloads.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Se utiliza para enriquecer eventos entrantes con datos del dispositivo.
+- **Event Management** - Se utiliza para la persistencia de las cargas útiles de eventos entrantes.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Inbound Processing Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/inbound-processing/current/inbound-processing.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
