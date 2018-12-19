@@ -1,25 +1,27 @@
 # Batch Operations Microservice
 
-The multitenant batch operations microservice provides the core APIs and data persistence
-for managing batch operations for each tenant in a SiteWhere instance. The batch operations
-model is empty upon tenant initialization, but may be populated by invoking APIs that
-produce batch operations (such as batch command invocations).
+El microservicio de operaciones por lotes multitenant proporciona las API principales
+y la persistencia de datos para administrar las operaciones por lotes para cada inquilino
+en una instancia de SiteWhere. El modelo de operaciones por lotes está vacío en la
+inicialización del arrendatario, pero se puede completar invocando API que producen
+operaciones por lotes (como invocaciones de comandos por lotes).
 
-Each batch operations tenant engine also contains a batch operation manager that may
-be configured to process batch operations that are created via the APIs. The batch operation
-manager will turn the batch request into many smaller operations to achieve the batch goal.
+Cada motor de operaciones por lotes del inquilino también contiene un administrador de
+operaciones por lotes que se puede configurar para procesar las operaciones por lotes
+que se crean a través de las API. El administrador de operaciones de lotes convertirá
+la solicitud de lotes en muchas operaciones más pequeñas para lograr el objetivo de lotes.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to locate device information when resolving batch elements.
-- **Device Event Management** - Used to create command invocation events for batch commands.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Se utiliza para localizar información del dispositivo al resolver elementos de lote.
+- **Device Event Management** - Se utiliza para crear eventos de invocación de comandos para comandos por lotes.
 
-## Configuration Schema
+## Configuración del Esquema
 
 [Batch Operations Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/batch-operations/current/batch-operations.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
