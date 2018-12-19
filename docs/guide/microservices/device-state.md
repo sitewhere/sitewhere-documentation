@@ -54,3 +54,47 @@ trigger actions based on a device becoming present or not present.
 
 </beans>
 ```
+
+## Available APIs
+
+### REST APIs
+
+The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the device
+state microservice.
+
+- [**Device State APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-states) - REST API methods for managing device states.
+
+### gRPC APIs
+
+The device state microservice includes a gRPC server which listens on a dedicated port
+(9000) and offers high performance access to the device state APIs. In the default
+configuration, the port is only accessible to the other microservices. The device state
+ports may be exposed via load balancer by executing the following Helm command:
+
+`helm upgrade -set device_state.service.type=LoadBalancer`
+
+### gRPC Clients
+
+Java stubs are available for accessing the gRPC device state APIs. The stubs
+may be included by using the following:
+
+#### Gradle
+
+```groovy
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-device-state', version: '2.0.1'
+```
+
+#### Maven
+
+```xml
+<dependency>
+    <groupId>com.sitewhere</groupId>
+    <artifactId>sitewhere-grpc-device-state</artifactId>
+    <version>2.0.1</version>
+</dependency>
+```
+
+See the following repository for
+the `proto` definitions if bindings other than Java are needed:
+
+[**https://github.com/sitewhere/sitewhere-grpc-api**](https://github.com/sitewhere/sitewhere-grpc-api)

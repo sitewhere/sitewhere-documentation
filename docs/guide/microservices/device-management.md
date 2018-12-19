@@ -82,13 +82,13 @@ may be included by using the following:
 
 #### Gradle
 
-```
+```groovy
 compile group: 'com.sitewhere', name: 'sitewhere-grpc-device-management', version: '2.0.1'
 ```
 
 #### Maven
 
-```
+```xml
 <dependency>
     <groupId>com.sitewhere</groupId>
     <artifactId>sitewhere-grpc-device-management</artifactId>

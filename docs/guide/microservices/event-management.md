@@ -47,3 +47,50 @@ will be populated.
 
 </beans>
 ```
+
+## Available APIs
+
+### REST APIs
+
+The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the event
+management microservice.
+
+- [**Area APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/areas) - REST API methods for events associated with areas.
+- [**Customer APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customers) - REST API methods for events associated with customers.
+- [**Device Assignment APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assignments) - REST API methods for events associated with device assignments.
+- [**Event APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-events) - REST API methods for managing device events.
+
+### gRPC APIs
+
+The event management microservice includes a gRPC server which listens on a dedicated port
+(9000) and offers high performance access to the event management APIs. In the default
+configuration, the port is only accessible to the other microservices. The event management
+ports may be exposed via load balancer by executing the following Helm command:
+
+`helm upgrade -set event_management.service.type=LoadBalancer`
+
+### gRPC Clients
+
+Java stubs are available for accessing the gRPC event management APIs. The stubs
+may be included by using the following:
+
+#### Gradle
+
+```groovy
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-event-management', version: '2.0.1'
+```
+
+#### Maven
+
+```xml
+<dependency>
+    <groupId>com.sitewhere</groupId>
+    <artifactId>sitewhere-grpc-event-management</artifactId>
+    <version>2.0.1</version>
+</dependency>
+```
+
+See the following repository for
+the `proto` definitions if bindings other than Java are needed:
+
+[**https://github.com/sitewhere/sitewhere-grpc-api**](https://github.com/sitewhere/sitewhere-grpc-api)
