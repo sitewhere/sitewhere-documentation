@@ -33,7 +33,7 @@ some common information as shown below:
 
 ### Sending Device Data Using Profocol Buffer
 
-```gradle
+```groovy
 compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.0-SNAPSHOT'
 ```
 

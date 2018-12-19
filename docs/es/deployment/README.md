@@ -1,4 +1,4 @@
-# Guia de Despliegue de SiteWhere
+# Guía de Despliegue de SiteWhere
 
 Esta guía cubre el proceso de despliegue de SiteWhere 2.0 que ha cambiado
 significativamente del utilizado para SiteWhere 1.x. Mientras que las versiones anteriores

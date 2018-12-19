@@ -1,4 +1,4 @@
-# Guia de Desarrollo de SiteWhere
+# Guía de Desarrollo de SiteWhere
 
 Esta guía proporciona información destinada a desarrolladores interesados
 en la construcción de componentes SiteWhere a partir del código fuente. Proporciona detalles

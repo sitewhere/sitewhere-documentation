@@ -37,7 +37,7 @@ Todos los paquetes JSON comparten información común como se muestra a continua
 To send data to SiteWhere using Protocol Buffers, use the `sitewhere-device-protobuf` library provided by
 the SiteWhere development team. To import it using [Gradle](https://gradle.org) use the instruction.
 
-```gradle
+```groovy
 compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.0'
 ```
 
