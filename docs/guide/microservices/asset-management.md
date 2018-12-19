@@ -65,6 +65,8 @@ ports may be exposed via load balancer by executing the following Helm command:
 
 `helm upgrade -set asset_management.service.type=LoadBalancer`
 
+### gRPC Clients
+
 Java stubs are available for accessing the gRPC asset management APIs. The stubs
 may be included by using the following:
 
