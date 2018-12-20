@@ -157,6 +157,31 @@ Storage Class, use the following command:
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
 
+### Install SiteWhere from SiteWhere Repository
+
+You can also install SiteWhere helm charts from SiteWhere Helm Repository. To do this
+you need to add the [SiteWhere Helm Repository](https://sitewhere.io/helm-charts) to
+your helm client.
+
+```sh
+helm repo add sitewhere https://sitewhere.io/helm-charts
+```
+
+Then you need to update your local helm repository
+
+```sh
+helm repo update
+```
+
+### Install Chart
+
+To install the chart with the release name `sitewhere` execute:
+
+```sh
+helm install --name sitewhere sitewhere/sitewhere
+```
+
+
 ## Monitor SiteWhere Services
 
 Once SiteWhere has been installed, there are many ways of interacting with the system
