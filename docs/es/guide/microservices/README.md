@@ -81,7 +81,7 @@ Vea la [guía](batch-operations.md) para más detalles.
 
 ### Entrega de comandos
 
-El microservicio de entrega de comandos multitenant ingiere datos del tema Kafka que contiene
+El microservicio de entrega de comandos multitenant ingiere datos del tópico Kafka que contiene
 eventos preprocesados ​​y, para invocaciones de comandos, maneja el procesamiento de comandos. Esto incluye
 utilizando restricciones de enrutamiento configuradas y destinos de comando que indican cómo el comando
 se debe codificar, qué transporte se va a utilizar y dónde se debe entregar el comando.
@@ -101,7 +101,7 @@ Consulte la [guía](device-management.md) para obtener más detalles.
 
 ### Estado del dispositivo
 
-El microservicio de estado de dispositivo multitenant ingiere datos del tema Kafka que contiene
+El microservicio de estado de dispositivo multitenant ingiere datos del tópico Kafka que contiene
 pre-procesa eventos y utiliza los datos de eventos para actualizar el estado del dispositivo. El estado del dispositivo
 el modelo conserva la ubicación, las medidas y las alertas más recientes para cada dispositivo como
 así como información sobre cuándo ocurrió la última interacción con el dispositivo.
@@ -110,13 +110,13 @@ Vea la [guía](device-state.md) para más detalles.
 
 ### Registro del dispositivo
 
-El microservicio de registro de dispositivos multitenant ingiere datos de un tema de Kafka
+El microservicio de registro de dispositivos multitenant ingiere datos de un tópico de Kafka
 Rellenado por el microservicio de procesamiento de entrada y actúa en eventos donde el token del dispositivo
 indica un dispositivo que no está registrado actualmente en el sistema. Cada motor inquilino tiene
 un administrador de registro de dispositivos que puede configurarse para indicar cómo no se ha registrado
 Los dispositivos deben ser tratados. El gestor de registro del dispositivo procesa cada entrada.
 evento y potencialmente puede registrar el dispositivo automáticamente antes de agregar el evento
-a un tema de re-procesamiento para que sea procesado por el microservicio de procesamiento de entrada.
+a un tópico de re-procesamiento para que sea procesado por el microservicio de procesamiento de entrada.
 
 Consulte la [guía] (device-registration.md) para obtener más detalles.
 
@@ -150,7 +150,7 @@ Ingerir datos de muchos tipos de productores de datos. Algunos ejemplos incluyen
 desde temas de MQTT, solicitudes de CoAP, conexiones directas de socket TCP / IP, WebSockets, llamadas REST
 A través de modelos push o pull, y muchas otras fuentes potenciales. Después de que los eventos son ingeridos,
 se decodifican en un modelo de datos estandarizado y se envían a un Kafka específico del arrendatario
-Tema para su posterior procesamiento. Los temas de Kafka también están registrados para eventos que no pueden
+tópico para su posterior procesamiento. Los temas de Kafka también están registrados para eventos que no pueden
 se analizarán o se detectarán como duplicados mediante el proceso de deduplicación.
 
 Vea la [guía](event-sources.md) para más detalles.
@@ -161,10 +161,10 @@ El microservicio de procesamiento entrante multitenant ingiere datos producidos 
 microservicio de orígenes de eventos (después de que se haya completado la decodificación y la deduplicación). Este microservicio
 valida los datos entrantes al interactuar con el microservicio de administración de dispositivos para
 verifique que el evento de entrada se relacione con un dispositivo registrado. La carga útil entrante se enriquece.
-con datos de dispositivo / asignación para que la información pueda ser utilizada por pasos de procesamiento posteriores
-Sin la necesidad de buscarlo de nuevo. Si el dispositivo no está registrado, la carga útil es
-Pasado al microservicio de registro del dispositivo para un procesamiento adicional. Si el dispositivo se convierte
-registrado como resultado, el evento se inserta en un tema de re-procesamiento para que pueda ser
+con datos de dispositivo/asignación para que la información pueda ser utilizada por pasos de procesamiento posteriores
+sin la necesidad de buscarlo de nuevo. Si el dispositivo no está registrado, la carga útil es
+pasado al microservicio de registro del dispositivo para un procesamiento adicional. Si el dispositivo se convierte
+registrado como resultado, el evento se inserta en un tópico de re-procesamiento para que pueda ser
 procesado de nuevo con el dispositivo recién registrado.
 
 Vea la [guía](inbound-processing.md) para más detalles.
@@ -179,12 +179,12 @@ Vea la [guía](label-generation.md) para más detalles.
 
 ### Conectores de salida
 
-El microservicio de conectores de salida multitenant ingiere datos del tema Kafka que contiene
+El microservicio de conectores de salida multitenant ingiere datos del tópico Kafka que contiene
 eventos preprocesados ​​y permite que los datos de eventos se envíen a otros puntos de integración
 asíncrono. Cada conector de salida es un consumidor Kafka que tiene su propio puntero hacia
-El tema de eventos, por lo que el sistema no está bloqueado por conectores que ocasionalmente se procesan en
+El tópico de eventos, por lo que el sistema no está bloqueado por conectores que ocasionalmente se procesan en
 Tasas más lentas que el resto del sistema. Los conectores están disponibles para casos de uso común, tales como
-como reenviar eventos a un tema MQTT conocido o eventos de indexación en Apache Solr.
+como reenviar eventos a un tópico MQTT conocido o eventos de indexación en Apache Solr.
 
 Vea la [guía](outbound-connectors.md) para más detalles.
 

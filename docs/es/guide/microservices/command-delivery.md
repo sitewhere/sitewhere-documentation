@@ -1,20 +1,21 @@
 # Command Delivery Microservice
 
-The multitenant command delivery microservice ingests data from the Kafka topic containing
-pre-processed events and, for command invocations, handles command processing. This includes
-using configured routing constraints and command destinations that indicate how the command
-is to be encoded, which transport is to be used, and where the command is to be delivered.
+El microservicio de entrega de comandos multitenant ingiere datos del tópico de Kafka
+que contiene eventos preprocesados y, para las invocaciones de comandos, maneja el
+procesamiento de comandos. Esto incluye el uso de restricciones de enrutamiento configuradas
+y destinos de comandos que indican cómo se codificará el comando, qué transporte se utilizará
+y dónde se entregará el comando
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to locating devices and assignments for command delivery.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Se utiliza para localizar dispositivos y asignaciones para la entrega de comandos.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Command Delivery Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/command-delivery/current/command-delivery.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

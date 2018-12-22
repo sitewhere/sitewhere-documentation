@@ -1,25 +1,27 @@
 # Device State Microservice
 
-The multitenant device state microservice ingests data from the Kafka topic containing
-pre-processed events and uses the event data to update device state. The device state
-model persists the most recent location, measurements, and alerts for each device as
-well as information about when the last interaction with the device occurred.
+El microservicio de estado de dispositivo multitenant ingiere datos del tópico de Kafka
+que contiene eventos preprocesados y utiliza los datos de eventos para actualizar el
+estado del dispositivo. El modelo de estado del dispositivo conserva la ubicación,
+las mediciones y las alertas más recientes para cada dispositivo, así como la información
+sobre cuándo ocurrió la última interacción con el dispositivo.
 
-Each tenant engine has a device presence manager that is responsible for determining
-when devices are no longer present and firing state change events that can be used to
-trigger actions based on a device becoming present or not present.
+Cada motor inquilino tiene un administrador de presencia de dispositivo que es responsable
+de determinar cuándo ya no están presentes los dispositivos y de activar eventos de cambio
+de estado que pueden usarse para desencadenar acciones basadas en la presencia o ausencia
+de un dispositivo.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to locate devices and assignments for state processing.
-- **Event Management** - Used to record device state changes for presence management.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Se utiliza para localizar dispositivos y asignaciones para procesamiento de estado.
+- **Event Management** - Se utiliza para registrar los cambios de estado del dispositivo para la gestión de presencia.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Device State Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/device-state/current/device-state.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

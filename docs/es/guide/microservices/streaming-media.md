@@ -1,17 +1,18 @@
 # Streaming Media Microservice
 
-The multitenant streaming media microservice is intended to allow streaming storage of binary
-data such as audio and video streams. This feature is under development.
+El microservicio de medios de transmisión multitenant está destinado a permitir el
+almacenamiento de datos binarios, como las secuencias de audio y video. Esta característica
+está en desarrollo.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Streaming Media Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/streaming-media/current/streaming-media.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

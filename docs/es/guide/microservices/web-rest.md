@@ -1,38 +1,39 @@
 # Web/REST Microservice
 
-The global Web/REST microservice includes an embedded Tomcat container which
-provides infrastructure for all of the core REST services including Swagger user
-interfaces. This microservice is usually connected to all other microservices in the
-system so that API calls may be delegated to the microservices that implement
-the functionality. For instance, querying for a device via the REST APIs
-results in a gRPC request (potentially cached) to the appropriate
-device management tenant engine on one of the device management microservices.
+El microservicio global Web/REST incluye un contenedor Tomcat incorporado que
+proporciona infraestructura para todos los servicios REST principales, incluidas
+las interfaces de usuario Swagger. Este microservicio suele estar conectado a todos
+los demás microservicios del sistema, de modo que las llamadas a la API pueden delegarse
+a los microservicios que implementan la funcionalidad. Por ejemplo, la consulta de un
+dispositivo a través de las API REST da como resultado una solicitud gRPC (potencialmente
+almacenada en caché) al motor de inquilino de administración de dispositivo apropiado en
+uno de los microservicios de administración de dispositivos.
 
-There may be cases where the microservice required to complete a request is not available.
-In this case, a _ServiceNotAvailable_ exception is thrown and passed back as an error to
-the user/application that made the request. Using this approach, areas of the system may
-be shut down to conserve resources while not affecting the functionality of the system as
-a whole. Callers to the REST services should be prepared to handle cases where the
-subsystem they are calling may be shut down.
+Puede haber casos en que el microservicio requerido para completar una solicitud no esté
+disponible. En este caso, se lanza una excepción de _ServiceNotAvailable_ y se devuelve
+como un error al usuario/aplicación que realizó la solicitud. Usando este enfoque,
+las áreas del sistema pueden cerrarse para conservar recursos sin afectar la funcionalidad
+del sistema en su totalidad. Las personas que llaman a los servicios REST deben estar
+preparadas para manejar los casos en que el subsistema al que están llamando puede cerrarse.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **User Management** - Used for processing REST invocations.
-- **Tenant Management** - Used for processing REST invocations.
-- **Device Management** - Used for processing REST invocations.
-- **Event Management** - Used for processing REST invocations.
-- **Asset Management** - Used for processing REST invocations.
-- **Batch Management** - Used for processing REST invocations.
-- **Schedule Management** - Used for processing REST invocations.
-- **Label Generation** - Used for processing REST invocations.
-- **Device State** - Used for processing REST invocations.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **User Management** - Se utiliza para procesar invocaciones REST.
+- **Tenant Management** - Se utiliza para procesar invocaciones REST.
+- **Device Management** - Se utiliza para procesar invocaciones REST.
+- **Event Management** - Se utiliza para procesar invocaciones REST.
+- **Asset Management** - Se utiliza para procesar invocaciones REST.
+- **Batch Management** - Se utiliza para procesar invocaciones REST.
+- **Schedule Management** - Se utiliza para procesar invocaciones REST.
+- **Label Generation** - Se utiliza para procesar invocaciones REST.
+- **Device State** - Se utiliza para procesar invocaciones REST.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Web/REST Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/web-rest/current/web-rest.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

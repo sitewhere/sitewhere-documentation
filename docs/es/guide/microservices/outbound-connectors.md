@@ -1,23 +1,24 @@
 # Outbound Connectors Microservice
 
-The multitenant outbound connectors microservice ingests data from the Kafka topic containing
-pre-processed events and allows the event data to be forwarded to other integration points
-asynchronously. Each outbound connector is a Kafka consumer that has its own pointer into
-the events topic, so the system is not blocked by connectors that occasionally process at
-slower rates than the rest of the system. Connectors are available for common use cases such
-as forwarding events to a well-known MQTT topic or indexing events in Apache Solr.
+El microservicio de conectores de salida multitenant ingiere datos del tópico Kafka que
+contienen eventos preprocesados y permite que los datos de eventos se envíen a otros puntos
+de integración de forma asíncrona. Cada conector de salida es un consumidor de Kafka que
+tiene su propio puntero en el tópico de eventos, por lo que el sistema no está bloqueado por
+conectores que ocasionalmente se procesan a velocidades más lentas que el resto del sistema.
+Los conectores están disponibles para casos de uso común, como reenviar eventos a un tópico
+MQTT conocido o eventos de indexación en Apache Solr.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Provided as API for outbound connectors to use.
-- **Event Management** - Provided as API for outbound connectors to use.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Device Management** - Proporcionado como API para que los conectores salientes utilicen.
+- **Event Management** - Proporcionado como API para que los conectores salientes utilicen.
 
-## Configuration Schema
+## Esquema de Configuración
 
 [Outbound Connectors Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/outbound-connectors/current/outbound-connectors.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

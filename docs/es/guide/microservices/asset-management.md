@@ -13,7 +13,7 @@ los datos de administración de activos.
 - **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
 - **Device Management** - Requerido por un subconjunto de tareas de gestión de activos.
 
-## Configuración del Esquema
+## Esquema de Configuración
 
 [Asset Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/asset-management/current/asset-management.xsd)
 

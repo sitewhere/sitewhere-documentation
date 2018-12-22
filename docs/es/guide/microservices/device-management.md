@@ -1,23 +1,24 @@
 # Device Management Microservice
 
-The multitenant device management microservice provides the core APIs and data persistence
-for managing the device model (customers, areas, device types, devices, etc.) for each tenant
-in a SiteWhere instance. The device model is initially populated based on the scripts included
-in the tenant template used when creating the tenant. For instance, the "Construction" template
-will populate the data model with devices appropriate for a construction site. If using the
-"Empty" template, no device management data will be populated.
+El microservicio de administración de dispositivos multitenant proporciona las API principales
+y la persistencia de datos para administrar el modelo de dispositivo (clientes, áreas, tipos de
+dispositivos, dispositivos, etc.) para cada inquilino en una instancia de SiteWhere. El modelo
+de dispositivo se rellena inicialmente en función de los scripts incluidos en la plantilla de
+inquilino utilizada al crear el inquilino. Por ejemplo, la plantilla "Construcción" llenará el
+modelo de datos con dispositivos apropiados para un sitio de construcción. Si utiliza la plantilla
+"Vacía", no se completarán los datos de administración del dispositivo.
 
-## Microservice Dependencies
+## Dependencias del Microservicio
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Event Management** - Used to create state change events on assignment updates.
-- **Asset Management** - Used to resolve asset associations for device assignments.
+- **Instance Management** - Requerido para arrancar inicialmente los datos de Zookeeper.
+- **Event Management** - Se utiliza para crear eventos de cambio de estado en las actualizaciones de asignación.
+- **Asset Management** - Se utiliza para resolver asociaciones de activos para asignaciones de dispositivos.
 
 ## Configuration Schema
 
 [Device Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/device-management/current/device-management.xsd)
 
-### Example Configuration
+### Configuración de Ejemplo
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -61,62 +61,88 @@ configuración/recursos asociados para un inquilino no afecte el ciclo de vida d
 
 **"Estricta separación de las fases de contrucción y ejecución"**
 
-::: warning ADVERTENCIA
-Este documento todavía es un trabajo en progreso
-:::
+En la fase de **construcción**, los scripts de compilación de Gradle incluidos se utilizan para
+compilar y generar bibliotecas para los módulos. Una vez que el código para un lanzamiento se
+considera completo, los scripts de Gradle se pueden usar para **liberar** el código envolviendo las
+imágenes de Docker alrededor de los artefactos y empujando las imágenes resultantes en Docker Hub.
+Independientemente de las fases de compilación y lanzamiento, Kubernetes y Helm se utilizan para
+ejecutar los microservicios mediante la organización de un sistema distribuido a partir de las
+imágenes publicadas.
 
 ## VI. Procesos
 
 **"Execute the app as one or more stateless processes"**
 
-::: warning ADVERTENCIA
-Este documento todavía es un trabajo en progreso
-:::
+Los microservicios de SiteWhere son completamente sin estado, ya que no almacenan ningún dato localmente,
+excepto en casos de almacenamiento en caché a corto plazo. Cualquier dato persistente se almacena fuera
+del microservicio en los servicios de persistencia y solo se accede a través de las API que eliminan las
+dependencias directas del mecanismo de almacenamiento. Toda la configuración del sistema se almacena en
+Zookeeper, que proporciona redundancia y alta disponibilidad. Los datos de configuración son extraídos
+por el microservicio cuando se inician y se envían al microservicio si se actualizan externamente.
 
 ## VII. Enlace de puerto
 
 **"Exporta servicios via Enlace de Puerto"**
 
-::: warning ADVERTENCIA
-Este documento todavía es un trabajo en progreso
-:::
+Todos los servicios que requieren acceso a través de un puerto expuesto lo hacen aprovechando
+los servicios de enlace de puertos de Kubernetes. Por ejemplo, el microservicio Web/REST utiliza
+un contenedor Tomcat incorporado para servir los servicios REST y la interfaz Swagger.
+El enlace del puerto es manejado por Helm/Kubernetes y se pasa al microservicio subyacente a
+través de variables de entorno. En los casos en que los servicios de infraestructura deben estar
+disponibles en puertos conocidos, Helm chart implementa tanto el servicio de infraestructura como
+la configuración de los microservicios que dependen de él para que el sistema pueda autoensamblarse.
 
 ## VIII. Concurrencia
 
 **"Escala via el modelo de procesos"**
 
-::: warning ADVERTENCIA
-Este documento todavía es un trabajo en progreso
-:::
+Los microservicios de SiteWhere se distribuyen como imágenes de Docker, cada una de las cuales se
+ejecuta dentro de su propio proceso y no tiene estado y se puede escalar a múltiples instancias
+concurrentes. Usando Kubernetes/Helm, la cantidad de instancias de microservicios puede ampliarse
+indefinidamente suponiendo que el cluster subyacente tiene recursos disponibles. A medida que se
+agregan y eliminan instancias de microservicios, la administración de conectividad subyacente
+multiplexa las operaciones de datos en todas las instancias disponibles para asegurar que el sistema
+se adapte a las actualizaciones.
 
 ## IX. Desechable
 
 **"Maximice la robustez con un inicio rápido y un apagado correcto"**
 
-::: warning ADVERTENCIA
-Este documento todavía es un trabajo en progreso
-:::
+Los microservicios centrales están diseñados para comenzar rápidamente y morir con gracia.
+El tiempo de inicio para un solo microservicio es generalmente de unos segundos y depende de
+varios factores, como la conexión a los recursos necesarios. En general, las tareas de larga
+ejecución se ejecutan en segundo plano como subprocesos separados para permitir que los servicios
+se consideren en vivo lo antes posible. Cuando se apaga, todas las conexiones externas y los
+recursos administrados se liberan en el orden correcto para asegurarse de que todo se cierre
+de forma limpia.
 
 ## X. Paridad Dev/prod
 
 **"Mantenga el desarrollo, staging y producción lo más similar posible"**
 
-::: warning ADVERTENCIA
-Este documento todavía es un trabajo en progreso
-:::
+En general, debería haber poca o ninguna diferencia entre las implementaciones
+locales y las implementaciones de producción en términos de configuración del sistema.
+SiteWhere aprovecha a Kubernetes y Helm para hacer que la infraestructura y la
+configuración de la implementación sean lo más sencillas posible, a la vez que siguen
+siendo flexibles. Tecnologías como [Rook.io](https://rook.io/) permiten que las instalaciones
+locales utilicen las mismas tecnologías que las implementaciones de gran producción.
 
 ## XI. Logs
 
 **"Tratar registros como secuencias de eventos"**
 
-::: warning ADVERTENCIA
-Este documento todavía es un trabajo en progreso
-:::
+Los microservicios de SiteWhere utilizan marcos de registro de Java básicos,
+que escriben la salida en la salida estándar y en las secuencias de errores.
+Las transmisiones son administradas automáticamente por Docker/Kubernetes y pueden
+tener acceso a través de esas API. Además, la salida del registro está disponible
+en un tópico de Apache Kafka para clientes externos que deseen procesar
+la información de registro en tiempo real.
 
 ## XII. Procesos Administrativos
 
 **"Ejecute tareas de administración/administración como procesos únicos"**
 
-::: warning ADVERTENCIA
-Este documento todavía es un trabajo en progreso
-:::
+La mayoría de las tareas administrativas para una instancia de SiteWhere
+están cubiertas por los propios componentes de la infraestructura o pueden
+ejecutarse desde microservicios externos que se ejecutan dentro del mismo
+entorno que la instancia.
