@@ -122,7 +122,7 @@ module.exports = {
     },
     repo: "sitewhere/sitewhere-documentation",
     docsDir: "docs",
-    docsBranch: "master",
+    docsBranch: "sitewhere-" + pkginfo.version,
     editLinks: true,
     editLinkText: "Help us improve this page!"
   },
