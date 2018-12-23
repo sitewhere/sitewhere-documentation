@@ -7,16 +7,18 @@ database and connector configurations.
 
 ## Microservice Dependencies
 
-- **User Management** - Required in order to bootstrap default system users based on the
+- **[User Management](./user-management.md)** - Required in order to bootstrap default system users based on the
   chosen instance template.
-- **Tenant Management** - Required in order to bootstrap default system tenants based on
+- **[Tenant Management](./tenant-management.md)** - Required in order to bootstrap default system tenants based on
   the chosen instance template.
 
-## Configuration Schema
+## Configuration
+
+### Configuration Schema
 
 [Instance Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/instance-management/current/instance-management.xsd)
 
-### Example Configuration
+#### Example Configuration
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -70,14 +72,16 @@ database and connector configurations.
 </beans>
 ```
 
-## Zookeeper Bootstrapping
+## Runtime Behavior
+
+### Zookeeper Bootstrapping
 
 The instance management microservice is responsible for connecting to Zookeeper and
 creating the base tree where all other configuration data for the instance is stored.
 For more information about connectivity to Zookeeper and how the base of the configuration
 tree is populated, see the [Apache Zookeper configuration guide](../zookeeper-configuration.md).
 
-## Instance Templates
+### Instance Templates
 
 An _instance template_ is used to specify the scripts that will be executed to populate the
 default users and tenants for the instance. A list of instance templates is packaged as part
@@ -96,18 +100,18 @@ template's scripts. Below is an example of the JSON descriptor:
 }
 ```
 
-### Adding a Custom Instance Template
+#### Adding a Custom Instance Template
 
 Additional instance templates may be added by mounting them into the filesystem of the
 instance management Docker image under the templates folder.
 
-### Changing the Instance Template
+#### Changing the Instance Template
 
 The following environment variable is used to indicate which template
 will be used for initialization:
 
 | Setting              | Environment Variable           | Default Value |
-| -------------------- | ------------------------------ | ------------- |
+| :------------------- | :----------------------------- | :------------ |
 | Instance Template Id | sitewhere.instance.template.id | default       |
 
 ::: tip
@@ -116,7 +120,7 @@ The `default` template that is packaged in the Docker image loads the default `a
 the `mongo` tenant template and `construction` dataset.
 :::
 
-### Instance Data Boostrapping
+#### Instance Data Boostrapping
 
 If no `bootstrapped` marker is found in the `state` subfolder of Zookeeper for
 the instance, the instance management microservice will attempt to use the instance

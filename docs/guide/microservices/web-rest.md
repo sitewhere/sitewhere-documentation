@@ -17,22 +17,24 @@ subsystem they are calling may be shut down.
 
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **User Management** - Used for processing REST invocations.
-- **Tenant Management** - Used for processing REST invocations.
-- **Device Management** - Used for processing REST invocations.
-- **Event Management** - Used for processing REST invocations.
-- **Asset Management** - Used for processing REST invocations.
-- **Batch Management** - Used for processing REST invocations.
-- **Schedule Management** - Used for processing REST invocations.
-- **Label Generation** - Used for processing REST invocations.
-- **Device State** - Used for processing REST invocations.
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+- **[User Management](./user-management.md)** - Used for processing REST invocations.
+- **[Tenant Management](./tenant-management.md)** - Used for processing REST invocations.
+- **[Device Management](./device-management.md)** - Used for processing REST invocations.
+- **[Event Management](./event-management.md)** - Used for processing REST invocations.
+- **[Asset Management](./asset-management.md)** - Used for processing REST invocations.
+- **[Batch Operations](./batch-operations.md)** - Used for processing REST invocations.
+- **[Schedule Management](./schedule-management.md)** - Used for processing REST invocations.
+- **[Label Generation](./label-generation.md)** - Used for processing REST invocations.
+- **[Device State](./device-state.md)** - Used for processing REST invocations.
 
-## Configuration Schema
+## Configuration
+
+### Configuration Schema
 
 [Web/REST Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/web-rest/current/web-rest.xsd)
 
-### Example Configuration
+#### Example Configuration
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

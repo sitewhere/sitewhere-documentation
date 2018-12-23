@@ -10,15 +10,17 @@ be parsed or are detected as duplicates by deduplication processing.
 
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used for event deduplication and Groovy scripting.
-- **Event Management** - Used for event deduplication and Groovy scripting.
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+- **[Device Management](./device-management.md)** - Used for event deduplication and Groovy scripting.
+- **[Event Management](./event-management.md)** - Used for event deduplication and Groovy scripting.
 
-## Configuration Schema
+## Configuration
+
+### Configuration Schema
 
 [Event Sources Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/event-sources/current/event-sources.xsd)
 
-### Example Configuration
+#### Example Configuration
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -7,14 +7,16 @@ is to be encoded, which transport is to be used, and where the command is to be 
 
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to locating devices and assignments for command delivery.
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+- **[Device Management](./device-management.md)** - Used to locating devices and assignments for command delivery.
 
-## Configuration Schema
+## Configuration
+
+### Configuration Schema
 
 [Command Delivery Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/command-delivery/current/command-delivery.xsd)
 
-### Example Configuration
+#### Example Configuration
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

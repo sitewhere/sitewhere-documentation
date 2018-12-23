@@ -18,15 +18,17 @@ connectors.
 
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to enrich inbound events with device data.
-- **Event Management** - Used for persistence of inbound event payloads.
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+- **[Device Management](./device-management.md)** - Used to enrich inbound events with device data.
+- **[Event Management](event-management.md)** - Used for persistence of inbound event payloads.
 
-## Configuration Schema
+## Configuration
+
+### Configuration Schema
 
 [Inbound Processing Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/inbound-processing/current/inbound-processing.xsd)
 
-### Example Configuration
+#### Example Configuration
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

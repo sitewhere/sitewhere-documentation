@@ -9,15 +9,17 @@ as forwarding events to a well-known MQTT topic or indexing events in Apache Sol
 
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Provided as API for outbound connectors to use.
-- **Event Management** - Provided as API for outbound connectors to use.
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+- **[Device Management](./device-management.md)** - Provided as API for outbound connectors to use.
+- **[Event Management](./event-management.md)** - Provided as API for outbound connectors to use.
 
-## Configuration Schema
+## Configuration
+
+### Configuration Schema
 
 [Outbound Connectors Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/outbound-connectors/current/outbound-connectors.xsd)
 
-### Example Configuration
+#### Example Configuration
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

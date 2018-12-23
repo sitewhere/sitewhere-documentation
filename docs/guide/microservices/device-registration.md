@@ -13,14 +13,16 @@ topic in Kafka so that they can be tracked or processed out-of-band by external 
 
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to locate devices and assignments for registration processing.
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+- **[Device Management](./device-management.md)** - Used to locate devices and assignments for registration processing.
 
-## Configuration Schema
+## Configuration
+
+### Configuration Schema
 
 [Device Registration Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/device-registration/current/device-registration.xsd)
 
-### Example Configuration
+#### Example Configuration
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

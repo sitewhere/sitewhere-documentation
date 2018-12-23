@@ -11,49 +11,9 @@ trigger actions based on a device becoming present or not present.
 
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to locate devices and assignments for state processing.
-- **Event Management** - Used to record device state changes for presence management.
-
-## Configuration Schema
-
-[Device State Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/device-state/current/device-state.xsd)
-
-### Example Configuration
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:sw="http://sitewhere.io/schema/sitewhere/microservice/common"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:ds="http://sitewhere.io/schema/sitewhere/microservice/device-state"
-	xmlns:data="http://sitewhere.io/schema/sitewhere/microservice/common/datastore"
-	xsi:schemaLocation="
-           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-           http://sitewhere.io/schema/sitewhere/microservice/common http://sitewhere.io/schema/sitewhere/microservice/common/current/microservice-common.xsd
-           http://sitewhere.io/schema/sitewhere/microservice/common/datastore http://sitewhere.io/schema/sitewhere/microservice/common/current/datastore-common.xsd
-           http://sitewhere.io/schema/sitewhere/microservice/device-state http://sitewhere.io/schema/sitewhere/microservice/device-state/current/device-state.xsd">
-
-	<!-- Allow property placeholder substitution -->
-	<context:property-placeholder />
-
-	<ds:device-state>
-
-		<!-- Use global MongoDB tenant configuration -->
-		<data:device-state-datastore>
-			<data:mongodb-datastore-reference
-				id="tenant" />
-		</data:device-state-datastore>
-
-		<!-- Configure presence manager -->
-		<ds:presence-manager checkInterval="10m" presenceMissingInterval="8h"/>
-
-	</ds:device-state>
-
-</beans>
-```
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+- **[Device Management](./device-management.md)** - Used to locate devices and assignments for state processing.
+- **[Event Management](event-management.md)** - Used to record device state changes for presence management.
 
 ## Available APIs
 
@@ -98,3 +58,45 @@ See the following repository for
 the `proto` definitions if bindings other than Java are needed:
 
 [**https://github.com/sitewhere/sitewhere-grpc-api**](https://github.com/sitewhere/sitewhere-grpc-api)
+
+## Configuration
+
+### Configuration Schema
+
+[Device State Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/device-state/current/device-state.xsd)
+
+#### Example Configuration
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:sw="http://sitewhere.io/schema/sitewhere/microservice/common"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:ds="http://sitewhere.io/schema/sitewhere/microservice/device-state"
+	xmlns:data="http://sitewhere.io/schema/sitewhere/microservice/common/datastore"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+           http://sitewhere.io/schema/sitewhere/microservice/common http://sitewhere.io/schema/sitewhere/microservice/common/current/microservice-common.xsd
+           http://sitewhere.io/schema/sitewhere/microservice/common/datastore http://sitewhere.io/schema/sitewhere/microservice/common/current/datastore-common.xsd
+           http://sitewhere.io/schema/sitewhere/microservice/device-state http://sitewhere.io/schema/sitewhere/microservice/device-state/current/device-state.xsd">
+
+	<!-- Allow property placeholder substitution -->
+	<context:property-placeholder />
+
+	<ds:device-state>
+
+		<!-- Use global MongoDB tenant configuration -->
+		<data:device-state-datastore>
+			<data:mongodb-datastore-reference
+				id="tenant" />
+		</data:device-state-datastore>
+
+		<!-- Configure presence manager -->
+		<ds:presence-manager checkInterval="10m" presenceMissingInterval="8h"/>
+
+	</ds:device-state>
+
+</beans>
+```

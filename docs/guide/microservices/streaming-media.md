@@ -3,15 +3,21 @@
 The multitenant streaming media microservice is intended to allow streaming storage of binary
 data such as audio and video streams. This feature is under development.
 
+::: warning
+This microservice is not fully implemented in SiteWhere 2.0
+:::
+
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
 
-## Configuration Schema
+## Configuration
+
+### Configuration Schema
 
 [Streaming Media Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/streaming-media/current/streaming-media.xsd)
 
-### Example Configuration
+#### Example Configuration
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -32,7 +38,3 @@ data such as audio and video streams. This feature is under development.
 
 </beans>
 ```
-
-::: warning
-This microservice is not fully implemented in SiteWhere 2.0
-:::

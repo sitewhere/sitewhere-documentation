@@ -11,47 +11,9 @@ manager will turn the batch request into many smaller operations to achieve the 
 
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
-- **Device Management** - Used to locate device information when resolving batch elements.
-- **Device Event Management** - Used to create command invocation events for batch commands.
-
-## Configuration Schema
-
-[Batch Operations Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/batch-operations/current/batch-operations.xsd)
-
-### Example Configuration
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:ds="http://sitewhere.io/schema/sitewhere/microservice/common/datastore"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:bop="http://sitewhere.io/schema/sitewhere/microservice/batch-operations"
-	xsi:schemaLocation="
-           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-           http://sitewhere.io/schema/sitewhere/microservice/common/datastore http://sitewhere.io/schema/sitewhere/microservice/common/current/datastore-common.xsd
-           http://sitewhere.io/schema/sitewhere/microservice/batch-operations http://sitewhere.io/schema/sitewhere/microservice/batch-operations/current/batch-operations.xsd">
-
-	<!-- Allow property placeholder substitution -->
-	<context:property-placeholder />
-
-	<!-- Batch Operations -->
-	<bop:batch-operations>
-
-		<!-- Use global MongoDB tenant configuration -->
-		<ds:device-management-datastore>
-			<ds:mongodb-datastore-reference id="tenant" />
-		</ds:device-management-datastore>
-
-		<!-- Batch operation manager configuration -->
-		<bop:batch-operation-manager
-			throttleDelayMs="100" />
-
-	</bop:batch-operations>
-
-</beans>
-```
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+- **[Device Management](./device-management.md)** - Used to locate device information when resolving batch elements.
+- **[Event Management](./event-management.md)** - Used to create command invocation events for batch commands.
 
 ## Available APIs
 
@@ -96,3 +58,43 @@ See the following repository for
 the `proto` definitions if bindings other than Java are needed:
 
 [**https://github.com/sitewhere/sitewhere-grpc-api**](https://github.com/sitewhere/sitewhere-grpc-api)
+
+## Configuration
+
+### Configuration Schema
+
+[Batch Operations Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/batch-operations/current/batch-operations.xsd)
+
+#### Example Configuration
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:ds="http://sitewhere.io/schema/sitewhere/microservice/common/datastore"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:bop="http://sitewhere.io/schema/sitewhere/microservice/batch-operations"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+           http://sitewhere.io/schema/sitewhere/microservice/common/datastore http://sitewhere.io/schema/sitewhere/microservice/common/current/datastore-common.xsd
+           http://sitewhere.io/schema/sitewhere/microservice/batch-operations http://sitewhere.io/schema/sitewhere/microservice/batch-operations/current/batch-operations.xsd">
+
+	<!-- Allow property placeholder substitution -->
+	<context:property-placeholder />
+
+	<!-- Batch Operations -->
+	<bop:batch-operations>
+
+		<!-- Use global MongoDB tenant configuration -->
+		<ds:device-management-datastore>
+			<ds:mongodb-datastore-reference id="tenant" />
+		</ds:device-management-datastore>
+
+		<!-- Batch operation manager configuration -->
+		<bop:batch-operation-manager
+			throttleDelayMs="100" />
+
+	</bop:batch-operations>
+
+</beans>
+```

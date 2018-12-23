@@ -9,13 +9,15 @@ and return the results to the Web/REST microservice for use by external clients.
 
 ## Microservice Dependencies
 
-- **Instance Management** - Required to initially bootstrap Zookeeper data.
+- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
 
-## Configuration Schema
+## Configuration
+
+### Configuration Schema
 
 [Event Search Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/event-search/current/event-search.xsd)
 
-### Example Configuration
+#### Example Configuration
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
