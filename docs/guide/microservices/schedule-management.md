@@ -43,3 +43,47 @@ management data will be populated.
 
 </beans>
 ```
+
+## Available APIs
+
+### REST APIs
+
+The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the schedule
+management microservice.
+
+- [**Schedule APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/schedules) - REST API methods for managing schedules.
+
+### gRPC APIs
+
+The schedule management microservice includes a gRPC server which listens on a dedicated port
+(9000) and offers high performance access to the schedule management APIs. In the default
+configuration, the port is only accessible to the other microservices. The schedule management
+ports may be exposed via load balancer by executing the following Helm command:
+
+`helm upgrade -set schedule_management.service.type=LoadBalancer`
+
+### gRPC Clients
+
+Java stubs are available for accessing the gRPC schedule management APIs. The stubs
+may be included by using the following:
+
+#### Gradle
+
+```groovy
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-schedule-management', version: '2.0.1'
+```
+
+#### Maven
+
+```xml
+<dependency>
+    <groupId>com.sitewhere</groupId>
+    <artifactId>sitewhere-grpc-schedule-management</artifactId>
+    <version>2.0.1</version>
+</dependency>
+```
+
+See the following repository for
+the `proto` definitions if bindings other than Java are needed:
+
+[**https://github.com/sitewhere/sitewhere-grpc-api**](https://github.com/sitewhere/sitewhere-grpc-api)

@@ -39,3 +39,47 @@ microservice to allow the list of users to be managed.
 
 </beans>
 ```
+
+## Available APIs
+
+### REST APIs
+
+The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the user
+management microservice.
+
+- [**User APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/users) - REST API methods for managing users.
+
+### gRPC APIs
+
+The user management microservice includes a gRPC server which listens on a dedicated port
+(9000) and offers high performance access to the user management APIs. In the default
+configuration, the port is only accessible to the other microservices. The user management
+ports may be exposed via load balancer by executing the following Helm command:
+
+`helm upgrade -set user_management.service.type=LoadBalancer`
+
+### gRPC Clients
+
+Java stubs are available for accessing the gRPC user management APIs. The stubs
+may be included by using the following:
+
+#### Gradle
+
+```groovy
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-user-management', version: '2.0.1'
+```
+
+#### Maven
+
+```xml
+<dependency>
+    <groupId>com.sitewhere</groupId>
+    <artifactId>sitewhere-grpc-user-management</artifactId>
+    <version>2.0.1</version>
+</dependency>
+```
+
+See the following repository for
+the `proto` definitions if bindings other than Java are needed:
+
+[**https://github.com/sitewhere/sitewhere-grpc-api**](https://github.com/sitewhere/sitewhere-grpc-api)
