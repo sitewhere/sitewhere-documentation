@@ -100,10 +100,79 @@ the `proto` definitions if bindings other than Java are needed:
 </beans>
 ```
 
+## Kafka Topics
+
+The following Kafka topics are used to interact with the event processing pipeline.
+For multitenant microservices, topic names are specific to the tenant whose data
+they contain and have a standardized format as shown below:
+
+<MicroserviceBadge text="Product Id" type="multitenant"/>. <MicroserviceBadge text="Instance Id" type="multitenant"/>. tenant . <MicroserviceBadge text="Tenant UUID" type="multitenant"/>. <MicroserviceBadge text="Topic Name" type="multitenant"/>
+
+For example, a valid topic name might be:
+
+_sitewhere.sitewhere1.tenant.53daebb2-8b54-4031-a4b9-29e3fc04b4be.event-source-decoded-events_
+
+| Topic Name                   | Relation | Content                                                       |
+| :--------------------------- | :------- | :------------------------------------------------------------ |
+| unprocessed-batch-operations | Producer | Batch operations which have been persisted but not processed. |
+| unprocessed-batch-elements   | Producer | Batch elements which have been persisted but not processed.   |
+| failed-batch-elements        | Producer | Batch elements which failed processing.                       |
+| unprocessed-batch-operations | Consumer | Batch operations which have been persisted but not processed. |
+| unprocessed-batch-elements   | Consumer | Batch elements which have been persisted but not processed.   |
+
 ## Runtime Behavior
 
 ### Batch Operation Manager
 
-Each batch operations tenant engine contains a batch operation manager that may
-be configured to process batch operations that are created via the APIs. The batch operation
-manager will turn the batch request into many smaller operations to achieve the batch goal.
+Each batch operations tenant engine contains a batch operations manager which processes
+operations that are created via the batch management APIs. If multiple instances of the
+batch operations microservice are running, the batch processing load will be distributed
+amongst them.
+
+#### Creation of Batch Operations
+
+The batch operations manager for each tenant acts as both a producer and consumer of batch
+operations. When a batch operation is persisted via the batch management APIs, the basic
+operation information is stored, then the operation is pushed onto the unprocessed operations
+topic along with the list of device tokens the operation targets. At this point, the status
+of the batch operation is `Unprocessed`. The unprocessed batch operations topic is keyed
+with the batch operation id so that operations are always processed by the same consumer.
+This prevents race conditions where two batch operation tenant engines for the same tenant
+attempt to process the same batch operation concurrently.
+
+#### Initialization of Batch Operations
+
+The batch operations manager has a consumer for unprocessed operations which takes the
+operation information and the list of device tokens is applies to, then creates batch
+elements for each of the device tokens. The status of the batch operation is first updated
+to `Initializing`, then batch elements are persisted with a status of `Unprocessed` and
+pushed onto the unprocessed batch elements topic. Depending on throttling settings in
+the batch operations manager, a delay may be introduced in the creation of batch elements
+to prevent overloading the database with a large number of elements in a short period of
+time. If all of the batch elements are created and pushed successfully, the batch operation
+status is updated to `InitializedSuccessfully`. Otherwise, the operation status is updated
+to `InitializedWithErrors`.
+
+#### Processing of Batch Elements
+
+The batch operations manager has a consumer for unprocessed batch elements, which takes
+the individual elements for a batch operation and processes them. Note that the batch elements
+are keyed by device token, so elements for a given device will always be processed by the
+same batch operations manager. The batch element is first updated with a status of
+`Processing`, then the processing is handed off to a batch operation handler based on
+the `operationType` field on the parent operation. For instance, a handler is registered
+for processing batch command invocations and is triggered if the operation type is
+`BatchCommandInvocation`. The batch operation manager is designed to support many batch
+operation types, but currently only handles batch command invocations.
+
+#### Processing of Batch Command Invocations
+
+If the `operationType` of the batch operation is `BatchCommandInvocation`, the operation is
+treated as a batch command invocation, which results in a command invocation event being
+generated for each of the batch elements. Based on metadata stored with the parent operation,
+both the targeted device and the command to be invoked are looked up via the
+[device management](./device-management.md) APIs. After verifying that a device exists
+for the token and that it has an active assignment, a new device command invocation event
+is created via the [event management](./event-management.md) APIs. The created command invocation
+will be picked up by the [inbound processing](./inbound-processing.md) service and forwarded
+to the [command delivery](./command-delivery.md) service for delivery to the device.
