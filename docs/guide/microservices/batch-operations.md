@@ -1,19 +1,18 @@
 # Batch Operations Microservice
 
-The multitenant batch operations microservice provides the core APIs and data persistence
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The batch operations microservice provides the core APIs and data persistence
 for managing batch operations for each tenant in a SiteWhere instance. The batch operations
 model is empty upon tenant initialization, but may be populated by invoking APIs that
 produce batch operations (such as batch command invocations).
 
-Each batch operations tenant engine also contains a batch operation manager that may
-be configured to process batch operations that are created via the APIs. The batch operation
-manager will turn the batch request into many smaller operations to achieve the batch goal.
-
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Used to locate device information when resolving batch elements.
-- **[Event Management](./event-management.md)** - Used to create command invocation events for batch commands.
+| Microservice                                        | Dependency                                                       |
+| :-------------------------------------------------- | :--------------------------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.                  |
+| **[Device Management](./device-management.md)**     | Used to locate device information when resolving batch elements. |
+| **[Event Management](./event-management.md)**       | Used to create command invocation events for batch commands.     |
 
 ## Available APIs
 
@@ -22,7 +21,9 @@ manager will turn the batch request into many smaller operations to achieve the 
 The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the batch
 operations microservice.
 
-- [**Batch Operation APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/batch-operations) - REST API methods for managing batch operations.
+| API                                                                                   | Description                                     |
+| :------------------------------------------------------------------------------------ | :---------------------------------------------- |
+| [**Batch Operation APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/batch-operations) | REST API methods for managing batch operations. |
 
 ### gRPC APIs
 
@@ -98,3 +99,11 @@ the `proto` definitions if bindings other than Java are needed:
 
 </beans>
 ```
+
+## Runtime Behavior
+
+### Batch Operation Manager
+
+Each batch operations tenant engine contains a batch operation manager that may
+be configured to process batch operations that are created via the APIs. The batch operation
+manager will turn the batch request into many smaller operations to achieve the batch goal.

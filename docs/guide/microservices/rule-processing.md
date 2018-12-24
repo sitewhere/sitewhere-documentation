@@ -1,6 +1,7 @@
 # Rule Processing Microservice
 
-The multitenant rule processing microservice ingests data from the Kafka topic containing
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The rule processing microservice ingests data from the Kafka topic containing
 pre-processed events and applies conditional logic to further process the events. Tenant engines
 can use embedded complex event processing (WSO2 Siddhi) to detect patterns in the event
 stream and fire new events as the result.
@@ -11,9 +12,11 @@ This microservice is not fully implemented in SiteWhere 2.0
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Provided as API for rule processors to use.
-- **[Event Management](./event-management.md)** - Provided as API for rule processors to use.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
+| **[Device Management](./device-management.md)**     | Provided as API for rule processors to use.     |
+| **[Event Management](./event-management.md)**       | Provided as API for rule processors to use.     |
 
 ## Configuration
 

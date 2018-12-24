@@ -1,6 +1,7 @@
 # Device Registration Microservice
 
-The multitenant device registration microservice ingests data from a Kafka topic
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The device registration microservice ingests data from a Kafka topic
 populated by the inbound processing microservice and acts on events where the device token
 indicates a device that is not currently registered in the system. Each tenant engine has
 a device registration manager which may be configured to indicate how unregistered
@@ -13,8 +14,10 @@ topic in Kafka so that they can be tracked or processed out-of-band by external 
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Used to locate devices and assignments for registration processing.
+| Microservice                                        | Dependency                                                          |
+| :-------------------------------------------------- | :------------------------------------------------------------------ |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.                     |
+| **[Device Management](./device-management.md)**     | Used to locate devices and assignments for registration processing. |
 
 ## Configuration
 

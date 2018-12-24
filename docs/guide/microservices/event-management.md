@@ -1,6 +1,7 @@
 # Event Management Microservice
 
-The multitenant event management microservice provides the core APIs and data persistence
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The event management microservice provides the core APIs and data persistence
 for managing device events (locations, measurements, alerts, command invocations, etc) for
 each tenant in a SiteWhere instance. The device event model is initially populated based on
 the scripts included in the tenant template used when creating the tenant. For instance, the
@@ -10,8 +11,10 @@ will be populated.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Used to look up device assignment information.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
+| **[Device Management](./device-management.md)**     | Used to look up device assignment information.  |
 
 ## Available APIs
 
@@ -20,10 +23,12 @@ will be populated.
 The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the event
 management microservice.
 
-- [**Area APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/areas) - REST API methods for events associated with areas.
-- [**Customer APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customers) - REST API methods for events associated with customers.
-- [**Device Assignment APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assignments) - REST API methods for events associated with device assignments.
-- [**Event APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-events) - REST API methods for managing device events.
+| API                                                                                | Description                                                     |
+| :--------------------------------------------------------------------------------- | :-------------------------------------------------------------- |
+| [**Area APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/areas)                    | REST API methods for events associated with areas.              |
+| [**Customer APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customers)            | REST API methods for events associated with customers.          |
+| [**Device Assignment APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assignments) | REST API methods for events associated with device assignments. |
+| [**Event APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-events)           | REST API methods for managing device events.                    |
 
 ### gRPC APIs
 

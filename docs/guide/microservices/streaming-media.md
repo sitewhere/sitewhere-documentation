@@ -1,6 +1,7 @@
 # Streaming Media Microservice
 
-The multitenant streaming media microservice is intended to allow streaming storage of binary
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The streaming media microservice is intended to allow streaming storage of binary
 data such as audio and video streams. This feature is under development.
 
 ::: warning
@@ -9,7 +10,9 @@ This microservice is not fully implemented in SiteWhere 2.0
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
 
 ## Configuration
 

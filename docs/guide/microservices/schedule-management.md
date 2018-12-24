@@ -1,6 +1,7 @@
 # Schedule Management Microservice
 
-The multitenant schedule management microservice provides the core APIs and data persistence
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The schedule management microservice provides the core APIs and data persistence
 for managing schedules for each tenant in a SiteWhere instance. The schedule model is initially
 populated based on the scripts included in the tenant template used when creating the tenant.
 Most tenant templates include a few example schedules. If using the "Empty" template, no schedule
@@ -8,7 +9,9 @@ management data will be populated.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
 
 ## Available APIs
 
@@ -17,7 +20,9 @@ management data will be populated.
 The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the schedule
 management microservice.
 
-- [**Schedule APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/schedules) - REST API methods for managing schedules.
+| API                                                                     | Description                              |
+| :---------------------------------------------------------------------- | :--------------------------------------- |
+| [**Schedule APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/schedules) | REST API methods for managing schedules. |
 
 ### gRPC APIs
 

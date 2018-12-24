@@ -1,28 +1,16 @@
 # Tenant Management Microservice
 
-The global tenant management microservice provides the core APIs and data persistence for
+<MicroserviceBadge text="Global Microservice" type="global"/>
+The tenant management microservice provides the core APIs and data persistence for
 managing system tenants. It is initially used by the instance management microservice
 to bootstrap the system with base tenants. Afterward, it is called by the Web/REST
 microservice to allow the list of system tenants to be managed.
 
-When a tenant is added/updated/deleted, the tenant data is pushed to a Kafka topic
-so that other interested listeners can act on the update. By default, a listener is
-registered to boostrap newly created tenants by adding the expected tenant configuration
-hierarchy in ZooKeeper. This process includes copying the per-microservice XML configuration
-files from the tenant template into ZooKeeper, then executing the list of initialization
-scripts included with the template. Once this process is complete, the tenant configuration
-is marked as boostrapped so that other microservices can react to the added tenant. For
-instance, the device management microservice will notice that a new tenant has been configured
-and will wait for the bootstrapped indicator, then will load the device-management.xml
-configuration file to initialize a new device management tenant engine for the added tenant.
-Any time that files within a tenant are changed, the changes are broadcast to tenant engines
-running on all other microservices so they can react to the changes. In the previous example,
-if multiple device management microservices are running (scale > 1), each microservice will
-detect the updates and reload the tenant engines to reflect the updates.
-
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
 
 ## Available APIs
 
@@ -31,7 +19,9 @@ detect the updates and reload the tenant engines to reflect the updates.
 The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the tenant
 management microservice.
 
-- [**Tenant APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/tenants) - REST API methods for managing tenants.
+| API                                                                 | Description                            |
+| :------------------------------------------------------------------ | :------------------------------------- |
+| [**Tenant APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/tenants) | REST API methods for managing tenants. |
 
 ### gRPC APIs
 
@@ -100,3 +90,26 @@ the `proto` definitions if bindings other than Java are needed:
 
 </beans>
 ```
+
+## Runtime Behavior
+
+### Asynchronous Zookeeper Bootstrapping
+
+When a tenant is added/updated/deleted, the tenant data is pushed to a Kafka topic
+so that other interested listeners can act on the update. By default, a listener is
+registered to bootstrap newly created tenants by adding the expected tenant configuration
+hierarchy in ZooKeeper. This process includes copying the per-microservice XML configuration
+files from the tenant template into ZooKeeper, then executing the list of initialization
+scripts included with the template.
+
+### Tenant Engine Bootstrapping
+
+Once the initial Zookeeper bootstrap process is complete, the tenant configuration
+is marked as bootsrapped so that other microservices can react to the added tenant. For
+instance, the device management microservice will notice that a new tenant has been configured
+and will wait for the bootstrapped indicator, then will load the `device-management.xml`
+configuration file to initialize a new device management tenant engine for the added tenant.
+Any time that files within a tenant are changed, the changes are broadcast to tenant engines
+running on all other microservices so they can react to the changes. In the previous example,
+if multiple device management microservices are running (scale > 1), each microservice will
+detect the updates and reload the tenant engines to reflect the updates.

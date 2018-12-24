@@ -1,6 +1,7 @@
 # Device State Microservice
 
-The multitenant device state microservice ingests data from the Kafka topic containing
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The device state microservice ingests data from the Kafka topic containing
 pre-processed events and uses the event data to update device state. The device state
 model persists the most recent location, measurements, and alerts for each device as
 well as information about when the last interaction with the device occurred.
@@ -11,9 +12,11 @@ trigger actions based on a device becoming present or not present.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Used to locate devices and assignments for state processing.
-- **[Event Management](event-management.md)** - Used to record device state changes for presence management.
+| Microservice                                        | Dependency                                                   |
+| :-------------------------------------------------- | :----------------------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.              |
+| **[Device Management](./device-management.md)**     | Used to locate devices and assignments for state processing. |
+| **[Event Management](event-management.md)**         | Used to record device state changes for presence management. |
 
 ## Available APIs
 
@@ -22,7 +25,9 @@ trigger actions based on a device becoming present or not present.
 The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the device
 state microservice.
 
-- [**Device State APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-states) - REST API methods for managing device states.
+| API                                                                             | Description                                  |
+| :------------------------------------------------------------------------------ | :------------------------------------------- |
+| [**Device State APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-states) | REST API methods for managing device states. |
 
 ### gRPC APIs
 

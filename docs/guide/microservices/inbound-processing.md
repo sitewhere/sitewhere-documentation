@@ -1,6 +1,7 @@
 # Inbound Processing Microservice
 
-The multitenant inbound processing microservice ingests data that was produced by the
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The inbound processing microservice ingests data that was produced by the
 event sources microservice (after decoding and deduplication has completed). This microservice
 validates the inbound data by interacting with the device management microservice to
 verify that the inbound event relates to a registered device. The inbound payload is enriched
@@ -18,9 +19,11 @@ connectors.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Used to enrich inbound events with device data.
-- **[Event Management](event-management.md)** - Used for persistence of inbound event payloads.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
+| **[Device Management](./device-management.md)**     | Used to enrich inbound events with device data. |
+| **[Event Management](./event-management.md)**       | Used for persistence of inbound event payloads. |
 
 ## Configuration
 

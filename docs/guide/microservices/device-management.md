@@ -1,6 +1,7 @@
 # Device Management Microservice
 
-The multitenant device management microservice provides the core APIs and data persistence
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The device management microservice provides the core APIs and data persistence
 for managing the device model (customers, areas, device types, devices, etc.) for each tenant
 in a SiteWhere instance. The device model is initially populated based on the scripts included
 in the tenant template used when creating the tenant. For instance, the "Construction" template
@@ -9,9 +10,11 @@ will populate the data model with devices appropriate for a construction site. I
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Event Management](./event-management.md)** - Used to create state change events on assignment updates.
-- **[Asset Management](./asset-management.md)** - Used to resolve asset associations for device assignments.
+| Microservice                                        | Dependency                                                 |
+| :-------------------------------------------------- | :--------------------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.            |
+| **[Event Management](./event-management.md)**       | Used to create state change events on assignment updates.  |
+| **[Asset Management](./asset-management.md)**       | Used to resolve asset associations for device assignments. |
 
 ## Available APIs
 
@@ -20,16 +23,18 @@ will populate the data model with devices appropriate for a construction site. I
 The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the device
 management microservice.
 
-- [**Area APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/areas) - REST API methods for managing areas.
-- [**Area Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/area-types) - REST API methods for managing area types.
-- [**Customer APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customers) - REST API methods for managing customers.
-- [**Customer Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customer-types) - REST API methods for managing customer types.
-- [**Device APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/devices) - REST API methods for managing devices.
-- [**Device Assignment APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assignments) - REST API methods for managing device assignments.
-- [**Device Command APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-commands) - REST API methods for managing device commands.
-- [**Device Group APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-groups) - REST API methods for managing device groups.
-- [**Device Status APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-statuses) - REST API methods for managing device statuses.
-- [**Device Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-types) - REST API methods for managing device types.
+| API                                                                                 | Description                                       |
+| :---------------------------------------------------------------------------------- | :------------------------------------------------ |
+| [**Area APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/areas)                     | REST API methods for managing areas.              |
+| [**Area Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/area-types)           | REST API methods for managing area types.         |
+| [**Customer APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customers)             | REST API methods for managing customers.          |
+| [**Customer Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customer-types)   | REST API methods for managing customer types.     |
+| [**Device APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/devices)                 | REST API methods for managing devices.            |
+| [**Device Assignment APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assignments)  | REST API methods for managing device assignments. |
+| [**Device Command APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-commands) | REST API methods for managing device commands.    |
+| [**Device Group APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-groups)     | REST API methods for managing device groups.      |
+| [**Device Status APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-statuses)  | REST API methods for managing device statuses.    |
+| [**Device Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-types)       | REST API methods for managing device types.       |
 
 ### gRPC APIs
 

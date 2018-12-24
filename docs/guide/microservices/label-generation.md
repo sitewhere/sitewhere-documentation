@@ -1,14 +1,17 @@
 # Label Generation Microservice
 
-The multitenant label generation microservice responds to API requests for label resources such
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The label generation microservice responds to API requests for label resources such
 as QR codes, bar codes, or custom device labels. Each tenant engine has a symbol generation
 manager that may be customized to generate specific types of output unique to the tenant.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Used to load device data used in label processing.
-- **[Asset Management](./asset-management.md)** - Used for load asset data used in label processing.
+| Microservice                                        | Dependency                                         |
+| :-------------------------------------------------- | :------------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.    |
+| **[Device Management](./device-management.md)**     | Used to load device data used in label processing. |
+| **[Asset Management](./asset-management.md)**       | Used for load asset data used in label processing. |
 
 ## Configuration
 

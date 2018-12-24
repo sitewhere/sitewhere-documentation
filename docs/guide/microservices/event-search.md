@@ -1,6 +1,7 @@
 # Event Search Microservice
 
-The multitenant event search microservice provides an API for searching external data sources
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The event search microservice provides an API for searching external data sources
 that contain SiteWhere event information in a non-standard format. For instance, when events
 are indexed into Apache Solr via an outbound connector, there may be a need to query Solr directly
 to do complex faceted queries that can not be generically supported via the SiteWhere APIs. The
@@ -9,7 +10,9 @@ and return the results to the Web/REST microservice for use by external clients.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
 
 ## Configuration
 

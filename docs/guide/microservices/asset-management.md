@@ -1,6 +1,7 @@
 # Asset Management Microservice
 
-The multitenant asset management microservice provides the core APIs and data persistence
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The asset management microservice provides the core APIs and data persistence
 for managing assets for each tenant in a SiteWhere instance. The asset model is initially
 populated based on the scripts included in the tenant template used when creating the tenant.
 For instance, the "Construction" template populates assets such as heavy equipment, storage
@@ -9,8 +10,10 @@ management data will be populated.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Required by a subset of asset management tasks.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
+| **[Device Management](./device-management.md)**     | Required by a subset of asset management tasks. |
 
 ## Available APIs
 
@@ -19,8 +22,10 @@ management data will be populated.
 The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the asset
 management microservice.
 
-- [**Asset APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assets) - REST API methods for managing assets.
-- [**Asset Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/asset-types) - REST API methods for managing asset types.
+| API                                                                         | Description                                |
+| :-------------------------------------------------------------------------- | :----------------------------------------- |
+| [**Asset APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assets)           | REST API methods for managing assets.      |
+| [**Asset Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/asset-types) | REST API methods for managing asset types. |
 
 ### gRPC APIs
 

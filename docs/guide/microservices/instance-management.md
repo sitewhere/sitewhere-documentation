@@ -1,5 +1,6 @@
 # Instance Management Microservice
 
+<MicroserviceBadge text="Global Microservice" type="global"/>
 The instance management microservice is used to bootstrap a SiteWhere instance and is
 required to be present when starting an uninitialized SiteWhere instance. The instance
 management microservice also manages updates to global instance settings such as shared
@@ -7,10 +8,10 @@ database and connector configurations.
 
 ## Microservice Dependencies
 
-- **[User Management](./user-management.md)** - Required in order to bootstrap default system users based on the
-  chosen instance template.
-- **[Tenant Management](./tenant-management.md)** - Required in order to bootstrap default system tenants based on
-  the chosen instance template.
+| Microservice                                  | Dependency                                                                                 |
+| :-------------------------------------------- | :----------------------------------------------------------------------------------------- |
+| **[User Management](./user-management.md)**   | Required in order to bootstrap default system users based on the chosen instance template. |
+| **[Event Management](./event-management.md)** | Required in order to bootstrap default system users based on the chosen instance template. |
 
 ## Configuration
 

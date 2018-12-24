@@ -1,13 +1,16 @@
 # User Management Microservice
 
-The global user management microservice provides the core APIs and data persistence used
+<MicroserviceBadge text="Global Microservice" type="global"/>
+The user management microservice provides the core APIs and data persistence used
 to manage system users. It is initially used by the instance management microservice
 to bootstrap the system with base users. Afterward, it is called by the Web/REST
 microservice to allow the list of users to be managed.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
 
 ## Available APIs
 
@@ -16,7 +19,9 @@ microservice to allow the list of users to be managed.
 The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the user
 management microservice.
 
-- [**User APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/users) - REST API methods for managing users.
+| API                                                             | Description                          |
+| :-------------------------------------------------------------- | :----------------------------------- |
+| [**User APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/users) | REST API methods for managing users. |
 
 ### gRPC APIs
 

@@ -1,6 +1,7 @@
 # Event Sources Microservice
 
-The multitenant event sources microservice hosts tenant engines that may be configured
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The event sources microservice hosts tenant engines that may be configured
 to ingest data from many types of data producers. Some examples include consuming data
 from MQTT topics, CoAP requests, direct TCP/IP socket connections, WebSockets, REST calls
 via push or pull models, and many other potential sources. After events are ingested,
@@ -10,9 +11,11 @@ be parsed or are detected as duplicates by deduplication processing.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Used for event deduplication and Groovy scripting.
-- **[Event Management](./event-management.md)** - Used for event deduplication and Groovy scripting.
+| Microservice                                        | Dependency                                         |
+| :-------------------------------------------------- | :------------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.    |
+| **[Device Management](./device-management.md)**     | Used for event deduplication and Groovy scripting. |
+| **[Event Management](./event-management.md)**       | Used for event deduplication and Groovy scripting. |
 
 ## Configuration
 

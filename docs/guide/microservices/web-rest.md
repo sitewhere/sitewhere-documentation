@@ -1,6 +1,7 @@
 # Web/REST Microservice
 
-The global Web/REST microservice includes an embedded Tomcat container which
+<MicroserviceBadge text="Global Microservice" type="global"/>
+The Web/REST microservice includes an embedded Tomcat container which
 provides infrastructure for all of the core REST services including Swagger user
 interfaces. This microservice is usually connected to all other microservices in the
 system so that API calls may be delegated to the microservices that implement
@@ -8,25 +9,19 @@ the functionality. For instance, querying for a device via the REST APIs
 results in a gRPC request (potentially cached) to the appropriate
 device management tenant engine on one of the device management microservices.
 
-There may be cases where the microservice required to complete a request is not available.
-In this case, a _ServiceNotAvailable_ exception is thrown and passed back as an error to
-the user/application that made the request. Using this approach, areas of the system may
-be shut down to conserve resources while not affecting the functionality of the system as
-a whole. Callers to the REST services should be prepared to handle cases where the
-subsystem they are calling may be shut down.
-
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[User Management](./user-management.md)** - Used for processing REST invocations.
-- **[Tenant Management](./tenant-management.md)** - Used for processing REST invocations.
-- **[Device Management](./device-management.md)** - Used for processing REST invocations.
-- **[Event Management](./event-management.md)** - Used for processing REST invocations.
-- **[Asset Management](./asset-management.md)** - Used for processing REST invocations.
-- **[Batch Operations](./batch-operations.md)** - Used for processing REST invocations.
-- **[Schedule Management](./schedule-management.md)** - Used for processing REST invocations.
-- **[Label Generation](./label-generation.md)** - Used for processing REST invocations.
-- **[Device State](./device-state.md)** - Used for processing REST invocations.
+| Microservice                                        | Dependency                                      |
+| :-------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
+| **[User Management](./user-management.md)**         | Used for processing REST invocations.           |
+| **[Tenant Management](./tenant-management.md)**     | Used for processing REST invocations.           |
+| **[Device Management](./device-management.md)**     | Used for processing REST invocations.           |
+| **[Event Management](./event-management.md)**       | Used for processing REST invocations.           |
+| **[Asset Management](./asset-management.md)**       | Used for processing REST invocations.           |
+| **[Batch Operations](./batch-operations.md)**       | Used for processing REST invocations.           |
+| **[Schedule Management](./schedule-management.md)** | Used for processing REST invocations.           |
+| **[Label Generation](./label-generation.md)**       | Used for processing REST invocations.           |
 
 ## Configuration
 
@@ -53,3 +48,14 @@ subsystem they are calling may be shut down.
 
 </beans>
 ```
+
+## Runtime Behavior
+
+### Unavailable Services
+
+There may be cases where the microservice required to complete a request is not available.
+In this case, a _ServiceNotAvailable_ exception is thrown and passed back as an error to
+the user/application that made the request. Using this approach, areas of the system may
+be shut down to conserve resources while not affecting the functionality of the system as
+a whole. Callers to the REST services should be prepared to handle cases where the
+subsystem they are calling may be shut down.

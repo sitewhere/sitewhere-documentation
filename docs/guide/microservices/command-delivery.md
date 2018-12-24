@@ -1,14 +1,17 @@
 # Command Delivery Microservice
 
-The multitenant command delivery microservice ingests data from the Kafka topic containing
+<MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
+The command delivery microservice ingests data from the Kafka topic containing
 pre-processed events and, for command invocations, handles command processing. This includes
 using configured routing constraints and command destinations that indicate how the command
 is to be encoded, which transport is to be used, and where the command is to be delivered.
 
 ## Microservice Dependencies
 
-- **[Instance Management](./instance-management.md)** - Required to initially bootstrap Zookeeper data.
-- **[Device Management](./device-management.md)** - Used to locating devices and assignments for command delivery.
+| Microservice                                        | Dependency                                                     |
+| :-------------------------------------------------- | :------------------------------------------------------------- |
+| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.                |
+| **[Device Management](./device-management.md)**     | Used to locating devices and assignments for command delivery. |
 
 ## Configuration
 
