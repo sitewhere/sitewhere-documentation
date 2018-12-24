@@ -76,8 +76,8 @@ For example, a valid topic name might be:
 
 _sitewhere.sitewhere1.tenant.53daebb2-8b54-4031-a4b9-29e3fc04b4be.event-source-decoded-events_
 
-| Topic Name                         | Direction | Content                                                                    |
-| :--------------------------------- | :-------- | :------------------------------------------------------------------------- |
-| event-source-decoded-events        | Outbound  | Contains events which have been received and decoded by event sources.     |
-| event-source-failed-decode-events  | Outbound  | Contains events which could not be decoded by event sources.               |
-| inbound-device-registration-events | Outbound  | Contains decoded device registration events which have not been processed. |
+| Topic Name                         | Relation | Content                                                                    |
+| :--------------------------------- | :------- | :------------------------------------------------------------------------- |
+| event-source-decoded-events        | Producer | Contains events which have been received and decoded by event sources.     |
+| event-source-failed-decode-events  | Producer | Contains events which could not be decoded by event sources.               |
+| inbound-device-registration-events | Producer | Contains decoded device registration events which have not been processed. |
