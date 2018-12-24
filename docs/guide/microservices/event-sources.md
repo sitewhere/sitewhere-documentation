@@ -63,3 +63,21 @@ be parsed or are detected as duplicates by deduplication processing.
 
 </beans>
 ```
+
+## Kafka Topics
+
+The following Kafka topics are used to interact with the event processing pipeline.
+For multitenant microservices, topic names are specific to the tenant whose data
+they contain and have a standardized format as shown below:
+
+<MicroserviceBadge text="Product Id" type="multitenant"/>. <MicroserviceBadge text="Instance Id" type="multitenant"/>. tenant . <MicroserviceBadge text="Tenant UUID" type="multitenant"/>. <MicroserviceBadge text="Topic Name" type="multitenant"/>
+
+For example, a valid topic name might be:
+
+_sitewhere.sitewhere1.tenant.53daebb2-8b54-4031-a4b9-29e3fc04b4be.event-source-decoded-events_
+
+| Topic Name                         | Direction | Content                                                                    |
+| :--------------------------------- | :-------- | :------------------------------------------------------------------------- |
+| event-source-decoded-events        | Outbound  | Contains events which have been received and decoded by event sources.     |
+| event-source-failed-decode-events  | Outbound  | Contains events which could not be decoded by event sources.               |
+| inbound-device-registration-events | Outbound  | Contains decoded device registration events which have not been processed. |

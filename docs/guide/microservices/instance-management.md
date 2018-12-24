@@ -79,8 +79,6 @@ database and connector configurations.
 
 The instance management microservice is responsible for connecting to Zookeeper and
 creating the base tree where all other configuration data for the instance is stored.
-For more information about connectivity to Zookeeper and how the base of the configuration
-tree is populated, see the [Apache Zookeper configuration guide](../zookeeper-configuration.md).
 
 ### Instance Templates
 
