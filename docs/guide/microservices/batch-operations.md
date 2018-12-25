@@ -110,7 +110,7 @@ they contain and have a standardized format as shown below:
 
 For example, a valid topic name might be:
 
-_sitewhere.sitewhere1.tenant.53daebb2-8b54-4031-a4b9-29e3fc04b4be.event-source-decoded-events_
+_sitewhere.sitewhere1.tenant.53daebb2-8b54-4031-a4b9-29e3fc04b4be.unprocessed-batch-operations_
 
 | Topic Name                   | Relation | Content                                                       |
 | :--------------------------- | :------- | :------------------------------------------------------------ |
