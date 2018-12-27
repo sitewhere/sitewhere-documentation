@@ -101,3 +101,19 @@ the `proto` definitions if bindings other than Java are needed:
 
 </beans>
 ```
+
+## Kafka Topics
+
+The following Kafka topics are used to interact with the event processing pipeline.
+For multitenant microservices, topic names are specific to the tenant whose data
+they contain and have a standardized format as shown below:
+
+<MicroserviceBadge text="Product Id" type="multitenant"/>. <MicroserviceBadge text="Instance Id" type="multitenant"/>. tenant . <MicroserviceBadge text="Tenant UUID" type="multitenant"/>. <MicroserviceBadge text="Topic Name" type="multitenant"/>
+
+For example, a valid topic name might be:
+
+_sitewhere.sitewhere1.tenant.53daebb2-8b54-4031-a4b9-29e3fc04b4be.inbound-persisted-events_
+
+| Topic Name               | Relation | Content                                                      |
+| :----------------------- | :------- | :----------------------------------------------------------- |
+| inbound-persisted-events | Producer | Forwards events to consumers after they have been persisted. |

@@ -91,6 +91,22 @@ the `proto` definitions if bindings other than Java are needed:
 </beans>
 ```
 
+## Kafka Topics
+
+The following Kafka topics are used to interact with the event processing pipeline.
+For global microservices, topic names follow a standardized format as shown below:
+
+<MicroserviceBadge text="Product Id" type="global"/>. <MicroserviceBadge text="Instance Id" type="global"/>. global . <MicroserviceBadge text="Topic Name" type="global"/>
+
+For example, a valid topic name might be:
+
+_sitewhere.sitewhere1.global.tenant-model-updates_
+
+| Topic Name           | Relation | Content                                                                        |
+| :------------------- | :------- | :----------------------------------------------------------------------------- |
+| tenant-model-updates | Producer | Reflects updates to the tenant model such as creating a new tenant.            |
+| tenant-model-updates | Consumer | Monitors tenant updates and initializes configuration for newly added tenants. |
+
 ## Runtime Behavior
 
 ### Asynchronous Zookeeper Bootstrapping
