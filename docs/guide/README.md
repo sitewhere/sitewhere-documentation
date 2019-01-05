@@ -1,7 +1,8 @@
-# SiteWhere User Guide
+# SiteWhere User Guides
 
-The following pages cover the core SiteWhere system components and how they
-are configured and managed at runtime.
+The following guides cover various aspects of development on the SiteWhere
+platform.
 
-- [Device Interaction Guides](./devices/README.md)
-- [Microservice Guides](./microservices/README.md)
+- [Architecture Guide](./architecture/)
+- [Device Interaction Guides](./devices/)
+- [Microservice Guides](./microservices/)
