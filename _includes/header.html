@@ -3,29 +3,37 @@
 <head>
 <title>{{site.name}} | {{page.title}}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script type='text/javascript'
+	src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
 <link rel="stylesheet" type="text/css"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<link rel="stylesheet" type="text/css" href="{{ site.url }}/styles/style.css">
-<link rel="stylesheet" type="text/css" href="{{ site.url }}/styles/highlight.css">
+<script type='text/javascript'
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles/style.css">
+<link rel="stylesheet" type="text/css" href="/styles/highlight.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.1/css/lightbox.min.css">
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet'
-	type='text/css'>
-	
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300'
+	rel='stylesheet' type='text/css'>
+
 <!-- Google Analytics -->
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-42457307-5', 'auto');
-  ga('send', 'pageview');
-
+	ga('create', 'UA-42457307-5', 'auto');
+	ga('send', 'pageview');
 </script>
 
 <script type='text/javascript'>
@@ -59,20 +67,24 @@
 		<div class="row">
 			<div class="col-md-4 col-lg-3">
 				<div id="sidenav" class="affix">
-					<div class="sidebar-header" style="cursor: pointer;" onclick="document.location='/index.html'">
+					<div class="sidebar-header" style="cursor: pointer;"
+						onclick="document.location='/index.html'">
 						<img src="{{ site.url }}/images/sitewhere.png" class="header-logo">
 					</div>
 					<div class="sidebar-header">{% include {{page.sidebar}} %}</div>
 					{% if page.includeNavigation != false %}
 					<div class="sidebar-header">
 						<div class="navlink">
-							<i class="fa fa-home"></i><a href="/index.html">Table of Contents</a>
+							<i class="fa fa-home"></i><a href="/index.html">Table of
+								Contents</a>
 						</div>
 						<div class="navlink">
-							<i class="fa fa-arrow-left"></i><a href="/{{ page.prevLink }}">{{ page.prevTitle }}</a>
+							<i class="fa fa-arrow-left"></i><a href="/{{ page.prevLink }}">{{
+								page.prevTitle }}</a>
 						</div>
 						<div class="navlink">
-							<i class="fa fa-arrow-right"></i><a href="/{{ page.nextLink }}">{{ page.nextTitle }}</a>
+							<i class="fa fa-arrow-right"></i><a href="/{{ page.nextLink }}">{{
+								page.nextTitle }}</a>
 						</div>
 					</div>
 					{% endif %}
@@ -81,11 +93,20 @@
 					</div>
 				</div>
 			</div>
-			<div id="content" class="col-md-8 col-lg-9" style="padding-left: 40px;">
-			<div style="width: 100%; border: 1px solid #fff37f; background-color: #fffad3; color: #333; font-size: 18pt; text-align: center; padding: 20px;">
-<div><strong>SiteWhere 1.x EOL Warning</strong></div>
-<div style="font-size: 14pt; padding-top: 20px;">With the release of SiteWhere 2.0, the SiteWhere 1.x platform will no longer be actively maintained.
-The SiteWhere team will continue to provide bug fixes for the 1.x platform through the end of 2019,
-but no new features are planned. To start using SiteWhere 2.0, access the new website at the URL below:</div>
-<div style="padding-top: 20px;"><a href="https://sitewhere.io">https://sitewhere.io</a></div>
-</div>
+			<div id="content" class="col-md-8 col-lg-9"
+				style="padding-left: 40px;">
+				<div
+					style="width: 100%; border: 1px solid #fff37f; background-color: #fffad3; color: #333; font-size: 18pt; text-align: center; padding: 20px;">
+					<div>
+						<strong>SiteWhere 1.x EOL Warning</strong>
+					</div>
+					<div style="font-size: 14pt; padding-top: 20px;">With the
+						release of SiteWhere 2.0, the SiteWhere 1.x platform will no
+						longer be actively maintained. The SiteWhere team will continue to
+						provide bug fixes for the 1.x platform through the end of 2019,
+						but no new features are planned. To start using SiteWhere 2.0,
+						access the new website at the URL below:</div>
+					<div style="padding-top: 20px;">
+						<a href="https://sitewhere.io">https://sitewhere.io</a>
+					</div>
+				</div>
