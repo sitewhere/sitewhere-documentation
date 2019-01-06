@@ -1,5 +1,6 @@
-<Seo/>
 # New Features
+
+<Seo/>
 
 Beyond the core architectural changes, the SiteWhere 2.0 platform introduces
 a number of new features intended to make the system easier to use while improving

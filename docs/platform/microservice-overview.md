@@ -1,5 +1,6 @@
-<Seo/>
 # Microservices Overview
+
+<Seo/>
 
 A SiteWhere instance is comprised of many microservices, each handling a
 specific piece of functionality. Upon deployment, the microservices

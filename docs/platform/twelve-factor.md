@@ -1,5 +1,6 @@
-<Seo/>
 # SiteWhere as a Twelve-Factor App
+
+<Seo/>
 
 In recent years, there has been a strong push to move from older methodologies
 of delivering monolithic software to an approach that supports agile, portable,

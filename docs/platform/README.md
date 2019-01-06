@@ -1,5 +1,6 @@
-<Seo/>
 # SiteWhere Platform
+
+<Seo/>
 
 SiteWhere is an open source application enablement platform for building
 both the infrastructure and applications that make up the Internet of Things.
