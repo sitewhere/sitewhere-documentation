@@ -1,3 +1,4 @@
+<Seo/>
 # Device State Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>

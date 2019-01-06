@@ -1,3 +1,4 @@
+<Seo/>
 # Batch Operations Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>

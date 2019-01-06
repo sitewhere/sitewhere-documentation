@@ -1,3 +1,4 @@
+<Seo/>
 # Schedule Management Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>

@@ -1,3 +1,4 @@
+<Seo/>
 # Inbound Processing Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>

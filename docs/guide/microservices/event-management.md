@@ -1,3 +1,4 @@
+<Seo/>
 # Event Management Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>

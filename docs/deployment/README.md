@@ -1,3 +1,4 @@
+<Seo/>
 # SiteWhere Deployment Guide
 
 This guide covers the SiteWhere 2.0 deployment process which has changed
@@ -134,8 +135,10 @@ the default infrastructure components) run:
 ```
 helm install --name sitewhere ./sitewhere
 ```
+
 ### Running with Constrained Resources
-If you wish to run SiteWhere in a low resource cluster, use the _minimal_ profile 
+
+If you wish to run SiteWhere in a low resource cluster, use the _minimal_ profile
 with the Helm Chart to only install the core microservices required to bootstrap
 the system:
 
@@ -148,6 +151,7 @@ APIs will return error codes indicating that requests for the service can not
 be satisfied.
 
 ### Running with Host Storage
+
 If you don't need Rook.io, you can skip the Rook.io install and install
 SiteWhere Helm Chart setting the `persistence.storageClass` property to
 other than `rook-ceph-block`, for example to use `hostpath` Persistence
@@ -181,16 +185,15 @@ To install the chart with the release name `sitewhere` execute:
 helm install --name sitewhere sitewhere/sitewhere
 ```
 
-
 ## Monitor SiteWhere Services
 
 Once SiteWhere has been installed, there are many ways of interacting with the system
-to verify that the microservices have started successfully. Any of the standard 
+to verify that the microservices have started successfully. Any of the standard
 Kubernetes tooling may be used to introspect the SiteWhere pods.
 
 ### Using Visual Studio Code Kubernetes Support
 
-[Visual Studio Code](https://code.visualstudio.com/) offers an optional Kubernetes 
+[Visual Studio Code](https://code.visualstudio.com/) offers an optional Kubernetes
 plugin which supports management of many aspects of a running cluster. The extension
 is published as an [open source](https://github.com/Azure/vscode-kubernetes-tools)
 repository and may be installed via the VS Code extension manager.
@@ -216,11 +219,12 @@ instructions on installing the Kubernetes Dashboard UI, refer to the dashboard d
 
 Once a SiteWhere instance has been deployed, the SiteWhere administrative application may be
 used to connect to the instance and configure it. The administrative application is based on
-[Electron](https://electronjs.org/) and may be downloaded from directly from the project 
+[Electron](https://electronjs.org/) and may be downloaded from directly from the project
 [releases](https://github.com/sitewhere/sitewhere-admin-ui/releases) page. After installing
 the application, open it and log in using the default administrative credentials:
 
 **username**: `admin`
+
 **password**: `password`
 
 <InlineImage src="/images/platform/login.png" caption="Administrative Application"/>
@@ -236,40 +240,44 @@ helm del --purge sitewhere
 ```
 
 ### Remove SiteWhere Persistent Data
-In order to remove all SiteWhere data and start with a clean system, you need remove the 
-[persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) 
+
+In order to remove all SiteWhere data and start with a clean system, you need remove the
+[persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 that the SiteWhere infrastructure components create. The following commands may be
 used to delete data added by the default SiteWhere configuration:
 
 #### Delete Consul Metadata
+
 ```
 kubectl delete pvc/data-sitewhere-consul-server-0
 ```
 
 #### Delete Kafka Data
+
 ```
 kubectl delete pvc/sitewhere-kafka-pv-sitewhere-kafka-0
 ```
 
 #### Delete MongoDB Database
+
 ```
 kubectl delete pvc/sitewhere-mongodb-pv-sitewhere-mongodb-0
 ```
 
 #### Delete Zookeeper Metadata
+
 ```
 kubectl delete pvc/sitewhere-zookeeper-pv-sitewhere-zookeeper-0
 ```
 
 ## Uninstall Rook
 
-To uninstall Rook and the Ceph components it wraps, refer to this 
-[document](https://rook.io/docs/rook/v0.8/ceph-teardown.html), and 
+To uninstall Rook and the Ceph components it wraps, refer to this
+[document](https://rook.io/docs/rook/v0.8/ceph-teardown.html), and
 follow the instructions to remove the components and related data.
 
 ::: tip
 To delete the persistent data associated with SiteWhere, it is not necessary
-to uninstall Rook. As detailed above, the k8s persistence claims may be 
+to uninstall Rook. As detailed above, the k8s persistence claims may be
 deleted to remove existing data and start with a clean system.
 :::
-

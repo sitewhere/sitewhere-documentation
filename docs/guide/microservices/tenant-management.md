@@ -1,3 +1,4 @@
+<Seo/>
 # Tenant Management Microservice
 
 <MicroserviceBadge text="Global Microservice" type="global"/>

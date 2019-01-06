@@ -1,3 +1,4 @@
+<Seo/>
 # SiteWhere Kura Programming
 
 SiteWhere Kura Cloud [Connector](https://github.com/sitewhere/sitewhere-kura)

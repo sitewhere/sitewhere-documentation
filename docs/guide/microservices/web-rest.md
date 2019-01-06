@@ -1,3 +1,4 @@
+<Seo/>
 # Web/REST Microservice
 
 <MicroserviceBadge text="Global Microservice" type="global"/>

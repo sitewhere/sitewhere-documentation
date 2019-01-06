@@ -1,3 +1,4 @@
+<Seo/>
 # Streaming Media Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>

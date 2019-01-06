@@ -1,3 +1,4 @@
+<Seo/>
 # Device Registration Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>

@@ -1,3 +1,4 @@
+<Seo/>
 # Event Search Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>

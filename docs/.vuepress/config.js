@@ -32,6 +32,7 @@ module.exports = {
         "microservice-overview",
         "twelve-factor"
       ],
+      "/guide/architecture/": ["configuration-management"],
       "/guide/devices/": ["sending-data", "android", "kura"],
       "/guide/microservices/": [
         "asset-management",
@@ -54,7 +55,7 @@ module.exports = {
         "user-management",
         "web-rest"
       ],
-      "/guide/": ["", "devices/", "microservices/"],
+      "/guide/": ["", "architecture/", "devices/", "microservices/"],
       "/deployment/": [""],
       "/development/": [""]
     },
@@ -66,10 +67,9 @@ module.exports = {
         lastUpdated: "Last Updated",
         nav: [
           { text: "Platform", link: "/platform/" },
-          { text: "User Guide", link: "/guide/" },
+          { text: "User Guides", link: "/guide/" },
           { text: "Deployment", link: "/deployment/" },
-          { text: "Development", link: "/development/" },
-          { text: "GitHub", link: "https://github.com/sitewhere/sitewhere" }
+          { text: "Development", link: "/development/" }
         ]
       },
       "/es/": {
@@ -81,8 +81,7 @@ module.exports = {
           { text: "Plataforma", link: "/es/platform/" },
           { text: "Guía del usuario", link: "/es/guide/" },
           { text: "Despliegue", link: "/es/deployment/" },
-          { text: "Desarrollo", link: "/es/development/" },
-          { text: "GitHub", link: "https://github.com/sitewhere/sitewhere" }
+          { text: "Desarrollo", link: "/es/development/" }
         ],
         sidebar: {
           "/es/platform/": [

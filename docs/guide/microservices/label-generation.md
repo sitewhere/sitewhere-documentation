@@ -1,3 +1,4 @@
+<Seo/>
 # Label Generation Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
