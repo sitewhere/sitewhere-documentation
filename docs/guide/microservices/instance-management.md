@@ -1,5 +1,6 @@
-<Seo/>
 # Instance Management Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Global Microservice" type="global"/>
 The instance management microservice is used to bootstrap a SiteWhere instance and is

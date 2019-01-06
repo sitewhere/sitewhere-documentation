@@ -1,5 +1,6 @@
-<Seo/>
 # SiteWhere Deployment Guide
+
+<Seo/>
 
 This guide covers the SiteWhere 2.0 deployment process which has changed
 significantly from the one used for SiteWhere 1.x. While previous versions

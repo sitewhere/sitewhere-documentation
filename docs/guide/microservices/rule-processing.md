@@ -1,5 +1,6 @@
-<Seo/>
 # Rule Processing Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The rule processing microservice ingests data from the Kafka topic containing

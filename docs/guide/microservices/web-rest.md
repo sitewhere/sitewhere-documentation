@@ -1,5 +1,6 @@
-<Seo/>
 # Web/REST Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Global Microservice" type="global"/>
 The Web/REST microservice includes an embedded Tomcat container which

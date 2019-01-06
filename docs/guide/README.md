@@ -1,5 +1,6 @@
-<Seo/>
 # SiteWhere User Guides
+
+<Seo/>
 
 The following guides cover various aspects of development on the SiteWhere
 platform.

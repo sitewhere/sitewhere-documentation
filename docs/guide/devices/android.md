@@ -1,5 +1,6 @@
-<Seo/>
 # SiteWhere Android SDK Programming
+
+<Seo/>
 
 Clone the [SiteWhere Android SDK](https://github.com/sitewhere/sitewhere-android-sdk.git) to
 develop Andriod Application that can connect to SiteWhere and send/recive data to/from SiteWhere 2.0.

@@ -1,5 +1,6 @@
-<Seo/>
 # Label Generation Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The label generation microservice responds to API requests for label resources such

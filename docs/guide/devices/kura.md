@@ -1,5 +1,6 @@
-<Seo/>
 # SiteWhere Kura Programming
+
+<Seo/>
 
 SiteWhere Kura Cloud [Connector](https://github.com/sitewhere/sitewhere-kura)
 provides the connectivity necesary for your Kura Application to connect to SiteWhere 2.0.

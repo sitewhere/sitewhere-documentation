@@ -1,5 +1,6 @@
-<Seo/>
 # Configuration Management
+
+<Seo/>
 
 The SiteWhere 2.0 architecture provides an externalized and highly-available configuration
 management subsystem based on [Apache Zookeeper](https://zookeeper.apache.org/). Rather than

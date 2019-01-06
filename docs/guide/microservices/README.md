@@ -1,5 +1,6 @@
-<Seo/>
 # Microservice Guides
+
+<Seo/>
 
 Below is a list of the core SiteWhere microservices. Each service handles
 a specific area of system functionality and is independent of other microservices in terms of

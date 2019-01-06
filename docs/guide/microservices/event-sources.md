@@ -1,5 +1,6 @@
-<Seo/>
 # Event Sources Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The event sources microservice hosts tenant engines that may be configured

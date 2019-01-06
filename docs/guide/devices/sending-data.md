@@ -1,5 +1,6 @@
-<Seo/>
 # Sending Data to SiteWhere 2.0
+
+<Seo/>
 
 SiteWhere is designed to be flexible in the way that it sends and receives data from devices and other agents.
 Most popular communication protocols and encodings are supported out-of-the-box, but the system is also designed

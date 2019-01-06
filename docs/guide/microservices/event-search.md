@@ -1,5 +1,6 @@
-<Seo/>
 # Event Search Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The event search microservice provides an API for searching external data sources

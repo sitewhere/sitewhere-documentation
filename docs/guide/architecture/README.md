@@ -1,5 +1,6 @@
-<Seo/>
 # Architecture Guide
+
+<Seo/>
 
 This guide covers core concepts of the SiteWhere 2.0 architecture and is intended
 to provide an understanding of how the system works at a low level. While knowledge

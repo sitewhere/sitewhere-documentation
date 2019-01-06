@@ -1,5 +1,6 @@
-<Seo/>
 # Outbound Connectors Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The outbound connectors microservice ingests data from the Kafka topic containing

@@ -1,5 +1,6 @@
-<Seo/>
 # Command Delivery Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The command delivery microservice ingests data from the Kafka topic containing

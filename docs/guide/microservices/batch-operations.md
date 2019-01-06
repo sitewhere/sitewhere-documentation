@@ -1,5 +1,6 @@
-<Seo/>
 # Batch Operations Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The batch operations microservice provides the core APIs and data persistence

@@ -1,5 +1,6 @@
-<Seo/>
 # Inbound Processing Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The inbound processing microservice handles post-processing of events that have

@@ -1,5 +1,6 @@
-<Seo/>
 # Streaming Media Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The streaming media microservice is intended to allow streaming storage of binary

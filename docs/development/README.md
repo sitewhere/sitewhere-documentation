@@ -1,5 +1,6 @@
-<Seo/>
 # SiteWhere Development Guide
+
+<Seo/>
 
 This guide provides information intended for developers interested
 in building SiteWhere components from source code. It provides details

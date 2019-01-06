@@ -1,5 +1,6 @@
-<Seo/>
 # Device Management Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The device management microservice provides the core APIs and data persistence

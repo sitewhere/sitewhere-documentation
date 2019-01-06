@@ -1,5 +1,6 @@
-<Seo/>
 # Device Registration Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The device registration microservice ingests data from a Kafka topic

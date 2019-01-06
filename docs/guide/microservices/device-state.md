@@ -1,5 +1,6 @@
-<Seo/>
 # Device State Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The device state microservice ingests data from the Kafka topic containing

@@ -1,5 +1,6 @@
-<Seo/>
 # Tenant Management Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Global Microservice" type="global"/>
 The tenant management microservice provides the core APIs and data persistence for

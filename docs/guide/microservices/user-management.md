@@ -1,5 +1,6 @@
-<Seo/>
 # User Management Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Global Microservice" type="global"/>
 The user management microservice provides the core APIs and data persistence used

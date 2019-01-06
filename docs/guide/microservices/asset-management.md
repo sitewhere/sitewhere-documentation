@@ -1,5 +1,6 @@
-<Seo/>
 # Asset Management Microservice
+
+<Seo/>
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>
 The asset management microservice provides the core APIs and data persistence
