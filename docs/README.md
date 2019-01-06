@@ -17,3 +17,5 @@ features:
       SiteWhere CE will always be open source and free for private as well as commercial use.
       The SiteWhere team offers free basic support and a steady stream of new features.
 ---
+
+<Seo/>

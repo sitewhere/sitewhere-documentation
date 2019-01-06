@@ -1,3 +1,4 @@
+<Seo/>
 # Command Delivery Microservice
 
 <MicroserviceBadge text="Multitenant Microservice" type="multitenant"/>

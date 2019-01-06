@@ -1,3 +1,4 @@
+<Seo/>
 # Architecture Guide
 
 This guide covers core concepts of the SiteWhere 2.0 architecture and is intended

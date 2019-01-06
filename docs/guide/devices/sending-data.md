@@ -1,3 +1,4 @@
+<Seo/>
 # Sending Data to SiteWhere 2.0
 
 SiteWhere is designed to be flexible in the way that it sends and receives data from devices and other agents.
@@ -24,12 +25,12 @@ some common information as shown below:
 }
 ```
 
-| Field       | Description                                                                                                               |
-| ------------| ------------------------------------------------------------------------------------------------------------------------- |
-| deviceToken | Device token that uniquely identifies a device within a tenant. This informs the system which device is generating events.|
-| type        | The type of request for the device. This indicates how the data in the _request_ section should be interpreted.           |
-| originator  | This field is used by devices if they are sending an event in response to a command, indicating the _id_ of the command.  |
-| request     | The request content which is specific to the type of packet being sent as indicated by the _type_ field.                  |
+| Field       | Description                                                                                                                |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------- |
+| deviceToken | Device token that uniquely identifies a device within a tenant. This informs the system which device is generating events. |
+| type        | The type of request for the device. This indicates how the data in the _request_ section should be interpreted.            |
+| originator  | This field is used by devices if they are sending an event in response to a command, indicating the _id_ of the command.   |
+| request     | The request content which is specific to the type of packet being sent as indicated by the _type_ field.                   |
 
 ### Sending Device Data Using Profocol Buffer
 
@@ -41,7 +42,7 @@ compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.
 
 Before devices can send event data, they must be registered with the system. SiteWhere will send back a
 response on the system command channel to indicate whether the device could be registered. It will also
-indicate if the device was already registered or not. 
+indicate if the device was already registered or not.
 
 #### Registering a Device with JSON
 
@@ -113,14 +114,14 @@ The JSON format for sending a device measurement is shown below:
 
 ```json
 {
-  "type":"DeviceMeasurement",
-  "originator":"device",
-  "deviceToken":"mydevicetoken",
-  "request":{
-    "name":"temp",
-    "value":"34.7",
+  "type": "DeviceMeasurement",
+  "originator": "device",
+  "deviceToken": "mydevicetoken",
+  "request": {
+    "name": "temp",
+    "value": "34.7",
     "updateState": true,
-    "eventDate":"2018-11-21T22:10:13.418-0300",
+    "eventDate": "2018-11-21T22:10:13.418-0300",
     "metadata": {
       "name1": "val1",
       "name2": "val2"
@@ -129,14 +130,14 @@ The JSON format for sending a device measurement is shown below:
 }
 ```
 
-| Field           | Description                                                |
-| --------------- | ---------------------------------------------------------- |
-| type            | `DeviceMeasurement`                                        |
-| name            | Name of the measurement being send.                        |
-| value           | Value of the measurement being send.                       |
-| updateState     | if `true`, it updates the `DeviceState` of the Assignement |
-| eventDate       | Timestamp of the event.                                    |
-| metadata        | The metadata of the event.                                 |
+| Field       | Description                                                |
+| ----------- | ---------------------------------------------------------- |
+| type        | `DeviceMeasurement`                                        |
+| name        | Name of the measurement being send.                        |
+| value       | Value of the measurement being send.                       |
+| updateState | if `true`, it updates the `DeviceState` of the Assignement |
+| eventDate   | Timestamp of the event.                                    |
+| metadata    | The metadata of the event.                                 |
 
 #### Send Device Measurement with Protocol Buffers
 
@@ -176,9 +177,9 @@ The JSON format for sending a device locacation is shown below:
 
 ```json
 {
-  "type":"DeviceLocation",
-  "originator":"device",
-  "deviceToken":"mydevicetoken",
+  "type": "DeviceLocation",
+  "originator": "device",
+  "deviceToken": "mydevicetoken",
   "request": {
     "latitude": "33.75",
     "latitude": "-84.39",
@@ -189,15 +190,15 @@ The JSON format for sending a device locacation is shown below:
 }
 ```
 
-| Field           | Description                                                |
-| --------------- | ---------------------------------------------------------- |
-| type            | `DeviceLocation`                                           |
-| latitude        | Latitud of the Location being send.                        |
-| latitude        | Longitud of the Location being send.                       |
-| elevation       | Elevation of the Location being send.                      |
-| updateState     | if `true`, it updates the `DeviceState` of the Assignement |
-| eventDate       | Timestamp of the event.                                    |
-| metadata        | The metadata of the event.                                 |
+| Field       | Description                                                |
+| ----------- | ---------------------------------------------------------- |
+| type        | `DeviceLocation`                                           |
+| latitude    | Latitud of the Location being send.                        |
+| latitude    | Longitud of the Location being send.                       |
+| elevation   | Elevation of the Location being send.                      |
+| updateState | if `true`, it updates the `DeviceState` of the Assignement |
+| eventDate   | Timestamp of the event.                                    |
+| metadata    | The metadata of the event.                                 |
 
 #### Send Device Location with Protocol Buffers
 
@@ -237,9 +238,9 @@ The JSON format for sending a device alert is shown below:
 
 ```json
 {
-  "type":"DeviceAlert",
-  "originator":"device",
-  "deviceToken":"mydevicetoken",
+  "type": "DeviceAlert",
+  "originator": "device",
+  "deviceToken": "mydevicetoken",
   "request": {
     "type": "Warning",
     "message": "Engine overheat.",
@@ -248,13 +249,13 @@ The JSON format for sending a device alert is shown below:
 }
 ```
 
-| Field           | Description                                                |
-| --------------- | ---------------------------------------------------------- |
-| type            | `DeviceAlert`                                              |
-| type            | Type of the Alter `Info`,`Warning`,`Error`,`Fatal`         |
-| message         | Message assosiated with the Alert.                         |
-| eventDate       | Timestamp of the event.                                    |
-| metadata        | The metadata of the event.                                 |
+| Field     | Description                                        |
+| --------- | -------------------------------------------------- |
+| type      | `DeviceAlert`                                      |
+| type      | Type of the Alter `Info`,`Warning`,`Error`,`Fatal` |
+| message   | Message assosiated with the Alert.                 |
+| eventDate | Timestamp of the event.                            |
+| metadata  | The metadata of the event.                         |
 
 #### Send Device Alert with Protocol Buffers
 

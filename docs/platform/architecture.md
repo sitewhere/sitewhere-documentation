@@ -1,3 +1,4 @@
+<Seo/>
 # SiteWhere Architecture
 
 SiteWhere has been designed from the ground up to take advantage of the latest

@@ -1,3 +1,4 @@
+<Seo/>
 # SiteWhere Android SDK Programming
 
 Clone the [SiteWhere Android SDK](https://github.com/sitewhere/sitewhere-android-sdk.git) to
@@ -5,9 +6,9 @@ develop Andriod Application that can connect to SiteWhere and send/recive data t
 
 ## Developer Setup
 
-* Install [Java SE SDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Install [Android Studio](http://developer.android.com/sdk/index.html).
-* Download Android SDK 19 (It is possible to use this SDK with a lower SDK version).
+- Install [Java SE SDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+- Install [Android Studio](http://developer.android.com/sdk/index.html).
+- Download Android SDK 19 (It is possible to use this SDK with a lower SDK version).
 
 ## Quickstart
 

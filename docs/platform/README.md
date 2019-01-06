@@ -1,3 +1,4 @@
+<Seo/>
 # SiteWhere Platform
 
 SiteWhere is an open source application enablement platform for building

@@ -1,3 +1,4 @@
+<Seo/>
 # Device Interaction Guides
 
 The following pages cover the user guide to programming devices to connect and

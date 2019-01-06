@@ -1,3 +1,4 @@
+<Seo/>
 # SiteWhere Development Guide
 
 This guide provides information intended for developers interested

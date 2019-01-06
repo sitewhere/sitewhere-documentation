@@ -1,3 +1,4 @@
+<Seo/>
 # SiteWhere User Guides
 
 The following guides cover various aspects of development on the SiteWhere

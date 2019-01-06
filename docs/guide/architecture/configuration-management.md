@@ -1,3 +1,4 @@
+<Seo/>
 # Configuration Management
 
 The SiteWhere 2.0 architecture provides an externalized and highly-available configuration
@@ -12,9 +13,3 @@ includes a [template](https://github.com/sitewhere/sitewhere-k8s/blob/sitewhere-
 which is used to configure the Zookeeper components the system relies on. As part of the
 list of core infrastructure services required by SiteWhere, the Zookeeper pods must have
 been successfully deployed before any SiteWhere micrsoservices are allowed to start.
-
-### Zookeeper
-
-### ZooNavigator
-
-[ZooNavigator](http://www.elkozmon.com/zoonavigator/)

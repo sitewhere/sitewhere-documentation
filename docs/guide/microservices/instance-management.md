@@ -1,3 +1,4 @@
+<Seo/>
 # Instance Management Microservice
 
 <MicroserviceBadge text="Global Microservice" type="global"/>
