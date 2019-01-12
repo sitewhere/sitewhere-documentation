@@ -28,6 +28,7 @@ module.exports = {
       "/platform/": [
         "",
         "architecture",
+        "objectmodel",
         "features",
         "microservice-overview",
         "twelve-factor"

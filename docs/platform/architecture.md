@@ -1,4 +1,4 @@
-# SiteWhere Architecture
+# System Architecture
 
 <Seo/>
 
