@@ -10,7 +10,7 @@ microservices and other components which need to be started in order to
 realize a given configuration. Once started, the microservices self-assemble
 and then make themselves available for processing tasks.
 
-<InlineImage src="/images/platform/microservices-diagram.png" caption="Microservices"/>
+<MicroservicesDiagram :base="$withBase('test')" uid="msdiagram"/>
 
 ## Microservice Structure
 
