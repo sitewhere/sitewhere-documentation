@@ -4,7 +4,19 @@ module.exports = {
   title: "SiteWhere",
   description:
     "SiteWhere CE " + pkginfo.version.toUpperCase() + " Documentation",
-  head: [["link", { rel: "icon", href: "/images/favicon.ico" }]],
+  head: [
+    ["link", { rel: "icon", href: "/images/favicon.ico" }],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://use.fontawesome.com/releases/v5.6.3/css/all.css",
+        integrity:
+          "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/",
+        crossorigin: "anonymous"
+      }
+    ]
+  ],
   dest: "dist",
   base: "/docs/" + pkginfo.version + "/",
   ga: "UA-122806506-1",
@@ -22,6 +34,11 @@ module.exports = {
         "SiteWhere CE " + pkginfo.version.toUpperCase() + " Documentation"
     }
   },
+  markdown: {
+    config: md => {
+      md.use(require("markdown-it-fontawesome"));
+    }
+  },
   themeConfig: {
     logo: "/images/logo.svg",
     sidebar: {
@@ -34,6 +51,7 @@ module.exports = {
         "twelve-factor"
       ],
       "/guide/architecture/": ["configuration-management"],
+      "/guide/deployment/": [""],
       "/guide/devices/": ["sending-data", "android", "kura"],
       "/guide/microservices/": [
         "asset-management",
@@ -56,7 +74,7 @@ module.exports = {
         "user-management",
         "web-rest"
       ],
-      "/guide/": ["", "architecture/", "devices/", "microservices/"],
+      "/guide/": ["architecture/", "deployment/", "devices/", "microservices/"],
       "/deployment/": [""],
       "/development/": [""]
     },
@@ -68,8 +86,8 @@ module.exports = {
         lastUpdated: "Last Updated",
         nav: [
           { text: "Platform", link: "/platform/" },
+          { text: "Installation", link: "/deployment/" },
           { text: "User Guides", link: "/guide/" },
-          { text: "Deployment", link: "/deployment/" },
           { text: "Development", link: "/development/" }
         ]
       },

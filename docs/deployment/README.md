@@ -1,4 +1,4 @@
-# SiteWhere Deployment Guide
+# Installing a SiteWhere Instance
 
 <Seo/>
 

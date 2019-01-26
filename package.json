@@ -29,6 +29,7 @@
     "vuepress": "^0.14.2"
   },
   "dependencies": {
+    "markdown-it-fontawesome": "^0.3.0",
     "redoc": "^2.0.0-alpha.38",
     "roboto-fontface": "^0.10.0",
     "svg.js": "^2.7.1"
