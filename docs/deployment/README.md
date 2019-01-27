@@ -168,13 +168,13 @@ You can also install SiteWhere helm charts from SiteWhere Helm Repository. To do
 you need to add the [SiteWhere Helm Repository](https://sitewhere.io/helm-charts) to
 your helm client.
 
-```sh
+```console
 helm repo add sitewhere https://sitewhere.io/helm-charts
 ```
 
 Then you need to update your local helm repository
 
-```sh
+```console
 helm repo update
 ```
 
@@ -182,7 +182,7 @@ helm repo update
 
 To install the chart with the release name `sitewhere` execute:
 
-```sh
+```console
 helm install --name sitewhere sitewhere/sitewhere
 ```
 

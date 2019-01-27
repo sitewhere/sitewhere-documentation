@@ -40,7 +40,7 @@ SiteWhere Helm Chart provides the tooling necessary to install _debug_ images on
 To install SiteWhere debug image set `services.debug` to `true`. For example, to install
 SiteWhere _default_ profile debug images use the following command:
 
-```sh
+```console
 helm install --name sitewhere --set services.debug=true ./sitewhere
 ```
 
@@ -54,7 +54,7 @@ You can you Eclipse and import the sources code. It should look like the image b
 After that you need to forward the JDWP port of the microservice you want to connect the debugger to.
 For example, if you want to connect the debugger to Device Management use the following command:
 
-```sh
+```console
 kubectl port-forward deployment/sitewhere-device-management 8004:8001
 ```
 

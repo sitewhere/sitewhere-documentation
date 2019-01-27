@@ -63,7 +63,7 @@ Abra un terminal y comience por clonar el repositorio de recetas en la máquina
 donde tiene configurado el entorno Docker. El repositorio puede ser clonado
 con el siguiente comando:
 
-```sh
+```console
 git clone https://github.com/sitewhere/sitewhere-recipes.git
 ```
 
@@ -84,7 +84,7 @@ Para poder implementar SiteWhere, Helm necesita ser instalado. Siga las instrucc
 Si necesita servicios de almacenamiento de archivos, bloques y objetos para sus entornos nativos en la nube,
 instale [Rook Ceph](https://rook.io), con los siguientes comandos:
 
-```sh
+```console
 kubectl create -f rook/operator.yaml
 kubectl create -f rook/cluster.yaml
 kubectl create -f rook/storageclass.yaml
@@ -94,14 +94,14 @@ kubectl create -f rook/storageclass.yaml
 
 Para instalar con la configuración por defecto, ejecute:
 
-```sh
+```console
 helm install --name sitewhere ./sitewhere
 ```
 
 Además, si desea ejecutar SiteWhere en un clúster de bajos recursos, use las recetas mínimas
 e instale este Helm Chart con el siguiente comando:
 
-```sh
+```console
 helm install --name sitewhere --set services.profile=minimal ./sitewhere
 ```
 
@@ -109,7 +109,7 @@ Si no necesita Rook.io, puede omitir la instalación de Rook.io e instalar SiteW
 configurando la propiedad `persistence.storageClass` en otra que no sea `rook-ceph-block`,
 por ejemplo, para usar el Persistence Storage Class `hostpath`, use el siguiente comando:
 
-```sh
+```console
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
 
@@ -117,7 +117,7 @@ helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewher
 
 Para quitar SiteWhere del cluster Kubernetes utilizando Helm, ejecute el siguiente comando:
 
-```sh
+```console
 helm del --purge sitewhere
 ```
 
