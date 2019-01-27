@@ -23,13 +23,13 @@ module.exports = {
   locales: {
     "/": {
       lang: "en-US",
-      title: "SiteWhere",
+      title: "SiteWhere CE " + pkginfo.version.toUpperCase() + " Documentation",
       description:
         "SiteWhere CE " + pkginfo.version.toUpperCase() + " Documentation"
     },
     "/es/": {
       lang: "es",
-      title: "SiteWhere",
+      title: "Documentación SiteWhere CE " + pkginfo.version.toUpperCase(),
       description:
         "SiteWhere CE " + pkginfo.version.toUpperCase() + " Documentation"
     }
