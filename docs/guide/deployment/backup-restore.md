@@ -1,8 +1,9 @@
-# :book: Backup Procedure and Restore Procedures
+# :book: Backup and Restore Procedures
 
 <Seo/>
 
-This document provides SiteWhere 2.0 procedures for backup and restore of MongoDB and Apache Zookeeper.
+This document provides procedures for backing up and restoring services
+that use persistent storage, including MongoDB and Apache Zookeeper.
 
 ## Backup Procedure
 
@@ -18,9 +19,9 @@ If you plan to use an externa NFS Server, edit the file
 `utils/sitewhere-mongodb-dump-pvc-nfs.yaml`, set the NFS Server URL and Path.
 
 ```yaml
-  nfs:
-    server: <NFS_SERVER_IP>
-    path: "<NFS_SERVER_PATH>"
+nfs:
+  server: <NFS_SERVER_IP>
+  path: "<NFS_SERVER_PATH>"
 ```
 
 Save the file and apply it to the cluster.

@@ -51,7 +51,7 @@ module.exports = {
         "twelve-factor"
       ],
       "/guide/architecture/": ["configuration-management"],
-      "/guide/deployment/": [""],
+      "/guide/deployment/": ["", "common-issues", "backup-restore"],
       "/guide/administration/": ["", "global/", "tenant/"],
       "/guide/devices/": ["sending-data", "android", "kura"],
       "/guide/microservices/": [
