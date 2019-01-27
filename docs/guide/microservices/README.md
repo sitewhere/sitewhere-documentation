@@ -24,7 +24,7 @@ All other microservices wait for the Zookeeper data to be initialized before
 starting, so the instance management microservice must be present in an uninitialized
 SiteWhere instance or all other microservices will fail to start.
 
-See the [guide](instance-management.md) for more details.
+See the [guide](./instance-management/) for more details.
 
 ### Tenant Management
 
@@ -33,7 +33,7 @@ managing system tenants. It is initially used by the instance management microse
 to bootstrap the system with base tenants. Afterward, it is called by the Web/REST
 microservice to allow the list of system tenants to be managed.
 
-See the [guide](tenant-management.md) for more details.
+See the [guide](./tenant-management/) for more details.
 
 ### User Management
 
@@ -42,7 +42,7 @@ to manage system users. It is initially used by the instance management microser
 to bootstrap the system with base users. Afterward, it is called by the Web/REST
 microservice to allow the list of users to be managed.
 
-See the [guide](user-management.md) for more details.
+See the [guide](./user-management/) for more details.
 
 ### Web/REST
 
@@ -54,7 +54,7 @@ the functionality. For instance, querying for a device via the REST APIs
 results in a gRPC request (potentially cached) to the appropriate
 device management tenant engine on one of the device management microservices.
 
-See the [guide](web-rest.md) for more details.
+See the [guide](./web-rest/) for more details.
 
 ## Multitenant Microservices
 
@@ -70,7 +70,7 @@ For instance, the "Construction" template populates assets such as heavy equipme
 trailers, and various types of tracking devices. If using the "Empty" template, no asset
 management data will be populated.
 
-See the [guide](asset-management.md) for more details.
+See the [guide](./asset-management/) for more details.
 
 ### Batch Operations
 
@@ -79,7 +79,7 @@ for managing batch operations for each tenant in a SiteWhere instance. The batch
 model is empty upon tenant initialization, but may be populated by invoking APIs that
 produce batch operations (such as batch command invocations).
 
-See the [guide](batch-operations.md) for more details.
+See the [guide](./batch-operations/) for more details.
 
 ### Command Delivery
 
@@ -88,7 +88,7 @@ pre-processed events and, for command invocations, handles command processing. T
 using configured routing constraints and command destinations that indicate how the command
 is to be encoded, which transport is to be used, and where the command is to be delivered.
 
-See the [guide](command-delivery.md) for more details.
+See the [guide](./command-delivery/) for more details.
 
 ### Device Management
 
@@ -99,7 +99,7 @@ in the tenant template used when creating the tenant. For instance, the "Constru
 will populate the data model with devices appropriate for a construction site. If using the
 "Empty" template, no device management data will be populated.
 
-See the [guide](device-management.md) for more details.
+See the [guide](./device-management/) for more details.
 
 ### Device State
 
@@ -108,7 +108,7 @@ pre-processed events and uses the event data to update device state. The device 
 model persists the most recent location, measurements, and alerts for each device as
 well as information about when the last interaction with the device occurred.
 
-See the [guide](device-state.md) for more details.
+See the [guide](./device-state) for more details.
 
 ### Device Registration
 
@@ -120,7 +120,7 @@ devices are to be treated. The device registration manager processes each inboun
 event and can potentially register the device automatically before adding the event
 to a re-processing topic to have it processed by the inbound processing microservice.
 
-See the [guide](device-registration.md) for more details.
+See the [guide](./device-registration/) for more details.
 
 ### Event Management
 
@@ -132,7 +132,7 @@ the scripts included in the tenant template used when creating the tenant. For i
 machines at a construction site. If using the "Empty" template, no event management data
 will be populated.
 
-See the [guide](event-management.md) for more details.
+See the [guide](./event-management/) for more details.
 
 ### Event Search
 
@@ -143,7 +143,7 @@ to do complex faceted queries that can not be generically supported via the Site
 tenant engines for this microservice may be configured to proxy queries to the underlying service
 and return the results to the Web/REST microservice for use by external clients.
 
-See the [guide](event-search.md) for more details.
+See the [guide](./event-search/) for more details.
 
 ### Event Sources
 
@@ -155,7 +155,7 @@ they are decoded into a standardized data model and pushed to a tenant-specific 
 topic for further processing. Kafka topics are also registered for events that can not
 be parsed or are detected as duplicates by deduplication processing.
 
-See the [guide](event-sources.md) for more details.
+See the [guide](./event-sources/) for more details.
 
 ### Inbound Processing
 
@@ -169,7 +169,7 @@ passed to the device registration microservice for additional processing. If the
 registered as a result, the event is pushed onto a re-processing topic so that it may be
 processed again with the newly registered device.
 
-See the [guide](inbound-processing.md) for more details.
+See the [guide](./inbound-processing/) for more details.
 
 ### Label Generation
 
@@ -177,7 +177,7 @@ The multitenant label generation microservice responds to API requests for label
 as QR codes, bar codes, or custom device labels. Each tenant engine has a symbol generation
 manager that may be customized to generate specific types of output unique to the tenant.
 
-See the [guide](label-generation.md) for more details.
+See the [guide](./label-generation/) for more details.
 
 ### Outbound Connectors
 
@@ -188,7 +188,7 @@ the events topic, so the system is not blocked by connectors that occasionally p
 slower rates than the rest of the system. Connectors are available for common use cases such
 as forwarding events to a well-known MQTT topic or indexing events in Apache Solr.
 
-See the [guide](outbound-connectors.md) for more details.
+See the [guide](./outbound-connectors/) for more details.
 
 ### Rule Processing
 
@@ -197,7 +197,7 @@ pre-processed events and applies conditional logic to further process the events
 can use embedded complex event processing (WSO2 Siddhi) to detect patterns in the event
 stream and fire new events as the result.
 
-See the [guide](rule-processing.md) for more details.
+See the [guide](./rule-processing/) for more details.
 
 ### Schedule Management
 
@@ -207,11 +207,11 @@ populated based on the scripts included in the tenant template used when creatin
 Most tenant templates include a few example schedules. If using the "Empty" template, no schedule
 management data will be populated.
 
-See the [guide](schedule-management.md) for more details.
+See the [guide](./schedule-management/) for more details.
 
 ### Streaming Media
 
 The multitenant streaming media microservice is intended to allow streaming storage of binary
 data such as audio and video streams. This feature is under development.
 
-See the [guide](streaming-media.md) for more details.
+See the [guide](./streaming-media/) for more details.

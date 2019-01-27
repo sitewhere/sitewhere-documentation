@@ -16,16 +16,16 @@ topic in Kafka so that they can be tracked or processed out-of-band by external 
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                                          |
-| :-------------------------------------------------- | :------------------------------------------------------------------ |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.                     |
-| **[Device Management](./device-management.md)**     | Used to locate devices and assignments for registration processing. |
+| Microservice                                       | Dependency                                                          |
+| :------------------------------------------------- | :------------------------------------------------------------------ |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data.                     |
+| **[Device Management](../device-management/)**     | Used to locate devices and assignments for registration processing. |
 
 ## Configuration
 
 ### Configuration Schema
 
-[Device Registration Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/device-registration/current/device-registration.xsd)
+[Device Registration Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/device-registration/current/device-registration.xsd)
 
 #### Example Configuration
 
@@ -99,7 +99,7 @@ the customer and area a device is assigned to.
 If events are received for unregistered devices, they are forwarded to the device registration
 microservice to offer the opportunity for devices to be auto-registered for the events. If
 auto-registration is enabled, a new device and assignement will be created, then the
-original event is passed into a retry queue consumed by the [inbound processing](./inbound-processing.md)
+original event is passed into a retry queue consumed by the [inbound processing](../inbound-processing/)
 microservice.
 
 ::: warning

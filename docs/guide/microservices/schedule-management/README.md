@@ -11,15 +11,15 @@ management data will be populated.
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                      |
-| :-------------------------------------------------- | :---------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
+| Microservice                                       | Dependency                                      |
+| :------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data. |
 
 ## Available APIs
 
 ### REST APIs
 
-The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the schedule
+The following REST APIs are served by the [Web/REST microservice](../web-rest/) backed by the schedule
 management microservice.
 
 | API                                                                     | Description                              |
@@ -65,7 +65,7 @@ the `proto` definitions if bindings other than Java are needed:
 
 ### Configuration Schema
 
-[Schedule Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/schedule-management/current/schedule-management.xsd)
+[Schedule Management Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/schedule-management/current/schedule-management.xsd)
 
 #### Example Configuration
 

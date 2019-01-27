@@ -10,17 +10,17 @@ produce batch operations (such as batch command invocations).
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                                       |
-| :-------------------------------------------------- | :--------------------------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.                  |
-| **[Device Management](./device-management.md)**     | Used to locate device information when resolving batch elements. |
-| **[Event Management](./event-management.md)**       | Used to create command invocation events for batch commands.     |
+| Microservice                                       | Dependency                                                       |
+| :------------------------------------------------- | :--------------------------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data.                  |
+| **[Device Management](../device-management/)**     | Used to locate device information when resolving batch elements. |
+| **[Event Management](../event-management/)**       | Used to create command invocation events for batch commands.     |
 
 ## Available APIs
 
 ### REST APIs
 
-The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the batch
+The following REST APIs are served by the [Web/REST microservice](../web-rest/) backed by the batch
 operations microservice.
 
 | API                                                                                   | Description                                     |
@@ -66,7 +66,7 @@ the `proto` definitions if bindings other than Java are needed:
 
 ### Configuration Schema
 
-[Batch Operations Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/batch-operations/current/batch-operations.xsd)
+[Batch Operations Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/batch-operations/current/batch-operations.xsd)
 
 #### Example Configuration
 
@@ -173,8 +173,8 @@ If the `operationType` of the batch operation is `BatchCommandInvocation`, the o
 treated as a batch command invocation, which results in a command invocation event being
 generated for each of the batch elements. Based on metadata stored with the parent operation,
 both the targeted device and the command to be invoked are looked up via the
-[device management](./device-management.md) APIs. After verifying that a device exists
+[device management](../device-management/) APIs. After verifying that a device exists
 for the token and that it has an active assignment, a new device command invocation event
-is created via the [event management](./event-management.md) APIs. The created command invocation
-will be picked up by the [inbound processing](./inbound-processing.md) service and forwarded
-to the [command delivery](./command-delivery.md) service for delivery to the device.
+is created via the [event management](../event-management/) APIs. The created command invocation
+will be picked up by the [inbound processing](../inbound-processing/) service and forwarded
+to the [command delivery](../command-delivery/) service for delivery to the device.

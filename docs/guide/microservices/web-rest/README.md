@@ -13,23 +13,23 @@ device management tenant engine on one of the device management microservices.
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                      |
-| :-------------------------------------------------- | :---------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
-| **[User Management](./user-management.md)**         | Used for processing REST invocations.           |
-| **[Tenant Management](./tenant-management.md)**     | Used for processing REST invocations.           |
-| **[Device Management](./device-management.md)**     | Used for processing REST invocations.           |
-| **[Event Management](./event-management.md)**       | Used for processing REST invocations.           |
-| **[Asset Management](./asset-management.md)**       | Used for processing REST invocations.           |
-| **[Batch Operations](./batch-operations.md)**       | Used for processing REST invocations.           |
-| **[Schedule Management](./schedule-management.md)** | Used for processing REST invocations.           |
-| **[Label Generation](./label-generation.md)**       | Used for processing REST invocations.           |
+| Microservice                                       | Dependency                                      |
+| :------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data. |
+| **[User Management](../user-management/)**         | Used for processing REST invocations.           |
+| **[Tenant Management](../tenant-management/)**     | Used for processing REST invocations.           |
+| **[Device Management](../device-management/)**     | Used for processing REST invocations.           |
+| **[Event Management](../event-management/)**       | Used for processing REST invocations.           |
+| **[Asset Management](../asset-management/)**       | Used for processing REST invocations.           |
+| **[Batch Operations](../batch-operations/)**       | Used for processing REST invocations.           |
+| **[Schedule Management](../schedule-management/)** | Used for processing REST invocations.           |
+| **[Label Generation](../label-generation/)**       | Used for processing REST invocations.           |
 
 ## Configuration
 
 ### Configuration Schema
 
-[Web/REST Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/web-rest/current/web-rest.xsd)
+[Web/REST Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/web-rest/current/web-rest.xsd)
 
 #### Example Configuration
 

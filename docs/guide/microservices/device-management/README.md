@@ -12,17 +12,17 @@ will populate the data model with devices appropriate for a construction site. I
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                                 |
-| :-------------------------------------------------- | :--------------------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.            |
-| **[Event Management](./event-management.md)**       | Used to create state change events on assignment updates.  |
-| **[Asset Management](./asset-management.md)**       | Used to resolve asset associations for device assignments. |
+| Microservice                                       | Dependency                                                 |
+| :------------------------------------------------- | :--------------------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data.            |
+| **[Event Management](../event-management/)**       | Used to create state change events on assignment updates.  |
+| **[Asset Management](../asset-management/)**       | Used to resolve asset associations for device assignments. |
 
 ## Available APIs
 
 ### REST APIs
 
-The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the device
+The following REST APIs are served by the [Web/REST microservice](../web-rest/) backed by the device
 management microservice.
 
 | API                                                                                 | Description                                       |
@@ -77,7 +77,7 @@ the `proto` definitions if bindings other than Java are needed:
 
 ### Configuration Schema
 
-[Device Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/device-management/current/device-management.xsd)
+[Device Management Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/device-management/current/device-management.xsd)
 
 #### Example Configuration
 

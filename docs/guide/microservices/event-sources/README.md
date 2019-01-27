@@ -13,17 +13,17 @@ be parsed or are detected as duplicates by deduplication processing.
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                         |
-| :-------------------------------------------------- | :------------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.    |
-| **[Device Management](./device-management.md)**     | Used for event deduplication and Groovy scripting. |
-| **[Event Management](./event-management.md)**       | Used for event deduplication and Groovy scripting. |
+| Microservice                                       | Dependency                                         |
+| :------------------------------------------------- | :------------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data.    |
+| **[Device Management](../device-management/)**     | Used for event deduplication and Groovy scripting. |
+| **[Event Management](../event-management/)**       | Used for event deduplication and Groovy scripting. |
 
 ## Configuration
 
 ### Configuration Schema
 
-[Event Sources Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/event-sources/current/event-sources.xsd)
+[Event Sources Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/event-sources/current/event-sources.xsd)
 
 #### Example Configuration
 

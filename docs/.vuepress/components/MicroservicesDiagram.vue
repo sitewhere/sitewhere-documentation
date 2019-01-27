@@ -48,133 +48,133 @@ const microservices = [
     x: col1,
     y: row1,
     type: global,
-    link: "../guide/microservices/instance-management.html"
+    link: "../guide/microservices/instance-management/"
   },
   {
     name: "Tenant Management",
     x: col1,
     y: row2,
     type: global,
-    link: "../guide/microservices/tenant-management.html"
+    link: "../guide/microservices/tenant-management/"
   },
   {
     name: "User Management",
     x: col1,
     y: row3,
     type: global,
-    link: "../guide/microservices/user-management.html"
+    link: "../guide/microservices/user-management/"
   },
   {
     name: "Web/REST",
     x: col1,
     y: row4,
     type: global,
-    link: "../guide/microservices/web-rest.html"
+    link: "../guide/microservices/web-rest/"
   },
   {
     name: "Device Management",
     x: col2,
     y: row1,
     type: multitenant,
-    link: "../guide/microservices/device-management.html"
+    link: "../guide/microservices/device-management/"
   },
   {
     name: "Event Management",
     x: col2,
     y: row2,
     type: multitenant,
-    link: "../guide/microservices/event-management.html"
+    link: "../guide/microservices/event-management/"
   },
   {
     name: "Asset Management",
     x: col2,
     y: row3,
     type: multitenant,
-    link: "../guide/microservices/asset-management.html"
+    link: "../guide/microservices/asset-management/"
   },
   {
     name: "Schedule Management",
     x: col2,
     y: row4,
     type: multitenant,
-    link: "../guide/microservices/schedule-management.html"
+    link: "../guide/microservices/schedule-management/"
   },
   {
     name: "Batch Operations",
     x: col3,
     y: row1,
     type: multitenant,
-    link: "../guide/microservices/batch-operations.html"
+    link: "../guide/microservices/batch-operations/"
   },
   {
     name: "Command Delivery",
     x: col3,
     y: row2,
     type: multitenant,
-    link: "../guide/microservices/command-delivery.html"
+    link: "../guide/microservices/command-delivery/"
   },
   {
     name: "Device Registration",
     x: col3,
     y: row3,
     type: multitenant,
-    link: "../guide/microservices/device-registration.html"
+    link: "../guide/microservices/device-registration/"
   },
   {
     name: "Device State",
     x: col3,
     y: row4,
     type: multitenant,
-    link: "../guide/microservices/device-state.html"
+    link: "../guide/microservices/device-state/"
   },
   {
     name: "Event Search",
     x: col4,
     y: row1,
     type: multitenant,
-    link: "../guide/microservices/event-search.html"
+    link: "../guide/microservices/event-search/"
   },
   {
     name: "Event Sources",
     x: col4,
     y: row2,
     type: multitenant,
-    link: "../guide/microservices/event-sources.html"
+    link: "../guide/microservices/event-sources/"
   },
   {
     name: "Inbound Processing",
     x: col4,
     y: row3,
     type: multitenant,
-    link: "../guide/microservices/inbound-processing.html"
+    link: "../guide/microservices/inbound-processing/"
   },
   {
     name: "Label Generation",
     x: col4,
     y: row4,
     type: multitenant,
-    link: "../guide/microservices/label-generation.html"
+    link: "../guide/microservices/label-generation/"
   },
   {
     name: "Outbound Connectors",
     x: col5,
     y: row1,
     type: multitenant,
-    link: "../guide/microservices/outbound-connectors.html"
+    link: "../guide/microservices/outbound-connectors/"
   },
   {
     name: "Rule Processing",
     x: col5,
     y: row2,
     type: multitenant,
-    link: "../guide/microservices/rule-processing.html"
+    link: "../guide/microservices/rule-processing/"
   },
   {
     name: "Streaming Media",
     x: col5,
     y: row3,
     type: multitenant,
-    link: "../guide/microservices/streaming-media.html"
+    link: "../guide/microservices/streaming-media/"
   }
 ];
 

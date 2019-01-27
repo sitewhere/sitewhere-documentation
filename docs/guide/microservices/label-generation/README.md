@@ -9,17 +9,17 @@ manager that may be customized to generate specific types of output unique to th
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                         |
-| :-------------------------------------------------- | :------------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.    |
-| **[Device Management](./device-management.md)**     | Used to load device data used in label processing. |
-| **[Asset Management](./asset-management.md)**       | Used for load asset data used in label processing. |
+| Microservice                                       | Dependency                                         |
+| :------------------------------------------------- | :------------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data.    |
+| **[Device Management](../device-management/)**     | Used to load device data used in label processing. |
+| **[Asset Management](../asset-management/)**       | Used for load asset data used in label processing. |
 
 ## Configuration
 
 ### Configuration Schema
 
-[Label Generation Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/label-generation/current/label-generation.xsd)
+[Label Generation Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/label-generation/current/label-generation.xsd)
 
 #### Example Configuration
 

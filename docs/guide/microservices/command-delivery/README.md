@@ -10,16 +10,16 @@ is to be encoded, which transport is to be used, and where the command is to be 
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                                     |
-| :-------------------------------------------------- | :------------------------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.                |
-| **[Device Management](./device-management.md)**     | Used to locating devices and assignments for command delivery. |
+| Microservice                                       | Dependency                                                     |
+| :------------------------------------------------- | :------------------------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data.                |
+| **[Device Management](../device-management/)**     | Used to locating devices and assignments for command delivery. |
 
 ## Configuration
 
 ### Configuration Schema
 
-[Command Delivery Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/command-delivery/current/command-delivery.xsd)
+[Command Delivery Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/command-delivery/current/command-delivery.xsd)
 
 #### Example Configuration
 

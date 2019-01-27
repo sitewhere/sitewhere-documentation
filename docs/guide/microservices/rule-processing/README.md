@@ -14,17 +14,17 @@ This microservice is not fully implemented in SiteWhere 2.0
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                      |
-| :-------------------------------------------------- | :---------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
-| **[Device Management](./device-management.md)**     | Provided as API for rule processors to use.     |
-| **[Event Management](./event-management.md)**       | Provided as API for rule processors to use.     |
+| Microservice                                       | Dependency                                      |
+| :------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data. |
+| **[Device Management](../device-management/)**     | Provided as API for rule processors to use.     |
+| **[Event Management](../event-management/)**       | Provided as API for rule processors to use.     |
 
 ## Configuration
 
 ### Configuration Schema
 
-[Rule Processing Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/rule-processing/current/rule-processing.xsd)
+[Rule Processing Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/rule-processing/current/rule-processing.xsd)
 
 #### Example Configuration
 

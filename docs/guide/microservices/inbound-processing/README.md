@@ -12,17 +12,17 @@ available to consumers interested in event information.
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                      |
-| :-------------------------------------------------- | :---------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
-| **[Device Management](./device-management.md)**     | Used to enrich inbound events with device data. |
-| **[Event Management](./event-management.md)**       | Used for persistence of inbound event payloads. |
+| Microservice                                       | Dependency                                      |
+| :------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data. |
+| **[Device Management](../device-management/)**     | Used to enrich inbound events with device data. |
+| **[Event Management](../event-management/)**       | Used for persistence of inbound event payloads. |
 
 ## Configuration
 
 ### Configuration Schema
 
-[Inbound Processing Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/inbound-processing/current/inbound-processing.xsd)
+[Inbound Processing Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/inbound-processing/current/inbound-processing.xsd)
 
 #### Example Configuration
 

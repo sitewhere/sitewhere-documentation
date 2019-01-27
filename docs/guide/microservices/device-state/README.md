@@ -14,17 +14,17 @@ trigger actions based on a device becoming present or not present.
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                                   |
-| :-------------------------------------------------- | :----------------------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data.              |
-| **[Device Management](./device-management.md)**     | Used to locate devices and assignments for state processing. |
-| **[Event Management](event-management.md)**         | Used to record device state changes for presence management. |
+| Microservice                                       | Dependency                                                   |
+| :------------------------------------------------- | :----------------------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data.              |
+| **[Device Management](../device-management/)**     | Used to locate devices and assignments for state processing. |
+| **[Event Management](../event-management/)**       | Used to record device state changes for presence management. |
 
 ## Available APIs
 
 ### REST APIs
 
-The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the device
+The following REST APIs are served by the [Web/REST microservice](../web-rest/) backed by the device
 state microservice.
 
 | API                                                                             | Description                                  |
@@ -70,7 +70,7 @@ the `proto` definitions if bindings other than Java are needed:
 
 ### Configuration Schema
 
-[Device State Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/device-state/current/device-state.xsd)
+[Device State Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/device-state/current/device-state.xsd)
 
 #### Example Configuration
 

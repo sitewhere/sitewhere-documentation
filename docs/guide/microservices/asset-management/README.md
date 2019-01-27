@@ -12,16 +12,16 @@ management data will be populated.
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                      |
-| :-------------------------------------------------- | :---------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
-| **[Device Management](./device-management.md)**     | Required by a subset of asset management tasks. |
+| Microservice                                       | Dependency                                      |
+| :------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data. |
+| **[Device Management](../device-management/)**     | Required by a subset of asset management tasks. |
 
 ## Available APIs
 
 ### REST APIs
 
-The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the asset
+The following REST APIs are served by the [Web/REST microservice](../web-rest/) backed by the asset
 management microservice.
 
 | API                                                                         | Description                                |
@@ -68,7 +68,7 @@ the `proto` definitions if bindings other than Java are needed:
 
 ### Configuration Schema
 
-[Asset Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/asset-management/current/asset-management.xsd)
+[Asset Management Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/asset-management/current/asset-management.xsd)
 
 #### Example Configuration
 

@@ -12,15 +12,15 @@ This microservice is not fully implemented in SiteWhere 2.0
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                      |
-| :-------------------------------------------------- | :---------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
+| Microservice                                       | Dependency                                      |
+| :------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data. |
 
 ## Configuration
 
 ### Configuration Schema
 
-[Streaming Media Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/streaming-media/current/streaming-media.xsd)
+[Streaming Media Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/streaming-media/current/streaming-media.xsd)
 
 #### Example Configuration
 

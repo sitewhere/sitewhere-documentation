@@ -10,15 +10,15 @@ microservice to allow the list of system tenants to be managed.
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                      |
-| :-------------------------------------------------- | :---------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
+| Microservice                                       | Dependency                                      |
+| :------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data. |
 
 ## Available APIs
 
 ### REST APIs
 
-The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the tenant
+The following REST APIs are served by the [Web/REST microservice](../web-rest/) backed by the tenant
 management microservice.
 
 | API                                                                 | Description                            |
@@ -64,7 +64,7 @@ the `proto` definitions if bindings other than Java are needed:
 
 ### Configuration Schema
 
-[Tenant Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/tenant-management/current/tenant-management.xsd)
+[Tenant Management Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/tenant-management/current/tenant-management.xsd)
 
 #### Example Configuration
 

@@ -13,16 +13,16 @@ will be populated.
 
 ## Microservice Dependencies
 
-| Microservice                                        | Dependency                                      |
-| :-------------------------------------------------- | :---------------------------------------------- |
-| **[Instance Management](./instance-management.md)** | Required to initially bootstrap Zookeeper data. |
-| **[Device Management](./device-management.md)**     | Used to look up device assignment information.  |
+| Microservice                                       | Dependency                                      |
+| :------------------------------------------------- | :---------------------------------------------- |
+| **[Instance Management](../instance-management/)** | Required to initially bootstrap Zookeeper data. |
+| **[Device Management](../device-management/)**     | Used to look up device assignment information.  |
 
 ## Available APIs
 
 ### REST APIs
 
-The following REST APIs are served by the [Web/REST microservice](web-rest.md) backed by the event
+The following REST APIs are served by the [Web/REST microservice](../web-rest/) backed by the event
 management microservice.
 
 | API                                                                                | Description                                                     |
@@ -71,7 +71,7 @@ the `proto` definitions if bindings other than Java are needed:
 
 ### Configuration Schema
 
-[Event Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/event-management/current/event-management.xsd)
+[Event Management Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/event-management/current/event-management.xsd)
 
 #### Example Configuration
 

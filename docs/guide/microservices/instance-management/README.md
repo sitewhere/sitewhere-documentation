@@ -10,16 +10,16 @@ database and connector configurations.
 
 ## Microservice Dependencies
 
-| Microservice                                  | Dependency                                                                                 |
-| :-------------------------------------------- | :----------------------------------------------------------------------------------------- |
-| **[User Management](./user-management.md)**   | Required in order to bootstrap default system users based on the chosen instance template. |
-| **[Event Management](./event-management.md)** | Required in order to bootstrap default system users based on the chosen instance template. |
+| Microservice                                 | Dependency                                                                                 |
+| :------------------------------------------- | :----------------------------------------------------------------------------------------- |
+| **[User Management](../user-management/)**   | Required in order to bootstrap default system users based on the chosen instance template. |
+| **[Event Management](../event-management/)** | Required in order to bootstrap default system users based on the chosen instance template. |
 
 ## Configuration
 
 ### Configuration Schema
 
-[Instance Management Configuration XML Schema](http://sitewhere.io/schema/sitewhere/microservice/instance-management/current/instance-management.xsd)
+[Instance Management Configuration XML Schema](https://sitewhere.io/schema/sitewhere/microservice/instance-management/current/instance-management.xsd)
 
 #### Example Configuration
 
