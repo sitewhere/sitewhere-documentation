@@ -51,7 +51,8 @@ module.exports = {
         "twelve-factor"
       ],
       "/guide/architecture/": ["configuration-management"],
-      "/guide/deployment/": [""],
+      "/guide/deployment/": ["", "common-issues", "backup-restore"],
+      "/guide/administration/": ["", "global/", "tenant/"],
       "/guide/devices/": ["sending-data", "android", "kura"],
       "/guide/microservices/": [
         "asset-management/",
@@ -74,7 +75,13 @@ module.exports = {
         "user-management/",
         "web-rest/"
       ],
-      "/guide/": ["architecture/", "deployment/", "devices/", "microservices/"],
+      "/guide/": [
+        "architecture/",
+        "deployment/",
+        "administration/",
+        "devices/",
+        "microservices/"
+      ],
       "/deployment/": [""],
       "/development/": [""]
     },
@@ -87,7 +94,28 @@ module.exports = {
         nav: [
           { text: "Platform", link: "/platform/" },
           { text: "Installation", link: "/deployment/" },
-          { text: "User Guides", link: "/guide/" },
+          {
+            text: "User Guides",
+            items: [
+              {
+                text: "Architecture Guide",
+                link: "/guide/architecture/"
+              },
+              { text: "Deployment Guide", link: "/guide/deployment/" },
+              {
+                text: "System Administration Guide",
+                link: "/guide/administration/"
+              },
+              {
+                text: "Device Interaction Guides",
+                link: "/guide/devices/"
+              },
+              {
+                text: "Microservice Guides",
+                link: "/guide/microservices/"
+              }
+            ]
+          },
           { text: "Development", link: "/development/" }
         ]
       },

@@ -7,18 +7,18 @@ configuration as well as options for deploying the core platform.
 
 ## Prerequisites Details
 
-* Kubernetes 1.8+
-* Rook v0.9+
+- Kubernetes 1.8+
+- Rook v0.9+
 
 ## Chart Details
 
 This chart will do the following:
 
-* Deploy SiteWhere 2.0 Core Infrastructure
-* Deploy SiteWhere 2.0 Core Database
-* Deploy SiteWhere 2.0 Microservices
+- Deploy SiteWhere 2.0 Core Infrastructure
+- Deploy SiteWhere 2.0 Core Database
+- Deploy SiteWhere 2.0 Microservices
 
-## Installaing the Chart
+## Installing the Chart
 
 ### Add SiteWhere Helm
 
@@ -88,12 +88,12 @@ helm install --name kafka-manager \
   --set zkHosts=sitewhere-zookeeper:2181 stable/kafka-manager
 ```
 
-Port-Forware Kafka Manager UI
+Port-forward Kafka Manager UI
 
 ```console
 kubectl port-forward deployment/kafka-manager-kafka-manager 9000 9000
 ```
 
-## Backup and Restor
+## Backup and Restore
 
 For backup and restore procedure, please refere to [Backup and Restore](./backup-restore.md).

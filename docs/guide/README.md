@@ -25,6 +25,16 @@ highly-available deployments for applications such as smart cities.
 
 See the [guide](./deployment/) for more information.
 
+## :book: System Administration Guide
+
+This guide covers use of the system administration application
+for tasks such as creating/configuring tenants and interacting
+with tenant data. It includes aspects such as adding new devices,
+assigning them to customers/areas, viewing device event data and
+issuing commands to devices.
+
+See the [guide](./administration/) for more information.
+
 ## :book: Device Interaction Guides
 
 This group of guides covers various SiteWhere technologies that support

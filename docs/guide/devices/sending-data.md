@@ -1,4 +1,4 @@
-# Sending Data to SiteWhere 2.0
+# :book: Sending Data to SiteWhere
 
 <Seo/>
 

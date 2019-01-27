@@ -19,3 +19,7 @@ connect to Zookeeper for their configuration when bootstrapping and continue
 listening for changes at runtime.
 
 See the configuration management [guide](./configuration-management.md) for more information.
+
+::: warning
+This guide is under active development. Check back for updates.
+:::
