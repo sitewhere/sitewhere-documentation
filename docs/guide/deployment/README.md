@@ -2,39 +2,54 @@
 
 <Seo/>
 
-This guide covers the SiteWhere deployment processing including infrastructure
-configuration as well as options for deploying the core platform.
+SiteWhere is a distributed system which is implemented in a microservice architecture
+and orchestrated using a [Kubernetes](https://kubernetes.io/) infrastructure. SiteWhere
+uses [Helm](https://helm.sh/) to provide a simple, parameterized approach for launching
+and configuring the system. A separate
+[sitewhere-k8s](https://github.com/sitewhere/sitewhere-k8s) repository contains
+the Helm charts, which are released independently of the core platform
+lifecycle.
 
-## Prerequisites Details
+This guide covers the artifacts and processes invoved in deploying a SiteWhere
+instance, including infrastructure components, data persistence technologies
+and the microservices which implement system functionality.
+
+## Prerequisites
 
 - Kubernetes 1.8+
 - Rook v0.9+
 
 ## Chart Details
 
-This chart will do the following:
+The SiteWhere Helm chart covers the following functional areas:
 
-- Deploy SiteWhere 2.0 Core Infrastructure
-- Deploy SiteWhere 2.0 Core Database
-- Deploy SiteWhere 2.0 Microservices
+- [SiteWhere Core Infrastructure](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere-infra-core) (e.g. Kafka, Zookeeper, Consul)
+- [SiteWhere Database Infrastructure](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere-infra-database) (e.g. MongoDB, InfluxDB, Cassandra)
+- [SiteWhere Microservices](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere) (Core system microservices)
+
+Note that the infrastructure charts are packaged separately and included as
+dependencies for the primary SiteWhere chart.
 
 ## Installing the Chart
 
-### Add SiteWhere Helm
+### Add the SiteWhere Helm Repository
 
-Before installing SiteWhere helm charts, you need to add the [SiteWhere helm repository](https://sitewhere.io/helm-charts) to your helm client.
+Before installing the SiteWhere Helm charts, add the
+[SiteWhere helm repository](https://sitewhere.io/helm-charts/index.yaml)
+to your Helm client.
 
 ```console
 helm repo add sitewhere https://sitewhere.io/helm-charts
 ```
 
-Then you need to update your local helm repository
+Afterward, update your local Helm repository to pull the latest
+chart information from the index.
 
 ```console
 helm repo update
 ```
 
-### Install Chart
+### Install SiteWhere Chart
 
 To install the chart with the release name `sitewhere` execute:
 
@@ -44,7 +59,11 @@ helm install --name sitewhere sitewhere/sitewhere
 
 Please refere to [Common Issues](./common-issues.md) if you a problem with the Deployment of SiteWhere.
 
-### Install in a Developer Machine
+### Install on a Developer Machine
+
+To install a version of the SiteWhere chart that uses less
+highly-available components in order to reduce the memory footprint
+and startup time, use the following command instead.
 
 ```console
 helm install --name sitewhere \
@@ -53,6 +72,9 @@ helm install --name sitewhere \
 ```
 
 ### Remove Installed Helm Chart
+
+The following command removes the artifacts added with the SiteWhere chart
+installation and releases the `sitewhere` chart name for reuse.
 
 ```console
 helm del sitewhere --purge
@@ -78,7 +100,3 @@ Port-forward Kafka Manager UI
 ```console
 kubectl port-forward deployment/kafka-manager-kafka-manager 9000 9000
 ```
-
-## Backup and Restore
-
-For backup and restore procedure, please refere to [Backup and Restore](./backup-restore.md).
