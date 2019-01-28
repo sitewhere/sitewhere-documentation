@@ -65,6 +65,15 @@ To install a version of the SiteWhere chart that uses less
 highly-available components in order to reduce the memory footprint
 and startup time, use the following command instead.
 
+You can install SiteWhere on a Developer Machine, using the non-HA configuration of MongoDB, Apache Kafka,
+Apache Zookeeper and Consul. In order to do this, you need to clone `sitewhere-k8s` repository, using
+
+```console
+git clone https://github.com/sitewhere/sitewhere-k8s.git
+```
+
+Then, on the `charts` folder run the command:
+
 ```console
 helm install --name sitewhere \
   -f ./sitewhere/dev-values.yaml \
@@ -80,7 +89,11 @@ installation and releases the `sitewhere` chart name for reuse.
 helm del sitewhere --purge
 ```
 
+This will remove sitewhere infrastructure and microservices.
+
 ### Delete SiteWhere Data
+
+To remove SiteWhere Persistence Volume Claims, run the command:
 
 ```console
 kubectl delete pvc -l release=sitewhere
