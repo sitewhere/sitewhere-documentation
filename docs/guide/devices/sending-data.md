@@ -183,7 +183,7 @@ The JSON format for sending a device locacation is shown below:
   "deviceToken": "mydevicetoken",
   "request": {
     "latitude": "33.75",
-    "latitude": "-84.39",
+    "longitude": "-84.39",
     "elevation": "1",
     "updateState": true,
     "eventDate": "2018-11-03T19:40:03.390Z"
@@ -195,7 +195,7 @@ The JSON format for sending a device locacation is shown below:
 | ----------- | ---------------------------------------------------------- |
 | type        | `DeviceLocation`                                           |
 | latitude    | Latitud of the Location being send.                        |
-| latitude    | Longitud of the Location being send.                       |
+| longitude   | Longitud of the Location being send.                       |
 | elevation   | Elevation of the Location being send.                      |
 | updateState | if `true`, it updates the `DeviceState` of the Assignement |
 | eventDate   | Timestamp of the event.                                    |
