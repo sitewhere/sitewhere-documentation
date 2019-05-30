@@ -27,16 +27,16 @@ management microservice.
 
 | API                                                                                 | Description                                       |
 | :---------------------------------------------------------------------------------- | :------------------------------------------------ |
-| [**Area APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/areas)                     | REST API methods for managing areas.              |
-| [**Area Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/area-types)           | REST API methods for managing area types.         |
-| [**Customer APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customers)             | REST API methods for managing customers.          |
-| [**Customer Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customer-types)   | REST API methods for managing customer types.     |
-| [**Device APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/devices)                 | REST API methods for managing devices.            |
-| [**Device Assignment APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assignments)  | REST API methods for managing device assignments. |
-| [**Device Command APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-commands) | REST API methods for managing device commands.    |
-| [**Device Group APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-groups)     | REST API methods for managing device groups.      |
-| [**Device Status APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-statuses)  | REST API methods for managing device statuses.    |
-| [**Device Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-types)       | REST API methods for managing device types.       |
+| [**Area APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/areas)                     | REST API methods for managing areas.              |
+| [**Area Type APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/area-types)           | REST API methods for managing area types.         |
+| [**Customer APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/customers)             | REST API methods for managing customers.          |
+| [**Customer Type APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/customer-types)   | REST API methods for managing customer types.     |
+| [**Device APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/devices)                 | REST API methods for managing devices.            |
+| [**Device Assignment APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/assignments)  | REST API methods for managing device assignments. |
+| [**Device Command APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/device-commands) | REST API methods for managing device commands.    |
+| [**Device Group APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/device-groups)     | REST API methods for managing device groups.      |
+| [**Device Status APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/device-statuses)  | REST API methods for managing device statuses.    |
+| [**Device Type APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/device-types)       | REST API methods for managing device types.       |
 
 ### gRPC APIs
 
@@ -55,7 +55,7 @@ may be included by using the following:
 #### Gradle
 
 ```groovy
-compile group: 'com.sitewhere', name: 'sitewhere-grpc-device-management', version: '2.0.1'
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-device-management', version: '2.0.4'
 ```
 
 #### Maven
@@ -64,7 +64,7 @@ compile group: 'com.sitewhere', name: 'sitewhere-grpc-device-management', versio
 <dependency>
     <groupId>com.sitewhere</groupId>
     <artifactId>sitewhere-grpc-device-management</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.4</version>
 </dependency>
 ```
 

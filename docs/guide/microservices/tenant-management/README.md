@@ -23,7 +23,7 @@ management microservice.
 
 | API                                                                 | Description                            |
 | :------------------------------------------------------------------ | :------------------------------------- |
-| [**Tenant APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/tenants) | REST API methods for managing tenants. |
+| [**Tenant APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/tenants) | REST API methods for managing tenants. |
 
 ### gRPC APIs
 
@@ -42,7 +42,7 @@ may be included by using the following:
 #### Gradle
 
 ```groovy
-compile group: 'com.sitewhere', name: 'sitewhere-grpc-tenant-management', version: '2.0.1'
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-tenant-management', version: '2.0.4'
 ```
 
 #### Maven
@@ -51,7 +51,7 @@ compile group: 'com.sitewhere', name: 'sitewhere-grpc-tenant-management', versio
 <dependency>
     <groupId>com.sitewhere</groupId>
     <artifactId>sitewhere-grpc-tenant-management</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.4</version>
 </dependency>
 ```
 

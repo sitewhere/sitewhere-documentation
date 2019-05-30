@@ -29,7 +29,7 @@ state microservice.
 
 | API                                                                             | Description                                  |
 | :------------------------------------------------------------------------------ | :------------------------------------------- |
-| [**Device State APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-states) | REST API methods for managing device states. |
+| [**Device State APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/device-states) | REST API methods for managing device states. |
 
 ### gRPC APIs
 
@@ -48,7 +48,7 @@ may be included by using the following:
 #### Gradle
 
 ```groovy
-compile group: 'com.sitewhere', name: 'sitewhere-grpc-device-state', version: '2.0.1'
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-device-state', version: '2.0.4'
 ```
 
 #### Maven
@@ -57,7 +57,7 @@ compile group: 'com.sitewhere', name: 'sitewhere-grpc-device-state', version: '2
 <dependency>
     <groupId>com.sitewhere</groupId>
     <artifactId>sitewhere-grpc-device-state</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.4</version>
 </dependency>
 ```
 

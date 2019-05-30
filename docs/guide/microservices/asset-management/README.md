@@ -26,8 +26,8 @@ management microservice.
 
 | API                                                                         | Description                                |
 | :-------------------------------------------------------------------------- | :----------------------------------------- |
-| [**Asset APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assets)           | REST API methods for managing assets.      |
-| [**Asset Type APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/asset-types) | REST API methods for managing asset types. |
+| [**Asset APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/assets)           | REST API methods for managing assets.      |
+| [**Asset Type APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/asset-types) | REST API methods for managing asset types. |
 
 ### gRPC APIs
 
@@ -46,7 +46,7 @@ may be included by using the following:
 #### Gradle
 
 ```groovy
-compile group: 'com.sitewhere', name: 'sitewhere-grpc-asset-management', version: '2.0.1'
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-asset-management', version: '2.0.4'
 ```
 
 #### Maven
@@ -55,7 +55,7 @@ compile group: 'com.sitewhere', name: 'sitewhere-grpc-asset-management', version
 <dependency>
     <groupId>com.sitewhere</groupId>
     <artifactId>sitewhere-grpc-asset-management</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.4</version>
 </dependency>
 ```
 

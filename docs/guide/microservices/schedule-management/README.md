@@ -24,7 +24,7 @@ management microservice.
 
 | API                                                                     | Description                              |
 | :---------------------------------------------------------------------- | :--------------------------------------- |
-| [**Schedule APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/schedules) | REST API methods for managing schedules. |
+| [**Schedule APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/schedules) | REST API methods for managing schedules. |
 
 ### gRPC APIs
 
@@ -43,7 +43,7 @@ may be included by using the following:
 #### Gradle
 
 ```groovy
-compile group: 'com.sitewhere', name: 'sitewhere-grpc-schedule-management', version: '2.0.1'
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-schedule-management', version: '2.0.4'
 ```
 
 #### Maven
@@ -52,7 +52,7 @@ compile group: 'com.sitewhere', name: 'sitewhere-grpc-schedule-management', vers
 <dependency>
     <groupId>com.sitewhere</groupId>
     <artifactId>sitewhere-grpc-schedule-management</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.4</version>
 </dependency>
 ```
 

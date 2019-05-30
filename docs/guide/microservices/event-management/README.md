@@ -27,10 +27,10 @@ management microservice.
 
 | API                                                                                | Description                                                     |
 | :--------------------------------------------------------------------------------- | :-------------------------------------------------------------- |
-| [**Area APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/areas)                    | REST API methods for events associated with areas.              |
-| [**Customer APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/customers)            | REST API methods for events associated with customers.          |
-| [**Device Assignment APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/assignments) | REST API methods for events associated with device assignments. |
-| [**Event APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/device-events)           | REST API methods for managing device events.                    |
+| [**Area APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/areas)                    | REST API methods for events associated with areas.              |
+| [**Customer APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/customers)            | REST API methods for events associated with customers.          |
+| [**Device Assignment APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/assignments) | REST API methods for events associated with device assignments. |
+| [**Event APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/device-events)           | REST API methods for managing device events.                    |
 
 ### gRPC APIs
 
@@ -49,7 +49,7 @@ may be included by using the following:
 #### Gradle
 
 ```groovy
-compile group: 'com.sitewhere', name: 'sitewhere-grpc-event-management', version: '2.0.1'
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-event-management', version: '2.0.4'
 ```
 
 #### Maven
@@ -58,7 +58,7 @@ compile group: 'com.sitewhere', name: 'sitewhere-grpc-event-management', version
 <dependency>
     <groupId>com.sitewhere</groupId>
     <artifactId>sitewhere-grpc-event-management</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.4</version>
 </dependency>
 ```
 

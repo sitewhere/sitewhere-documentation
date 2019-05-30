@@ -15,7 +15,7 @@ and then make themselves available for processing tasks.
 ## Microservice Structure
 
 All SiteWhere microservices are based on a custom library defined in
-the [sitewhere-microservice](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.0/sitewhere-microservice)
+the [sitewhere-microservice](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.1.0/sitewhere-microservice)
 module of the core SiteWhere repository. This library includes the common
 code used for SiteWhere microservices including service lifecycle, configuration,
 logging, service discovery, distributed tracing, and other cross-cutting concerns.
@@ -23,8 +23,8 @@ logging, service discovery, distributed tracing, and other cross-cutting concern
 ### Spring Boot Application
 
 SiteWhere microservices are packaged as Spring Boot applications which use a common
-base class [`MicroserviceApplication`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.0.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/MicroserviceApplication.java) that standardizes the service startup/shutdown
-behavior. The application wraps an instance of a [`Microservice`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.0.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/Microservice.java) subclass
+base class [`MicroserviceApplication`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.1.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/MicroserviceApplication.java) that standardizes the service startup/shutdown
+behavior. The application wraps an instance of a [`Microservice`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.1.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/Microservice.java) subclass
 which implements much of the common behavior such as microservice lifecycle,
 service discovery, common Kafka and gRPC services, as well as hooks for
 the standard lifecycle behaviors. Microservice subclasses use the

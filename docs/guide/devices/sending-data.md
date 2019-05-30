@@ -36,7 +36,7 @@ some common information as shown below:
 ### Sending Device Data Using Profocol Buffer
 
 ```groovy
-compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.0-SNAPSHOT'
+compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.1'
 ```
 
 ### Registering a Device

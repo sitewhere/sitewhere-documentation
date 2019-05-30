@@ -23,7 +23,7 @@ management microservice.
 
 | API                                                             | Description                          |
 | :-------------------------------------------------------------- | :----------------------------------- |
-| [**User APIs**](http://sitewhere.io/docs/2.0.0/api2/#tag/users) | REST API methods for managing users. |
+| [**User APIs**](http://sitewhere.io/docs/2.1.0/api2/#tag/users) | REST API methods for managing users. |
 
 ### gRPC APIs
 
@@ -42,7 +42,7 @@ may be included by using the following:
 #### Gradle
 
 ```groovy
-compile group: 'com.sitewhere', name: 'sitewhere-grpc-user-management', version: '2.0.1'
+compile group: 'com.sitewhere', name: 'sitewhere-grpc-user-management', version: '2.0.4'
 ```
 
 #### Maven
@@ -51,7 +51,7 @@ compile group: 'com.sitewhere', name: 'sitewhere-grpc-user-management', version:
 <dependency>
     <groupId>com.sitewhere</groupId>
     <artifactId>sitewhere-grpc-user-management</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.4</version>
 </dependency>
 ```
 

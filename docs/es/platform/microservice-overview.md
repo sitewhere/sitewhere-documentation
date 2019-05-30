@@ -12,7 +12,7 @@ autoensamblan y luego se ponen a disposición de las tareas de procesamiento.
 ## Estructura de Microservicios
 
 Todos los microservicios de SiteWhere se basan en una biblioteca personalizada definida en
-el módulo [sitewhere-microservice](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.0/sitewhere-microservice)
+el módulo [sitewhere-microservice](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.1.0/sitewhere-microservice)
 del repositorio central de SiteWhere. Esta biblioteca incluye el código común utilizado
 por los microservicios de SiteWhere, incluido el ciclo de vida del servicio, la configuración,
 el registro, el descubrimiento del servicio, el rastreo distribuido y otras funcionalidades transversales.
@@ -20,9 +20,9 @@ el registro, el descubrimiento del servicio, el rastreo distribuido y otras func
 ### Aplicación Spring Boot
 
 Los microservicios de SiteWhere se empaquetan como aplicaciones Spring Boot que utilizan una clase
-base común [`MicroserviceApplication`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.0.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/MicroserviceApplication.java)
+base común [`MicroserviceApplication`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.1.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/MicroserviceApplication.java)
 que estandariza el comportamiento de inicio/apagado del servicio. La aplicación envuelve una subclase de la instancia
-de un [`Microservice`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.0.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/Microservice.java)
+de un [`Microservice`](https://github.com/sitewhere/sitewhere/blob/sitewhere-2.1.0/sitewhere-microservice/src/main/java/com/sitewhere/microservice/Microservice.java)
 que implementa gran parte del comportamiento común, como el ciclo de vida del microservicio, el descubrimiento del servicio,
 los servicios Kafka y gRPC comunes, así como enlaces para los comportamientos del ciclo de vida estándar.
 Las subclases de microservicio utilizan los distintos ganchos (_hooks_) para personalizar el ciclo de vida y agregar nuevas funcionalidades.

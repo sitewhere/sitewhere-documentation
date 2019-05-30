@@ -38,7 +38,7 @@ To send data to SiteWhere using Protocol Buffers, use the `sitewhere-device-prot
 the SiteWhere development team. To import it using [Gradle](https://gradle.org) use the instruction.
 
 ```groovy
-compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.0'
+compile group: 'com.sitewhere', name: 'sitewhere-device-protobuf', version:'2.0.4'
 ```
 
 To import the library from a project [Maven](https://maven.apache.org/) use the following entry in your `pom.xml`.
@@ -47,7 +47,7 @@ To import the library from a project [Maven](https://maven.apache.org/) use the 
 <dependency>
     <groupId>com.sitewhere</groupId>
     <artifactId>sitewhere-device-protobuf</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.4</version>
 </dependency>
 ```
 
