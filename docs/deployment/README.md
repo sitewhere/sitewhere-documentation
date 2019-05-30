@@ -2,15 +2,15 @@
 
 <Seo/>
 
-This guide covers the SiteWhere 2.0 deployment process which has changed
+This guide covers the SiteWhere 2.1 deployment process which has changed
 significantly from the one used for SiteWhere 1.x. While previous versions
-of SiteWhere were deployed as a single server node, the SiteWhere 2.0
+of SiteWhere were deployed as a single server node, the SiteWhere 2.1
 architecture is based on many microservices which are deployed into a
 [Kubernetes](https://https://kubernetes.io) infrastructure.
 
 ## System Requirements
 
-Because SiteWhere 2.0 uses a microservices architecture, the number of
+Because SiteWhere 2.1 uses a microservices architecture, the number of
 processes running concurrently has increased, which in turn requires
 more memory and processing power. The minimum hardware specifications
 for a single node Kubernetes cluster running a SiteWhere instance is:
@@ -29,7 +29,7 @@ microservices per node (generally 500MB of memory per microservice).
 
 ## Install Kubernetes
 
-SiteWhere 2.0 uses Kubernetes as a production-grade container orchestration solution
+SiteWhere 2.1 uses Kubernetes as a production-grade container orchestration solution
 which may be installed both locally/on-premise and in all major cloud environments.
 Kubernetes clusters are available as a service on
 [Google Cloud](https://cloud.google.com/kubernetes-engine/),
@@ -72,7 +72,7 @@ For a complete list of other options for deploying Kubernetes, see the
 
 ## Install Helm
 
-The preferred method of deploying a SiteWhere 2.0 instance to a running Kubernetes
+The preferred method of deploying a SiteWhere 2.1 instance to a running Kubernetes
 Cluster is by using [Helm](https://helm.sh/), which supports a streamlined,
 configurable deployment process. SiteWhere provides Helm
 [charts](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts) which
@@ -85,19 +85,19 @@ Helm in your environment.
 
 ## Install Istio
 
-SiteWhere 2.1 requeries [Istio](https://istio.io/), with 
+SiteWhere 2.1 requeries [Istio](https://istio.io/), with
 [Automatic sidecar injection](https://istio.io/docs/setup/kubernetes/additional-setup/sidecar-injection/#automatic-sidecar-injection),
 installed on a Kubernetes cluster before you deploy an instance of SiteWhere. You can install Istio
 [with](https://istio.io/docs/setup/kubernetes/install/helm/) or [without](https://istio.io/docs/setup/kubernetes/install/kubernetes/) Helm.
 
-Make sure that the namespace where you are deploying SiteWhere has the label `istio-injection=enabled`, 
+Make sure that the namespace where you are deploying SiteWhere has the label `istio-injection=enabled`,
 for example for the `default` namespace use:
 
 ```console
 kubectl get namespace -L istio-injection
 ```
 
-```
+```console
 NAME           STATUS    AGE       ISTIO-INJECTION
 default        Active    1h        enabled
 istio-system   Active    1h
@@ -111,7 +111,28 @@ If not, add the label to the namespace:
 kubectl label namespace default istio-injection=enabled
 ```
 
-## Pull SiteWhere Kubernetes Repository
+## Install SiteWhere from SiteWhere Helm Repository
+
+To intall SiteWhere using Helm, you need to add the [SiteWhere Helm Repository](https://sitewhere.io/helm-charts)
+to your helm client.
+
+```console
+helm repo add sitewhere https://sitewhere.io/helm-charts
+```
+
+Then you need to update your local helm repository
+
+```console
+helm repo update
+```
+
+To install the chart with the release name `sitewhere` execute:
+
+```console
+helm install --name sitewhere sitewhere/sitewhere
+```
+
+## Install SiteWhere from SiteWhere Kubernetes Repository
 
 In order to make the process of installing the various SiteWhere infrastructure
 components easier, a separate [repository](https://github.com/sitewhere/sitewhere-k8s)
@@ -123,7 +144,7 @@ Using a [Git](https://git-scm.com/) client, clone the repository to the machine
 where you have the Kubernetes environment configured. The repository can be cloned
 with the following command:
 
-```
+```console
 git clone https://github.com/sitewhere/sitewhere-k8s.git
 ```
 
@@ -131,38 +152,12 @@ Once the repository has been cloned, navigate into the **sitewhere-k8s/charts**
 subdirectory. This directory contains Helm Charts and Kubernetes resources for SiteWhere
 deployment scenarios.
 
-## Install Rook
-
-In order to support multi-node persistent storage for SiteWhere infrastucture components
-such as Kafka, Zookeeper, and the various database technologies, a distributed
-storage system such as [Ceph](https://ceph.com/) should be used. The
-[Rook](https://rook.io) project supports a streamlined process for deploying
-Ceph in a Kubernetes environment, allowing for scalable, reliable persistent
-storage that may be used directly from standard k8s storage APIs.
-
-By executing the following list of commands, a Rook cluster will be bootstrapped
-and made available for use by SiteWhere.
-
-```
-kubectl create -f rook/common.yaml
-kubectl create -f rook/operator.yaml
-kubectl create -f rook/cluster.yaml
-kubectl create -f rook/storageclass.yaml
-```
-
-Note that the Rook components allow persistent information such as databases
-or other system state to be kept outside of the SiteWhere instance. SiteWhere
-uses k8s [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
-to create references to the persistent data which is made available across the k8s
-cluster in a replicated, highly-available fashion and lives beyond system restarts.
-The underlying data is only deleted if the PVCs/PVs are manually deleted.
-
-## Install SiteWhere
+### Install SiteWhere
 
 To install SiteWhere with the default configuration (including all microservices and
 the default infrastructure components) run:
 
-```
+```console
 helm install --name sitewhere ./sitewhere
 ```
 
@@ -187,33 +182,39 @@ SiteWhere Helm Chart setting the `persistence.storageClass` property to
 other than `rook-ceph-block`, for example to use `hostpath` Persistence
 Storage Class, use the following command:
 
-```
+```console
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
 
-### Install SiteWhere from SiteWhere Repository
+## Install Rook
 
-You can also install SiteWhere helm charts from SiteWhere Helm Repository. To do this
-you need to add the [SiteWhere Helm Repository](https://sitewhere.io/helm-charts) to
-your helm client.
+::: tip
+This step is optional, but it is recommended for production grade installations.
+:::
 
-```console
-helm repo add sitewhere https://sitewhere.io/helm-charts
-```
+In order to support multi-node persistent storage for SiteWhere infrastucture components
+such as Kafka, Zookeeper, and the various database technologies, a distributed
+storage system such as [Ceph](https://ceph.com/) should be used. The
+[Rook](https://rook.io) project supports a streamlined process for deploying
+Ceph in a Kubernetes environment, allowing for scalable, reliable persistent
+storage that may be used directly from standard k8s storage APIs.
 
-Then you need to update your local helm repository
-
-```console
-helm repo update
-```
-
-### Install Chart
-
-To install the chart with the release name `sitewhere` execute:
+By executing the following list of commands, a Rook cluster will be bootstrapped
+and made available for use by SiteWhere.
 
 ```console
-helm install --name sitewhere sitewhere/sitewhere
+kubectl create -f rook/common.yaml
+kubectl create -f rook/operator.yaml
+kubectl create -f rook/cluster.yaml
+kubectl create -f rook/storageclass.yaml
 ```
+
+Note that the Rook components allow persistent information such as databases
+or other system state to be kept outside of the SiteWhere instance. SiteWhere
+uses k8s [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+to create references to the persistent data which is made available across the k8s
+cluster in a replicated, highly-available fashion and lives beyond system restarts.
+The underlying data is only deleted if the PVCs/PVs are manually deleted.
 
 ## Monitor SiteWhere Services
 
