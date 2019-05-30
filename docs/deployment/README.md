@@ -144,6 +144,7 @@ By executing the following list of commands, a Rook cluster will be bootstrapped
 and made available for use by SiteWhere.
 
 ```
+kubectl create -f rook/common.yaml
 kubectl create -f rook/operator.yaml
 kubectl create -f rook/cluster.yaml
 kubectl create -f rook/storageclass.yaml
@@ -275,28 +276,8 @@ In order to remove all SiteWhere data and start with a clean system, you need re
 that the SiteWhere infrastructure components create. The following commands may be
 used to delete data added by the default SiteWhere configuration:
 
-#### Delete Consul Metadata
-
 ```
-kubectl delete pvc/data-sitewhere-consul-server-0
-```
-
-#### Delete Kafka Data
-
-```
-kubectl delete pvc/sitewhere-kafka-pv-sitewhere-kafka-0
-```
-
-#### Delete MongoDB Database
-
-```
-kubectl delete pvc/sitewhere-mongodb-pv-sitewhere-mongodb-0
-```
-
-#### Delete Zookeeper Metadata
-
-```
-kubectl delete pvc/sitewhere-zookeeper-pv-sitewhere-zookeeper-0
+kubectl delete pvc -l release=sitewhere
 ```
 
 ## Uninstall Rook
