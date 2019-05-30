@@ -83,6 +83,34 @@ In order to deploy SiteWhere, Helm needs to be installed. Follow
 [these](https://docs.helm.sh/using_helm/#installing-helm) instructions to install
 Helm in your environment.
 
+## Install Istio
+
+SiteWhere 2.1 requeries [Istio](https://istio.io/), with 
+[Automatic sidecar injection](https://istio.io/docs/setup/kubernetes/additional-setup/sidecar-injection/#automatic-sidecar-injection),
+installed on a Kubernetes cluster before you deploy an instance of SiteWhere. You can install Istio
+[with](https://istio.io/docs/setup/kubernetes/install/helm/) or [without](https://istio.io/docs/setup/kubernetes/install/kubernetes/) Helm.
+
+Make sure that the namespace where you are deploying SiteWhere has the label `istio-injection=enabled`, 
+for example for the `default` namespace use:
+
+```console
+kubectl get namespace -L istio-injection
+```
+
+```
+NAME           STATUS    AGE       ISTIO-INJECTION
+default        Active    1h        enabled
+istio-system   Active    1h
+kube-public    Active    1h
+kube-system    Active    1h
+```
+
+If not, add the label to the namespace:
+
+```console
+kubectl label namespace default istio-injection=enabled
+```
+
 ## Pull SiteWhere Kubernetes Repository
 
 In order to make the process of installing the various SiteWhere infrastructure
