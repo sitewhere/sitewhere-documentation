@@ -38,8 +38,6 @@ de configuraciones de entorno estándar de toda la instancia:
 | sitewhere.product.id              | sitewhere      | Nombre del nodo de nivel superior en el árbol Zookeeper.                      |
 | sitewhere.instance.id             | sitewhere1     | Nombre de instancia utilizado en Zookeeper y Kafka nombre del _topic_.        |
 | sitewhere.instance.template.id    | default        | Plantilla de gestión de instancias utilizada para inicializar inquilinos y usuarios del sistema. |
-| sitewhere.consul.host             | consul         | Nombre de host usado para contactar a Consul para el descubrimiento del servicio. |
-| sitewhere.consul.port             | 8080           | Puerto usado para contactar al Cónsul para el descubrimiento del servicio.    |
 | sitewhere.zookeeper.host          | localhost      | Nombre de host usado para contactar a Zookeeper para la configuración.        |
 | sitewhere.zookeeper.port          | 2181           | Puerto utilizado para contactar con Zookeeper para la configuración.          |
 | sitewhere.kafka.bootstrap.servers | kafka:9092     | Lista de servidores Kafka de inicio.                                          |
@@ -95,11 +93,11 @@ lugar de incurrir en el costo de la lectura de la base de datos. SiteWhere 2.0 u
 para proporcionar un caché local de un subconjunto de datos maestros. Este caché se consulta antes de
 recurrir a una solicitud gRPC remota.
 
-## Components de la Infraestructura
+## Componentes de la Infraestructura
 
 Los microservicios de SiteWhere hacen algunas suposiciones sobre la infraestructura subyacente en la que se ejecutan.
-Como mínimo, las instancias de [Apache ZooKeeper](https://zookeeper.apache.org/), [Apache Kafka](https://kafka.apache.org/)
-y [Hashicorp Consul](https://www.consul.io/) deben estar disponible para que el sistema funcione correctamente.
+Como mínimo, las instancias de [Apache ZooKeeper](https://zookeeper.apache.org/) y [Apache Kafka](https://kafka.apache.org/)
+deben estar disponible para que el sistema funcione correctamente.
 De forma predeterminada, SiteWhere también produce datos de seguimiento distribuidos a través del estándar
 [OpenTracing](http://opentracing.io/) para el análisis del rendimiento en tiempo de ejecución.
 Un servidor backend que soporta la API puede configurarse para almacenar y analizar los datos.

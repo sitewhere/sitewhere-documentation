@@ -42,8 +42,6 @@ standard instance-wide environment settings:
 | sitewhere.product.id              | sitewhere      | Name of top-level node in Zookeeper tree                                      |
 | sitewhere.instance.id             | sitewhere1     | Instance name used in Zookeeper and Kafka topic naming                        |
 | sitewhere.instance.template.id    | default        | Template from instance management used to initialize system tenants and users |
-| sitewhere.consul.host             | consul         | Hostname used to contact Consul for service discovery                         |
-| sitewhere.consul.port             | 8080           | Port used to contact Consul for service discovery                             |
 | sitewhere.zookeeper.host          | localhost      | Hostname used to contact Zookeeper for configuration                          |
 | sitewhere.zookeeper.port          | 2181           | Port used to contact Zookeeper for configuration                              |
 | sitewhere.kafka.bootstrap.servers | kafka:9092     | Kafka bootstrap servers list                                                  |
@@ -107,8 +105,8 @@ falling back to a remote gRPC request.
 
 SiteWhere microservices make a few assumptions about the underlying infrastructure
 that they are running on. At a minimum, instances of
-[Apache ZooKeeper](https://zookeeper.apache.org/), [Apache Kafka](https://kafka.apache.org/) and
-[Hashicorp Consul](https://www.consul.io/) must be available in order for the system
+[Apache ZooKeeper](https://zookeeper.apache.org/) and [Apache Kafka](https://kafka.apache.org/)
+must be available in order for the system
 to function properly. By default, SiteWhere also produces distributed tracing data via the
 [open tracing](http://opentracing.io/) standard for runtime performance analysis.
 A server backend that supports the API may be configured to store and analyze the data.

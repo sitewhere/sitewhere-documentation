@@ -23,7 +23,7 @@ and the microservices which implement system functionality.
 
 The SiteWhere Helm chart covers the following functional areas:
 
-- [SiteWhere Core Infrastructure](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere-infra-core) (e.g. Kafka, Zookeeper, Consul)
+- [SiteWhere Core Infrastructure](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere-infra-core) (e.g. Kafka, Zookeeper)
 - [SiteWhere Database Infrastructure](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere-infra-database) (e.g. MongoDB, InfluxDB, Cassandra)
 - [SiteWhere Microservices](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere) (Core system microservices)
 
@@ -65,8 +65,8 @@ To install a version of the SiteWhere chart that uses less
 highly-available components in order to reduce the memory footprint
 and startup time, use the following command instead.
 
-You can install SiteWhere on a Developer Machine, using the non-HA configuration of MongoDB, Apache Kafka,
-Apache Zookeeper and Consul. In order to do this, you need to clone `sitewhere-k8s` repository, using
+You can install SiteWhere on a Developer Machine, using the non-HA configuration of MongoDB, Apache Kafka
+and Apache Zookeeper. In order to do this, you need to clone `sitewhere-k8s` repository, using
 
 ```console
 git clone https://github.com/sitewhere/sitewhere-k8s.git

@@ -30,7 +30,6 @@ helm install --name sitewhere \
 --set sitewhere-infra-core.kafka.persistence.storageClass=standard \
 --set sitewhere-infra-core.kafka.zookeeper.persistence.storageClass=standard \
 --set sitewhere-infra-core.kafka.external.enabled=false \
---set services.initContainers=false \
 ./sitewhere
 ```
 
@@ -39,13 +38,11 @@ Alternative, you can use sitewhere Helm Repo with:
 ```console
 helm install --name sitewhere \
 --set sitewhere-infra-core.kafka.zookeeper.replicaCount=1 \
---set sitewhere-infra-core.consul.Replicas=1 \
 --set sitewhere-infra-database.mongodb.replicaSet.enabled=false \
 --set sitewhere-infra-database.mongodb.persistence.storageClass=standard \
 --set sitewhere-infra-core.kafka.persistence.storageClass=standard \
 --set sitewhere-infra-core.kafka.zookeeper.persistence.storageClass=standard \
 --set sitewhere-infra-core.kafka.external.enabled=false \
---set services.initContainers=false \
 sitewhere/sitewhere
 ```
 
@@ -55,12 +52,10 @@ sitewhere/sitewhere
 helm install --name sitewhere \
 --set services.profile=minimal \
 --set sitewhere-infra-core.kafka.zookeeper.replicaCount=1 \
---set sitewhere-infra-core.consul.Replicas=1 \
 --set sitewhere-infra-database.mongodb.persistence.storageClass=hostpath \
 --set sitewhere-infra-core.kafka.persistence.storageClass=hostpath \
 --set sitewhere-infra-core.kafka.zookeeper.persistence.storageClass=hostpath \
 --set sitewhere-infra-core.kafka.external.enabled=false \
---set services.initContainers=false \
 sitewhere/sitewhere
 ```
 

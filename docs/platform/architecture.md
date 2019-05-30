@@ -87,17 +87,6 @@ dynamically. The underlying [Ceph](https://ceph.com/) architecture
 used by Rook.io can handle _exobytes_ of data while allowing data
 to be resilient to failures at the node, rack, or even datacenter level.
 
-### Service Discovery with HashiCorp Consul
-
-With the dynamic nature of the microservices architecture, it is important
-for microservices to be able to efficiently locate running instances of
-the various other services they interact with. SiteWhere 2.0 leverages
-[Consul](https://www.consul.io/) for service discovery. Each microservice
-registers with Consul and provides a steady stream of updates to the
-(potentially replicated) central store. As instances of microservices are
-added or removed, SiteWhere dynamically adjusts connectivity to take
-advantage of the available resources.
-
 ## High Performance Data Processing Pipeline
 
 The event processing pipeline in SiteWhere 2.0 has been completely redesigned and uses
