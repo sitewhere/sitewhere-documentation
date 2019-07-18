@@ -76,3 +76,11 @@ For global calls, no extra information is required in order to make the invocati
 - [System API](./java/system.md)
 - [Users API](./java/users.md)
 
+### Tenant Calls
+
+For calls that are tenant-specific, more information must be passed along with each method invocation.
+You must provide the tenant id and tenant authentication token which are passed as headers to the REST
+call (along with the JWT used for all calls).
+
+- [Area Management API](./java/area-api.md)
+- [Asset Management API](./java/asset-api.md)
