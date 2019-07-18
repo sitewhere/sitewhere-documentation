@@ -73,57 +73,6 @@ tenant-specific calls.
 
 For global calls, no extra information is required in order to make the invocation.
 
-#### Getting SiteWhere version information
+- [System API](./java/system.md)
+- [Users API](./java/users.md)
 
-To get the instance version information, invoke:
-
-```java
-Version version = client.getSiteWhereVersion();
-```
-
-#### Users API
-
-##### Listing system user
-
-```java
-SearchResults<User> users = client.listUsers();
-```
-
-##### Creating a User
-
-```java
-// Create a UserCreateRequest
-UserCreateRequest createRequest = new UserCreateRequest();
-createRequest.setToken(token);
-createRequest.setFirstName("John");
-createRequest.setLastName("Doe");
-createRequest.setStatus(AccountStatus.Active);
-createRequest.setUsername("johndoe");
-createRequest.setPassword("1234");
-
-List<String> authorities = new ArrayList<String>();
-authorities.add("GRP_SERVER");
-createRequest.setAuthorities(authorities);
-
-// Create the User
-User createdUser = client.createUser(createRequest);
-```
-
-The following table show the autorities you can assign to a user
-
-| Authority                   | Description                           |
-|:----------------------------|:--------------------------------------|
-| GRP_SERVER                  | Server administration                 |
-| AUTH_VIEW_SERVER_INFO       | View global server information        |
-| GRP_ACCESS                  | Remote access                         |
-| AUTH_REST                   | REST services access                  |
-| AUTH_ADMIN_CONSOLE          | Administrative console login          |
-| GRP_USERS                   | Users                                 |
-| AUTH_ADMINISTER_USERS       | Administer all users                  |
-| AUTH_ADMINISTER_USER_SELF   | Administer own user profile           |
-| GRP_TENANTS                 | Tenants                               |
-| AUTH_ADMINISTER_TENANTS     | Administer all tenants                |
-| AUTH_ADMINISTER_TENANT_SELF | Administer own tenant                 |
-| GRP_SCHEDULES               | Schedules                             |
-| AUTH_ADMINISTER_SCHEDULES   | Administer schedules                  |
-| AUTH_SCHEDULE_COMMANDS      | Schedule batch or individial commands |

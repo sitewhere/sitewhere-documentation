@@ -55,6 +55,7 @@ module.exports = {
       "/guide/administration/": ["", "global/", "tenant/"],
       "/guide/devices/": ["sending-data", "android", "kura",],
       "/guide/api/": ["java-api", "javascript-api"],
+      "/guide/api/java": ["users"],
       "/guide/microservices/": [
         "asset-management/",
         "batch-operations/",
