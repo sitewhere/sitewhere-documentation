@@ -53,7 +53,8 @@ module.exports = {
       "/guide/architecture/": ["configuration-management"],
       "/guide/deployment/": ["", "common-issues", "backup-restore"],
       "/guide/administration/": ["", "global/", "tenant/"],
-      "/guide/devices/": ["sending-data", "android", "kura", "using-java-api"],
+      "/guide/devices/": ["sending-data", "android", "kura",],
+      "/guide/api/": ["java-api", "javascript-api"],
       "/guide/microservices/": [
         "asset-management/",
         "batch-operations/",
@@ -80,7 +81,8 @@ module.exports = {
         "deployment/",
         "administration/",
         "devices/",
-        "microservices/"
+        "microservices/",
+        "api/"
       ],
       "/deployment/": [""],
       "/development/": [""]
@@ -113,6 +115,10 @@ module.exports = {
               {
                 text: "Microservice Guides",
                 link: "/guide/microservices/"
+              },
+              {
+                text: "API Guides",
+                link: "/guide/api/"
               }
             ]
           },
