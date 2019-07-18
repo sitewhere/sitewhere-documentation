@@ -53,7 +53,7 @@ module.exports = {
       "/guide/architecture/": ["configuration-management"],
       "/guide/deployment/": ["", "common-issues", "backup-restore"],
       "/guide/administration/": ["", "global/", "tenant/"],
-      "/guide/devices/": ["sending-data", "android", "kura"],
+      "/guide/devices/": ["sending-data", "android", "kura", "using-java-api"],
       "/guide/microservices/": [
         "asset-management/",
         "batch-operations/",

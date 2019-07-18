@@ -8,3 +8,4 @@ send data to SiteWhere, and receive commands from SiteWhere.
 - [Sending Data to SiteWhere](./sending-data.md)
 - [Android Devices](./android.md)
 - [Kura Framework](./kura.md)
+- [Using SiteWhere Java API](./using-java-api.md)
