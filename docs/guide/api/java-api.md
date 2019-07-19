@@ -84,3 +84,4 @@ call (along with the JWT used for all calls).
 
 - [Area Management API](./java/area-api.md)
 - [Asset Management API](./java/asset-api.md)
+- [Batch Operations API](./java/batch-operations-api.md)

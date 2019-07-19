@@ -264,7 +264,7 @@ AreaTypeCreateRequest.Builder builder = new  AreaTypeCreateRequest.Builder(token
 builder.withDescription("Some description");
 AreaTypeCreateRequest createRequest = builder.build();
 // Create the Area Type
-Area createdAreaType = client.createAreaType(tenantAuthentication, createRequest);
+AreaType createdAreaType = client.createAreaType(tenantAuthentication, createRequest);
 ```
 
 ## Updating an existing Area Type
@@ -277,7 +277,7 @@ AreaTypeCreateRequest.Builder builder = new  AreaTypeCreateRequest.Builder(token
 builder.withDescription("Some description");
 AreaTypeCreateRequest updateRequest = builder.build();
 // Update the Area Type
-Area updatedArea = client.updateAreaType(tenantAuthentication, token, updateRequest);
+AreaType updatedArea = client.updateAreaType(tenantAuthentication, token, updateRequest);
 ```
 
 ## Deleting an existing Area Type
@@ -287,5 +287,5 @@ providing the `token` of the area type you want to delete, like the following ex
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area Type
-Area deletedAreaType = client.deleteAreaType(tenantAuthentication, token);
+AreaType deletedAreaType = client.deleteAreaType(tenantAuthentication, token);
 ```
