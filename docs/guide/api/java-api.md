@@ -83,5 +83,7 @@ You must provide the tenant id and tenant authentication token which are passed 
 call (along with the JWT used for all calls).
 
 - [Area Management API](./java/area-api.md)
+- [Area Type Management API](./java/area-type-api.md)
 - [Asset Management API](./java/asset-api.md)
+- [Asset Type Management API](./java/asset-type-api.md)
 - [Batch Operations API](./java/batch-operations-api.md)
