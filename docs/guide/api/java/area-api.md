@@ -90,6 +90,149 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
 Area deletedArea = client.deleteAreaType(tenantAuthentication, token);
 ```
 
+## Quering information associated to an Area
+
+### Quering Alerts associated to an Area
+
+The following example retrieves firts 100 `DeviceAlert`s associated with an `Area`
+from the last year.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
+Calendar cal = Calendar.getInstance();
+
+cal.setTime(new Date());
+cal.add(Calendar.YEAR, -1);
+
+Date startDate = cal.getTime();
+Date endDate = new Date();
+
+DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
+SearchResults<DeviceAlertWithAsset> alerts = client.listAlertsForArea(tenantAuthentication, token, searchCriteria);
+```
+
+### Quering Assignments associated to an Area
+
+The following example retrieves firts 100 `DeviceAssignment`s associated with an `Area`
+from the last year, including the `Customer` information in the results.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
+DeviceAssignmentSearchCriteria searchCriteria = new DeviceAssignmentSearchCriteria(1, 100);
+DeviceAssignmentResponseFormat responseFormat = new DeviceAssignmentResponseFormat();
+responseFormat.setIncludeCustomer(true);
+SearchResults<MarshaledDeviceAssignment> assignments = 
+  client.listDeviceAssignmentsForArea(tenantAuthentication, token, searchCriteria, responseFormat);
+```
+
+### Quering Command Invocations associated to an Area
+
+The following example retrieves firts 100 `DeviceCommandInvocation`s associated with an `Area`
+from the last year.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
+Calendar cal = Calendar.getInstance();
+
+cal.setTime(new Date());
+cal.add(Calendar.YEAR, -1);
+
+Date startDate = cal.getTime();
+Date endDate = new Date();
+
+DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
+SearchResults<DeviceCommandInvocation> commandInvocations = 
+  client.listCommandInvocationsForArea(tenantAuthentication, token, searchCriteria);
+```
+
+### Quering Locations associated to an Area
+
+The following example retrieves firts 100 `DeviceLocationWithAsset`s associated with an `Area`
+from the last year.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
+Calendar cal = Calendar.getInstance();
+
+cal.setTime(new Date());
+cal.add(Calendar.YEAR, -1);
+
+Date startDate = cal.getTime();
+Date endDate = new Date();
+
+DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
+SearchResults<DeviceLocationWithAsset> locations = client
+  .listLocationsForArea(tenantAuthentication, token, searchCriteria);
+```
+
+### Quering Measurements associated to an Area
+
+The following example retrieves firts 100 `DeviceMeasurementWithAsset`s associated with an `Area`
+from the last year.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
+Calendar cal = Calendar.getInstance();
+
+cal.setTime(new Date());
+cal.add(Calendar.YEAR, -1);
+
+Date startDate = cal.getTime();
+Date endDate = new Date();
+
+DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
+SearchResults<DeviceMeasurementWithAsset> measurements = client
+  .listMeasurementsForArea(tenantAuthentication, token, searchCriteria);
+```
+
+### Quering Command Responses associated to an Area
+
+The following example retrieves firts 100 `DeviceCommandResponseWithAsset`s associated with an `Area`
+from the last year.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
+Calendar cal = Calendar.getInstance();
+
+cal.setTime(new Date());
+cal.add(Calendar.YEAR, -1);
+
+Date startDate = cal.getTime();
+Date endDate = new Date();
+
+DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
+SearchResults<DeviceCommandResponseWithAsset> commandResponses = client
+  .listCommandResponsesForArea(tenantAuthentication, token, searchCriteria);
+```
+
+### Quering State Changes associated to an Area
+
+The following example retrieves firts 100 `DeviceStateChangeWithAsset`s associated with an `Area`
+from the last year.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
+Calendar cal = Calendar.getInstance();
+
+cal.setTime(new Date());
+cal.add(Calendar.YEAR, -1);
+
+Date startDate = cal.getTime();
+Date endDate = new Date();
+
+DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 10, startDate, endDate);
+SearchResults<DeviceStateChangeWithAsset> stateChanges = client
+  .listStateChangesForArea(tenantAuthentication, token, searchCriteria);
+```
+
+### Retrive Area tree
+
+The following example retrieves the tree structure of areas.
+
+```java
+List<TreeNode> tree = getClient().areaTree(tenantAuthentication);
+```
+
 ## Searching Area Types
 
 For searching `Area Types` you need to provide an instance of `AreaTypeSearchCriteria`  to the method 
