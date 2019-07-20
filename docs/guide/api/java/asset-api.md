@@ -22,7 +22,7 @@ page of 100 results of assets.
 
 ```java
 AssetSearchCriteria searchCriteria = new AssetSearchCriteria(1, 100);
-SearchResults<Asset> results = client.listAssets(tenantAuthentication, searchCriteria, responseFormat);
+SearchResults<Asset> results = client.listAssets(tenantAuthentication, searchCriteria);
 ```
 
 `AssetSearchCriteria` defines the search criteria for quering `Asset`, the following table shows the properties, with 

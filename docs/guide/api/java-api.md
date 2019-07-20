@@ -31,7 +31,8 @@ implementation 'com.sitewhere:sitewhere-java-client:2.1.x'
 A new client with the default settings may be created as follows:
 
 ```java
-ISiteWhereClient client = SiteWhereClient.newBuilder().build().initialize();
+ISiteWhereClient client = SiteWhereClient.newBuilder()
+    .build().initialize();
 ```
 
 The default settings are:
@@ -54,13 +55,17 @@ up the template and connects to the server to acquire a JWT.
 To change the default connection settings use:
 
 ```java
-SiteWhereClient client = SiteWhereClient.newBuilder().withConnectionTo("https", "myhost", 8081).build().initialize();
+SiteWhereClient client = SiteWhereClient.newBuilder()
+    .withConnectionTo("https", "myhost", 8081)
+    .build().initialize();
 ```
 
 To connect as a different user user:
 
 ```java
-SiteWhereClient client = SiteWhereClient.newBuilder().forUser("myuser", "mypassword").build().initialize();
+SiteWhereClient client = SiteWhereClient.newBuilder()
+    .forUser("myuser", "mypassword")
+    .build().initialize();
 ```
 
 ## Interacting with SiteWhere Object Model
