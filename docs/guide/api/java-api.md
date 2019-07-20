@@ -63,11 +63,16 @@ To connect as a different user user:
 SiteWhereClient client = SiteWhereClient.newBuilder().forUser("myuser", "mypassword").build().initialize();
 ```
 
-## Interacting with SiteWhere Model
+## Interacting with SiteWhere Object Model
 
 Once the client has been initialized, methods on it may be invoked to interact with the data
 model on the remote SiteWhere instance. There are two types of calls, global calls and
 tenant-specific calls.
+
+The image below shows an UML Class Diagram of SiteWhere Object Model that can help you undestand
+the component of the system.
+
+<InlineImage src="/images/guide/api/object-model.png" caption="SiteWhere Object Model UML Class Diagram"/>
 
 ### Global Calls
 
@@ -87,3 +92,5 @@ call (along with the JWT used for all calls).
 - [Asset Management API](./java/asset-api.md)
 - [Asset Type Management API](./java/asset-type-api.md)
 - [Batch Operations API](./java/batch-operations-api.md)
+- [Customer Management API](./java/customer-api.md)
+- [Customer Type Management API](./java/customer-type-api.md)
