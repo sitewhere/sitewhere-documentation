@@ -76,5 +76,5 @@ User deletedUser = client.deleteUser("e2ce4ffe-2d9c-4103-b519-1e07c58a2886");
 ## Getting User Authorities
 
 ```java
-SearchResults<GrantedAuthority> auths = getClient().listUserAuthorities("e2ce4ffe-2d9c-4103-b519-1e07c58a2886");
+SearchResults<GrantedAuthority> auths = client.listUserAuthorities("e2ce4ffe-2d9c-4103-b519-1e07c58a2886");
 ```

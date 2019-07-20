@@ -239,5 +239,5 @@ SearchResults<DeviceStateChangeWithAsset> stateChanges = client
 The following example retrieves the tree structure of areas.
 
 ```java
-List<TreeNode> tree = getClient().areaTree(tenantAuthentication);
+List<TreeNode> tree = client.areaTree(tenantAuthentication);
 ```
