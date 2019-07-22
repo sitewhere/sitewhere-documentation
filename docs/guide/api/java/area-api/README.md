@@ -1,4 +1,6 @@
-# Java API - Area Management
+# :book: Java API - Area Management
+
+<Seo/>
 
 This section contains the documentation and examples of the end point `areas` of SiteWhere Java API.
 

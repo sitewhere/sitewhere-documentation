@@ -1,4 +1,6 @@
-# Tenant Management Microservice
+# :book: Tenant Management Microservice
+
+<Seo/>
 
 El microservicio global de administración de inquilinos proporciona las API principales
 y la persistencia de datos para administrar inquilinos del sistema. Inicialmente, el

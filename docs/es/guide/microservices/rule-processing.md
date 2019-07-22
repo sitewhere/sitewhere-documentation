@@ -1,4 +1,6 @@
-# Rule Processing Microservice
+# :book: Rule Processing Microservice
+
+<Seo/>
 
 El microservicio de procesamiento de reglas multitenant ingiere datos del tópico Kafka que
 contiene eventos preprocesados y aplica lógica condicional para procesar los eventos.

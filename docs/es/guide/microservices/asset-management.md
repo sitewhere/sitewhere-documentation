@@ -1,4 +1,6 @@
-# Asset Management Microservice
+# :book: Asset Management Microservice
+
+<Seo/>
 
 El microservicio de gestión de activos (_Asset Management_) multitenant proporciona
 las API principales y la persistencia de datos para administrar los activos para cada

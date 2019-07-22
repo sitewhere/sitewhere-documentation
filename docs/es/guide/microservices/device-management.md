@@ -1,4 +1,6 @@
-# Device Management Microservice
+# :book: Device Management Microservice
+
+<Seo/>
 
 El microservicio de administración de dispositivos multitenant proporciona las API principales
 y la persistencia de datos para administrar el modelo de dispositivo (clientes, áreas, tipos de

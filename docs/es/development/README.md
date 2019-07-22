@@ -1,4 +1,6 @@
-# Guía de Desarrollo de SiteWhere
+# :book: Guía de Desarrollo de SiteWhere
+
+<Seo/>
 
 Esta guía proporciona información destinada a desarrolladores interesados
 en la construcción de componentes SiteWhere a partir del código fuente. Proporciona detalles

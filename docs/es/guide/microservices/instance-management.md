@@ -1,4 +1,6 @@
-# Microservicio Instance Management
+# :book: Microservicio Instance Management
+
+<Seo/>
 
 El microservicio de gestión de instancias (_instance management_) se utiliza para iniciar
 una instancia de SiteWhere y se requiere que esté presente cuando se inicia una instancia

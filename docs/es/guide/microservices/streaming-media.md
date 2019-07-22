@@ -1,4 +1,6 @@
-# Streaming Media Microservice
+# :book: Streaming Media Microservice
+
+<Seo/>
 
 El microservicio de medios de transmisión multitenant está destinado a permitir el
 almacenamiento de datos binarios, como las secuencias de audio y video. Esta característica

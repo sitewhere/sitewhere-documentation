@@ -1,4 +1,6 @@
-# Debugging SiteWhere
+# :book: Debugging SiteWhere
+
+<Seo/>
 
 In order to debug SiteWhere debug images need to be deploy on the Kubernetes clusters.
 SiteWhere debug microservices images uses [Java Debug Wire Protocol](https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/jdwp-spec.html) for

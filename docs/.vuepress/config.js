@@ -53,9 +53,23 @@ module.exports = {
       "/guide/architecture/": ["configuration-management"],
       "/guide/deployment/": ["", "common-issues", "backup-restore"],
       "/guide/administration/": ["", "global/", "tenant/"],
-      "/guide/devices/": ["sending-data", "android", "kura",],
-      "/guide/api/": ["java-api", "javascript-api"],
-      "/guide/api/java": ["users"],
+      "/guide/devices/": ["sending-data", "android", "kura"],
+      "/guide/api/": [
+        "java/", 
+        "javascript/"
+      ],
+      "/guide/apijava/": [
+        "",
+        "system/",
+        "users",
+        "area-api/",
+        "area-type-api/",
+        "asset-api/",
+        "asset-type-api/",
+        "batch-operation-api/",
+        "customer-api/",
+        "customer-type-api/"
+      ],
       "/guide/microservices/": [
         "asset-management/",
         "batch-operations/",
@@ -104,7 +118,9 @@ module.exports = {
                 text: "Architecture Guide",
                 link: "/guide/architecture/"
               },
-              { text: "Deployment Guide", link: "/guide/deployment/" },
+              { text: "Deployment Guide", 
+                link: "/guide/deployment/"
+              },
               {
                 text: "System Administration Guide",
                 link: "/guide/administration/"
@@ -133,19 +149,53 @@ module.exports = {
         lastUpdated: "Última actualización",
         nav: [
           { text: "Plataforma", link: "/es/platform/" },
-          { text: "Guía del usuario", link: "/es/guide/" },
-          { text: "Despliegue", link: "/es/deployment/" },
+          { text: "Instalación", link: "/es/deployment/" },
+          { text: "Guías del usuario", 
+            items: [
+              {
+                text: "Guía de Arquitectura",
+                link: "/es/guide/architecture/"
+              },
+              {
+                text: "Guía de Despliegue", 
+                link: "/es/guide/deployment/" },
+              {
+                text: "Guía de Administración del Sistema",
+                link: "/es/guide/administration/"
+              },
+              {
+                text: "Guías de Integración con Dispositivos",
+                link: "/es/guide/devices/"
+              },
+              {
+                text: "Guía de Microservicios",
+                link: "/es/guide/microservices/"
+              },
+              {
+                text: "Guías de APIs",
+                link: "/es/guide/api/"
+              }
+            ]
+          },
           { text: "Desarrollo", link: "/es/development/" }
         ],
         sidebar: {
           "/es/platform/": [
             "",
             "architecture",
+            "objectmodel",
             "features",
             "microservice-overview",
             "twelve-factor"
           ],
-          "/es/guide/devices/": ["sending-data", "android", "kura"],
+          "/es/guide/architecture/": ["configuration-management"],
+          "/es/guide/deployment/": ["", "common-issues", "backup-restore"],
+          "/es/guide/administration/": ["", "global/", "tenant/"],
+          "/es/guide/devices/": ["sending-data", "android", "kura",],
+          "/es/guide/api/": [
+            "java/", 
+            "javascript/"
+          ],
           "/es/guide/microservices/": [
             "asset-management",
             "batch-operations",
@@ -167,7 +217,14 @@ module.exports = {
             "user-management",
             "web-rest"
           ],
-          "/es/guide/": ["", "devices/", "microservices/"],
+          "/es/guide/": [
+            "architecture/",
+            "deployment/",
+            "administration/",
+            "devices/",
+            "microservices/",
+            "api/"
+          ],
           "/es/deployment/": [""],
           "/es/development/": [""]
         }

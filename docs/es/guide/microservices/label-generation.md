@@ -1,4 +1,6 @@
-# Label Generation Microservice
+# :book: Label Generation Microservice
+
+<Seo/>
 
 El microservicio de generación de etiquetas multitenant responde a solicitudes de API para
 recursos de etiquetas como códigos QR, códigos de barras o etiquetas personalizadas de dispositivos.

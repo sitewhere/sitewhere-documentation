@@ -1,4 +1,6 @@
-# Event Management Microservice
+# :book: Event Management Microservice
+
+<Seo/>
 
 El microservicio de gestión de eventos multitenant proporciona las API principales y la
 persistencia de datos para administrar eventos del dispositivo (ubicaciones, medidas,

@@ -83,8 +83,8 @@ the component of the system.
 
 For global calls, no extra information is required in order to make the invocation.
 
-- [System API](./java/system.md)
-- [Users API](./java/users.md)
+- [System API](./system/)
+- [Users API](./users/)
 
 ### Tenant Calls
 
@@ -92,10 +92,10 @@ For calls that are tenant-specific, more information must be passed along with e
 You must provide the tenant id and tenant authentication token which are passed as headers to the REST
 call (along with the JWT used for all calls).
 
-- [Area Management API](./java/area-api.md)
-- [Area Type Management API](./java/area-type-api.md)
-- [Asset Management API](./java/asset-api.md)
-- [Asset Type Management API](./java/asset-type-api.md)
-- [Batch Operations API](./java/batch-operations-api.md)
-- [Customer Management API](./java/customer-api.md)
-- [Customer Type Management API](./java/customer-type-api.md)
+- [Area Management API](./area-api/)
+- [Area Type Management API](./area-type-api/)
+- [Asset Management API](./asset-api/)
+- [Asset Type Management API](./asset-type-api/)
+- [Batch Operations API](./batch-operations-api/)
+- [Customer Management API](./customer-api/)
+- [Customer Type Management API](./customer-type-api/)

@@ -1,4 +1,6 @@
-# Guía de Integración de Dispositivos
+# :book: Guía de Integración de Dispositivos
+
+<Seo/>
 
 Las siguientes páginas cubre la guía de usuario para la programación de dispositivos
 para conectar, enviar datos y recibir comandos desde SiteWhere.

@@ -1,4 +1,6 @@
-# Web/REST Microservice
+# :book: Web/REST Microservice
+
+<Seo/>
 
 El microservicio global Web/REST incluye un contenedor Tomcat incorporado que
 proporciona infraestructura para todos los servicios REST principales, incluidas

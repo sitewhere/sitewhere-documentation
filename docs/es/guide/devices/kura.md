@@ -1,4 +1,6 @@
-# Programación de Dispositivos con el Kura
+# :book: Programación de Dispositivos con el Kura
+
+<Seo/>
 
 El [Conector](https://github.com/sitewhere/sitewhere-kura) de SiteWhere Kura Cloud provee
 la conectividad necesaria para las aplicaciones Kura puedan comunicarse con SiteWhere 2.0.

@@ -1,128 +1,294 @@
-# Guía de Despliegue de SiteWhere
+# Installing a SiteWhere Instance
 
-Esta guía cubre el proceso de despliegue de SiteWhere 2.0 que ha cambiado
-significativamente del utilizado para SiteWhere 1.x. Mientras que las versiones anteriores
-de SiteWhere se desplegaban en un único servidor, la arquitectura de SiteWhere 2.0
-se basa en muchos microservicios que se despliegan un cluster
-[Kubernetes](https://https://kubernetes.io).
+<Seo/>
 
-## Requerimientos del Sistema
+This guide covers the SiteWhere 2.1 deployment process which has changed
+significantly from the one used for SiteWhere 1.x. While previous versions
+of SiteWhere were deployed as a single server node, the SiteWhere 2.1
+architecture is based on many microservices which are deployed into a
+[Kubernetes](https://https://kubernetes.io) infrastructure.
 
-Debido a que SiteWhere 2.0 utiliza una arquitectura de microservicios,
-la cantidad de procesos que se ejecutan simultáneamente ha aumentado,
-lo que a su vez requiere más memoria y capacidad de procesamiento.
-Las especificaciones mínimas de hardware para un clúster Kubernete de
-un solo nodo que ejecuta una instancia de SiteWhere son:
+## System Requirements
 
-| Recurso       | Valor Min |
+Because SiteWhere 2.1 uses a microservices architecture, the number of
+processes running concurrently has increased, which in turn requires
+more memory and processing power. The minimum hardware specifications
+for a single node Kubernetes cluster running a SiteWhere instance is:
+
+| Resource      | Min Value |
 | ------------- | --------- |
-| Memoria       | 16GB RAM  |
-| CPU           | 2 CPUs    |
-| Hard Disk/SSD | 80GB      |
+| Memory        | 16GB RAM  |
+| CPU           | 4 CPUs    |
+| Hard Disk/SSD | 100GB     |
 
-Para entornos productivos, recomendamos utilizar un cluster con al menos tres
-nodos `workers`, cada uno con similares características de la tabla de arriba.
-Cuando se distribuyen microservicios a través de múltiples nodos en el clúster
-[Kubernetes](https://kubernetes.io), los requisitos por nodo pueden ser menores
-ya que la carga está distribuida.
+In most real-world deployment scenarios, a multi-node Kubernetes cluster
+will be used so that the system can be made highly available. In cases
+where microservices are distributed across multiple k8s nodes,
+the per-node requirements can be adjusted based on the number of
+microservices per node (generally 500MB of memory per microservice).
 
-Otra consideración al implementar SiteWhere es si las instancias de
-[Apache Kafka](https://kafka.apache.org/) y [Apache ZooKeeper](https://zookeeper.apache.org/)
-se ejecutan en Kuberntes o se administran por separado. En entornos de producción,
-los clusters de Kafka y ZooKeeper deben administrarse externamente desde la instancia
-de SiteWhere utilizando las mejores prácticas definidas por las tecnologías individuales.
-El equipo de SiteWhere lanzará más información sobre las topologías preferidas a medida
-que la arquitectura 2.0 se acerque a la disponibilidad general.
+## Install Kubernetes
 
-## Instalar Kubernetes
+SiteWhere 2.1 uses Kubernetes as a production-grade container orchestration solution
+which may be installed both locally/on-premise and in all major cloud environments.
+Kubernetes clusters are available as a service on
+[Google Cloud](https://cloud.google.com/kubernetes-engine/),
+[Amazon AWS](https://aws.amazon.com/eks/),
+[Azure](https://azure.microsoft.com/en-us/services/kubernetes-service/) and
+most of the other cloud providers.
 
-SiteWhere 2.0 utiliza Kubernetes como tecnología de orquestación de contenedores de
-para producción, la cual es admitida en los principales entornos de nube.
-Para instalaciones de un solo nodo, Minikube se puede instalar según el proceso
-detallado en el siguiente enlace:
+### Installing a Single-Node Development Environment
 
-[Instalar Minikube](https://kubernetes.io/docs/setup/minikube/)
+A single-node Kubernetes cluster may be deployed for SiteWhere development
+and testing. Depending on the underlying operating system used, there are
+a few options for running a local k8s instance.
 
-Para la instalación de otras configuraciones, utilizar el siguiente link:
+#### Using Docker/Kubernetes Integration
 
-[Instalar Kubernetes](https://kubernetes.io/docs/setup/)
+[Docker](https://www.docker.com/) provides the default container implementation
+used by most Kubernetes providers. The Docker ecosystem has embraced Kubernetes
+and offers out-of-the-box support for running a single-node instance via
+their [Docker for Windows](https://docs.docker.com/v17.09/docker-for-windows/install/)
+and [Docker for Mac](https://docs.docker.com/v17.09/docker-for-mac/install/)
+offerings. After installing the core Docker components, Kubernetes support
+may be enabled directly from within the Docker settings. For most users, this
+is the fastest path to getting a local Kubernetes environment running. For more
+details see [this blog](https://blog.docker.com/2018/07/kubernetes-is-now-available-in-docker-desktop-stable-channel/)
+from the Docker team.
 
-## Utilizar las Recetas de SiteWhere para Construir una Instancia
+#### Using Minikube
 
-Dado que la arquitectura y la configuración del sistema para SiteWhere permiten
-muchas combinaciones diferentes de componentes para desarrollar sistemas personalizados,
-el equipo de SiteWhere proporciona una lista de recetas para configuraciones comunes del
-sistema que actúan como punto de partida para crear instancias. El repositorio de las recetas
-de SiteWhere 2.0 se puede acceder a través del siguiente enlace:
+[Minikube](https://github.com/kubernetes/minikube) is a tool that makes it easy
+to run a single-node Kubernetes cluster inside a virtual machine. Environments supported
+include [VirtualBox](https://www.virtualbox.org/),
+[VMware Fusion](https://www.vmware.com/products/fusion.html)
+and many others. For complete instuctions on installing/deploying Minikube
+see their [setup guide](https://kubernetes.io/docs/setup/minikube/).
 
-[Repositorio de Recetas de SiteWhere](https://github.com/sitewhere/sitewhere-recipes)
+#### More Options
 
-### Clonar el Repositorio de las Recetas
+For a complete list of other options for deploying Kubernetes, see the
+[Kubernetes Setup Guide](https://kubernetes.io/docs/setup/).
 
-Abra un terminal y comience por clonar el repositorio de recetas en la máquina
-donde tiene configurado el entorno Docker. El repositorio puede ser clonado
-con el siguiente comando:
+## Install Helm
+
+The preferred method of deploying a SiteWhere 2.1 instance to a running Kubernetes
+Cluster is by using [Helm](https://helm.sh/), which supports a streamlined,
+configurable deployment process. SiteWhere provides Helm
+[charts](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts) which
+can be used to bootstrap the system in various configurations depending
+on the profiles and other configuration options selected.
+
+In order to deploy SiteWhere, Helm needs to be installed. Follow
+[these](https://docs.helm.sh/using_helm/#installing-helm) instructions to install
+Helm in your environment.
+
+## Install Istio
+
+SiteWhere 2.1 requeries [Istio](https://istio.io/), with
+[Automatic sidecar injection](https://istio.io/docs/setup/kubernetes/additional-setup/sidecar-injection/#automatic-sidecar-injection),
+installed on a Kubernetes cluster before you deploy an instance of SiteWhere. You can install Istio
+[with](https://istio.io/docs/setup/kubernetes/install/helm/) or [without](https://istio.io/docs/setup/kubernetes/install/kubernetes/) Helm.
+
+Make sure that the namespace where you are deploying SiteWhere has the label `istio-injection=enabled`,
+for example for the `default` namespace use:
 
 ```console
-git clone https://github.com/sitewhere/sitewhere-recipes.git
+kubectl get namespace -L istio-injection
 ```
-
-Una vez que se haya clonado el repositorio, navegue hasta el subdirectorio **sitewhere-recipes/charts**.
-Este directorio contiene los Helm Charts y recursos de Kuberntes para los escenarios de despliegue
-de SiteWhere.
-
-## Instalar Helm
-
-SiteWhere 2.0 se puede implementar en un cluster en ejecución Kubernetes. Proporcionamos un [Helm](https://helm.sh/) Chart,
-como parte de las recetas de SiteWhere, para instalar SiteWhere en Kubernetes.
-
-Para poder implementar SiteWhere, Helm necesita ser instalado. Siga las instrucciones de
-[este](https://docs.helm.sh/using_helm/#installing-helm) artículo para instalar Helm en su máquina.
-
-## Instalar Rook
-
-Si necesita servicios de almacenamiento de archivos, bloques y objetos para sus entornos nativos en la nube,
-instale [Rook Ceph](https://rook.io), con los siguientes comandos:
 
 ```console
-kubectl create -f rook/operator.yaml
-kubectl create -f rook/cluster.yaml
-kubectl create -f rook/storageclass.yaml
+NAME           STATUS    AGE       ISTIO-INJECTION
+default        Active    1h        enabled
+istio-system   Active    1h
+kube-public    Active    1h
+kube-system    Active    1h
 ```
 
-## Iniciar SiteWhere
+If not, add the label to the namespace:
 
-Para instalar con la configuración por defecto, ejecute:
+```console
+kubectl label namespace default istio-injection=enabled
+```
+
+## Install SiteWhere from SiteWhere Helm Repository
+
+To intall SiteWhere using Helm, you need to add the [SiteWhere Helm Repository](https://sitewhere.io/helm-charts)
+to your helm client.
+
+```console
+helm repo add sitewhere https://sitewhere.io/helm-charts
+```
+
+Then you need to update your local helm repository
+
+```console
+helm repo update
+```
+
+To install the chart with the release name `sitewhere` execute:
+
+```console
+helm install --name sitewhere sitewhere/sitewhere
+```
+
+## Install SiteWhere from SiteWhere Kubernetes Repository
+
+In order to make the process of installing the various SiteWhere infrastructure
+components easier, a separate [repository](https://github.com/sitewhere/sitewhere-k8s)
+is made available for the various k8s artifacts.
+
+### Clone the Repository
+
+Using a [Git](https://git-scm.com/) client, clone the repository to the machine
+where you have the Kubernetes environment configured. The repository can be cloned
+with the following command:
+
+```console
+git clone https://github.com/sitewhere/sitewhere-k8s.git
+```
+
+Once the repository has been cloned, navigate into the **sitewhere-k8s/charts**
+subdirectory. This directory contains Helm Charts and Kubernetes resources for SiteWhere
+deployment scenarios.
+
+### Install SiteWhere
+
+To install SiteWhere with the default configuration (including all microservices and
+the default infrastructure components) run:
 
 ```console
 helm install --name sitewhere ./sitewhere
 ```
 
-Además, si desea ejecutar SiteWhere en un clúster de bajos recursos, use las recetas mínimas
-e instale este Helm Chart con el siguiente comando:
+### Running with Constrained Resources
 
-```console
+If you wish to run SiteWhere in a low resource cluster, use the _minimal_ profile
+with the Helm Chart to only install the core microservices required to bootstrap
+the system:
+
+```
 helm install --name sitewhere --set services.profile=minimal ./sitewhere
 ```
 
-Si no necesita Rook.io, puede omitir la instalación de Rook.io e instalar SiteWhere Helm Chart
-configurando la propiedad `persistence.storageClass` en otra que no sea `rook-ceph-block`,
-por ejemplo, para usar el Persistence Storage Class `hostpath`, use el siguiente comando:
+In this configuration, some services will not be available and the corresponding
+APIs will return error codes indicating that requests for the service can not
+be satisfied.
+
+### Running with Host Storage
+
+If you don't need Rook.io, you can skip the Rook.io install and install
+SiteWhere Helm Chart setting the `persistence.storageClass` property to
+other than `rook-ceph-block`, for example to use `hostpath` Persistence
+Storage Class, use the following command:
 
 ```console
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
 
-## Desinstalar SiteWhere
+## Install Rook
 
-Para quitar SiteWhere del cluster Kubernetes utilizando Helm, ejecute el siguiente comando:
+::: tip
+This step is optional, but it is recommended for production grade installations.
+:::
+
+In order to support multi-node persistent storage for SiteWhere infrastucture components
+such as Kafka, Zookeeper, and the various database technologies, a distributed
+storage system such as [Ceph](https://ceph.com/) should be used. The
+[Rook](https://rook.io) project supports a streamlined process for deploying
+Ceph in a Kubernetes environment, allowing for scalable, reliable persistent
+storage that may be used directly from standard k8s storage APIs.
+
+By executing the following list of commands, a Rook cluster will be bootstrapped
+and made available for use by SiteWhere.
 
 ```console
+kubectl create -f rook/common.yaml
+kubectl create -f rook/operator.yaml
+kubectl create -f rook/cluster.yaml
+kubectl create -f rook/storageclass.yaml
+```
+
+Note that the Rook components allow persistent information such as databases
+or other system state to be kept outside of the SiteWhere instance. SiteWhere
+uses k8s [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+to create references to the persistent data which is made available across the k8s
+cluster in a replicated, highly-available fashion and lives beyond system restarts.
+The underlying data is only deleted if the PVCs/PVs are manually deleted.
+
+## Monitor SiteWhere Services
+
+Once SiteWhere has been installed, there are many ways of interacting with the system
+to verify that the microservices have started successfully. Any of the standard
+Kubernetes tooling may be used to introspect the SiteWhere pods.
+
+### Using Visual Studio Code Kubernetes Support
+
+[Visual Studio Code](https://code.visualstudio.com/) offers an optional Kubernetes
+plugin which supports management of many aspects of a running cluster. The extension
+is published as an [open source](https://github.com/Azure/vscode-kubernetes-tools)
+repository and may be installed via the VS Code extension manager.
+
+<InlineImage src="/images/deployment/vs-code-kubernetes-plugin.png" caption="Kubernetes Plugin"/>
+
+After installing the plugin, browse into the Kubernetes nodes to see the running services.
+Once all of the infrastructure services have started, the SiteWhere services will start.
+To browse the logs for the individual services, right-click on a pod in the tree and choose
+`Follow Logs` to attach to the logs for that microservice in a terminal. Multiple terminals
+may be opened concurrently to track logs for multiple services.
+
+<InlineImage src="/images/deployment/vs-code-sitewhere-services.png" caption="SiteWhere Services"/>
+
+### Using Kubernetes Dashboard UI
+
+The Kubernetes project includes a dashboard user interface that may be used to view the
+cluster components for tasks such as monitoring component status and viewing logs. For complete
+instructions on installing the Kubernetes Dashboard UI, refer to the dashboard deployment
+[documentation](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#deploying-the-dashboard-ui).
+
+## Run the Administrative Application
+
+Once a SiteWhere instance has been deployed, the SiteWhere administrative application may be
+used to connect to the instance and configure it. The administrative application is based on
+[Electron](https://electronjs.org/) and may be downloaded from directly from the project
+[releases](https://github.com/sitewhere/sitewhere-admin-ui/releases) page. After installing
+the application, open it and log in using the default administrative credentials:
+
+**username**: `admin`
+
+**password**: `password`
+
+<InlineImage src="/images/platform/login.png" caption="Administrative Application"/>
+
+See the user guide for more information about using the administrative application.
+
+## Remove SiteWhere
+
+To remove SiteWhere, execute the following command
+
+```
 helm del --purge sitewhere
 ```
 
-## Desintalar Rook
+### Remove SiteWhere Persistent Data
 
-Para desinstalar Rook Ceph, eche un vistazo a este [documento](https://rook.io/docs/rook/v0.8/ceph-teardown.html),
-y siga las instrucciones sobre cómo desinstalar Rook Ceph de Kuberntes.
+In order to remove all SiteWhere data and start with a clean system, you need remove the
+[persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+that the SiteWhere infrastructure components create. The following commands may be
+used to delete data added by the default SiteWhere configuration:
 
+```
+kubectl delete pvc -l release=sitewhere
+```
+
+## Uninstall Rook
+
+To uninstall Rook and the Ceph components it wraps, refer to this
+[document](https://rook.io/docs/rook/v0.8/ceph-teardown.html), and
+follow the instructions to remove the components and related data.
+
+::: tip
+To delete the persistent data associated with SiteWhere, it is not necessary
+to uninstall Rook. As detailed above, the k8s persistence claims may be
+deleted to remove existing data and start with a clean system.
+:::

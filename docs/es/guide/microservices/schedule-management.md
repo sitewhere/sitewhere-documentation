@@ -1,4 +1,6 @@
-# Schedule Management Microservice
+# :book: Schedule Management Microservice
+
+<Seo/>
 
 El microservicio de administración de horarios multitenant proporciona las API principales
 y la persistencia de datos para administrar los cronogramas de cada inquilino en una instancia

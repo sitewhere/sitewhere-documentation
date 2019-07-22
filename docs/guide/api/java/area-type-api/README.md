@@ -1,4 +1,6 @@
-# Java API - Area Type Management
+# :book: Java API - Area Type Management
+
+<Seo/>
 
 This section contains the documentation and examples of the end point `areatypes` of SiteWhere Java API.
 

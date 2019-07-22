@@ -1,4 +1,6 @@
-# Device State Microservice
+# :book: Device State Microservice
+
+<Seo/>
 
 El microservicio de estado de dispositivo multitenant ingiere datos del tópico de Kafka
 que contiene eventos preprocesados y utiliza los datos de eventos para actualizar el

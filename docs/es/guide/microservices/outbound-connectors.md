@@ -1,4 +1,6 @@
-# Outbound Connectors Microservice
+# :book: Outbound Connectors Microservice
+
+<Seo/>
 
 El microservicio de conectores de salida multitenant ingiere datos del tópico Kafka que
 contienen eventos preprocesados y permite que los datos de eventos se envíen a otros puntos

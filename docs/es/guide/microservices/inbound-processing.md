@@ -1,4 +1,6 @@
-# Inbound Processing Microservice
+# :book: Inbound Processing Microservice
+
+<Seo/>
 
 El microservicio de procesamiento entrante multitenant ingiere datos que fueron producidos
 por el microservicio de orígenes de eventos (después de que se haya completado la descodificación

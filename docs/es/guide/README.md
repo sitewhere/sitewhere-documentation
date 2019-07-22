@@ -1,4 +1,6 @@
-# Guía de Usuario de SiteWhere
+# :book: Guía de Usuario de SiteWhere
+
+<Seo/>
 
 Las siguientes páginas cubren los componentes principales del sistema SiteWhere
 y como se los configuran y administran en tiempo de ejecución.

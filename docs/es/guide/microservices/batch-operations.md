@@ -1,4 +1,6 @@
-# Batch Operations Microservice
+# :book: Batch Operations Microservice
+
+<Seo/>
 
 El microservicio de operaciones por lotes multitenant proporciona las API principales
 y la persistencia de datos para administrar las operaciones por lotes para cada inquilino

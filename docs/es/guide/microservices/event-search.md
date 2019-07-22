@@ -1,4 +1,6 @@
-# Event Search Microservice
+# :book: Event Search Microservice
+
+<Seo/>
 
 El microservicio de búsqueda de eventos multitenant proporciona una API para buscar fuentes
 de datos externas que contienen información de eventos de SiteWhere en un formato no estándar.

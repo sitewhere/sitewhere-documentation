@@ -1,4 +1,6 @@
-# Programación de Dispositivos Androids con el SDK de SiteWhere
+# :book: Programación de Dispositivos Androids con el SDK de SiteWhere
+
+<Seo/>
 
 Clone el repositorio de [SiteWhere Android SDK](https://github.com/sitewhere/sitewhere-android-sdk.git)
 para desarrollar aplicaciones que se puedan conectar con SiteWhere. Con este SDK podrá registrar los dispositivos

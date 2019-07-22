@@ -1,4 +1,6 @@
-# Command Delivery Microservice
+# :book: Command Delivery Microservice
+
+<Seo/>
 
 El microservicio de entrega de comandos multitenant ingiere datos del tópico de Kafka
 que contiene eventos preprocesados y, para las invocaciones de comandos, maneja el

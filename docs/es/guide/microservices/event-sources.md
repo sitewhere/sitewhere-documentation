@@ -1,4 +1,6 @@
-# Event Sources Microservice
+# :book: Event Sources Microservice
+
+<Seo/>
 
 El microservicio de orígenes de eventos multitenant aloja motores de arrendamiento que
 pueden configurarse para ingerir datos de muchos tipos de productores de datos. Algunos

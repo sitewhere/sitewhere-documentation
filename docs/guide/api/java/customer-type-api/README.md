@@ -1,4 +1,6 @@
-# Java API - Customer Type Management
+# :book: Java API - Customer Type Management
+
+<Seo/>
 
 This section contains the documentation and examples of the end point `customertypes` of SiteWhere Java API.
 

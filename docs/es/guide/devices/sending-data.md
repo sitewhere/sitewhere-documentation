@@ -1,4 +1,6 @@
-# Enviar datos a SiteWhere 2.0
+# :book: Enviar datos a SiteWhere 2.0
+
+<Seo/>
 
 SiteWhere está diseñado para ser flexible en la forma en que envía y recibe datos de dispositivos y otros agentes.
 La mayoría de los protocolos y codificaciones de comunicación más populares son compatibles de fábrica,

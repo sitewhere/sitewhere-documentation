@@ -1,4 +1,6 @@
-# Device Registration Microservice
+# :book: Device Registration Microservice
+
+<Seo/>
 
 El microservicio de registro de dispositivos multitenant ingiere datos de un tópico de
 Kafka poblado por el microservicio de procesamiento de entrada y actúa en eventos donde
