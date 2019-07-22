@@ -1,4 +1,6 @@
-# Java API - Asset Type Management
+# :book: Java API - Asset Type Management
+
+<Seo/>
 
 This section contains the documentation and examples of the end point `assettypes` of SiteWhere Java API.
 

@@ -1,4 +1,6 @@
-# Java API - Batch Operations
+# :book: Java API - Batch Operations
+
+<Seo/>
 
 This section contains the documentation and examples of the end point `batch` of SiteWhere Java API.
 
