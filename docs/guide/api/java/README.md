@@ -102,3 +102,4 @@ call (along with the JWT used for all calls).
 - [Customer Type Management API](./customer-type-api/)
 - [Device Assignment API](./assignment-api/)
 - [Device Command API](./device-command-api/)
+- [Device Event API](./device-event-api/)
