@@ -64,6 +64,7 @@ module.exports = {
         "asset-type-api/",
         "batch-operations-api/",
         "assignment-api/",
+        "command-invocations-api/",
         "customer-api/",
         "customer-type-api/",
         "device-command-api/"

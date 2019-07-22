@@ -97,6 +97,7 @@ call (along with the JWT used for all calls).
 - [Asset Management API](./asset-api/)
 - [Asset Type Management API](./asset-type-api/)
 - [Batch Operations API](./batch-operations-api/)
+- [Command Invocation API](./command-invocations-api/)
 - [Customer Management API](./customer-api/)
 - [Customer Type Management API](./customer-type-api/)
 - [Device Assignment API](./assignment-api/)
