@@ -144,7 +144,7 @@ DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, sta
 SearchResults<DeviceAlertWithAsset> alerts = client.listAlertsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
-### Creating an Alert associated to a Device Assignment
+### Creating an Alert for a Device Assignment
 
 The following example creates an `Alert` of level `error` for a `DeviceAssignment`, 
 with `type` **engine.overheat**, and `message` **Engine Overheat**.
@@ -159,20 +159,6 @@ DeviceAlertCreateRequest request = builder
   .build();
 
 DeviceAlertWithAsset alert = client.createAlertForDeviceAssignment(tenantAuthentication, token, request);
-```
-
-### Quering Assignments associated to a Device Assignment
-
-The following example retrieves firts 100 `DeviceAssignment`s associated with an `DeviceAssignment`
-from the last year, including the `Customer` information in the results.
-
-```java
-String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
-DeviceAssignmentSearchCriteria searchCriteria = new DeviceAssignmentSearchCriteria(1, 100);
-DeviceAssignmentResponseFormat responseFormat = new DeviceAssignmentResponseFormat();
-responseFormat.setIncludeCustomer(true);
-SearchResults<MarshaledDeviceAssignment> assignments = 
-  client.listDeviceAssignmentsForDeviceAssignment(tenantAuthentication, token, searchCriteria, responseFormat);
 ```
 
 ### Quering Command Invocations associated to a Device Assignment
@@ -195,6 +181,49 @@ SearchResults<DeviceCommandInvocation> commandInvocations =
   client.listCommandInvocationsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
+### Creating a Command Invocations for a Device Assignment
+
+The following example creates a `DeviceCommandInvocation` for a `DeviceAssignment`.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
+String commandToken = "ping";
+String target = "Assignment";
+String initiatorId = "REST";
+
+DeviceCommandInvocationCreateRequest.Builder builder =
+  new DeviceCommandInvocationCreateRequest.Builder(commandToken, target);
+DeviceCommandInvocationCreateRequest request = builder.build();
+
+request.setInitiatorId(initiatorId);
+request.setInitiator(CommandInitiator.REST);
+
+DeviceCommandInvocation createdCommandInvocation = client
+  .createCommandInvocationForDeviceAssignment(tenantAuthentication, token, request);
+```
+
+### Creating an Scheduled Job for a Device Assignment
+
+The followin example creates a `ScheduledJob` for a `DeviceAssignment`.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
+String commandToken = "ping";
+String target = "Assignment";
+String initiatorId = "REST";
+String scheduleToken = "de305d54-75b4-431b-adb2-eb6b9e546014";
+
+DeviceCommandInvocationCreateRequest.Builder builder = 
+  new DeviceCommandInvocationCreateRequest.Builder(commandToken, target);
+DeviceCommandInvocationCreateRequest request = builder.build();
+
+request.setInitiatorId(initiatorId);
+request.setInitiator(CommandInitiator.REST);
+
+ScheduledJob createdScheduledJob = client
+  .scheduleCommandInvocation(tenantAuthentication, token, scheduleToken, request);
+```
+
 ### Quering Locations associated to a Device Assignment
 
 The following example retrieves firts 100 `DeviceLocationWithAsset`s associated with an `DeviceAssignment`
@@ -213,6 +242,19 @@ Date endDate = new Date();
 DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
 SearchResults<DeviceLocationWithAsset> locations = client
   .listLocationsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
+```
+
+### Creating a Location for a Device Assignment
+
+The following example creates a `DeviceLocation` for a `DeviceAssignment`.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
+DeviceLocationCreateRequest.Builder builder = new DeviceLocationCreateRequest.Builder(-27.3313291,-58.961281);
+DeviceLocationCreateRequest request = builder.build();
+
+DeviceLocationWithAsset location = client
+  .createLocationForDeviceAssignment(tenantAuthentication, token, request);
 ```
 
 ### Quering Measurements associated to a Device Assignment
@@ -235,6 +277,20 @@ SearchResults<DeviceMeasurementWithAsset> measurements = client
   .listMeasurementsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
+### Creating a Measurement for a Device Assignment
+
+The following example creates a `DeviceMeasurement` for a `DeviceAssignment`, indicating that
+**engine.temp** has a value of **50.0**.
+
+```java
+DeviceMeasurementCreateRequest.Builder builder = new DeviceMeasurementCreateRequest.Builder();
+builder.measurement("engine.temp", 50.0);
+DeviceMeasurementCreateRequest request = builder.build();
+
+DeviceMeasurementWithAsset measurement = client
+  .createMeasurementForDeviceAssignment(tenantAuthentication, token, request);
+```
+
 ### Quering Command Responses associated to a Device Assignment
 
 The following example retrieves firts 100 `DeviceCommandResponseWithAsset`s associated with an `DeviceAssignment`
@@ -253,6 +309,21 @@ Date endDate = new Date();
 DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
 SearchResults<DeviceCommandResponseWithAsset> commandResponses = client
   .listCommandResponsesForDeviceAssignment(tenantAuthentication, token, searchCriteria);
+```
+
+### Creating a Command Responses for a Device Assignment
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
+String originatingEventId = "abecfa19-f099-4bc6-b351-a916cd057302"; // GUID of the Originated Event
+String responseEventId = "7e841790-057d-4b26-bcbb-a6aaefe36ae8"; // GUID of the Response Event
+DeviceCommandResponseCreateRequest request = new DeviceCommandResponseCreateRequest();
+request.setResponse("ok");
+request.setOriginatingEventId(originatingEventId);
+request.setResponseEventId(responseEventId);
+
+DeviceCommandResponseWithAsset commandResponse = client
+  .createCommandResponseForDeviceAssignment(tenantAuthentication, token, request);
 ```
 
 ### Quering State Changes associated to a Device Assignment
@@ -275,10 +346,17 @@ SearchResults<DeviceStateChangeWithAsset> stateChanges = client
   .listStateChangesForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
-### Retrive DeviceAssignment tree
+### Creating State Change for a Device Assignment
 
-The following example retrieves the tree structure of areas.
+The following example creates a `DeviceStateChange` for a `DeviceAssignment`.
 
 ```java
-List<TreeNode> tree = client.areaTree(tenantAuthentication);
+DeviceStateChangeCreateRequest request = new DeviceStateChangeCreateRequest();
+request.setNewState("PRESENT");
+request.setAttribute("Attr");
+request.setType("t1");
+request.setUpdateState(true);
+
+DeviceStateChangeWithAsset stateChange = client
+  .createStateChangeForDeviceAssignment(tenantAuthentication, token, request);
 ```
