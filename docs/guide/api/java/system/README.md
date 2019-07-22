@@ -1,4 +1,6 @@
-# Java API - System
+# :book: Java API - System
+
+<Seo/>
 
 This section contains the documentation and examples of the end point `version` of
 SiteWhere Java API.

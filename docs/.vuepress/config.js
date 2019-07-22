@@ -54,22 +54,26 @@ module.exports = {
       "/guide/deployment/": ["", "common-issues", "backup-restore"],
       "/guide/administration/": ["", "global/", "tenant/"],
       "/guide/devices/": ["sending-data", "android", "kura"],
-      "/guide/api/": [
-        "java/", 
-        "javascript/"
-      ],
-      "/guide/apijava/": [
+      "/guide/api/java/": [
         "",
         "system/",
-        "users",
+        "users/",
         "area-api/",
         "area-type-api/",
         "asset-api/",
         "asset-type-api/",
-        "batch-operation-api/",
+        "batch-operations-api/",
+        "assignment-api/",
         "customer-api/",
         "customer-type-api/",
         "device-command-api/"
+      ],
+      "/guide/api/javascript/": [
+        "",
+      ],
+      "/guide/api/": [
+        "java/",
+        "javascript/"
       ],
       "/guide/microservices/": [
         "asset-management/",

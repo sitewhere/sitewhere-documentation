@@ -1,4 +1,6 @@
-# Java API - Customer Management
+# :book: Java API - Customer Management
+
+<Seo/>
 
 This section contains the documentation and examples of the end point `customers` of SiteWhere Java API.
 
