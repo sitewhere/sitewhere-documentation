@@ -88,7 +88,7 @@ builder.withDescription("Some updated description");
 // Build the Create Request
 AreaCreateRequest updateRequest = builder.build();
 // Update the Area
-Area updatedArea = client.updateAreaType(tenantAuthentication, token, updateRequest);
+Area updatedArea = client.updateArea(tenantAuthentication, token, updateRequest);
 ```
 
 ## Deleting an existing Area
@@ -98,7 +98,7 @@ providing the `token` of the area you want to delete, like the following example
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
-Area deletedArea = client.deleteAreaType(tenantAuthentication, token);
+Area deletedArea = client.deleteArea(tenantAuthentication, token);
 ```
 
 ## Quering information associated to an Area

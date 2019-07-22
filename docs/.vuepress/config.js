@@ -68,7 +68,8 @@ module.exports = {
         "asset-type-api/",
         "batch-operation-api/",
         "customer-api/",
-        "customer-type-api/"
+        "customer-type-api/",
+        "device-command-api/"
       ],
       "/guide/microservices/": [
         "asset-management/",

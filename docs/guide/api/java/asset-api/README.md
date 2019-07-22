@@ -62,7 +62,7 @@ AssetCreateRequest.Builder builder = new AssetCreateRequest.Builder(token, asset
 // Build the Create Request
 AssetCreateRequest updateRequest = builder.build();
 // Update the Asset
-Asset updatedAsset = client.updateAssetType(tenantAuthentication, token, updateRequest);
+Asset updatedAsset = client.updateAsset(tenantAuthentication, token, updateRequest);
 ```
 
 ## Deleting an existing Asset
@@ -72,5 +72,5 @@ providing the `token` of the asset you want to delete, like the following exampl
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Asset
-Asset deletedAsset = client.deleteAssetType(tenantAuthentication, token);
+Asset deletedAsset = client.deleteAsset(tenantAuthentication, token);
 ```

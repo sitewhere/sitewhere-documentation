@@ -99,3 +99,4 @@ call (along with the JWT used for all calls).
 - [Batch Operations API](./batch-operations-api/)
 - [Customer Management API](./customer-api/)
 - [Customer Type Management API](./customer-type-api/)
+- [Device Commands API](./device-command-api/)
