@@ -30,10 +30,10 @@ thier type and description, that can be set to filter the results.
 
 | Property               | Type        | Description                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| getAssetTypeToken      | String      | Only match assets of the given type.                           |
-| getIncludeAssetType    | Boolean     | Indicates if asset type are to be returned.                    |
-| setPageNumber          | Integer     | Get offset from beginning of dataset.                          |
-| setPageSize            | Integer     | Get number of records per page of data.                        |
+| getAssetTypeToken      | `String`    | Only match assets of the given type.                           |
+| getIncludeAssetType    | `Boolean`   | Indicates if asset type are to be returned.                    |
+| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
+| setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
 ## Creating an Asset
 

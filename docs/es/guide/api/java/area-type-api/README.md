@@ -32,9 +32,9 @@ thier type and description, that can be set to filter the results.
 
 | Property                     | Type        | Description                                                    |
 |:-----------------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContainedAreaTypes | Boolean     | Indicates if contained area types are to be returned.          |
-| setPageNumber                | Integer     | Get offset from beginning of dataset.                          |
-| setPageSize                  | Integer     | Get number of records per page of data.                        |
+| setIncludeContainedAreaTypes | `Boolean`   | Indicates if contained area types are to be returned.          |
+| setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
+| setPageSize                  | `Integer`   | Get number of records per page of data.                        |
 
 ## Retrieving an Area Type
 

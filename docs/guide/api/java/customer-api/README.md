@@ -31,18 +31,18 @@ thier type and description, that can be set to filter the results.
 
 | Property               | Type        | Description                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setRootOnly            | Boolean     | Indicates if only root elements are to be returned.            |
-| setCustomerTypeToken   | String      | Require that customers have the given customer type.           |
-| SetParentCustomerToken | String      | Requires that customers have the given customer as a parent.   |
-| setPageNumber          | Integer     | Get offset from beginning of dataset.                          |
-| setPageSize            | Integer     | Get number of records per page of data.                        |
+| setRootOnly            | `Boolean`   | Indicates if only root elements are to be returned.            |
+| setCustomerTypeToken   | `String`    | Require that customers have the given customer type.           |
+| SetParentCustomerToken | `String`    | Requires that customers have the given customer as a parent.   |
+| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
+| setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
 Also you can control what information is return in the results by providing an instance of `CustomerResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
 | Property               | Type        | Description                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeCustomerType | Boolean     | Indicates if customer type is to be returned.                  |
+| setIncludeCustomerType | `Boolean`   | Indicates if customer type is to be returned.                  |
 
 ## Creating an Customer
 

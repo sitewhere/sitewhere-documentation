@@ -24,7 +24,7 @@ REST API to list the first page of 100 results of assets.
 
 ```java
 DeviceCommandSearchCriteria searchCriteria = new DeviceCommandSearchCriteria(1, 100);
-SearchResults<DeviceCommand> results = client.listDeviceCommands(tenantAuthentication, searchCriteria, responseFormat);
+SearchResults<DeviceCommand> results = client.listDeviceCommands(tenantAuthentication, searchCriteria);
 ```
 
 `DeviceCommandSearchCriteria` defines the search criteria for quering `DeviceCommand`, the following table shows the properties, with 
@@ -32,9 +32,9 @@ thier type and description, that can be set to filter the results.
 
 | Property               | Type        | Description                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| getDeviceTypeToken     | String      | Limit results by device type id.                               |
-| setPageNumber          | Integer     | Get offset from beginning of dataset.                          |
-| setPageSize            | Integer     | Get number of records per page of data.                        |
+| getDeviceTypeToken     | `String`    | Limit results by device type id.                               |
+| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
+| setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
 ## Creating an DeviceCommand
 

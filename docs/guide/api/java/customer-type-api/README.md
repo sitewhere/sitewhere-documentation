@@ -33,15 +33,15 @@ thier type and description, that can be set to filter the results.
 
 | Property                     | Type        | Description                                                    |
 |:-----------------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber                | Integer     | Get offset from beginning of dataset.                          |
-| setPageSize                  | Integer     | Get number of records per page of data.                        |
+| setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
+| setPageSize                  | `Integer`   | Get number of records per page of data.                        |
 
 Also you can control what information is return in the results by providing an instance of `CustomerResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
 | Property                         | Type        | Description                                                    |
 |:---------------------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContainedCustomerTypes | Boolean     | Indicates if contained customer types are to be returned.      |
+| setIncludeContainedCustomerTypes | `Boolean`   | Indicates if contained customer types are to be returned.      |
 
 ## Creating an Customer Type
 

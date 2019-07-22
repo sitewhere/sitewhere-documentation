@@ -30,8 +30,8 @@ thier type and description, that can be set to filter the results.
 
 | Property                     | Type        | Description                                                    |
 |:-----------------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber                | Integer     | Get offset from beginning of dataset.                          |
-| setPageSize                  | Integer     | Get number of records per page of data.                        |
+| setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
+| setPageSize                  | `Integer`   | Get number of records per page of data.                        |
 
 ## Creating an Asset Type
 

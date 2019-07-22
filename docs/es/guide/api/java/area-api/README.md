@@ -33,20 +33,20 @@ thier type and description, that can be set to filter the results.
 
 | Property               | Type        | Description                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setRootOnly            | Boolean     | Indicates if only root elements are to be returned.            |
-| setAreaTypeToken       | String      | Only match areas of the given type.                            |
-| setParentAreaToken     | String      | Requires that areas have the given area as a parent.           |
-| setPageNumber          | Integer     | Get offset from beginning of dataset.                          |
-| setPageSize            | Integer     | Get number of records per page of data.                        |
+| setRootOnly            | `Boolean`   | Indicates if only root elements are to be returned.            |
+| setAreaTypeToken       | `String`    | Only match areas of the given type.                            |
+| setParentAreaToken     | `String`    | Requires that areas have the given area as a parent.           |
+| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
+| setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
 Also you can control what information is return in the results by providing an instance of `AreaResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
 | Property               | Type        | Description                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeAreaType     | Boolean     | Indicates if included area types are to be returned.           |
-| setIncludeAssignments  | Boolean     | Indicates if assignments are to be returned.                   |
-| setIncludeZones        | Boolean     | Indicates if zones are to be returned.                         |
+| setIncludeAreaType     | `Boolean`   | Indicates if included area types are to be returned.           |
+| setIncludeAssignments  | `Boolean`   | Indicates if assignments are to be returned.                   |
+| setIncludeZones        | `Boolean`   | Indicates if zones are to be returned.                         |
 
 ## Retrieving an Area
 
