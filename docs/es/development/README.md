@@ -44,7 +44,7 @@ Con un cliente de Git instalado, comience por clonar el repositorio central de S
 Si usa el cliente de línea de comando, puede ejecutar los siguientes
 comandos para clonar el repositorio y cambiar a la rama actual:
 
-```console
+```bash
 git clone https://github.com/sitewhere/sitewhere.git
 cd sitewhere
 git checkout --force sitewhere-2.1.0
@@ -114,7 +114,7 @@ SiteWhere incluye los artefactos de Gradle [Wrapper](https://docs.gradle.org/cur
 por lo que no es necesario instalar Gradle de forma independiente. Para construir toda las bibliotecas núcleo,
 empaquetar los microservicios en imágenes Docker e introducirlos en su repositorio, ejecute el siguiente comando:
 
-```console
+```bash
 gradlew clean dockerImage
 ```
 
@@ -132,7 +132,7 @@ Además de las imágenes standar de microservicio, la construcción de Gradle se
 para generar imágenes de depuración que exponen un puerto para la depuración remota de Java. Para poder
 generar imágenes de depuración, ejecute el siguiente comando:
 
-```console
+```bash
 gradlew clean dockerImage -Pdebug
 ```
 

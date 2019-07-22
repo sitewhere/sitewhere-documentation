@@ -11,7 +11,7 @@ that use persistent storage, including MongoDB and Apache Zookeeper.
 
 If you plan to use `rook-ceph-block` storageClass use:
 
-```console
+```bash
 kubectl apply -f utils/sitewhere-mongodb-dump-pvc-rook.yaml
 ```
 
@@ -26,25 +26,25 @@ nfs:
 
 Save the file and apply it to the cluster.
 
-```console
+```bash
 kubectl apply -f utils/sitewhere-mongodb-dump-pvc-nfs.yaml
 ```
 
 ### Gracefully Downscale SiteWhere Microservices
 
-```console
+```bash
 kubectl scale deploy --replicas=0 -l sitewhere.io/role=microservice
 ```
 
 ### Backup MongoDB Database
 
-```console
+```bash
 kubectl apply -f utils/sitewhere-mongodb-dump-job.yaml
 ```
 
 Wait for `sitewhere-mongodump` job to be completed.
 
-```console
+```bash
 kubectl get job
 ```
 
@@ -56,7 +56,7 @@ sitewhere-mongodump   1         1            7s
 Alternative, you can create a `CronJob` which will execute the backup job
 repeatibly. You can create the `CronJob` by executing:
 
-```console
+```bash
 kubectl apply -f utils/sitewhere-mongodb-dump-crojob.yaml
 ```
 
@@ -81,7 +81,7 @@ the `PVC` used to store the result of the backup. After you create the Pod, you 
 files using `kubectl cp` command. The following commands show how to extract the result of the
 backup job/cronjob.
 
-```console
+```bash
 kubectl apply -f utils/sitewhere-mongodb-backup-pod.yaml
 kubectl cp sitewhere-backup-admin-pod:/dump <YOUR_BACKUP_DIR>
 kubectl delete -f utils/sitewhere-mongodb-backup-pod.yaml
@@ -92,7 +92,7 @@ This means that only one `Pod` can have the `sitewhere-mongodump-pvc` PVC mounte
 
 ### Upscale SiteWhere Microservices
 
-```console
+```bash
 kubectl scale deploy --replicas=1 -l sitewhere.io/role=microservice
 ```
 
@@ -100,7 +100,7 @@ kubectl scale deploy --replicas=1 -l sitewhere.io/role=microservice
 
 ### Gracefully Downscale SiteWhere Microservices
 
-```console
+```bash
 kubectl scale deploy --replicas=0 -l sitewhere.io/role=microservice
 ```
 
@@ -112,7 +112,7 @@ the `PVC` used to store the result of the backup. After you create the Pod, you 
 files using `kubectl cp` command into the cluster. The following commands show how to copy your
 backup file into the cluster.
 
-```console
+```bash
 kubectl apply -f utils/sitewhere-mongodb-backup-pod.yaml
 kubectl cp <YOUR_BACKUP_DIR> sitewhere-backup-admin-pod:/dump
 kubectl delete -f utils/sitewhere-mongodb-backup-pod.yaml
@@ -123,12 +123,12 @@ This means that only one `Pod` can have the `sitewhere-mongodump-pvc` PVC mounte
 
 ### Restore MongoDB Database
 
-```console
+```bash
 kubectl apply -f utils/sitewhere-mongodb-restore-job.yaml
 ```
 
 ### Upscale SiteWhere Microservices
 
-```console
+```bash
 kubectl scale deploy --replicas=1 -l sitewhere.io/role=microservice
 ```

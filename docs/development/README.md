@@ -44,7 +44,7 @@ With a Git client installed, start by cloning the SiteWhere core repository.
 If using the command line client you can execute the following
 commands to clone the repository and change to the current branch:
 
-```console
+```bash
 git clone https://github.com/sitewhere/sitewhere.git
 cd sitewhere
 git checkout --force sitewhere-2.1.0
@@ -115,7 +115,7 @@ artifacts, so that there is no need to install Gradle independently. To build al
 libraries, package the microservices into Docker images and push them into your local
 repository, execute the following command.
 
-```console
+```bash
 gradlew clean dockerImage
 ```
 
@@ -133,7 +133,7 @@ In addition to the standard microservice images, the Gradle build may be paramet
 to generate debug images which expose a port for remote Java debugging. In order to
 generate debug images, execute the following command:
 
-```console
+```bash
 gradlew clean dockerImage -Pdebug
 ```
 

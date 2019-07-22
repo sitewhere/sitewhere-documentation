@@ -93,11 +93,11 @@ installed on a Kubernetes cluster before you deploy an instance of SiteWhere. Yo
 Make sure that the namespace where you are deploying SiteWhere has the label `istio-injection=enabled`,
 for example for the `default` namespace use:
 
-```console
+```bash
 kubectl get namespace -L istio-injection
 ```
 
-```console
+```bash
 NAME           STATUS    AGE       ISTIO-INJECTION
 default        Active    1h        enabled
 istio-system   Active    1h
@@ -107,7 +107,7 @@ kube-system    Active    1h
 
 If not, add the label to the namespace:
 
-```console
+```bash
 kubectl label namespace default istio-injection=enabled
 ```
 
@@ -116,19 +116,19 @@ kubectl label namespace default istio-injection=enabled
 To intall SiteWhere using Helm, you need to add the [SiteWhere Helm Repository](https://sitewhere.io/helm-charts)
 to your helm client.
 
-```console
+```bash
 helm repo add sitewhere https://sitewhere.io/helm-charts
 ```
 
 Then you need to update your local helm repository
 
-```console
+```bash
 helm repo update
 ```
 
 To install the chart with the release name `sitewhere` execute:
 
-```console
+```bash
 helm install --name sitewhere sitewhere/sitewhere
 ```
 
@@ -144,7 +144,7 @@ Using a [Git](https://git-scm.com/) client, clone the repository to the machine
 where you have the Kubernetes environment configured. The repository can be cloned
 with the following command:
 
-```console
+```bash
 git clone https://github.com/sitewhere/sitewhere-k8s.git
 ```
 
@@ -157,7 +157,7 @@ deployment scenarios.
 To install SiteWhere with the default configuration (including all microservices and
 the default infrastructure components) run:
 
-```console
+```bash
 helm install --name sitewhere ./sitewhere
 ```
 
@@ -182,7 +182,7 @@ SiteWhere Helm Chart setting the `persistence.storageClass` property to
 other than `rook-ceph-block`, for example to use `hostpath` Persistence
 Storage Class, use the following command:
 
-```console
+```bash
 helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
 
@@ -202,7 +202,7 @@ storage that may be used directly from standard k8s storage APIs.
 By executing the following list of commands, a Rook cluster will be bootstrapped
 and made available for use by SiteWhere.
 
-```console
+```bash
 kubectl create -f rook/common.yaml
 kubectl create -f rook/operator.yaml
 kubectl create -f rook/cluster.yaml

@@ -8,13 +8,13 @@
 
 Verify the `rook-ceph-agent` pods are `Running`
 
-```console
+```bash
 kubectl -n rook-ceph-system get pod
 ```
 
 Verify that there are not error on `rook-ceph-agent` pods by running:
 
-```console
+```bash
 kubectl -n rook-ceph-system get pod -l app=rook-ceph-agent -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.containerStatuses[0].lastState.terminated.message}{"\n"}{end}'
 ```
 
@@ -23,7 +23,7 @@ kubectl -n rook-ceph-system get pod -l app=rook-ceph-agent -o jsonpath='{range .
 If you are running on `minikube` you can skip using `Rook.io`
 and use the `dev-values.yaml`.
 
-```console
+```bash
 helm install --name sitewhere \
 -f ./sitewhere/dev-values.yaml \
 --set sitewhere-infra-database.mongodb.persistence.storageClass=standard \
@@ -35,7 +35,7 @@ helm install --name sitewhere \
 
 Alternative, you can use sitewhere Helm Repo with:
 
-```console
+```bash
 helm install --name sitewhere \
 --set sitewhere-infra-core.kafka.zookeeper.replicaCount=1 \
 --set sitewhere-infra-database.mongodb.replicaSet.enabled=false \
@@ -48,7 +48,7 @@ sitewhere/sitewhere
 
 ### Minimal evironment with `hostpath` storageClass
 
-```console
+```bash
 helm install --name sitewhere \
 --set services.profile=minimal \
 --set sitewhere-infra-core.kafka.zookeeper.replicaCount=1 \
@@ -61,7 +61,7 @@ sitewhere/sitewhere
 
 ### Developer evironment with `hostpath` storageClass 
 
-```console
+```bash
 helm install --name sitewhere \
 -f ./sitewhere/dev-values.yaml \
 --set sitewhere-infra-database.mongodb.persistence.storageClass=hostpath \

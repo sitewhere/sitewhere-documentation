@@ -38,14 +38,14 @@ Before installing the SiteWhere Helm charts, add the
 [SiteWhere helm repository](https://sitewhere.io/helm-charts/index.yaml)
 to your Helm client.
 
-```console
+```bash
 helm repo add sitewhere https://sitewhere.io/helm-charts
 ```
 
 Afterward, update your local Helm repository to pull the latest
 chart information from the index.
 
-```console
+```bash
 helm repo update
 ```
 
@@ -53,7 +53,7 @@ helm repo update
 
 To install the chart with the release name `sitewhere` execute:
 
-```console
+```bash
 helm install --name sitewhere sitewhere/sitewhere
 ```
 
@@ -68,13 +68,13 @@ and startup time, use the following command instead.
 You can install SiteWhere on a Developer Machine, using the non-HA configuration of MongoDB, Apache Kafka
 and Apache Zookeeper. In order to do this, you need to clone `sitewhere-k8s` repository, using
 
-```console
+```bash
 git clone https://github.com/sitewhere/sitewhere-k8s.git
 ```
 
 Then, on the `charts` folder run the command:
 
-```console
+```bash
 helm install --name sitewhere \
   -f ./sitewhere/dev-values.yaml \
   sitewhere
@@ -85,7 +85,7 @@ helm install --name sitewhere \
 The following command removes the artifacts added with the SiteWhere chart
 installation and releases the `sitewhere` chart name for reuse.
 
-```console
+```bash
 helm del sitewhere --purge
 ```
 
@@ -95,7 +95,7 @@ This will remove sitewhere infrastructure and microservices.
 
 To remove SiteWhere Persistence Volume Claims, run the command:
 
-```console
+```bash
 kubectl delete pvc -l release=sitewhere
 ```
 
@@ -103,13 +103,13 @@ kubectl delete pvc -l release=sitewhere
 
 Assuming your sitewhere install name is `sitewhere`
 
-```console
+```bash
 helm install --name kafka-manager \
   --set zkHosts=sitewhere-zookeeper:2181 stable/kafka-manager
 ```
 
 Port-forward Kafka Manager UI
 
-```console
+```bash
 kubectl port-forward deployment/kafka-manager-kafka-manager 9000 9000
 ```
