@@ -16,7 +16,7 @@ or by using other that the `default` tenant.
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Device Groups
+## Searching for Device States
 
 For searching `DeviceState` you need to provide an instance of `DeviceStateSearchCriteria` and an instance of `DeviceStateResponseFormat` to the method 
 `listDeviceStates` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first

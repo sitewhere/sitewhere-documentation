@@ -53,7 +53,7 @@ The following table shows the properties that can be set to control the result f
 | setIncludeDevice       | `Boolean`   | Indicates if device is to be returned.                         |
 | setIncludeDeviceType   | `Boolean`   | Indicates if device type is to be returned.                    |
 
-## Creating an DeviceAssignment
+## Creating an Device Assignment
 
 For creating an `DeviceAssignment` you need to call `createDeviceAssignment` passing the `ITenantAuthentication` object and an
 `DeviceAssignmentCreateRequest` build like in the folling example.
@@ -73,7 +73,7 @@ request.setToken(token);
 MarshaledDeviceAssignment createdDeviceAssignment = client.createDeviceAssignment(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing DeviceAssignment
+## Updating an existing Device Assignment
 
 For updating an `DeviceAssignment` you need to call `updateDeviceAssignment` passing the `ITenantAuthentication` object,
 the `token` of the existing `DeviceAssignment` and an `DeviceAssignmentCreateRequest` build like in the folling example.
@@ -95,7 +95,7 @@ DeviceAssignmentCreateRequest updateRequest = builder.build();
 MarshaledDeviceAssignment updatedDeviceAssignment = client.updateDeviceAssignment(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing DeviceAssignment
+## Deleting an existing Device Assignment
 
 For deleting an existing `DeviceAssignment` you need to call `deleteDeviceAssignment` method of `com.sitewhere.spi.ISiteWhereClient`
 providing the `token` of the asset you want to delete, like the following example.
@@ -107,7 +107,7 @@ MarshaledDeviceAssignment deletedDeviceAssignment = client.deleteDeviceAssignmen
 
 ## Device Assignment associated API Calls
 
-### Releasing an Assignment
+### Releasing an Device Assignment
 
 The following examples releses an existing associated assignment.
 
@@ -116,7 +116,7 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAss
 MarshaledDeviceAssignment releasedAssignment = client.releaseDeviceAssignment(tenantAuthentication, token);
 ```
 
-### Marking Assignment as Missing
+### Marking Device Assignment as Missing
 
 The following example marks an existing associated assignment as **missing**.
 

@@ -37,7 +37,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
-## Retrieving an DeviceStatus
+## Retrieving an Device Status
 
 To retrieve an `DeviceStatus` by its token use the following example.
 
@@ -46,7 +46,7 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886";             // GUID for t
 DeviceStatus deviceStatus = client.getDeviceStatusByToken(token);
 ```
 
-## Creating an DeviceStatus
+## Creating an Device Status
 
 For creating an `DeviceStatus` you need to call `createDeviceStatus` passing the `ITenantAuthentication` object and an
 `DeviceStatusCreateRequest` build like in the folling example.
@@ -64,7 +64,7 @@ DeviceStatusCreateRequest createRequest = DeviceStatusCreateRequest.newBuilder()
 DeviceStatus createdDeviceStatus = client.createDeviceStatus(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing DeviceStatus
+## Updating an existing Device Status
 
 For updating an `DeviceStatus` you need to call `updateDeviceStatus` passing the `ITenantAuthentication` object,
 the `token` of the existing `DeviceStatus` and an `DeviceStatusCreateRequest` build like in the folling example.
@@ -81,7 +81,7 @@ DeviceStatusCreateRequest updateRequest = DeviceStatusCreateRequest.newBuilder()
 DeviceStatus updatedDeviceStatus = client.updateDeviceStatus(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing DeviceStatus
+## Deleting an existing Device Status
 
 For deleting an existing `DeviceStatus` you need to call `deleteDeviceStatus` method of `com.sitewhere.spi.ISiteWhereClient`
 providing the `token` of the deviceStatus you want to delete, like the following example.

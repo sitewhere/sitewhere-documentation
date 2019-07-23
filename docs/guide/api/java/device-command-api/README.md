@@ -36,7 +36,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
-## Creating an DeviceCommand
+## Creating an Device Command
 
 For creating an `DeviceCommand` you need to call `createDeviceCommand` passing the `ITenantAuthentication` object and an
 `DeviceCommandCreateRequest` build like in the folling example.
@@ -54,7 +54,7 @@ DeviceCommandCreateRequest createRequest = builder.build();
 DeviceCommand createdDeviceCommand = client.createDeviceCommand(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing DeviceCommand
+## Updating an existing Device Command
 
 For updating an `DeviceCommand` you need to call `updateDeviceCommand` passing the `ITenantAuthentication` object,
 the `token` of the existing `DeviceCommand` and an `DeviceCommandCreateRequest` build like in the folling example.
@@ -72,7 +72,7 @@ DeviceCommandCreateRequest updateRequest = builder.build();
 DeviceCommand updatedDeviceCommand = client.updateDeviceCommand(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing DeviceCommand
+## Deleting an existing Device Command
 
 For deleting an existing `DeviceCommand` you need to call `deleteDeviceCommand` method of `com.sitewhere.spi.ISiteWhereClient`
 providing the `token` of the asset you want to delete, like the following example.

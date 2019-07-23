@@ -100,6 +100,7 @@ call (along with the JWT used for all calls).
 - [Command Invocation API](./command-invocations-api/)
 - [Customer API](./customer-api/)
 - [Customer Type API](./customer-type-api/)
+- [Device API](./device-api/)
 - [Device Assignment API](./assignment-api/)
 - [Device Command API](./device-command-api/)
 - [Device Event API](./device-event-api/)

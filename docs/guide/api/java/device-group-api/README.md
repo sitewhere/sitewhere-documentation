@@ -16,7 +16,7 @@ or by using other that the `default` tenant.
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for DeviceGroups
+## Searching for Device Groups
 
 For searching `DeviceGroup` you need to provide an instance of `DeviceGroupSearchCriteria` and an instance of `DeviceGroupResponseFormat` to the method 
 `listDeviceGroups` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first
@@ -36,7 +36,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
-## Retrieving an DeviceGroup
+## Retrieving an Device Group
 
 To retrieve an `DeviceGroup` by its token use the following example.
 
@@ -45,7 +45,7 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceGro
 DeviceGroup deviceGroup = client.getDeviceGroupByToken(token);
 ```
 
-## Creating an DeviceGroup
+## Creating an Device Group
 
 For creating an `DeviceGroup` you need to call `createDeviceGroup` passing the `ITenantAuthentication` object and an
 `DeviceGroupCreateRequest` build like in the folling example.
@@ -62,7 +62,7 @@ DeviceGroupCreateRequest createRequest = builder.build();
 DeviceGroup createdDeviceGroup = client.createDeviceGroup(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing DeviceGroup
+## Updating an existing Device Group
 
 For updating an `DeviceGroup` you need to call `updateDeviceGroup` passing the `ITenantAuthentication` object,
 the `token` of the existing `DeviceGroup` and an `DeviceGroupCreateRequest` build like in the folling example.
@@ -79,7 +79,7 @@ DeviceGroupCreateRequest updateRequest = builder.build();
 DeviceGroup updatedDeviceGroup = client.updateDeviceGroup(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing DeviceGroup
+## Deleting an existing Device Group
 
 For deleting an existing `DeviceGroup` you need to call `deleteDeviceGroup` method of `com.sitewhere.spi.ISiteWhereClient`
 providing the `token` of the deviceGroup you want to delete, like the following example.

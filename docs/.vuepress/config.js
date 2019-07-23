@@ -67,6 +67,8 @@ module.exports = {
         "command-invocations-api/",
         "customer-api/",
         "customer-type-api/",
+        "device-api/",
+        "assignment-api/",
         "device-command-api/",
         "device-event-api/",
         "device-group-api/",
