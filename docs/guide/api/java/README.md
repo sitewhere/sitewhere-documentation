@@ -111,3 +111,4 @@ call (along with the JWT used for all calls).
 - [Device Type API](./device-type-api/)
 - [Schedule API](./schedule-api/)
 - [Scheduled Job API](./scheduled-job-api/)
+- [Zone API](./zone-api/)

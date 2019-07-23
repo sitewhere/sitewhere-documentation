@@ -78,6 +78,7 @@ module.exports = {
         "device-type-api/",
         "schedule-api/",
         "scheduled-job-api/",
+        "zone-api/"
       ],
       "/guide/api/javascript/": [
         "",
