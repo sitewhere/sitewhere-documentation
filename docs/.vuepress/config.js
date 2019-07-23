@@ -72,6 +72,7 @@ module.exports = {
         "device-group-api/",
         "device-state-api/",
         "device-status-api/",
+        "device-type-api/",
       ],
       "/guide/api/javascript/": [
         "",

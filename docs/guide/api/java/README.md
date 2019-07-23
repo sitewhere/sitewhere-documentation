@@ -106,3 +106,4 @@ call (along with the JWT used for all calls).
 - [Device Group API](./device-group-api/)
 - [Device State API](./device-state-api/)
 - [Device Status API](./device-state-api/)
+- [Device Type API](./device-type-api/)
