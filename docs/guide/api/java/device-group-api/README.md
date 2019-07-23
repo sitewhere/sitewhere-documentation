@@ -18,9 +18,9 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Searching for Device Groups
 
-For searching `DeviceGroup` you need to provide an instance of `DeviceGroupSearchCriteria` and an instance of `DeviceGroupResponseFormat` to the method 
-`listDeviceGroups` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first
-page of 100 results of device groups.
+For searching `DeviceGroup` you need to provide an instance of `DeviceGroupSearchCriteria` to the method
+`listDeviceGroups` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
+REST API to list the first page of 100 results of device groups.
 
 ```java
 DeviceGroupSearchCriteria searchCriteria = new DeviceGroupSearchCriteria(1, 100);
@@ -82,7 +82,7 @@ DeviceGroup updatedDeviceGroup = client.updateDeviceGroup(tenantAuthentication, 
 ## Deleting an existing Device Group
 
 For deleting an existing `DeviceGroup` you need to call `deleteDeviceGroup` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the deviceGroup you want to delete, like the following example.
+providing the `token` of the device group you want to delete, like the following example.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceGroup

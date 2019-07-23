@@ -56,8 +56,9 @@ module.exports = {
       "/guide/devices/": ["sending-data", "android", "kura"],
       "/guide/api/java/": [
         "",
-        "system/",
-        "users/",
+        "system-api/",
+        "user-api/",
+        "tenant-api/",
         "area-api/",
         "area-type-api/",
         "asset-api/",
@@ -75,6 +76,8 @@ module.exports = {
         "device-state-api/",
         "device-status-api/",
         "device-type-api/",
+        "schedule-api/",
+        "scheduled-job-api/",
       ],
       "/guide/api/javascript/": [
         "",

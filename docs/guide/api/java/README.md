@@ -83,8 +83,9 @@ the component of the system.
 
 For global calls, no extra information is required in order to make the invocation.
 
-- [System API](./system/)
-- [Users API](./users/)
+- [System API](./system-api/)
+- [Users API](./user-api/)
+- [Tenant API](./tenant-api/)
 
 ### Tenant Calls
 
@@ -108,3 +109,5 @@ call (along with the JWT used for all calls).
 - [Device State API](./device-state-api/)
 - [Device Status API](./device-state-api/)
 - [Device Type API](./device-type-api/)
+- [Schedule API](./schedule-api/)
+- [Scheduled Job API](./scheduled-job-api/)
