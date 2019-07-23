@@ -70,6 +70,7 @@ module.exports = {
         "device-command-api/",
         "device-event-api/",
         "device-group-api/",
+        "device-state-api/",
       ],
       "/guide/api/javascript/": [
         "",
