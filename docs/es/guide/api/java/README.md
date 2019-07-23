@@ -83,8 +83,9 @@ the component of the system.
 
 For global calls, no extra information is required in order to make the invocation.
 
-- [System API](./system/)
-- [Users API](./users/)
+- [System API](./system-api/)
+- [Users API](./user-api/)
+- [Tenant API](./tenant-api/)
 
 ### Tenant Calls
 
@@ -92,11 +93,22 @@ For calls that are tenant-specific, more information must be passed along with e
 You must provide the tenant id and tenant authentication token which are passed as headers to the REST
 call (along with the JWT used for all calls).
 
-- [Area Management API](./area-api/)
-- [Area Type Management API](./area-type-api/)
-- [Asset Management API](./asset-api/)
-- [Asset Type Management API](./asset-type-api/)
+- [Area API](./area-api/)
+- [Area Type API](./area-type-api/)
+- [Asset API](./asset-api/)
+- [Asset Type API](./asset-type-api/)
 - [Batch Operations API](./batch-operations-api/)
-- [Customer Management API](./customer-api/)
-- [Customer Type Management API](./customer-type-api/)
-- [Device Commands API](./device-command-api/)
+- [Command Invocation API](./command-invocations-api/)
+- [Customer API](./customer-api/)
+- [Customer Type API](./customer-type-api/)
+- [Device API](./device-api/)
+- [Device Assignment API](./assignment-api/)
+- [Device Command API](./device-command-api/)
+- [Device Event API](./device-event-api/)
+- [Device Group API](./device-group-api/)
+- [Device State API](./device-state-api/)
+- [Device Status API](./device-state-api/)
+- [Device Type API](./device-type-api/)
+- [Schedule API](./schedule-api/)
+- [Scheduled Job API](./scheduled-job-api/)
+- [Zone API](./zone-api/)

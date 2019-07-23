@@ -1,4 +1,4 @@
-# :book: Java API - Asset Type Management
+# :book: Java API - Asset Types
 
 <Seo/>
 

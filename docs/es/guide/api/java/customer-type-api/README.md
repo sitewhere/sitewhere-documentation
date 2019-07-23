@@ -1,4 +1,4 @@
-# :book: Java API - Customer Type Management
+# :book: Java API - Customer Types
 
 <Seo/>
 

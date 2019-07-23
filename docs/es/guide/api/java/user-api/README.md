@@ -1,4 +1,6 @@
-# Java API - Users
+# :book: Java API - Users
+
+<Seo/>
 
 This section contains the documentation and examples of the end point `users` of SiteWhere Java API.
 

@@ -1,4 +1,4 @@
-# :book: Java API - Customer Management
+# :book: Java API - Customers
 
 <Seo/>
 
@@ -79,7 +79,7 @@ builder.withDescription("Some updated customer description");
 // Build the Create Request
 CustomerCreateRequest updateRequest = builder.build();
 // Update the Customer
-Customer updatedCustomer = client.updateCustomerType(tenantAuthentication, token, updateRequest);
+Customer updatedCustomer = client.updateCustomer(tenantAuthentication, token, updateRequest);
 ```
 
 ## Deleting an existing Customer
@@ -89,7 +89,7 @@ providing the `token` of the asset you want to delete, like the following exampl
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
-Customer deletedCustomer = client.deleteCustomerType(tenantAuthentication, token);
+Customer deletedCustomer = client.deleteCustomer(tenantAuthentication, token);
 ```
 
 ## Quering information associated to a Customer
