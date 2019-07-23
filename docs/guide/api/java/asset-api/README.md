@@ -1,4 +1,4 @@
-# :book: Java API - Asset Management
+# :book: Java API - Assets
 
 <Seo/>
 

@@ -92,16 +92,17 @@ For calls that are tenant-specific, more information must be passed along with e
 You must provide the tenant id and tenant authentication token which are passed as headers to the REST
 call (along with the JWT used for all calls).
 
-- [Area Management API](./area-api/)
-- [Area Type Management API](./area-type-api/)
-- [Asset Management API](./asset-api/)
-- [Asset Type Management API](./asset-type-api/)
+- [Area API](./area-api/)
+- [Area Type API](./area-type-api/)
+- [Asset API](./asset-api/)
+- [Asset Type API](./asset-type-api/)
 - [Batch Operations API](./batch-operations-api/)
 - [Command Invocation API](./command-invocations-api/)
-- [Customer Management API](./customer-api/)
-- [Customer Type Management API](./customer-type-api/)
+- [Customer API](./customer-api/)
+- [Customer Type API](./customer-type-api/)
 - [Device Assignment API](./assignment-api/)
 - [Device Command API](./device-command-api/)
 - [Device Event API](./device-event-api/)
 - [Device Group API](./device-group-api/)
 - [Device State API](./device-state-api/)
+- [Device Status API](./device-state-api/)

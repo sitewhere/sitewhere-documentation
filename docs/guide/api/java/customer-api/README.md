@@ -1,4 +1,4 @@
-# :book: Java API - Customer Management
+# :book: Java API - Customers
 
 <Seo/>
 

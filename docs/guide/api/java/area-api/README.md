@@ -1,4 +1,4 @@
-# :book: Java API - Area Management
+# :book: Java API - Areas
 
 <Seo/>
 

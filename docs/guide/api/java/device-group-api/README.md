@@ -1,4 +1,4 @@
-# :book: Java API - DeviceGroup Management
+# :book: Java API - Device Groups
 
 <Seo/>
 
