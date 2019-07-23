@@ -1,4 +1,4 @@
-# :book: Using SiteWhere Javascript API
+# :book: Usando la API Javascript de SiteWhere
 
 <Seo/>
 

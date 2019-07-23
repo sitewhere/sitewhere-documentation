@@ -1,9 +1,9 @@
-# :book: API Guide
+# :book: Guía de API
 
 <Seo/>
 
-The following pages cover the API Guide to connect and interact with SiteWhere
-API using different technologies.
+Las siguientes páginas cubre la guía de API para conectarse e interactuar con 
+una instancia de SiteWhere utilizando diferentes tecnologías.
 
-- [Using SiteWhere Java API](./java/)
-- [Using SiteWhere Javascript API](./javascript/)
+- [Usando la API Java de SiteWhere](./java/)
+- [Usando la API Javascript de SiteWhere](./javascript/)

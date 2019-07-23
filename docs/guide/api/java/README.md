@@ -60,7 +60,7 @@ SiteWhereClient client = SiteWhereClient.newBuilder()
     .build().initialize();
 ```
 
-To connect as a different user user:
+To connect as a different user use:
 
 ```java
 SiteWhereClient client = SiteWhereClient.newBuilder()
@@ -83,6 +83,8 @@ the component of the system.
 
 For global calls, no extra information is required in order to make the invocation.
 
+These are the **Global** calls of SiteWhere API:
+
 - [System API](./system-api/)
 - [Users API](./user-api/)
 - [Tenant API](./tenant-api/)
@@ -92,6 +94,8 @@ For global calls, no extra information is required in order to make the invocati
 For calls that are tenant-specific, more information must be passed along with each method invocation.
 You must provide the tenant id and tenant authentication token which are passed as headers to the REST
 call (along with the JWT used for all calls).
+
+These are the **Tenant** calls of SiteWhere API:
 
 - [Area API](./area-api/)
 - [Area Type API](./area-type-api/)

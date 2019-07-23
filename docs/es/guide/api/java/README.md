@@ -1,16 +1,16 @@
-# :book: Using SiteWhere Java API
+# :book: Usando la API Java de SiteWhere
 
 <Seo/>
 
-SiteWhere provides a Java API for accessing the REST API of SiteWhere. This guide shows how to use
-SiteWhere Java API to interact with an instance of SiteWhere.
+El equipo de SiteWhere provee una API Java para acceder a la API REST de una Instancia de SiteWhere.
+Esta guía muestra cómo usar la API Java de SiteWhere para interactuqr con una Instancia de SiteWhere.
 
-## Importing the Library
+## Importar la Librería
 
-SiteWhere Java Client library is published on [Maven Central](https://search.maven.org/search?q=a:sitewhere-java-client)
-for using dependency management tools, such as Apache Maven or Gradle.
+La librería de SiteWhere Java Client library está publicada en [Maven Central](https://search.maven.org/search?q=a:sitewhere-java-client)
+para ser utilizada con las herramientas de administración de dependencias, como ser Apache Maven o Gradle.
 
-If you are using [Apache Maven](https://maven.apache.org/), add the following dependency to your `pom.xml`.
+Si utiliza [Apache Maven](https://maven.apache.org/), agregue la siguiente dependencias en su `pom.xml`.
 
 ```xml
 <dependency>
@@ -20,22 +20,22 @@ If you are using [Apache Maven](https://maven.apache.org/), add the following de
 </dependency>
 ```
 
-If you are using [Gradle](https://gradle.org/), add the following dependency to your `build.gradle`.
+Si utilizar [Gradle](https://gradle.org/), agregue la siguiente dependencias en su `build.gradle`.
 
 ```groovy
 implementation 'com.sitewhere:sitewhere-java-client:2.1.x'
 ```
 
-## Creating a client instance
+## Creando una instancia del client
 
-A new client with the default settings may be created as follows:
+Una nueva instancia del cliente con la configuración por defecto puede ser creada de la siguiente manera:
 
 ```java
 ISiteWhereClient client = SiteWhereClient.newBuilder()
     .build().initialize();
 ```
 
-The default settings are:
+La configuración por defecto es:
 
 | Attribute   | Value        |
 |:------------|:-------------|
@@ -46,13 +46,13 @@ The default settings are:
 | Password    | password     |
 
 ::: warning
-Since SiteWhere 2.1.x the default `Port` number changed from 8080 to 80.
+Desde SiteWhere 2.1.x el `Port` por defecto ha cambiado de 8080 a 80.
 :::
 
-Note that the `initialize()` method must be called before using the client. This sets
-up the template and connects to the server to acquire a JWT.
+Note que el método `initialize()` debe ser llamado antes de utilizar el cliente. Éste configura
+los templates y se conecta al servidor para obtener un *JWT*.
 
-To change the default connection settings use:
+Para cambiar los valores por defecto de la conexión, utilice:
 
 ```java
 SiteWhereClient client = SiteWhereClient.newBuilder()
@@ -60,7 +60,7 @@ SiteWhereClient client = SiteWhereClient.newBuilder()
     .build().initialize();
 ```
 
-To connect as a different user user:
+Par conectarse utilizando un usuario diferente, utilice:
 
 ```java
 SiteWhereClient client = SiteWhereClient.newBuilder()
@@ -68,30 +68,34 @@ SiteWhereClient client = SiteWhereClient.newBuilder()
     .build().initialize();
 ```
 
-## Interacting with SiteWhere Object Model
+## Interactuando con el Modelo de Objectos de SiteWhere
 
-Once the client has been initialized, methods on it may be invoked to interact with the data
-model on the remote SiteWhere instance. There are two types of calls, global calls and
-tenant-specific calls.
+Una vez que el cliente ha sido inicializado, se puede invocar a los métodos del mismo para
+interactuar con el modelo de objetos de SiteWhere en la instancia remota. Existen dos tipo
+de llamadas o métodos, los métodos **globales** y los métodos **específicos del tenant**.
 
-The image below shows an UML Class Diagram of SiteWhere Object Model that can help you undestand
-the component of the system.
+La siguiete imánge muestra un Diagrama de Clases UML del Modelo de Objeto de SiteWhere el cual
+puede ayudar en la comprensión de los componentes del sistema.
 
 <InlineImage src="/images/guide/api/object-model.png" caption="SiteWhere Object Model UML Class Diagram"/>
 
-### Global Calls
+### Llamadas Globales
 
-For global calls, no extra information is required in order to make the invocation.
+Para las llamadas globales no es requerida información extra para poder hacer la invocación.
+
+La siguiente es la lista de llamadas **Globales** de la API de SiteWhere:
 
 - [System API](./system-api/)
 - [Users API](./user-api/)
 - [Tenant API](./tenant-api/)
 
-### Tenant Calls
+### Llamadas Específicas del Tenant
 
-For calls that are tenant-specific, more information must be passed along with each method invocation.
-You must provide the tenant id and tenant authentication token which are passed as headers to the REST
-call (along with the JWT used for all calls).
+Para las llamadas que son específicas de los tenant, se debe proveer información relativa al tenant para
+poder realizar la invocación al método. Se debe proveer el id del tenant y el token de autenticación del mismo,
+los cual son provistos por las cabeceras de las llamadas REST (junto con el JWT usado para todas las llamadas).
+
+La siguiente es la lista de llamadas **Específicas del Tenant** de la API de SiteWhere:
 
 - [Area API](./area-api/)
 - [Area Type API](./area-type-api/)
