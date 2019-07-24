@@ -20,7 +20,7 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 Para buscar resultados de `Asset` se necesita una instancia de `AssetSearchCriteria`,
 la cual será pasada al método `listAssets` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
-como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `Area`.
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `Asset`.
 
 ```java
 AssetSearchCriteria searchCriteria = new AssetSearchCriteria(1, 100);
@@ -32,15 +32,15 @@ muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| getAssetTypeToken      | `String`    | Only match assets of the given type.                           |
-| getIncludeAssetType    | `Boolean`   | Indicates if asset type are to be returned.                    |
+| getAssetTypeToken      | `String`    | Sólo conicidor assets de un tipo dado.                         |
+| getIncludeAssetType    | `Boolean`   | Indicar si el AssetType debe ser devuelto en la respuesta.     |
 | setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
 | setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
 ## Crear un Asset
 
-For creating an `Asset` you need to call `createAsset` passing the `ITenantAuthentication` object and an
-`AssetCreateRequest` build like in the folling example.
+Para crear un `Asset` se necesita llamar a `createAsset` pasando el objeto `ITenantAuthentication` y una
+instancia de `AssetCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String assetTypeToken = "cat320EL";                // Token of the asset type
@@ -54,8 +54,8 @@ Asset createdAsset = client.createAsset(tenantAuthentication, createRequest);
 
 ## Actualizar un existing Asset
 
-For updating an `Asset` you need to call `updateAsset` passing the `ITenantAuthentication` object,
-the `token` of the existing `Asset` and an `AssetCreateRequest` build like in the folling example.
+Para actualizar un `Asset` se necesita llamar a `updateAsset` pasando el objeto `ITenantAuthentication` y una
+instancia de `AssetCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String assetTypeToken = "cat320EL";                // Token of the asset type
@@ -69,8 +69,8 @@ Asset updatedAsset = client.updateAsset(tenantAuthentication, token, updateReque
 
 ## Deleting an existing Asset
 
-For deleting an existing `Asset` you need to call `deleteAsset` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the asset you want to delete, like the following example.
+Para eliminar un `Asset` se necesita llamar a `deleteAsset` pasando el objeto `ITenantAuthentication` y el
+`token` del `Asset` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Asset
