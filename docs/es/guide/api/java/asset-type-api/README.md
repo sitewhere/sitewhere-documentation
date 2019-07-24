@@ -37,8 +37,8 @@ muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para
 
 ## Crear un Asset Type
 
-For creating an `AssetType` you need to call `createAssetType` passing the `ITenantAuthentication` object and an
-`AssetTypeCreateRequest` build like in the folling example.
+Para crear un `AssetType` se necesita llamar a `createAssetType` pasando el objeto `ITenantAuthentication` y una
+instancia de `AssetTypeCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Asset Type
@@ -51,8 +51,8 @@ AssetType createdAssetType = client.createAssetType(tenantAuthentication, create
 
 ## Actualizar un existing Asset Type
 
-For updating an `AssetType` you need to call `updateAssetType` passing the `ITenantAuthentication` object,
-the `token` of the existing `AssetType` and an `AssetTypeCreateRequest` build like in the folling example.
+Para actualizar un `AssetType` se necesita llamar a `updateAssetType` pasando el objeto `ITenantAuthentication`,
+el `token` de un `AssetType` existente y una instancia de `AssetTypeCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 AssetTypeCreateRequest.Builder builder = new  AssetTypeCreateRequest.Builder(token, "my asset type");
@@ -64,8 +64,8 @@ AssetType updatedAsset = client.updateAssetType(tenantAuthentication, token, upd
 
 ## Deleting an existing Asset Type
 
-For deleting an existing `AssetType` you need to call `deleteAssetType` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the asset type you want to delete, like the following example.
+Para eliminar un `AssetType` se necesita llamar a `deleteAssetType` pasando el objeto `ITenantAuthentication` y el
+`token` del `AssetType` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Asset Type
