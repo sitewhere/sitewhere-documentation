@@ -38,7 +38,7 @@ thier type and description, that can be set to filter the results.
 
 ## Obtener un Schedule
 
-To retrieve an `Schedule` by its token use the following example.
+Para obtener un `Schedule` por su token utilice el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Schedule

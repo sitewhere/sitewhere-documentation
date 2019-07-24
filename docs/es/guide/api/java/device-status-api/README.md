@@ -39,7 +39,7 @@ thier type and description, that can be set to filter the results.
 
 ## Obtener un Device Status
 
-To retrieve an `DeviceStatus` by its token use the following example.
+Para obtener un `DeviceStatus` por su token utilice el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886";             // GUID for the DeviceStatus

@@ -38,7 +38,7 @@ muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para
 
 ## Obtener un Area Type
 
-To retrieve an `AreaType` by its token use the following example.
+Para obtener un `AreaType` por su token utilice el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the AreaType
