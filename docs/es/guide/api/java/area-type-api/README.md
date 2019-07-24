@@ -30,11 +30,11 @@ SearchResults<AreaType> results = client.listAreaTypes(tenantAuthentication, sea
 El objeto `AreaTypeSearchCriteria` define los criterios de búsqueda para un `AreaType`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad                    | Tipo        | Descripción                                                    |
-|:-----------------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContainedAreaTypes | `Boolean`   | Indicates if contained area types are to be returned.          |
-| setPageNumber                | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize                  | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad                    | Tipo        | Descripción                                                            |
+|:-----------------------------|:------------|:-----------------------------------------------------------------------|
+| setIncludeContainedAreaTypes | `Boolean`   | Indica si los AreaType contenidos deben ser incluidos en la respuesta. |
+| setPageNumber                | `Integer`   | Indicar el número de pagina del dataset.                               |
+| setPageSize                  | `Integer`   | Indicar el número de registros por página.                             |
 
 ## Obtener un Area Type
 
@@ -47,8 +47,8 @@ AreaType area = client.getAreaTypeByToken(token);
 
 ## Crear un Area Type
 
-For creating an `AreaType` you need to call `createAreaType` passing the `ITenantAuthentication` object and an
-`AreaTypeCreateRequest` build like in the folling example.
+Para crear un `AreaType` se necesita llamar a `createAreaType` pasando el objeto `ITenantAuthentication` y una
+instancia de `AreaTypeCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area Type
@@ -61,8 +61,8 @@ AreaType createdAreaType = client.createAreaType(tenantAuthentication, createReq
 
 ## Actualizar un existing Area Type
 
-For updating an `AreaType` you need to call `updateAreaType` passing the `ITenantAuthentication` object,
-the `token` of the existing `AreaType` and an `AreaTypeCreateRequest` build like in the folling example.
+Para actualizar un `AreaType` se necesita llamar a `updateAreaType` pasando el objeto `ITenantAuthentication` y una
+instancia de `AreaTypeCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 AreaTypeCreateRequest.Builder builder = new AreaTypeCreateRequest.Builder(token, "my area type");
@@ -74,8 +74,8 @@ AreaType updatedArea = client.updateAreaType(tenantAuthentication, token, update
 
 ## Deleting an existing Area Type
 
-For deleting an existing `AreaType` you need to call `deleteAreaType` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the area type you want to delete, like the following example.
+Para eliminar un `AreaType` se necesita llamar a `deleteAreaType` pasando el objeto `ITenantAuthentication` y el
+`token` del `AreaType` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area Type
