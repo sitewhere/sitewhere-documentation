@@ -18,8 +18,8 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Devices
 
-For searching `Devices` you need to provide an instance of `DeviceSearchCriteria`  to the method 
-`listDevices` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
+For searching `Devices` you need to provide an instance of `DeviceSearchCriteria`  to the method
+`listDevices` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to
 list the first page of 100 results of device types.
 
 ```java
@@ -122,7 +122,7 @@ batch.getLocations().add(new DeviceLocationCreateRequest.Builder(22.2, 33.3).bui
 // Add other events to DeviceEventBatch
 ...
 // Submit and create the Batch Response
-DeviceEventBatchResponse response = 
+DeviceEventBatchResponse response =
   client.addMultipleEventsForDevice(tenantAuthentication, deviceToken, batch);
 ```
 

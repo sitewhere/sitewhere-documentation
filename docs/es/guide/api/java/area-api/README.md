@@ -133,7 +133,7 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
 DeviceAssignmentSearchCriteria searchCriteria = new DeviceAssignmentSearchCriteria(1, 100);
 DeviceAssignmentResponseFormat responseFormat = new DeviceAssignmentResponseFormat();
 responseFormat.setIncludeCustomer(true);
-SearchResults<MarshaledDeviceAssignment> assignments = 
+SearchResults<MarshaledDeviceAssignment> assignments =
   client.listDeviceAssignmentsForArea(tenantAuthentication, token, searchCriteria, responseFormat);
 ```
 
@@ -153,7 +153,7 @@ Date startDate = cal.getTime();
 Date endDate = new Date();
 
 DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
-SearchResults<DeviceCommandInvocation> commandInvocations = 
+SearchResults<DeviceCommandInvocation> commandInvocations =
   client.listCommandInvocationsForArea(tenantAuthentication, token, searchCriteria);
 ```
 

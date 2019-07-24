@@ -18,7 +18,7 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Batch Operations
 
-For searching `BatchOperation` you need to provide an instance of `BatchOperationSearchCriteria` to the method 
+For searching `BatchOperation` you need to provide an instance of `BatchOperationSearchCriteria` to the method
 `listBatchOperations` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first
 page of 100 results of batch operation.
 
@@ -55,7 +55,7 @@ BatchOperation batchOperation = client.createBatchCommandInvocation(tenantAuthen
 
 ## Listing the elements of a Batch Operation
 
-For listing the elements of a batch operation, you need to call `listBatchOperationElements` passing the 
+For listing the elements of a batch operation, you need to call `listBatchOperationElements` passing the
 `ITenantAuthentication` object and the token of the `BatchOperation`.
 
 ```java

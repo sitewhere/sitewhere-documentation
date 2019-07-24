@@ -59,7 +59,7 @@ helm install --name sitewhere \
 sitewhere/sitewhere
 ```
 
-### Developer evironment with `hostpath` storageClass 
+### Developer evironment with `hostpath` storageClass
 
 ```bash
 helm install --name sitewhere \

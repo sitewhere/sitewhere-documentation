@@ -27,7 +27,7 @@ ZoneSearchCriteria searchCriteria = new ZoneSearchCriteria(1, 100);
 SearchResults<Zone> results = client.listZones(tenantAuthentication, searchCriteria);
 ```
 
-`ZoneSearchCriteria` defines the search criteria for quering `Zone`, the following table shows the properties, with 
+`ZoneSearchCriteria` defines the search criteria for quering `Zone`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
 | Propiedad              | Tipo        | Descripción                                                    |

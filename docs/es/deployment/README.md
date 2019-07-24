@@ -167,7 +167,7 @@ If you wish to run SiteWhere in a low resource cluster, use the _minimal_ profil
 with the Helm Chart to only install the core microservices required to bootstrap
 the system:
 
-```
+```bash
 helm install --name sitewhere --set services.profile=minimal ./sitewhere
 ```
 
@@ -266,7 +266,7 @@ See the user guide for more information about using the administrative applicati
 
 To remove SiteWhere, execute the following command
 
-```
+```bash
 helm del --purge sitewhere
 ```
 
@@ -277,7 +277,7 @@ In order to remove all SiteWhere data and start with a clean system, you need re
 that the SiteWhere infrastructure components create. The following commands may be
 used to delete data added by the default SiteWhere configuration:
 
-```
+```bash
 kubectl delete pvc -l release=sitewhere
 ```
 

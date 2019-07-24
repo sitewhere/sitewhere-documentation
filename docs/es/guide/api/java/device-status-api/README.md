@@ -27,7 +27,7 @@ DeviceStatusSearchCriteria searchCriteria = new DeviceStatusSearchCriteria(1, 10
 SearchResults<DeviceStatus> results = client.listDeviceStatuss(tenantAuthentication, searchCriteria);
 ```
 
-`DeviceStatusSearchCriteria` defines the search criteria for quering `DeviceStatus`, the following table shows the properties, with 
+`DeviceStatusSearchCriteria` defines the search criteria for quering `DeviceStatus`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
 | Propiedad              | Tipo        | Descripción                                                    |

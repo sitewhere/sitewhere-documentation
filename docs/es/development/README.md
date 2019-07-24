@@ -21,7 +21,7 @@ aspectos del ecosistema de desarrollo.
 
 El código fuente registrado en la rama _master_ siempre es de la
 última versión lanzada de SiteWhere. Cada versión está etiquetada y puede ser
-accedido descargando un archivo de la 
+accedido descargando un archivo de la
 [página de releases](https://github.com/sitewhere/sitewhere/releases) o
 clonando el repositorio y accediendo a la rama correspondiente al release.
 La rama para la próxima versión de SiteWhere 2.0 está disponible
@@ -145,5 +145,5 @@ a un puerto diferente. El uso de las imágenes de depuración le permite conecta
 ## Próximos pasos
 
 Ahora que las imágenes de Docker se han generado para los microservicios, siga los pasos en la
-guía de implementación para usar las recetas de SiteWhere que ensamblan los microservicios en una instancia en 
+guía de implementación para usar las recetas de SiteWhere que ensamblan los microservicios en una instancia en
 funcionamiento.

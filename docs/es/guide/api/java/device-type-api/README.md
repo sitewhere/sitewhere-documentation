@@ -18,8 +18,8 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Device Types
 
-For searching `Device Types` you need to provide an instance of `DeviceTypeSearchCriteria`  to the method 
-`listDeviceTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
+For searching `Device Types` you need to provide an instance of `DeviceTypeSearchCriteria`  to the method
+`listDeviceTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to
 list the first page of 100 results of device types.
 
 ```java
@@ -28,7 +28,7 @@ DeviceTypeResponseFormat responseFormat = new DeviceTypeResponseFormat();
 SearchResults<DeviceType> results = client.listDeviceTypes(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`DeviceTypeSearchCriteria` defines the search criteria for quering `DeviceType`, the following table shows the properties, with 
+`DeviceTypeSearchCriteria` defines the search criteria for quering `DeviceType`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
 | Propiedad                    | Tipo        | Descripción                                                    |

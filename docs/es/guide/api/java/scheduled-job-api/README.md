@@ -28,7 +28,7 @@ ScheduledJobResponseFormat responseFormat = new ScheduledJobResponseFormat();
 SearchResults<ScheduledJob> results = client.listScheduledJobs(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`ScheduledJobSearchCriteria` defines the search criteria for quering `ScheduledJob`, the following table shows the properties, with 
+`ScheduledJobSearchCriteria` defines the search criteria for quering `ScheduledJob`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
 | Propiedad              | Tipo        | Descripción                                                    |

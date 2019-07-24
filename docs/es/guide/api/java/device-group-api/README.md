@@ -27,7 +27,7 @@ DeviceGroupSearchCriteria searchCriteria = new DeviceGroupSearchCriteria(1, 100)
 SearchResults<DeviceGroup> results = client.listDeviceGroups(tenantAuthentication, searchCriteria);
 ```
 
-`DeviceGroupSearchCriteria` defines the search criteria for quering `DeviceGroup`, the following table shows the properties, with 
+`DeviceGroupSearchCriteria` defines the search criteria for quering `DeviceGroup`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
 | Propiedad              | Tipo        | Descripción                                                    |
