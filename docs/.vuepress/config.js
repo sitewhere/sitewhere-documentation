@@ -209,8 +209,37 @@ module.exports = {
           "/es/guide/deployment/": ["", "common-issues", "backup-restore"],
           "/es/guide/administration/": ["", "global/", "tenant/"],
           "/es/guide/devices/": ["sending-data", "android", "kura",],
+          "/es/guide/api/java/": [
+            "",
+            "system-api/",
+            "user-api/",
+            "tenant-api/",
+            "area-api/",
+            "area-type-api/",
+            "asset-api/",
+            "asset-type-api/",
+            "batch-operations-api/",
+            "assignment-api/",
+            "command-invocations-api/",
+            "customer-api/",
+            "customer-type-api/",
+            "device-api/",
+            "assignment-api/",
+            "device-command-api/",
+            "device-event-api/",
+            "device-group-api/",
+            "device-state-api/",
+            "device-status-api/",
+            "device-type-api/",
+            "schedule-api/",
+            "scheduled-job-api/",
+            "zone-api/"
+          ],
+          "/es/guide/api/javascript/": [
+            "",
+          ],
           "/es/guide/api/": [
-            "java/", 
+            "java/",
             "javascript/"
           ],
           "/es/guide/microservices/": [
