@@ -45,9 +45,9 @@ el formato del resultado de la respuesta.
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeAreaType     | `Boolean`   | Indicates if included area types are to be returned.           |
-| setIncludeAssignments  | `Boolean`   | Indicates if assignments are to be returned.                   |
-| setIncludeZones        | `Boolean`   | Indicates if zones are to be returned.                         |
+| setIncludeAreaType     | `Boolean`   | Indica si los AreaTypes se incluyen en el resultado.           |
+| setIncludeAssignments  | `Boolean`   | Indica si los Assignments se incluyen en el resultado.         |
+| setIncludeZones        | `Boolean`   | Indica si las Zonas se incluyen en el resultado.               |
 
 ## Obtener un Area
 
@@ -60,8 +60,8 @@ Area area = client.getAreaByToken(token);
 
 ## Crear un Area
 
-For creating an `Area` you need to call `createArea` passing the `ITenantAuthentication` object and an
-`AreaCreateRequest` build like in the folling example.
+Para crear un `Area` se necesita llamar a `createArea` pasando el objeto `ITenantAuthentication` y una
+instancia de `AreaCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String areaTypeToken = "construction";                 // Token of the area type
@@ -77,8 +77,8 @@ Area createdArea = client.createArea(tenantAuthentication, createRequest);
 
 ## Actualizar un Area existente
 
-For updating an `Area` you need to call `updateArea` passing the `ITenantAuthentication` object,
-the `token` of the existing `Area` and an `AreaCreateRequest` build like in the folling example.
+Para actualizar un `Area` se necesita llamar a `updateArea` pasando el objeto `ITenantAuthentication` y una
+instancia de `AreaCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String areaTypeToken = "construction";                 // Token of the area type
@@ -94,20 +94,20 @@ Area updatedArea = client.updateArea(tenantAuthentication, token, updateRequest)
 
 ## Borrar un Area existente
 
-For deleting an existing `Area` you need to call `deleteArea` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the area you want to delete, like the following example.
+Para eliminar un `Area` se necesita llamar a `deleteArea` pasando el objeto `ITenantAuthentication` y el
+`token` del `Area` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
 Area deletedArea = client.deleteArea(tenantAuthentication, token);
 ```
 
-## Quering information associated to an Area
+## Obtener información asociada a un Area
 
-### Quering Alerts associated to an Area
+### Obtener Alertas asociadas a un Area
 
-The following example retrieves firts 100 `DeviceAlert`s associated with an `Area`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceAlert`s asociadas con un `Area`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
@@ -123,10 +123,10 @@ DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, sta
 SearchResults<DeviceAlertWithAsset> alerts = client.listAlertsForArea(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering Assignments associated to an Area
+### Obtener las Asignaciones asociadas a un Area
 
-The following example retrieves firts 100 `DeviceAssignment`s associated with an `Area`
-from the last year, including the `Customer` information in the results.
+El siguiente ejemplo recupera las primeras 100 `DeviceAssignment`s asociadas con un `Area`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
@@ -137,10 +137,10 @@ SearchResults<MarshaledDeviceAssignment> assignments =
   client.listDeviceAssignmentsForArea(tenantAuthentication, token, searchCriteria, responseFormat);
 ```
 
-### Quering Command Invocations associated to an Area
+### Obtener las Invocaciones a Comandos asociadas a un Area
 
-The following example retrieves firts 100 `DeviceCommandInvocation`s associated with an `Area`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceCommandInvocation`s asociadas con un `Area`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
@@ -157,10 +157,10 @@ SearchResults<DeviceCommandInvocation> commandInvocations =
   client.listCommandInvocationsForArea(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering Locations associated to an Area
+### Obtener las Ubicaciones asociadas an un Area
 
-The following example retrieves firts 100 `DeviceLocationWithAsset`s associated with an `Area`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceLocation`s asociadas con un `Area`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
@@ -177,10 +177,10 @@ SearchResults<DeviceLocationWithAsset> locations = client
   .listLocationsForArea(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering Measurements associated to an Area
+### Obtener las Mediciones asociadas a un Area
 
-The following example retrieves firts 100 `DeviceMeasurementWithAsset`s associated with an `Area`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceMeasurement`s asociadas con un `Area`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
@@ -197,10 +197,10 @@ SearchResults<DeviceMeasurementWithAsset> measurements = client
   .listMeasurementsForArea(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering Command Responses associated to an Area
+### Obtener las Respuestas a Comandos asociadas a un Area
 
-The following example retrieves firts 100 `DeviceCommandResponseWithAsset`s associated with an `Area`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceCommandResponse`s asociadas con un `Area`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
@@ -217,10 +217,10 @@ SearchResults<DeviceCommandResponseWithAsset> commandResponses = client
   .listCommandResponsesForArea(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering State Changes associated to an Area
+### Obtener los Cambio de Estado asociados a un Area
 
-The following example retrieves firts 100 `DeviceStateChangeWithAsset`s associated with an `Area`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceStateChange`s asociadas con un `Area`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
@@ -237,9 +237,9 @@ SearchResults<DeviceStateChangeWithAsset> stateChanges = client
   .listStateChangesForArea(tenantAuthentication, token, searchCriteria);
 ```
 
-### Retrive Area tree
+### Obtener el árbol de Areas
 
-The following example retrieves the tree structure of areas.
+El siguiente ejemplo obtiene la estructura de árbol de areas
 
 ```java
 List<TreeNode> tree = client.areaTree(tenantAuthentication);
