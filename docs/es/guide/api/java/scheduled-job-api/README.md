@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `jobs` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `jobs` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Scheduled Jobs
+## Busqueda de Scheduled Jobs
 
 For searching `ScheduledJob` you need to provide an instance of `ScheduledJobSearchCriteria` and
 an instance of `ScheduledJobResponseFormat` to the method  `listScheduledJobs` of `com.sitewhere.spi.ISiteWhereClient`.
@@ -43,7 +43,7 @@ The following table shows the properties that can be set to control the result f
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | setIncludeContext      | `Boolean`   | Indicates if context is to be included in the response.        |
 
-## Retrieving an Scheduled Job
+## Obtener un Scheduled Job
 
 To retrieve an `ScheduledJob` by its token use the following example.
 
@@ -69,7 +69,7 @@ createRequest.setJobConfiguration(Collections.emptyMap());
 ScheduledJob createdScheduledJob = client.createScheduledJob(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Scheduled Job
+## Actualizar un existing Scheduled Job
 
 For updating an `ScheduledJob` you need to call `updateScheduledJob` passing the `ITenantAuthentication` object,
 the `token` of the existing `ScheduledJob` and an `ScheduledJobCreateRequest` build like in the folling example.

@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `devicegroups` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `devicegroups` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Device Groups
+## Busqueda de Device Groups
 
 For searching `DeviceGroup` you need to provide an instance of `DeviceGroupSearchCriteria` to the method
 `listDeviceGroups` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
@@ -36,7 +36,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
-## Retrieving an Device Group
+## Obtener un Device Group
 
 To retrieve an `DeviceGroup` by its token use the following example.
 
@@ -62,7 +62,7 @@ DeviceGroupCreateRequest createRequest = builder.build();
 DeviceGroup createdDeviceGroup = client.createDeviceGroup(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Device Group
+## Actualizar un existing Device Group
 
 For updating an `DeviceGroup` you need to call `updateDeviceGroup` passing the `ITenantAuthentication` object,
 the `token` of the existing `DeviceGroup` and an `DeviceGroupCreateRequest` build like in the folling example.

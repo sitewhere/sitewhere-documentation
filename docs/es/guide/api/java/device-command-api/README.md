@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `commands` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `commands` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Device Commands
+## Busqueda de Device Commands
 
 For searching `DeviceCommand` you need to provide an instance of `DeviceCommandSearchCriteria` to the method
 `listDeviceCommands` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
@@ -54,7 +54,7 @@ DeviceCommandCreateRequest createRequest = builder.build();
 DeviceCommand createdDeviceCommand = client.createDeviceCommand(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Device Command
+## Actualizar un existing Device Command
 
 For updating an `DeviceCommand` you need to call `updateDeviceCommand` passing the `ITenantAuthentication` object,
 the `token` of the existing `DeviceCommand` and an `DeviceCommandCreateRequest` build like in the folling example.

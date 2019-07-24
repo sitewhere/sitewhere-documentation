@@ -2,15 +2,15 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `events` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `events` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");

@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `assignments` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `assignments` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Device Assignments
+## Busqueda de Device Assignments
 
 For searching `DeviceAssignment` you need to provide an instance of `DeviceAssignmentSearchCriteria` to the method
 `listDeviceAssignments` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
@@ -45,13 +45,13 @@ thier type and description, that can be set to filter the results.
 Also you can control what information is return in the results by providing an instance of `DeviceAssignmentResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeDeviceAssignment         | `Boolean`   | Indicates if area is to be returned.                           |
-| setIncludeAsset        | `Boolean`   | Indicates if asset is to be returned.                          |
-| setIncludeCustomer     | `Boolean`   | Indicates if customer is to be returned.                       |
-| setIncludeDevice       | `Boolean`   | Indicates if device is to be returned.                         |
-| setIncludeDeviceType   | `Boolean`   | Indicates if device type is to be returned.                    |
+| Property                   | Type        | Description                                                    |
+|:---------------------------|:------------|:---------------------------------------------------------------|
+| setIncludeDeviceAssignment | `Boolean`   | Indicates if area is to be returned.                           |
+| setIncludeAsset            | `Boolean`   | Indicates if asset is to be returned.                          |
+| setIncludeCustomer         | `Boolean`   | Indicates if customer is to be returned.                       |
+| setIncludeDevice           | `Boolean`   | Indicates if device is to be returned.                         |
+| setIncludeDeviceType       | `Boolean`   | Indicates if device type is to be returned.                    |
 
 ## Creating an Device Assignment
 
@@ -73,7 +73,7 @@ request.setToken(token);
 MarshaledDeviceAssignment createdDeviceAssignment = client.createDeviceAssignment(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Device Assignment
+## Actualizar un existing Device Assignment
 
 For updating an `DeviceAssignment` you need to call `updateDeviceAssignment` passing the `ITenantAuthentication` object,
 the `token` of the existing `DeviceAssignment` and an `DeviceAssignmentCreateRequest` build like in the folling example.

@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `devices` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `devices` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Devices
+## Busqueda de Devices
 
 For searching `Devices` you need to provide an instance of `DeviceSearchCriteria`  to the method 
 `listDevices` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
@@ -48,7 +48,7 @@ The following table shows the properties that can be set to control the result f
 | setIncludeDeviceType   | `Boolean`   | Indicates if device type information is included.              |
 | setIncludeAssignment   | `Boolean`   | Indicates if assignment information is included.               |
 
-## Retrieving an Device
+## Obtener un Device
 
 To retrieve an `Device` by its token use the following example.
 
@@ -71,7 +71,7 @@ DeviceCreateRequest createRequest = builder.build();
 Device createdDevice = client.createDevice(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Device
+## Actualizar un existing Device
 
 For updating an `Device` you need to call `updateDevice` passing the `ITenantAuthentication` object,
 the `token` of the existing `Device` and an `DeviceCreateRequest` build like in the folling example.

@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `zones` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `zones` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Zones
+## Busqueda de Zones
 
 For searching `Zone` you need to provide an instance of `ZoneSearchCriteria` to the method
 `listZones` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query
@@ -36,7 +36,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
-## Retrieving an Zone
+## Obtener un Zone
 
 To retrieve an `Zone` by its token use the following example.
 
@@ -65,7 +65,7 @@ ZoneCreateRequest createRequest = builder.build();
 Zone createdZone = client.createZone(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Zone
+## Actualizar un existing Zone
 
 For updating an `Zone` you need to call `updateZone` passing the `ITenantAuthentication` object,
 the `token` of the existing `Zone` and an `ZoneCreateRequest` build like in the folling example.

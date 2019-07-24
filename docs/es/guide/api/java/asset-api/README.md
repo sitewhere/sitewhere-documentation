@@ -2,25 +2,25 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `assets` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `assets` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Assets
+## Busqueda de Assets
 
-For searching `Asset` you need to provide an instance of `AssetSearchCriteria` to the method 
-`listAssets` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first
-page of 100 results of assets.
+Para buscar resultados de `Asset` se necesita una instancia de `AssetSearchCriteria`,
+la cual será pasada al método `listAssets` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `Area`.
 
 ```java
 AssetSearchCriteria searchCriteria = new AssetSearchCriteria(1, 100);
@@ -37,7 +37,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
-## Creating an Asset
+## Crear un Asset
 
 For creating an `Asset` you need to call `createAsset` passing the `ITenantAuthentication` object and an
 `AssetCreateRequest` build like in the folling example.
@@ -52,7 +52,7 @@ AssetCreateRequest createRequest = builder.build();
 Asset createdAsset = client.createAsset(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Asset
+## Actualizar un existing Asset
 
 For updating an `Asset` you need to call `updateAsset` passing the `ITenantAuthentication` object,
 the `token` of the existing `Asset` and an `AssetCreateRequest` build like in the folling example.

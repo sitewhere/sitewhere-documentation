@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `customertypes` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `customertypes` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Customer Types
+## Busqueda de Customer Types
 
 For searching `Customer Types` you need to provide an instance of `CustomerTypeSearchCriteria`  to the method 
 `listCustomerTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
@@ -57,7 +57,7 @@ CustomerTypeCreateRequest createRequest = builder.build();
 CustomerType createdCustomerType = client.createCustomerType(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Customer Type
+## Actualizar un existing Customer Type
 
 For updating an `CustomerType` you need to call `updateCustomerType` passing the `ITenantAuthentication` object,
 the `token` of the existing `CustomerType` and an `CustomerTypeCreateRequest` build like in the folling example.

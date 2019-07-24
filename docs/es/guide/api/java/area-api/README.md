@@ -2,25 +2,25 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `areas` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `areas` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Areas
+## Busqueda de Areas
 
-For searching `Area` you need to provide an instance of `AreaSearchCriteria` and an instance of `AreaResponseFormat` to the method 
-`listAreas` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first
-page of 100 results of areas.
+Para buscar resultados de `Area` se necesita una instancia de `AreaSearchCriteria` y una instancia de `AreaResponseFormat`,
+las cuales serán pasadas al método `listAreas` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `Area`.
 
 ```java
 AreaSearchCriteria searchCriteria = new AreaSearchCriteria(1, 100);
@@ -48,7 +48,7 @@ The following table shows the properties that can be set to control the result f
 | setIncludeAssignments  | `Boolean`   | Indicates if assignments are to be returned.                   |
 | setIncludeZones        | `Boolean`   | Indicates if zones are to be returned.                         |
 
-## Retrieving an Area
+## Obtener un Area
 
 To retrieve an `Area` by its token use the following example.
 
@@ -57,7 +57,7 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
 Area area = client.getAreaByToken(token);
 ```
 
-## Creating an Area
+## Crear un Area
 
 For creating an `Area` you need to call `createArea` passing the `ITenantAuthentication` object and an
 `AreaCreateRequest` build like in the folling example.
@@ -74,7 +74,7 @@ AreaCreateRequest createRequest = builder.build();
 Area createdArea = client.createArea(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Area
+## Actualizar un Area existente
 
 For updating an `Area` you need to call `updateArea` passing the `ITenantAuthentication` object,
 the `token` of the existing `Area` and an `AreaCreateRequest` build like in the folling example.
@@ -91,7 +91,7 @@ AreaCreateRequest updateRequest = builder.build();
 Area updatedArea = client.updateArea(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing Area
+## Borrar un Area existente
 
 For deleting an existing `Area` you need to call `deleteArea` method of `com.sitewhere.spi.ISiteWhereClient`
 providing the `token` of the area you want to delete, like the following example.

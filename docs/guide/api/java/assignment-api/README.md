@@ -45,13 +45,13 @@ thier type and description, that can be set to filter the results.
 Also you can control what information is return in the results by providing an instance of `DeviceAssignmentResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeDeviceAssignment         | `Boolean`   | Indicates if area is to be returned.                           |
-| setIncludeAsset        | `Boolean`   | Indicates if asset is to be returned.                          |
-| setIncludeCustomer     | `Boolean`   | Indicates if customer is to be returned.                       |
-| setIncludeDevice       | `Boolean`   | Indicates if device is to be returned.                         |
-| setIncludeDeviceType   | `Boolean`   | Indicates if device type is to be returned.                    |
+| Property                   | Type        | Description                                                    |
+|:---------------------------|:------------|:---------------------------------------------------------------|
+| setIncludeDeviceAssignment | `Boolean`   | Indicates if area is to be returned.                           |
+| setIncludeAsset            | `Boolean`   | Indicates if asset is to be returned.                          |
+| setIncludeCustomer         | `Boolean`   | Indicates if customer is to be returned.                       |
+| setIncludeDevice           | `Boolean`   | Indicates if device is to be returned.                         |
+| setIncludeDeviceType       | `Boolean`   | Indicates if device type is to be returned.                    |
 
 ## Creating an Device Assignment
 

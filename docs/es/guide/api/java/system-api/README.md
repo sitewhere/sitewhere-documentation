@@ -2,12 +2,11 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `version` of
-SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `version` de la API de Java de SiteWhere.
 
-## Getting SiteWhere version information
+## Obtener información de versión de SiteWhere
 
-To get the instance version information, invoke:
+Para obtener información de la versión de la instancia de SiteWhere, utilice el siguiente ejemplo:
 
 ```java
 Version version = client.getSiteWhereVersion();

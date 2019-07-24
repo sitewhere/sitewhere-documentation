@@ -2,7 +2,7 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `tenants` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `tenants` de la API de Java de SiteWhere.
 
 ## Listing Tenants
 

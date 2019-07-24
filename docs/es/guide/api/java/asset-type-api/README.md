@@ -4,23 +4,23 @@
 
 This section contains the documentation and examples of the end point `assettypes` of SiteWhere Java API.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Asset Types
+## Busqueda de Asset Types
 
-For searching `Asset Types` you need to provide an instance of `AssetTypeSearchCriteria`  to the method 
-`listAssetTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
-list the first page of 100 results of asset types.
+Para buscar resultados de `AssetType` se necesita una instancia de `AssetTypeSearchCriteria`,
+la cual será pasada al método `listAssetTypes` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `AssetType`.
 
 ```java
 AssetTypeSearchCriteria searchCriteria = new AssetTypeSearchCriteria(1, 100);
@@ -35,7 +35,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize                  | `Integer`   | Get number of records per page of data.                        |
 
-## Creating an Asset Type
+## Crear un Asset Type
 
 For creating an `AssetType` you need to call `createAssetType` passing the `ITenantAuthentication` object and an
 `AssetTypeCreateRequest` build like in the folling example.
@@ -49,7 +49,7 @@ AssetTypeCreateRequest createRequest = builder.build();
 AssetType createdAssetType = client.createAssetType(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Asset Type
+## Actualizar un existing Asset Type
 
 For updating an `AssetType` you need to call `updateAssetType` passing the `ITenantAuthentication` object,
 the `token` of the existing `AssetType` and an `AssetTypeCreateRequest` build like in the folling example.

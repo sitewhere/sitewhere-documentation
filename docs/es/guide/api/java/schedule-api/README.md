@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `schedules` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `schedules` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Schedules
+## Busqueda de Schedules
 
 For searching `Schedule` you need to provide an instance of `ScheduleSearchCriteria` and an instance of `ScheduleResponseFormat` to the method 
 `listSchedules` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first
@@ -36,7 +36,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
-## Retrieving an Schedule
+## Obtener un Schedule
 
 To retrieve an `Schedule` by its token use the following example.
 
@@ -63,7 +63,7 @@ ScheduleCreateRequest createRequest = builder.build();
 Schedule createdSchedule = client.createSchedule(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Schedule
+## Actualizar un existing Schedule
 
 For updating an `Schedule` you need to call `updateSchedule` passing the `ITenantAuthentication` object,
 the `token` of the existing `Schedule` and an `ScheduleCreateRequest` build like in the folling example.

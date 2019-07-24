@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `statuses` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `statuses` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Device Statuses
+## Busqueda de Device Statuses
 
 For searching `DeviceStatus` you need to provide an instance of `DeviceStatusSearchCriteria` to the method
 `listDeviceStatuss` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
@@ -37,7 +37,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize            | `Integer`   | Get number of records per page of data.                        |
 
-## Retrieving an Device Status
+## Obtener un Device Status
 
 To retrieve an `DeviceStatus` by its token use the following example.
 
@@ -64,7 +64,7 @@ DeviceStatusCreateRequest createRequest = DeviceStatusCreateRequest.newBuilder()
 DeviceStatus createdDeviceStatus = client.createDeviceStatus(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Device Status
+## Actualizar un existing Device Status
 
 For updating an `DeviceStatus` you need to call `updateDeviceStatus` passing the `ITenantAuthentication` object,
 the `token` of the existing `DeviceStatus` and an `DeviceStatusCreateRequest` build like in the folling example.

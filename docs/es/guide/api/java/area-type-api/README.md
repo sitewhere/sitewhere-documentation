@@ -2,25 +2,25 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `areatypes` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `areatypes` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Area Types
+## Busqueda de Area Types
 
-For searching `Area Types` you need to provide an instance of `AreaTypeSearchCriteria`  to the method 
-`listAreaTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
-list the first page of 100 results of area types.
+Para buscar resultados de `AreaType` se necesita una instancia de `AreaTypeSearchCriteria`,
+la cual serán pasada al método `listAreaTypes` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `AreaType`.
 
 ```java
 AreaTypeSearchCriteria searchCriteria = new AreaTypeSearchCriteria(1, 100);
@@ -36,7 +36,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize                  | `Integer`   | Get number of records per page of data.                        |
 
-## Retrieving an Area Type
+## Obtener un Area Type
 
 To retrieve an `AreaType` by its token use the following example.
 
@@ -45,7 +45,7 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the AreaType
 AreaType area = client.getAreaTypeByToken(token);
 ```
 
-## Creating an Area Type
+## Crear un Area Type
 
 For creating an `AreaType` you need to call `createAreaType` passing the `ITenantAuthentication` object and an
 `AreaTypeCreateRequest` build like in the folling example.
@@ -59,7 +59,7 @@ AreaTypeCreateRequest createRequest = builder.build();
 AreaType createdAreaType = client.createAreaType(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Area Type
+## Actualizar un existing Area Type
 
 For updating an `AreaType` you need to call `updateAreaType` passing the `ITenantAuthentication` object,
 the `token` of the existing `AreaType` and an `AreaTypeCreateRequest` build like in the folling example.

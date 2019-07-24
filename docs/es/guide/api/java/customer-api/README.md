@@ -2,21 +2,21 @@
 
 <Seo/>
 
-This section contains the documentation and examples of the end point `customers` of SiteWhere Java API.
+Esta sección contiene la documentación y ejemplos del end point `customers` de la API de Java de SiteWhere.
 
-This examples assume that you get your tenant authentication either by
+Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
 ```
 
-or by using other that the `default` tenant.
+o por la utilización del tenant `default`.
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Searching for Customers
+## Busqueda de Customers
 
 For searching `Customer` you need to provide an instance of `CustomerSearchCriteria` to the method
 `listCustomers` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
@@ -64,7 +64,7 @@ CustomerCreateRequest createRequest = builder.build();
 Customer createdCustomer = client.createCustomer(tenantAuthentication, createRequest);
 ```
 
-## Updating an existing Customer
+## Actualizar un existing Customer
 
 For updating an `Customer` you need to call `updateCustomer` passing the `ITenantAuthentication` object,
 the `token` of the existing `Customer` and an `CustomerCreateRequest` build like in the folling example.
