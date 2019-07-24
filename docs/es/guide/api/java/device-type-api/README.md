@@ -31,15 +31,16 @@ SearchResults<DeviceType> results = client.listDeviceTypes(tenantAuthentication,
 `DeviceTypeSearchCriteria` defines the search criteria for quering `DeviceType`, the following table shows the properties, with 
 thier type and description, that can be set to filter the results.
 
-| Property                     | Type        | Description                                                    |
+| Propiedad                    | Tipo        | Descripción                                                    |
 |:-----------------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize                  | `Integer`   | Get number of records per page of data.                        |
+| setPageNumber                | `Integer`   | Indicar el número de pagina del dataset.                       |
+| setPageSize                  | `Integer`   | Indicar el número de registros por página.                     |
 
-Also you can control what information is return in the results by providing an instance of `DeviceTypeResponseFormat`.
-The following table shows the properties that can be set to control the result format of the response.
+Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
+`DeviceTypeResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
+el formato del resultado de la respuesta.
 
-| Property               | Type        | Description                                                    |
+| Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | setIncludeAsset        | `Boolean`   | Indicates if asset is included.                                |
 

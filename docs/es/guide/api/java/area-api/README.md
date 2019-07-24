@@ -28,21 +28,22 @@ AreaResponseFormat responseFormat = new AreaResponseFormat();
 SearchResults<Area> results = client.listAreas(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`AreaSearchCriteria` defines the search criteria for quering `Area`, the following table shows the properties, with 
-thier type and description, that can be set to filter the results.
+El objeto `AreaSearchCriteria` define los criterios de búsqueda para un `Area`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Property               | Type        | Description                                                    |
+| Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setRootOnly            | `Boolean`   | Indicates if only root elements are to be returned.            |
-| setAreaTypeToken       | `String`    | Only match areas of the given type.                            |
-| setParentAreaToken     | `String`    | Requires that areas have the given area as a parent.           |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| setRootOnly            | `Boolean`   | Indica si sólo los elementos de la raiz debe ser devueltos.    |
+| setAreaTypeToken       | `String`    | Sólo coincidir con un tipo de area dado.                       |
+| setParentAreaToken     | `String`    | Sólo coincidir con un área padre dado.                         |
+| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
+| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
-Also you can control what information is return in the results by providing an instance of `AreaResponseFormat`.
-The following table shows the properties that can be set to control the result format of the response.
+Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
+`AreaResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
+el formato del resultado de la respuesta.
 
-| Property               | Type        | Description                                                    |
+| Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | setIncludeAreaType     | `Boolean`   | Indicates if included area types are to be returned.           |
 | setIncludeAssignments  | `Boolean`   | Indicates if assignments are to be returned.                   |

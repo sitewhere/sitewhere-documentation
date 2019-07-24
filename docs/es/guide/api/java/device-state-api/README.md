@@ -30,20 +30,21 @@ SearchResults<DeviceState> results = client.listDeviceStates(tenantAuthenticatio
 `DeviceStateSearchCriteria` defines the search criteria for quering `DeviceState`, the following table shows the properties, with 
 thier type and description, that can be set to filter the results.
 
-| Property                     | Type           | Description                                                                         |
+| Propiedad                    | Type           | Descripción                                                                         |
 |:-----------------------------|:---------------|:------------------------------------------------------------------------------------|
 | setLastInteractionDateBefore | `Date`         | If set, will limit results to those with a last interaction date before this value. |
 | setDeviceTypeTokens          | `List<String>` | List of device types to be included in results.                                     |
 | setCustomerTokens            | `List<String>` | List of customers to be included in results.                                        |
 | setAreaTokens                | `List<String>` | List of areas to be included in results.                                            |
 | setAssetTokens               | `List<String>` | List of assets to be included in results.                                           |
-| setPageNumber                | `Integer`      | Get offset from beginning of dataset.                                               |
-| setPageSize                  | `Integer`      | Get number of records per page of data.                                             |
+| setPageNumber                | `Integer`      | Indicar el número de pagina del dataset.                                            |
+| setPageSize                  | `Integer`      | Indicar el número de registros por página.                                           |
 
-Also you can control what information is return in the results by providing an instance of `DeviceStateResponseFormat`.
-The following table shows the properties that can be set to control the result format of the response.
+Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
+`DeviceStateResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
+el formato del resultado de la respuesta.
 
-| Property                   | Type      | Description                                                    |
+| Propiedad                  | Type      | Descripción                                                    |
 |:---------------------------|:----------|:---------------------------------------------------------------|
 | setIncludeArea             | `Boolean` | Indicates if area is included.                                 |
 | setIncludeAsset            | `Boolean` | Indicates if asset is included.                                |

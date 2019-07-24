@@ -27,14 +27,14 @@ AreaTypeSearchCriteria searchCriteria = new AreaTypeSearchCriteria(1, 100);
 SearchResults<AreaType> results = client.listAreaTypes(tenantAuthentication, searchCriteria);
 ```
 
-`AreaTypeSearchCriteria` defines the search criteria for quering `AreaType`, the following table shows the properties, with 
-thier type and description, that can be set to filter the results.
+El objeto `AreaTypeSearchCriteria` define los criterios de búsqueda para un `AreaType`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Property                     | Type        | Description                                                    |
+| Propiedad                    | Tipo        | Descripción                                                    |
 |:-----------------------------|:------------|:---------------------------------------------------------------|
 | setIncludeContainedAreaTypes | `Boolean`   | Indicates if contained area types are to be returned.          |
-| setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize                  | `Integer`   | Get number of records per page of data.                        |
+| setPageNumber                | `Integer`   | Indicar el número de pagina del dataset.                       |
+| setPageSize                  | `Integer`   | Indicar el número de registros por página.                     |
 
 ## Obtener un Area Type
 

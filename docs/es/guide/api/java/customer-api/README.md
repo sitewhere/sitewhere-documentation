@@ -28,21 +28,22 @@ CustomerResponseFormat responseFormat = new CustomerResponseFormat();
 SearchResults<Customer> results = client.listCustomers(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`CustomerSearchCriteria` defines the search criteria for quering `Customer`, the following table shows the properties, with 
-thier type and description, that can be set to filter the results.
+El objeto `CustomerSearchCriteria` define los criterios de búsqueda para un `Customer`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Property               | Type        | Description                                                    |
+| Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | setRootOnly            | `Boolean`   | Indicates if only root elements are to be returned.            |
 | setCustomerTypeToken   | `String`    | Require that customers have the given customer type.           |
 | SetParentCustomerToken | `String`    | Requires that customers have the given customer as a parent.   |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
+| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
-Also you can control what information is return in the results by providing an instance of `CustomerResponseFormat`.
-The following table shows the properties that can be set to control the result format of the response.
+Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
+`CustomerResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
+el formato del resultado de la respuesta.
 
-| Property               | Type        | Description                                                    |
+| Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | setIncludeCustomerType | `Boolean`   | Indicates if customer type is to be returned.                  |
 

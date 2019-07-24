@@ -28,10 +28,10 @@ DeviceAssignmentResponseFormat format = new DeviceAssignmentResponseFormat();
 SearchResults<MarshaledDeviceAssignment> results = client.listDeviceAssignments(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`DeviceAssignmentSearchCriteria` defines the search criteria for quering `DeviceAssignment`, the following table shows the properties, with 
-thier type and description, that can be set to filter the results.
+El objeto `DeviceAssignmentSearchCriteria` define los criterios de búsqueda para un `DeviceAssignment`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Property               | Type                           | Description                                                    |
+| Propiedad              | Type                           | Descripción                                                    |
 |:-----------------------|:-------------------------------|:---------------------------------------------------------------|
 | setAssignmentStatuses  | `List<DeviceAssignmentStatus>` | Limits search the given list of device assignment statuses.    |
 | setDeviceAssignmentTokens          | `List<String>`                 | Limits search the given list of areas tokens.                  |
@@ -39,13 +39,14 @@ thier type and description, that can be set to filter the results.
 | setCustomerTokens      | `List<String>`                 | Limits search the given list of customer tokens.               |
 | setDeviceTokens        | `List<String>`                 | Limits search the given list of device tokens.                 |
 | setDeviceTypeTokens    | `List<String>`                 | Limits search the given list of device type tokens.            |
-| setPageNumber          | `Integer`                      | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`                      | Get number of records per page of data.                        |
+| setPageNumber          | `Integer`                      | Indicar el número de pagina del dataset.                       |
+| setPageSize            | `Integer`                      | Indicar el número de registros por página.                     |
 
-Also you can control what information is return in the results by providing an instance of `DeviceAssignmentResponseFormat`.
-The following table shows the properties that can be set to control the result format of the response.
+Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
+`DeviceAssignmentResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
+el formato del resultado de la respuesta.
 
-| Property                   | Type        | Description                                                    |
+| Propiedad                  | Tipo        | Descripción                                                    |
 |:---------------------------|:------------|:---------------------------------------------------------------|
 | setIncludeDeviceAssignment | `Boolean`   | Indicates if area is to be returned.                           |
 | setIncludeAsset            | `Boolean`   | Indicates if asset is to be returned.                          |

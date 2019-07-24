@@ -30,12 +30,12 @@ SearchResults<DeviceStatus> results = client.listDeviceStatuss(tenantAuthenticat
 `DeviceStatusSearchCriteria` defines the search criteria for quering `DeviceStatus`, the following table shows the properties, with 
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
+| Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | getDeviceTypeToken     | `String`    | Limit results by device type token.                            |
 | getCode                | `String`    | Limit results by code.                                         |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
+| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
 ## Obtener un Device Status
 

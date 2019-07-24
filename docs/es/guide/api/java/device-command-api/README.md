@@ -30,11 +30,11 @@ SearchResults<DeviceCommand> results = client.listDeviceCommands(tenantAuthentic
 `DeviceCommandSearchCriteria` defines the search criteria for quering `DeviceCommand`, the following table shows the properties, with 
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
+| Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | getDeviceTypeToken     | `String`    | Limit results by device type id.                               |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
+| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
 ## Creating an Device Command
 

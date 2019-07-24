@@ -32,7 +32,7 @@ User createdUser = client.createUser(createRequest);
 
 The following table show the autorities you can assign to a user
 
-| Authority                   | Description                           |
+| Authority                   | Descripción                           |
 |:----------------------------|:--------------------------------------|
 | GRP_SERVER                  | Server administration                 |
 | AUTH_VIEW_SERVER_INFO       | View global server information        |

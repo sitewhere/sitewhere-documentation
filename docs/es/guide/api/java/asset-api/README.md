@@ -27,15 +27,15 @@ AssetSearchCriteria searchCriteria = new AssetSearchCriteria(1, 100);
 SearchResults<Asset> results = client.listAssets(tenantAuthentication, searchCriteria);
 ```
 
-`AssetSearchCriteria` defines the search criteria for quering `Asset`, the following table shows the properties, with 
-thier type and description, that can be set to filter the results.
+El objeto `AssetSearchCriteria` define los criterios de búsqueda para un `Asset`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Property               | Type        | Description                                                    |
+| Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | getAssetTypeToken      | `String`    | Only match assets of the given type.                           |
 | getIncludeAssetType    | `Boolean`   | Indicates if asset type are to be returned.                    |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
+| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
 ## Crear un Asset
 

@@ -30,11 +30,11 @@ SearchResults<DeviceGroup> results = client.listDeviceGroups(tenantAuthenticatio
 `DeviceGroupSearchCriteria` defines the search criteria for quering `DeviceGroup`, the following table shows the properties, with 
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
+| Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | getRole                | `String`    | Limits search by a given role.                                 |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
+| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
 ## Obtener un Device Group
 
