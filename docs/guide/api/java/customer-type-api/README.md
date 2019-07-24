@@ -36,7 +36,7 @@ thier type and description, that can be set to filter the results.
 | setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
 | setPageSize                  | `Integer`   | Get number of records per page of data.                        |
 
-Also you can control what information is return in the results by providing an instance of `CustomerResponseFormat`.
+Also you can control what information is return in the results by providing an instance of `CustomerTypeResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
 | Property                         | Type        | Description                                                    |
