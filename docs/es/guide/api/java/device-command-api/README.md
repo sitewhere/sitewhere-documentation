@@ -18,28 +18,37 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Device Commands
 
-For searching `DeviceCommand` you need to provide an instance of `DeviceCommandSearchCriteria` to the method
-`listDeviceCommands` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
-REST API to list the first page of 100 results of assets.
+Para buscar resultados de `DeviceCommand` se necesita una instancia de `DeviceCommandSearchCriteria`,
+las cuales serán pasadas al método `listDeviceCommands` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `DeviceCommand`.
 
 ```java
 DeviceCommandSearchCriteria searchCriteria = new DeviceCommandSearchCriteria(1, 100);
 SearchResults<DeviceCommand> results = client.listDeviceCommands(tenantAuthentication, searchCriteria);
 ```
 
-`DeviceCommandSearchCriteria` defines the search criteria for quering `DeviceCommand`, the following table shows the properties, with 
-thier type and description, that can be set to filter the results.
+El objeto `DeviceCommandSearchCriteria` define los criterios de búsqueda para un `DeviceCommand`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| getDeviceTypeToken     | `String`    | Limit results by device type id.                               |
+| getDeviceTypeToken     | `String`    | Limitar el resultado por un Device Type token                  |
 | setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
 | setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
-## Creating an Device Command
+## Obtener un Device Command
 
-For creating an `DeviceCommand` you need to call `createDeviceCommand` passing the `ITenantAuthentication` object and an
-`DeviceCommandCreateRequest` build like in the folling example.
+Para obtener un `DeviceCommand` por su token utilice el siguiente ejemplo.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
+DeviceCommand deviceCommand = client.getDeviceCommandByToken(token);
+```
+
+## Crear un Device Command
+
+Para crear un `DeviceCommand` se necesita llamar a `createDeviceCommand` pasando el objeto `ITenantAuthentication` y una
+instancia de `DeviceCommandCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceCommand
@@ -54,10 +63,10 @@ DeviceCommandCreateRequest createRequest = builder.build();
 DeviceCommand createdDeviceCommand = client.createDeviceCommand(tenantAuthentication, createRequest);
 ```
 
-## Actualizar un existing Device Command
+## Actualizar un Device Command existente
 
-For updating an `DeviceCommand` you need to call `updateDeviceCommand` passing the `ITenantAuthentication` object,
-the `token` of the existing `DeviceCommand` and an `DeviceCommandCreateRequest` build like in the folling example.
+Para actualizar un `DeviceCommand` se necesita llamar a `updateDeviceCommand` pasando el objeto `ITenantAuthentication`,
+el `token` de un `DeviceCommand` y una instancia de `DeviceCommandCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceCommand
@@ -72,10 +81,10 @@ DeviceCommandCreateRequest updateRequest = builder.build();
 DeviceCommand updatedDeviceCommand = client.updateDeviceCommand(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing Device Command
+## Borrar un Device Command existente
 
-For deleting an existing `DeviceCommand` you need to call `deleteDeviceCommand` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the asset you want to delete, like the following example.
+Para eliminar un `DeviceCommand` se necesita llamar a `deleteDeviceCommand` pasando el objeto `ITenantAuthentication` y el
+`token` del `DeviceCommand` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceCommand
