@@ -18,9 +18,9 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Schedules
 
-For searching `Schedule` you need to provide an instance of `ScheduleSearchCriteria` and an instance of `ScheduleResponseFormat` to the method
-`listSchedules` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first
-page of 100 results of device groups.
+Para buscar resultados de `Schedule` se necesita una instancia de `ScheduleSearchCriteria` y una instancia de `ScheduleResponseFormat`,
+las cuales serán pasadas al método `listSchedules` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `Schedule`.
 
 ```java
 ScheduleSearchCriteria searchCriteria = new ScheduleSearchCriteria(1, 100);
@@ -45,10 +45,10 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Schedule
 Schedule schedule = client.getScheduleByToken(token);
 ```
 
-## Creating an Schedule
+## Crear un Schedule
 
-For creating an `Schedule` you need to call `createSchedule` passing the `ITenantAuthentication` object and an
-`ScheduleCreateRequest` build like in the folling example.
+Para crear un `Schedule` se necesita llamar a `createSchedule` pasando el objeto `ITenantAuthentication` y una
+instancia de `ScheduleCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Schedule
@@ -63,10 +63,10 @@ ScheduleCreateRequest createRequest = builder.build();
 Schedule createdSchedule = client.createSchedule(tenantAuthentication, createRequest);
 ```
 
-## Actualizar un existing Schedule
+## Actualizar un Schedule existente
 
-For updating an `Schedule` you need to call `updateSchedule` passing the `ITenantAuthentication` object,
-the `token` of the existing `Schedule` and an `ScheduleCreateRequest` build like in the folling example.
+Para actualizar un `Schedule` se necesita llamar a `updateSchedule` pasando el objeto `ITenantAuthentication`,
+el `token` de un `Schedule` y una instancia de `ScheduleCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Schedule
@@ -81,10 +81,10 @@ ScheduleCreateRequest updateRequest = builder.build();
 Schedule updatedSchedule = client.updateSchedule(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing Schedule
+## Barrar an Schedule existente
 
-For deleting an existing `Schedule` you need to call `deleteSchedule` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the schedule you want to delete, like the following example.
+Para eliminar un `Schedule` se necesita llamar a `deleteSchedule` pasando el objeto `ITenantAuthentication` y el
+`token` del `Schedule` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Schedule
