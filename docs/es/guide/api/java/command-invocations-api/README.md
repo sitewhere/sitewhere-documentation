@@ -16,27 +16,27 @@ o por la utilización del tenant `default`.
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Getting a Command Invocation by Id
+## Obtener un Command Invocation por Id
 
-The following example shows how to get a `DeviceCommandInvacation` by its Id
+El siguiente ejemplo muestra como obtener un `DeviceCommandInvacation` por su Id
 
 ```java
 String id = "someCommandInvocationId"; // Id of the command invocation
 DeviceCommandInvocation commandInvocation = client.getDeviceCommandInvocation(tenantAuthentication, id);
 ```
 
-## Getting a Command Invocation Summary by Id
+## Obtener un Command Invocation Summary por Id
 
-The following example shows how to get a `DeviceCommandInvocationSummary` by its Id
+El siguiente ejemplo muestra como obtener un `DeviceCommandInvocationSummary` por su Id
 
 ```java
 String id = "someCommandInvocationId"; // Id of the command invocation
 DeviceCommandInvocationSummary commandInvocationSummary = client.getDeviceCommandInvocationSummary(tenantAuthentication, id);
 ```
 
-## Listing Responses for Command Invocation
+## Listar las Respuesta a Comandos para un Command Invocation
 
-The following example shows how to list the `DeviceCommandResponse` for a `DeviceCommandInvacation`.
+El siguiente ejemplo muestra cómo listar las `DeviceCommandResponse` para un `DeviceCommandInvacation`.
 
 ```java
 String id = "someCommandInvocationId"; // Id of the command invocation
