@@ -18,9 +18,9 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Device Types
 
-For searching `Device Types` you need to provide an instance of `DeviceTypeSearchCriteria`  to the method
-`listDeviceTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to
-list the first page of 100 results of device types.
+Para buscar resultados de `DeviceType` se necesita una instancia de `DeviceTypeSearchCriteria` y una instancia de `DeviceTypeResponseFormat`,
+las cuales serán pasadas al método `listAreas` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `DeviceType`.
 
 ```java
 DeviceTypeSearchCriteria searchCriteria = new DeviceTypeSearchCriteria(1, 100);
@@ -28,8 +28,8 @@ DeviceTypeResponseFormat responseFormat = new DeviceTypeResponseFormat();
 SearchResults<DeviceType> results = client.listDeviceTypes(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`DeviceTypeSearchCriteria` defines the search criteria for quering `DeviceType`, the following table shows the properties, with
-thier type and description, that can be set to filter the results.
+El objeto `DeviceTypeSearchCriteria` define los criterios de búsqueda para un `DeviceType`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
 | Propiedad                    | Tipo        | Descripción                                                    |
 |:-----------------------------|:------------|:---------------------------------------------------------------|
@@ -42,7 +42,7 @@ el formato del resultado de la respuesta.
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeAsset        | `Boolean`   | Indicates if asset is included.                                |
+| setIncludeAsset        | `Boolean`   | Indicata si el asset debe ser incluido en la respuesta.        |
 
 ## Obtener un Device Type
 
@@ -53,10 +53,10 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceTyp
 DeviceType device = client.getDeviceTypeByToken(token);
 ```
 
-## Creating an Device Type
+## Crear un Device Type
 
-For creating an `DeviceType` you need to call `createDeviceType` passing the `ITenantAuthentication` object and an
-`DeviceTypeCreateRequest` build like in the folling example.
+Para crear un `DeviceType` se necesita llamar a `createDeviceType` pasando el objeto `ITenantAuthentication` y una
+instancia de `DeviceTypeCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Device Type
@@ -68,10 +68,10 @@ DeviceTypeCreateRequest createRequest = builder.build();
 DeviceType createdDeviceType = client.createDeviceType(tenantAuthentication, createRequest);
 ```
 
-## Actualizar un existing Device Type
+## Actualizar un Device Type existente
 
-For updating an `DeviceType` you need to call `updateDeviceType` passing the `ITenantAuthentication` object,
-the `token` of the existing `DeviceType` and an `DeviceTypeCreateRequest` build like in the folling example.
+Para actualizar un `DeviceType` se necesita llamar a `updateDeviceType` pasando el objeto `ITenantAuthentication`,
+el `token` de un `DeviceType` y una instancia de `DeviceTypeCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Device Type
@@ -83,10 +83,10 @@ DeviceTypeCreateRequest updateRequest = builder.build();
 DeviceType updatedDevice = client.updateDeviceType(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing Device Type
+## Barrar un Device Type existente
 
-For deleting an existing `DeviceType` you need to call `deleteDeviceType` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the device type you want to delete, like the following example.
+Para eliminar un `DeviceType` se necesita llamar a `deleteDeviceType` pasando el objeto `ITenantAuthentication` y el
+`token` del `DeviceType` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Device Type
