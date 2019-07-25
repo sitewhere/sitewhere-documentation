@@ -18,9 +18,9 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Scheduled Jobs
 
-For searching `ScheduledJob` you need to provide an instance of `ScheduledJobSearchCriteria` and
-an instance of `ScheduledJobResponseFormat` to the method  `listScheduledJobs` of `com.sitewhere.spi.ISiteWhereClient`.
-The example below shows how you can query SiteWhere REST API to list the first page of 100 results of device groups.
+Para buscar resultados de `ScheduledJob` se necesita una instancia de `ScheduledJobSearchCriteria` y una instancia de `ScheduledJobResponseFormat`,
+las cuales serán pasadas al método `listScheduledJobs` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `ScheduledJob`.
 
 ```java
 ScheduledJobSearchCriteria searchCriteria = new ScheduledJobSearchCriteria(1, 100);
@@ -28,8 +28,8 @@ ScheduledJobResponseFormat responseFormat = new ScheduledJobResponseFormat();
 SearchResults<ScheduledJob> results = client.listScheduledJobs(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`ScheduledJobSearchCriteria` defines the search criteria for quering `ScheduledJob`, the following table shows the properties, with
-thier type and description, that can be set to filter the results.
+El objeto `ScheduledJobSearchCriteria` define los criterios de búsqueda para un `ScheduledJob`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
@@ -42,7 +42,7 @@ el formato del resultado de la respuesta.
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContext      | `Boolean`   | Indicates if context is to be included in the response.        |
+| setIncludeContext      | `Boolean`   | Indica si el contexto debe ser incluido en los resultados.     |
 
 ## Obtener un Scheduled Job
 
@@ -53,10 +53,10 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Scheduled
 ScheduledJob schedule = client.getScheduledJobByToken(token);
 ```
 
-## Creating an Scheduled Job
+## Crear un Scheduled Job
 
-For creating an `ScheduledJob` you need to call `createScheduledJob` passing the `ITenantAuthentication` object and an
-`ScheduledJobCreateRequest` build like in the folling example.
+Para crear un `ScheduledJob` se necesita llamar a `createScheduledJob` pasando el objeto `ITenantAuthentication` y una
+instancia de `ScheduledJobCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the ScheduledJob
@@ -70,10 +70,10 @@ createRequest.setJobConfiguration(Collections.emptyMap());
 ScheduledJob createdScheduledJob = client.createScheduledJob(tenantAuthentication, createRequest);
 ```
 
-## Actualizar un existing Scheduled Job
+## Actualizar un Scheduled Job existente
 
-For updating an `ScheduledJob` you need to call `updateScheduledJob` passing the `ITenantAuthentication` object,
-the `token` of the existing `ScheduledJob` and an `ScheduledJobCreateRequest` build like in the folling example.
+Para actualizar un `ScheduledJob` se necesita llamar a `updateScheduledJob` pasando el objeto `ITenantAuthentication`,
+el `token` de un `ScheduledJob` y una instancia de `ScheduledJobCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the ScheduledJob
@@ -87,10 +87,10 @@ createRequest.setJobConfiguration(Collections.emptyMap());
 ScheduledJob updatedScheduledJob = client.updateScheduledJob(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing Scheduled Job
+## Borrar un Scheduled Job existente
 
-For deleting an existing `ScheduledJob` you need to call `deleteScheduledJob` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the schedule you want to delete, like the following example.
+Para eliminar un `ScheduledJob` se necesita llamar a `deleteScheduledJob` pasando el objeto `ITenantAuthentication` y el
+`token` del `ScheduledJob` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the ScheduledJob
