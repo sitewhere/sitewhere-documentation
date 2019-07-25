@@ -16,11 +16,11 @@ o por la utilización del tenant `default`.
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Busqueda de Zones
+## Busqueda de Zonas
 
-For searching `Zone` you need to provide an instance of `ZoneSearchCriteria` to the method
-`listZones` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query
-SiteWhere REST API to list the first page of 100 results of zones.
+Para buscar resultados de `Zone` se necesita una instancia de `ZoneSearchCriteria`,
+las cuales serán pasadas al método `listZones` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `Zone`.
 
 ```java
 ZoneSearchCriteria searchCriteria = new ZoneSearchCriteria(1, 100);
@@ -32,23 +32,23 @@ thier type and description, that can be set to filter the results.
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setAreaToken           | `String`    | Filter by the area zone belongs to.                            |
+| setAreaToken           | `String`    | Filtrar por el área al que pertenece la zona.                  |
 | setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
 | setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
-## Obtener un Zone
+## Obtener una Zona
 
-Para obtener un `Zone` por su token utilice el siguiente ejemplo.
+Para obtener una `Zone` por su token utilice el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Zone
 Zone zone = client.getZoneByToken(token);
 ```
 
-## Creating an Zone
+## Crear una Zona
 
-For creating an `Zone` you need to call `createZone` passing the `ITenantAuthentication` object and an
-`ZoneCreateRequest` build like in the folling example.
+Para crear una `Zone` se necesita llamar a `createZone` pasando el objeto `ITenantAuthentication` y una
+instancia de `ZoneCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Zone
@@ -65,10 +65,10 @@ ZoneCreateRequest createRequest = builder.build();
 Zone createdZone = client.createZone(tenantAuthentication, createRequest);
 ```
 
-## Actualizar un existing Zone
+## Actualizar una Zona existente
 
-For updating an `Zone` you need to call `updateZone` passing the `ITenantAuthentication` object,
-the `token` of the existing `Zone` and an `ZoneCreateRequest` build like in the folling example.
+Para actualizar una `Zone` se necesita llamar a `updateZone` pasando el objeto `ITenantAuthentication`,
+el `token` de un `Zone` y una instancia de `AreaCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Zone
@@ -85,10 +85,10 @@ ZoneCreateRequest updateRequest = builder.build();
 Zone updatedZone = client.updateZone(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing Zone
+## Deleting una Zona existente
 
-For deleting an existing `Zone` you need to call `deleteZone` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the zone you want to delete, like the following example.
+Para eliminar un `Zone` se necesita llamar a `deleteZone` pasando el objeto `ITenantAuthentication` y el
+`token` del `Zone` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Zone

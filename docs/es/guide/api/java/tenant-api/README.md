@@ -4,14 +4,18 @@
 
 Esta sección contiene la documentación y ejemplos del end point `tenants` de la API de Java de SiteWhere.
 
-## Listing Tenants
+## Listar Tenants
+
+Utilice el siguiente ejemplo para listar los `tenant`.
 
 ```java
 TenantSearchCriteria searchCriteria = new TenantSearchCriteria(0, 10);
 SearchResults<Tenant> tenants = client.listTenants(searchCriteria);
 ```
 
-## Creating a Tenant
+## Crear un Tenant
+
+El siguiente ejemplo muestra cómo crear un `tenant`.
 
 ```java
 String name = "test tenant";
@@ -31,6 +35,8 @@ Tenant createdTenant = client.createTenant(createRequest);
 ```
 
 ## Updating a Tenant
+
+El siguiente ejemplo muestra cómo actualizar un `tenant`.
 
 ```java
 // Create a TenantCreateRequest
