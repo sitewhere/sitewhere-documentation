@@ -18,21 +18,21 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Device Groups
 
-For searching `DeviceGroup` you need to provide an instance of `DeviceGroupSearchCriteria` to the method
-`listDeviceGroups` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
-REST API to list the first page of 100 results of device groups.
+Para buscar resultados de `DeviceGroup` se necesita una instancia de `DeviceGroupSearchCriteria`,
+las cuales serán pasadas al método `listDeviceGroups` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `DeviceGroup`.
 
 ```java
 DeviceGroupSearchCriteria searchCriteria = new DeviceGroupSearchCriteria(1, 100);
 SearchResults<DeviceGroup> results = client.listDeviceGroups(tenantAuthentication, searchCriteria);
 ```
 
-`DeviceGroupSearchCriteria` defines the search criteria for quering `DeviceGroup`, the following table shows the properties, with
-thier type and description, that can be set to filter the results.
+El objeto `DeviceGroupSearchCriteria` define los criterios de búsqueda para un `DeviceGroup`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| getRole                | `String`    | Limits search by a given role.                                 |
+| getRole                | `String`    | Limitar la búsqueda por un role.                               |
 | setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
 | setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
@@ -45,10 +45,10 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceGro
 DeviceGroup deviceGroup = client.getDeviceGroupByToken(token);
 ```
 
-## Creating an Device Group
+## Crear un Device Group
 
-For creating an `DeviceGroup` you need to call `createDeviceGroup` passing the `ITenantAuthentication` object and an
-`DeviceGroupCreateRequest` build like in the folling example.
+Para crear un `DeviceGroup` se necesita llamar a `createDeviceGroup` pasando el objeto `ITenantAuthentication` y una
+instancia de `DeviceGroupCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceGroup
@@ -62,10 +62,10 @@ DeviceGroupCreateRequest createRequest = builder.build();
 DeviceGroup createdDeviceGroup = client.createDeviceGroup(tenantAuthentication, createRequest);
 ```
 
-## Actualizar un existing Device Group
+## Actualizar un Device Group existente
 
-For updating an `DeviceGroup` you need to call `updateDeviceGroup` passing the `ITenantAuthentication` object,
-the `token` of the existing `DeviceGroup` and an `DeviceGroupCreateRequest` build like in the folling example.
+Para actualizar un `DeviceGroup` se necesita llamar a `updateDeviceGroup` pasando el objeto `ITenantAuthentication`,
+el `token` de un `DeviceGroup` y una instancia de `DeviceGroupCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceGroup
@@ -79,10 +79,10 @@ DeviceGroupCreateRequest updateRequest = builder.build();
 DeviceGroup updatedDeviceGroup = client.updateDeviceGroup(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing Device Group
+## Borrar un Device Group existente
 
-For deleting an existing `DeviceGroup` you need to call `deleteDeviceGroup` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the device group you want to delete, like the following example.
+Para eliminar un `DeviceGroup` se necesita llamar a `deleteDeviceGroup` pasando el objeto `ITenantAuthentication` y el
+`token` del `DeviceGroup` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceGroup
