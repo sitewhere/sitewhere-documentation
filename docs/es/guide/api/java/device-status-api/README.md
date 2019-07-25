@@ -18,22 +18,22 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Device Statuses
 
-For searching `DeviceStatus` you need to provide an instance of `DeviceStatusSearchCriteria` to the method
-`listDeviceStatuss` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
-REST API to list the first page of 100 results of device statuses.
+Para buscar resultados de `DeviceStatus` se necesita una instancia de `DeviceStatusSearchCriteria`,
+las cuales serán pasadas al método `listDeviceStatuss` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `DeviceStatus`.
 
 ```java
 DeviceStatusSearchCriteria searchCriteria = new DeviceStatusSearchCriteria(1, 100);
 SearchResults<DeviceStatus> results = client.listDeviceStatuss(tenantAuthentication, searchCriteria);
 ```
 
-`DeviceStatusSearchCriteria` defines the search criteria for quering `DeviceStatus`, the following table shows the properties, with
-thier type and description, that can be set to filter the results.
+El objeto `DeviceStatusSearchCriteria` define los criterios de búsqueda para un `DeviceStatus`, la siguiente tabla
+muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| getDeviceTypeToken     | `String`    | Limit results by device type token.                            |
-| getCode                | `String`    | Limit results by code.                                         |
+| getDeviceTypeToken     | `String`    | Limitar los resultados por Device Type.                        |
+| getCode                | `String`    | Limitar los resultados por code.                               |
 | setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
 | setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
@@ -46,10 +46,10 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886";             // GUID for t
 DeviceStatus deviceStatus = client.getDeviceStatusByToken(token);
 ```
 
-## Creating an Device Status
+## Crear un Device Status
 
-For creating an `DeviceStatus` you need to call `createDeviceStatus` passing the `ITenantAuthentication` object and an
-`DeviceStatusCreateRequest` build like in the folling example.
+Para crear un `DeviceStatus` se necesita llamar a `createDeviceStatus` pasando el objeto `ITenantAuthentication` y una
+instancia de `DeviceStatusCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceStatus
@@ -64,10 +64,10 @@ DeviceStatusCreateRequest createRequest = DeviceStatusCreateRequest.newBuilder()
 DeviceStatus createdDeviceStatus = client.createDeviceStatus(tenantAuthentication, createRequest);
 ```
 
-## Actualizar un existing Device Status
+## Actualizar un Device Status existente
 
-For updating an `DeviceStatus` you need to call `updateDeviceStatus` passing the `ITenantAuthentication` object,
-the `token` of the existing `DeviceStatus` and an `DeviceStatusCreateRequest` build like in the folling example.
+Para actualizar un `DeviceStatus` se necesita llamar a `updateDeviceStatus` pasando el objeto `ITenantAuthentication`,
+el `token` de un `DeviceStatus` y una instancia de `DeviceStatusCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceStatus
@@ -83,8 +83,8 @@ DeviceStatus updatedDeviceStatus = client.updateDeviceStatus(tenantAuthenticatio
 
 ## Deleting an existing Device Status
 
-For deleting an existing `DeviceStatus` you need to call `deleteDeviceStatus` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the deviceStatus you want to delete, like the following example.
+Para eliminar un `DeviceStatus` se necesita llamar a `deleteDeviceStatus` pasando el objeto `ITenantAuthentication` y el
+`token` del `DeviceStatus` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceStatus
