@@ -77,8 +77,8 @@ Area createdArea = client.createArea(tenantAuthentication, createRequest);
 
 ## Actualizar un Area existente
 
-Para actualizar un `Area` se necesita llamar a `updateArea` pasando el objeto `ITenantAuthentication` y una
-instancia de `AreaCreateRequest` construido como en el siguiente ejemplo.
+Para actualizar un `Area` se necesita llamar a `updateArea` pasando el objeto `ITenantAuthentication`,
+el `token` de un `Area` y una instancia de `AreaCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String areaTypeToken = "construction";                 // Token of the area type

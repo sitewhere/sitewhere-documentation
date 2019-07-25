@@ -18,14 +18,15 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Customers
 
-For searching `Customer` you need to provide an instance of `CustomerSearchCriteria` to the method
-`listCustomers` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere
-REST API to list the first page of 100 results of assets.
+Para buscar resultados de `Customer` se necesita una instancia de `CustomerSearchCriteria` y una instancia de `CustomerResponseFormat`,
+las cuales serán pasadas al método `listCustomers` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `Customer`.
 
 ```java
 CustomerSearchCriteria searchCriteria = new CustomerSearchCriteria(1, 100);
 CustomerResponseFormat responseFormat = new CustomerResponseFormat();
-SearchResults<Customer> results = client.listCustomers(tenantAuthentication, searchCriteria, responseFormat);
+SearchResults<Customer> results =
+  client.listCustomers(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
 El objeto `CustomerSearchCriteria` define los criterios de búsqueda para un `Customer`, la siguiente tabla
@@ -34,8 +35,8 @@ muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
 | setRootOnly            | `Boolean`   | Indicates if only root elements are to be returned.            |
-| setCustomerTypeToken   | `String`    | Require that customers have the given customer type.           |
-| SetParentCustomerToken | `String`    | Requires that customers have the given customer as a parent.   |
+| setCustomerTypeToken   | `String`    | Requerir que los clientes se de un determinado tipo.           |
+| SetParentCustomerToken | `String`    | Requerir que los clientes tengan un determinado padre.         |
 | setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
 | setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
 
@@ -45,12 +46,12 @@ el formato del resultado de la respuesta.
 
 | Propiedad              | Tipo        | Descripción                                                    |
 |:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeCustomerType | `Boolean`   | Indicates if customer type is to be returned.                  |
+| setIncludeCustomerType | `Boolean`   | Indicar si el tipo de cliente se debe devolver en la respuesta.|
 
-## Creating an Customer
+## Crear un Cliente
 
-For creating an `Customer` you need to call `createCustomer` passing the `ITenantAuthentication` object and an
-`CustomerCreateRequest` build like in the folling example.
+Para crear un `Customer` se necesita llamar a `createCustomer` pasando el objeto `ITenantAuthentication` y una
+instancia de `CustomerCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
@@ -65,10 +66,10 @@ CustomerCreateRequest createRequest = builder.build();
 Customer createdCustomer = client.createCustomer(tenantAuthentication, createRequest);
 ```
 
-## Actualizar un existing Customer
+## Actualizar un Cliente existente
 
-For updating an `Customer` you need to call `updateCustomer` passing the `ITenantAuthentication` object,
-the `token` of the existing `Customer` and an `CustomerCreateRequest` build like in the folling example.
+Para actualizar un `Customer` se necesita llamar a `updateCustomer` pasando el objeto `ITenantAuthentication`,
+el `token` de un `Customer` existente y instancia de `CustomerCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
@@ -85,20 +86,20 @@ Customer updatedCustomer = client.updateCustomer(tenantAuthentication, token, up
 
 ## Deleting an existing Customer
 
-For deleting an existing `Customer` you need to call `deleteCustomer` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the asset you want to delete, like the following example.
+Para eliminar un `Customer` se necesita llamar a `deleteCustomer` pasando el objeto `ITenantAuthentication` y el
+`token` del `Customer` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
 Customer deletedCustomer = client.deleteCustomer(tenantAuthentication, token);
 ```
 
-## Quering information associated to a Customer
+## Obtener información asociada a un Customer
 
-### Quering Alerts associated to a Customer
+### Obtener Alertas asociadas a un Customer
 
-The following example retrieves firts 100 `DeviceAlert`s associated with an `Customer`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceAlert`s asociadas con un `Customer`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
@@ -111,13 +112,14 @@ Date startDate = cal.getTime();
 Date endDate = new Date();
 
 DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
-SearchResults<DeviceAlertWithAsset> alerts = client.listAlertsForCustomer(tenantAuthentication, token, searchCriteria);
+SearchResults<DeviceAlertWithAsset> alerts =
+  client.listAlertsForCustomer(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering Assignments associated to a Customer
+### Obtener las Asignaciones asociadas a un Customer
 
-The following example retrieves firts 100 `DeviceAssignment`s associated with an `Customer`
-from the last year, including the `Customer` information in the results.
+El siguiente ejemplo recupera las primeras 100 `DeviceAssignment`s asociadas con un `Customer`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
@@ -128,10 +130,10 @@ SearchResults<MarshaledDeviceAssignment> assignments =
   client.listDeviceAssignmentsForCustomer(tenantAuthentication, token, searchCriteria, responseFormat);
 ```
 
-### Quering Command Invocations associated to a Customer
+### Obtener las Invocaciones a Comandos asociadas a un Customer
 
-The following example retrieves firts 100 `DeviceCommandInvocation`s associated with an `Customer`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceCommandInvocation`s asociadas con un `Customer`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
@@ -144,14 +146,14 @@ Date startDate = cal.getTime();
 Date endDate = new Date();
 
 DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
-SearchResults<DeviceCommandInvocation> commandInvocations = 
+SearchResults<DeviceCommandInvocation> commandInvocations =
   client.listCommandInvocationsForCustomer(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering Locations associated to a Customer
+### Obtener las Ubicaciones asociadas an un Customer
 
-The following example retrieves firts 100 `DeviceLocationWithAsset`s associated with an `Customer`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceLocation`s asociadas con un `Customer`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
@@ -168,10 +170,10 @@ SearchResults<DeviceLocationWithAsset> locations = client
   .listLocationsForCustomer(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering Measurements associated to a Customer
+### Obtener las Mediciones asociadas a un Customer
 
-The following example retrieves firts 100 `DeviceMeasurementWithAsset`s associated with an `Customer`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceMeasurement`s asociadas con un `Customer`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
@@ -188,10 +190,10 @@ SearchResults<DeviceMeasurementWithAsset> measurements = client
   .listMeasurementsForCustomer(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering Command Responses associated to a Customer
+### Obtener las Respuestas a Comandos asociadas a un Customer
 
-The following example retrieves firts 100 `DeviceCommandResponseWithAsset`s associated with an `Customer`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceCommandResponse`s asociadas con un `Customer`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
@@ -208,10 +210,10 @@ SearchResults<DeviceCommandResponseWithAsset> commandResponses = client
   .listCommandResponsesForCustomer(tenantAuthentication, token, searchCriteria);
 ```
 
-### Quering State Changes associated to a Customer
+### Obtener los Cambio de Estado asociados a un Customer
 
-The following example retrieves firts 100 `DeviceStateChangeWithAsset`s associated with an `Customer`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceStateChange`s asociadas con un `Customer`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
@@ -228,9 +230,9 @@ SearchResults<DeviceStateChangeWithAsset> stateChanges = client
   .listStateChangesForCustomer(tenantAuthentication, token, searchCriteria);
 ```
 
-### Retrive Customer tree
+### Obtener el árbol de Clientes
 
-The following example retrieves the tree structure of customers.
+El siguiente ejemplo obtiene la estructura de árbol de clientes.
 
 ```java
 List<TreeNode> tree = client.customerTree(tenantAuthentication);
