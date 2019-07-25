@@ -16,18 +16,18 @@ o por la utilización del tenant `default`.
 ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", "auth");
 ```
 
-## Getting a Device Event by its Id
+## Obtener un Event por su Id
 
-The following example shows how to get a `DeviceEvent` by its id.
+El siguiente ejemplo muestra cómo obtener un `DeviceEvent` por su id.
 
 ```java
 String id = "someDeviceEnventId";
 DeviceEventWithAsset deviceEvent = client.getDeviceEventById(tenantAuthentication, id);
 ```
 
-## Getting a Device Event by its Alternate Id
+## Obtener un Event por su Id alternativo
 
-The following example shows how to get a `DeviceEvent` by its alternate id.
+El siguiente ejemplo muestra cómo obtener un `DeviceEvent` por su id alternativo.
 
 ```java
 String id = "someDeviceEnventId";
