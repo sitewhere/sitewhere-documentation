@@ -111,7 +111,7 @@ SearchResults<MarshaledDeviceAssignment> assignments = client.listDeviceAssignme
 
 ### Add Multiple Events for a Device
 
-The followin example shows how to create multiple events for a `Device` using a single API Call.
+The following example shows how to create multiple events for a `Device` using a single API Call.
 
 ```java
 String deviceToken = "60737-MT90-4178968";

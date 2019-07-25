@@ -204,7 +204,7 @@ DeviceCommandInvocation createdCommandInvocation = client
 
 ### Creating an Scheduled Job for a Device Assignment
 
-The followin example creates a `ScheduledJob` for a `DeviceAssignment`.
+The following example creates a `ScheduledJob` for a `DeviceAssignment`.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment

@@ -18,9 +18,9 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Devices
 
-For searching `Devices` you need to provide an instance of `DeviceSearchCriteria`  to the method
-`listDevices` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to
-list the first page of 100 results of device types.
+Para buscar resultados de `Devices` se necesita una instancia de `DeviceSearchCriteria` y una instancia de `DeviceResponseFormat`,
+las cuales serán pasadas al método `listDevices` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `Devices`.
 
 ```java
 DeviceSearchCriteria searchCriteria = new DeviceSearchCriteria(1, 100, null, null);
@@ -33,10 +33,10 @@ muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para
 
 | Propiedad                    | Tipo        | Descripción                                                    |
 |:-----------------------------|:------------|:---------------------------------------------------------------|
-| setDeviceTypeToken           | `String`    | Filter by device type.                                         |
-| setExcludeAssigned           | `boolean`   | Indicates whether assigned devices should be excluded.         |
-| setStartDate                 | `Date`      | Get date range start.                                          |
-| setEndDate                   | `Date`      | Get date range end.                                            |
+| setDeviceTypeToken           | `String`    | Filtrar por Device Type.                                       |
+| setExcludeAssigned           | `boolean`   | Indica si los dispositivos asignados deben ser excluidos.      |
+| setStartDate                 | `Date`      | Fecha de inicio del rango.                                     |
+| setEndDate                   | `Date`      | Fecha de fin del range.                                        |
 | setPageNumber                | `Integer`   | Indicar el número de pagina del dataset.                       |
 | setPageSize                  | `Integer`   | Indicar el número de registros por página.                     |
 
@@ -44,10 +44,10 @@ Además se puede controlar que información es retornada en los resultados prove
 `DeviceResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
 el formato del resultado de la respuesta.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeDeviceType   | `Boolean`   | Indicates if device type information is included.              |
-| setIncludeAssignment   | `Boolean`   | Indicates if assignment information is included.               |
+| Propiedad              | Tipo        | Descripción                                                       |
+|:-----------------------|:------------|:------------------------------------------------------------------|
+| setIncludeDeviceType   | `Boolean`   | Indica si la información de los Device Type deben ser incluidos.  |
+| setIncludeAssignment   | `Boolean`   | Indica si la información de las asignaciones deben ser incluidas. |
 
 ## Obtener un Device
 
@@ -60,8 +60,8 @@ Device device = client.getDeviceByToken(token);
 
 ## Creating an Device
 
-For creating an `Device` you need to call `createDevice` passing the `ITenantAuthentication` object and an
-`DeviceCreateRequest` build like in the folling example.
+Para crear un `Device` se necesita llamar a `createDevice` pasando el objeto `ITenantAuthentication` y una
+instancia de `DeviceCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Device
@@ -74,8 +74,8 @@ Device createdDevice = client.createDevice(tenantAuthentication, createRequest);
 
 ## Actualizar un existing Device
 
-For updating an `Device` you need to call `updateDevice` passing the `ITenantAuthentication` object,
-the `token` of the existing `Device` and an `DeviceCreateRequest` build like in the folling example.
+Para actualizar un `Device` se necesita llamar a `updateDevice` pasando el objeto `ITenantAuthentication`,
+el `token` de un `Device` y una instancia de `DeviceCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Device
@@ -88,19 +88,20 @@ Device updatedDevice = client.updateDevice(tenantAuthentication, token, updateRe
 
 ## Deleting an existing Device
 
-For deleting an existing `Device` you need to call `deleteDevice` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the device type you want to delete, like the following example.
+Para eliminar un `Device` se necesita llamar a `deleteDevice` pasando el objeto `ITenantAuthentication` y el
+`token` del `Device` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Device
 Device deletedDevice = client.deleteDevice(tenantAuthentication, token);
 ```
 
-## Device associated API Calls
+## Llamadas de API asociadas al Device
 
-### Quering Assignments associated to a Device
+### Obtener Assignments asociados al Device
 
-The following example retrieves firts 100 `DeviceAssignment`s associated with a `Device`.
+El siguiente ejemplo recupera las primeras 100 `DeviceAssignment`s asociadas con un `Device`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Device
@@ -110,9 +111,9 @@ SearchResults<MarshaledDeviceAssignment> assignments = client.listDeviceAssignme
   tenantAuthentication, token, searchCriteria, responseFormat);
 ```
 
-### Add Multiple Events for a Device
+### Agregar Múltiple eventso al Device
 
-The followin example shows how to create multiple events for a `Device` using a single API Call.
+El siguiente ejemplo muestra cómo crear múltiple evento a un `Device` usand una sóla llamada a la API.
 
 ```java
 String deviceToken = "60737-MT90-4178968";
@@ -126,9 +127,9 @@ DeviceEventBatchResponse response =
   client.addMultipleEventsForDevice(tenantAuthentication, deviceToken, batch);
 ```
 
-### Create a Device Mapping
+### Crear un Mapeo de Dispositivo
 
-The following example shows how to create a `DeviceElementMapping` for a `Device`.
+El siguiente ejemplo muestra cómo crear un `DeviceElementMapping` para un `Device`.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Device
@@ -138,18 +139,18 @@ request.setDeviceElementSchemaPath("someschema");
 MarshaledDevice device = client.createDeviceMappings(tenantAuthentication, token, request);
 ```
 
-### Delete a Device Mapping
+### Borrar un Mepeo de Dispositivo
 
-The following example shows how to delete a `DeviceElementMapping` for a `Device`.
+El siguiente ejemplo muestra cómo borrar un `DeviceElementMapping` para un `Device`.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Device
 MarshaledDevice device = client.deleteDeviceMappings(tenantAuthentication, token, "someschema");
 ```
 
-### Listing Devices by Device Group
+### Listar Dispositivos por Grupo de Dispositivo
 
-The following example shows how to list `Devices` that are associated to a `DeviceGroup`.
+El siguiente ejemplo muestra cómo listar `Devices` que están asociados a un `DeviceGroup`.
 
 ```java
 String groupToken = "e137a55b-7c50-42f9-9dd7-c0c02e84b80e";
@@ -159,9 +160,9 @@ SearchResults<Device> result = client.listDevicesByDeviceGroup(tenantAuthenticat
   searchCriteria, responseFormat);
 ```
 
-### Listing Devices by Device Group with a Role
+### Listar Dispositivos por Grupo de Dispositivo con un Role
 
-The following example shows how to list `Devices` that are associated to a `DeviceGroup` with a `Role`.
+El siguiente ejemplo muestra cómo listar `Devices` que están asociados a un `DeviceGroup` con un `Role`.
 
 ```java
 String role = "master";
