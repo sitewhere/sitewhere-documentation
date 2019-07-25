@@ -18,9 +18,9 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Busqueda de Customer Types
 
-For searching `Customer Types` you need to provide an instance of `CustomerTypeSearchCriteria`  to the method 
-`listCustomerTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
-list the first page of 100 results of customer types.
+Para buscar resultados de `CustomerType` se necesita una instancia de `CustomerTypeSearchCriteria` y una instancia de `CustomerTypeResponseFormat`,
+las cuales serán pasadas al método `listCustomerTypes` de `com.sitewhere.spi.ISiteWhereClient`. El siguiente ejemplo muestra
+como consultar la API REST de SiteWhere para listar la primer página con 100 resultados de `CustomerType`.
 
 ```java
 CustomerTypeSearchCriteria searchCriteria = new CustomerTypeSearchCriteria(1, 100);
@@ -40,15 +40,23 @@ Además se puede controlar que información es retornada en los resultados prove
 `CustomerTypeResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
 el formato del resultado de la respuesta.
 
-
 | Propiedad                        | Tipo        | Descripción                                                    |
 |:---------------------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContainedCustomerTypes | `Boolean`   | Indicates if contained customer types are to be returned.      |
+| setIncludeContainedCustomerTypes | `Boolean`   | Indica si los CustomerType contenidos deben ser devueltos.     |
 
-## Creating an Customer Type
+## Obtener un Customer Type
 
-For creating an `CustomerType` you need to call `createCustomerType` passing the `ITenantAuthentication` object and an
-`CustomerTypeCreateRequest` build like in the folling example.
+Para obtener un `CustomerType` por su token utilice el siguiente ejemplo.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Area
+CustomerType customerType = client.getCustomerTypeByToken(token);
+```
+
+## Crear un Customer Type
+
+Para crear un `CustomerType` se necesita llamar a `createCustomerType` pasando el objeto `ITenantAuthentication` y una
+instancia de `CustomerTypeCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer Type
@@ -59,10 +67,10 @@ CustomerTypeCreateRequest createRequest = builder.build();
 CustomerType createdCustomerType = client.createCustomerType(tenantAuthentication, createRequest);
 ```
 
-## Actualizar un existing Customer Type
+## Actualizar un Customer Type existente
 
-For updating an `CustomerType` you need to call `updateCustomerType` passing the `ITenantAuthentication` object,
-the `token` of the existing `CustomerType` and an `CustomerTypeCreateRequest` build like in the folling example.
+Para actualizar un `CustomerType` se necesita llamar a `updateCustomerType` pasando el objeto `ITenantAuthentication`,
+el `token` de un `CustomerType` y una instancia de `CustomerTypeCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 CustomerTypeCreateRequest.Builder builder = new  CustomerTypeCreateRequest.Builder(token, "my customer type");
@@ -72,10 +80,10 @@ CustomerTypeCreateRequest updateRequest = builder.build();
 CustomerType updatedCustomer = client.updateCustomerType(tenantAuthentication, token, updateRequest);
 ```
 
-## Deleting an existing Customer Type
+## Deleting un Customer Type existente
 
-For deleting an existing `CustomerType` you need to call `deleteCustomerType` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the customer type you want to delete, like the following example.
+Para eliminar un `CustomerType` se necesita llamar a `deleteCustomerType` pasando el objeto `ITenantAuthentication` y el
+`token` del `CustomerType` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer Type
