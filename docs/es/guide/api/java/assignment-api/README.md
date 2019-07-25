@@ -31,16 +31,16 @@ SearchResults<MarshaledDeviceAssignment> results = client.listDeviceAssignments(
 El objeto `DeviceAssignmentSearchCriteria` define los criterios de búsqueda para un `DeviceAssignment`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad              | Type                           | Descripción                                                    |
-|:-----------------------|:-------------------------------|:---------------------------------------------------------------|
-| setAssignmentStatuses  | `List<DeviceAssignmentStatus>` | Limits search the given list of device assignment statuses.    |
-| setDeviceAssignmentTokens          | `List<String>`                 | Limits search the given list of areas tokens.                  |
-| setAssetTokens         | `List<String>`                 | Limits search the given list of asset tokens.                  |
-| setCustomerTokens      | `List<String>`                 | Limits search the given list of customer tokens.               |
-| setDeviceTokens        | `List<String>`                 | Limits search the given list of device tokens.                 |
-| setDeviceTypeTokens    | `List<String>`                 | Limits search the given list of device type tokens.            |
-| setPageNumber          | `Integer`                      | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`                      | Indicar el número de registros por página.                     |
+| Propiedad                 | Type                           | Descripción                                                     |
+|:--------------------------|:-------------------------------|:----------------------------------------------------------------|
+| setAssignmentStatuses     | `List<DeviceAssignmentStatus>` | Limita la búsqueda a la lista de device assignment statuses.    |
+| setDeviceAssignmentTokens | `List<String>`                 | Limita la búsqueda a la lista de areas tokens.                  |
+| setAssetTokens            | `List<String>`                 | Limita la búsqueda a la lista de asset tokens.                  |
+| setCustomerTokens         | `List<String>`                 | Limita la búsqueda a la lista de customer tokens.               |
+| setDeviceTokens           | `List<String>`                 | Limita la búsqueda a la lista de device tokens.                 |
+| setDeviceTypeTokens       | `List<String>`                 | Limita la búsqueda a la lista de device type tokens.            |
+| setPageNumber             | `Integer`                      | Indicar el número de pagina del dataset.                        |
+| setPageSize               | `Integer`                      | Indicar el número de registros por página.                      |
 
 Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
 `DeviceAssignmentResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
@@ -56,8 +56,8 @@ el formato del resultado de la respuesta.
 
 ## Creating an Device Assignment
 
-For creating an `DeviceAssignment` you need to call `createDeviceAssignment` passing the `ITenantAuthentication` object and an
-`DeviceAssignmentCreateRequest` build like in the folling example.
+Para crear un `DeviceAssignment` se necesita llamar a `createDeviceAssignment` pasando el objeto `ITenantAuthentication` y una
+instancia de `DeviceAssignmentCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -76,8 +76,8 @@ MarshaledDeviceAssignment createdDeviceAssignment = client.createDeviceAssignmen
 
 ## Actualizar un existing Device Assignment
 
-For updating an `DeviceAssignment` you need to call `updateDeviceAssignment` passing the `ITenantAuthentication` object,
-the `token` of the existing `DeviceAssignment` and an `DeviceAssignmentCreateRequest` build like in the folling example.
+Para actualizar un `DeviceAssignment` se necesita llamar a `updateDeviceAssignment` pasando el objeto `ITenantAuthentication`,
+el `token` de un `DeviceAssignment` existente y una instancia de `DeviceAssignmentCreateRequest` construido como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -98,38 +98,40 @@ MarshaledDeviceAssignment updatedDeviceAssignment = client.updateDeviceAssignmen
 
 ## Deleting an existing Device Assignment
 
-For deleting an existing `DeviceAssignment` you need to call `deleteDeviceAssignment` method of `com.sitewhere.spi.ISiteWhereClient`
-providing the `token` of the asset you want to delete, like the following example.
+Para eliminar un `DeviceAssignment` se necesita llamar a `deleteDeviceAssignment` pasando el objeto `ITenantAuthentication` y el
+`token` del `DeviceAssignment` que se quiere eliminar, como en el siguiente ejemplo.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
 MarshaledDeviceAssignment deletedDeviceAssignment = client.deleteDeviceAssignment(tenantAuthentication, token);
 ```
 
-## Device Assignment associated API Calls
+## Llamadas a la API asociadas a Device Assignment
 
-### Releasing an Device Assignment
+### Liberar un Device Assignment
 
-The following examples releses an existing associated assignment.
-
-```java
-String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
-MarshaledDeviceAssignment releasedAssignment = client.releaseDeviceAssignment(tenantAuthentication, token);
-```
-
-### Marking Device Assignment as Missing
-
-The following example marks an existing associated assignment as **missing**.
+El siguiente ejemplo *livera* la asocación de un **DeviceAssignment** existente.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
-MarshaledDeviceAssignment makedMissingAssignment = client.markMissingDeviceAssignment(tenantAuthentication, token);
+MarshaledDeviceAssignment releasedAssignment =
+  client.releaseDeviceAssignment(tenantAuthentication, token);
 ```
 
-### Quering Alerts associated to a Device Assignment
+### Marcar un Device Assignment como *Perdido*
 
-The following example retrieves firts 100 `DeviceAlert`s associated with an `DeviceAssignment`
-from the last year.
+El siguiente ejemplo marca a un **DeviceAssignment** existente como **perdido**.
+
+```java
+String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
+MarshaledDeviceAssignment makedMissingAssignment =
+  client.markMissingDeviceAssignment(tenantAuthentication, token);
+```
+
+### Obtener Alertas asociadas a un Device Assignment
+
+El siguiente ejemplo recupera las primeras 100 `DeviceAlert`s asociadas con un `DeviceAssignment`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -142,30 +144,33 @@ Date startDate = cal.getTime();
 Date endDate = new Date();
 
 DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
-SearchResults<DeviceAlertWithAsset> alerts = client.listAlertsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
+SearchResults<DeviceAlertWithAsset> alerts =
+  client.listAlertsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
-### Creating an Alert for a Device Assignment
+### Crear una Alerta para un Device Assignment
 
-The following example creates an `Alert` of level `error` for a `DeviceAssignment`, 
-with `type` **engine.overheat**, and `message` **Engine Overheat**.
+El siguiente ejemplo crea una `Alert` de nivel `error` para un `DeviceAssignment`,
+con `type` **engine.overheat**, y `message` **Engine Overheat**.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
-DeviceAlertCreateRequest.Builder builder = new DeviceAlertCreateRequest.Builder("egine.overheat", "Engine Overheat");
+DeviceAlertCreateRequest.Builder builder =
+  new DeviceAlertCreateRequest.Builder("egine.overheat", "Engine Overheat");
 
 DeviceAlertCreateRequest request = builder
   .error()
   .trackState()
   .build();
 
-DeviceAlertWithAsset alert = client.createAlertForDeviceAssignment(tenantAuthentication, token, request);
+DeviceAlertWithAsset alert =
+  client.createAlertForDeviceAssignment(tenantAuthentication, token, request);
 ```
 
-### Quering Command Invocations associated to a Device Assignment
+### Obtener las Invocaciones a Comandos asociadas a un Device Assignment
 
-The following example retrieves firts 100 `DeviceCommandInvocation`s associated with an `DeviceAssignment`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceCommandInvocation`s asociadas con un `DeviceAssignment`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -178,13 +183,13 @@ Date startDate = cal.getTime();
 Date endDate = new Date();
 
 DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
-SearchResults<DeviceCommandInvocation> commandInvocations = 
+SearchResults<DeviceCommandInvocation> commandInvocations =
   client.listCommandInvocationsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
-### Creating a Command Invocations for a Device Assignment
+### Crear una Invación a Comando para un Device Assignment
 
-The following example creates a `DeviceCommandInvocation` for a `DeviceAssignment`.
+El siguiente ejemplo crea un `DeviceCommandInvocation` para un `DeviceAssignment`.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -203,9 +208,9 @@ DeviceCommandInvocation createdCommandInvocation = client
   .createCommandInvocationForDeviceAssignment(tenantAuthentication, token, request);
 ```
 
-### Creating an Scheduled Job for a Device Assignment
+### Crear un ScheduledJob para un Device Assignment
 
-The followin example creates a `ScheduledJob` for a `DeviceAssignment`.
+El siguiente ejemplo crea un `ScheduledJob` para un `DeviceAssignment`.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -214,7 +219,7 @@ String target = "Assignment";
 String initiatorId = "REST";
 String scheduleToken = "de305d54-75b4-431b-adb2-eb6b9e546014";
 
-DeviceCommandInvocationCreateRequest.Builder builder = 
+DeviceCommandInvocationCreateRequest.Builder builder =
   new DeviceCommandInvocationCreateRequest.Builder(commandToken, target);
 DeviceCommandInvocationCreateRequest request = builder.build();
 
@@ -225,10 +230,10 @@ ScheduledJob createdScheduledJob = client
   .scheduleCommandInvocation(tenantAuthentication, token, scheduleToken, request);
 ```
 
-### Quering Locations associated to a Device Assignment
+### Obtener las Ubicaciones asociadas an un Device Assignment
 
-The following example retrieves firts 100 `DeviceLocationWithAsset`s associated with an `DeviceAssignment`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceLocation`s asociadas con un `DeviceAssignment`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -245,9 +250,9 @@ SearchResults<DeviceLocationWithAsset> locations = client
   .listLocationsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
-### Creating a Location for a Device Assignment
+### Crear una Ubicación para un Device Assignment
 
-The following example creates a `DeviceLocation` for a `DeviceAssignment`.
+El siguiente ejemplo crea un `DeviceLocation` para un `DeviceAssignment`.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -258,10 +263,10 @@ DeviceLocationWithAsset location = client
   .createLocationForDeviceAssignment(tenantAuthentication, token, request);
 ```
 
-### Quering Measurements associated to a Device Assignment
+### Obtener las Mediciones asociadas a un Device Assignment
 
-The following example retrieves firts 100 `DeviceMeasurementWithAsset`s associated with an `DeviceAssignment`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceMeasurement`s asociadas con un `DeviceAssignment`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -278,10 +283,10 @@ SearchResults<DeviceMeasurementWithAsset> measurements = client
   .listMeasurementsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
-### Creating a Measurement for a Device Assignment
+### Crea un Medición para un Device Assignment
 
-The following example creates a `DeviceMeasurement` for a `DeviceAssignment`, indicating that
-**engine.temp** has a value of **50.0**.
+El siguiente ejemplo crea un `DeviceMeasurement` para un `DeviceAssignment`, indicando que
+**engine.temp** tiene un valor de **50.0**.
 
 ```java
 DeviceMeasurementCreateRequest.Builder builder = new DeviceMeasurementCreateRequest.Builder();
@@ -292,10 +297,10 @@ DeviceMeasurementWithAsset measurement = client
   .createMeasurementForDeviceAssignment(tenantAuthentication, token, request);
 ```
 
-### Quering Command Responses associated to a Device Assignment
+### Obtener las Respuestas a Comandos asociadas a un Device Assignment
 
-The following example retrieves firts 100 `DeviceCommandResponseWithAsset`s associated with an `DeviceAssignment`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceCommandResponse`s asociadas con un `DeviceAssignment`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -312,7 +317,7 @@ SearchResults<DeviceCommandResponseWithAsset> commandResponses = client
   .listCommandResponsesForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
-### Creating a Command Responses for a Device Assignment
+### Crear una Respuesta a Comando para un Device Assignment
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -327,10 +332,10 @@ DeviceCommandResponseWithAsset commandResponse = client
   .createCommandResponseForDeviceAssignment(tenantAuthentication, token, request);
 ```
 
-### Quering State Changes associated to a Device Assignment
+### Obtener los Cambio de Estado asociados a un Device Assignment
 
-The following example retrieves firts 100 `DeviceStateChangeWithAsset`s associated with an `DeviceAssignment`
-from the last year.
+El siguiente ejemplo recupera las primeras 100 `DeviceStateChange`s asociadas con un `DeviceAssignment`
+del último año.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -347,9 +352,9 @@ SearchResults<DeviceStateChangeWithAsset> stateChanges = client
   .listStateChangesForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
-### Creating State Change for a Device Assignment
+### Crear un Cambio de Estado para un Device Assignment
 
-The following example creates a `DeviceStateChange` for a `DeviceAssignment`.
+El siguiente ejemplo crea un `DeviceStateChange` para un `DeviceAssignment`.
 
 ```java
 DeviceStateChangeCreateRequest request = new DeviceStateChangeCreateRequest();
