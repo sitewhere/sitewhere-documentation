@@ -1,4 +1,4 @@
-# :book: Java API - System
+# Java API - System
 
 <Seo/>
 

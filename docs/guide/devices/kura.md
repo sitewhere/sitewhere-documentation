@@ -1,4 +1,4 @@
-# :book: SiteWhere Kura Programming
+# SiteWhere Kura Programming
 
 <Seo/>
 

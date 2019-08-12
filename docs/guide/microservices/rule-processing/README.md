@@ -1,4 +1,4 @@
-# :book: Rule Processing Microservice
+# Rule Processing Microservice
 
 <Seo/>
 

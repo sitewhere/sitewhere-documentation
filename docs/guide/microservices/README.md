@@ -1,4 +1,4 @@
-# :book: Microservice Guides
+# Microservice Guides
 
 <Seo/>
 

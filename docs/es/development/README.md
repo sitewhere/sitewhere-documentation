@@ -1,4 +1,4 @@
-# :book: Guía de Desarrollo de SiteWhere
+# Guía de Desarrollo de SiteWhere
 
 <Seo/>
 
@@ -86,7 +86,7 @@ abajo:
 
 <InlineImage src="/images/development/docker-engine-version.png" caption="Versión del motor Docker" />
 
-Configure Docker Daemon para escuchar en el puerto TCP 2375. Este es el puerto predeterminado de la  API,
+Configure Docker Daemon para escuchar en el puerto TCP 2375. Este es el puerto predeterminado de la API,
 pero la mayoría de las instalaciones no habilitan el puerto por defecto. Un ejemplo de
 actualización necesaria para Ubuntu 16.04 se puede encontrar
 [aquí](https://www.ivankrizsan.se/2016/05/18/enabling-docker-remote-api-on-ubuntu-16-04/).

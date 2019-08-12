@@ -1,4 +1,4 @@
-# :book: Debugging SiteWhere
+# Debugging SiteWhere
 
 <Seo/>
 
@@ -9,27 +9,27 @@ the microservice. To this end, each microservice exposes JDWP on port 8001 and
 the Helm Chart translate that port as a `NodePort` in the Kubernetes Cluster
 according to the table below.
 
-| Microservice             | JDWP Port      | JMX Port        |
-| ------------------------ | -------------- | --------------- |
-| Instance Managemwnt      | 8001           | 1101            |
-| User Management          | 8002           | 1102            |
-| Tenant Management        | 8003           | 1103            |
-| Device Management        | 8004           | 1104            |
-| Event Management         | 8005           | 1105            |
-| Asset Management         | 8006           | 1106            |
-| Event Sources            | 8007           | 1107            |
-| Inbound Processing       | 8008           | 1108            |
-| Label Generation         | 8009           | 1109            |
-| Web Rest                 | 8010           | 1110            |
-| Batch Operations         | 8011           | 1111            |
-| Command Delivery         | 8012           | 1112            |
-| Device Registration      | 8013           | 1113            |
-| Device State             | 8014           | 1114            |
-| Event Search             | 8015           | 1115            |
-| Outbound Connectors      | 8016           | 1116            |
-| Rule Processing          | 8017           | 1117            |
-| Schedule Management      | 8018           | 1118            |
-| Streaming Media          | 8019           | 1119            |
+| Microservice        | JDWP Port | JMX Port |
+| ------------------- | --------- | -------- |
+| Instance Managemwnt | 8001      | 1101     |
+| User Management     | 8002      | 1102     |
+| Tenant Management   | 8003      | 1103     |
+| Device Management   | 8004      | 1104     |
+| Event Management    | 8005      | 1105     |
+| Asset Management    | 8006      | 1106     |
+| Event Sources       | 8007      | 1107     |
+| Inbound Processing  | 8008      | 1108     |
+| Label Generation    | 8009      | 1109     |
+| Web Rest            | 8010      | 1110     |
+| Batch Operations    | 8011      | 1111     |
+| Command Delivery    | 8012      | 1112     |
+| Device Registration | 8013      | 1113     |
+| Device State        | 8014      | 1114     |
+| Event Search        | 8015      | 1115     |
+| Outbound Connectors | 8016      | 1116     |
+| Rule Processing     | 8017      | 1117     |
+| Schedule Management | 8018      | 1118     |
+| Streaming Media     | 8019      | 1119     |
 
 ::: tip
 Please refer to [Creating Debug Images](./README.md#creating-debug-images) section on

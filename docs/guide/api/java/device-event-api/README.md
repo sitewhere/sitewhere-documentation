@@ -1,4 +1,4 @@
-# :book: Java API - Device Events
+# Java API - Device Events
 
 <Seo/>
 

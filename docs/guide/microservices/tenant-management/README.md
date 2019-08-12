@@ -1,4 +1,4 @@
-# :book: Tenant Management Microservice
+# Tenant Management Microservice
 
 <Seo/>
 

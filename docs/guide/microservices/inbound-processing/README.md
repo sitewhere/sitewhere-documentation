@@ -1,4 +1,4 @@
-# :book: Inbound Processing Microservice
+# Inbound Processing Microservice
 
 <Seo/>
 

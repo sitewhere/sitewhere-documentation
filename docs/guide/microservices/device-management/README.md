@@ -1,4 +1,4 @@
-# :book: Device Management Microservice
+# Device Management Microservice
 
 <Seo/>
 

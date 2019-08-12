@@ -1,4 +1,4 @@
-# :book: SiteWhere Android SDK Programming
+# SiteWhere Android SDK Programming
 
 <Seo/>
 

@@ -1,4 +1,4 @@
-# :book: Backup and Restore Procedures
+# Backup and Restore Procedures
 
 <Seo/>
 

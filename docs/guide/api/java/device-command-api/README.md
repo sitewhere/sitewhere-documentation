@@ -1,4 +1,4 @@
-# :book: Java API - Device Commands
+# Java API - Device Commands
 
 <Seo/>
 
@@ -27,14 +27,14 @@ DeviceCommandSearchCriteria searchCriteria = new DeviceCommandSearchCriteria(1, 
 SearchResults<DeviceCommand> results = client.listDeviceCommands(tenantAuthentication, searchCriteria);
 ```
 
-`DeviceCommandSearchCriteria` defines the search criteria for quering `DeviceCommand`, the following table shows the properties, with 
+`DeviceCommandSearchCriteria` defines the search criteria for quering `DeviceCommand`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| getDeviceTypeToken     | `String`    | Limit results by device type id.                               |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| Property           | Type      | Description                             |
+| :----------------- | :-------- | :-------------------------------------- |
+| getDeviceTypeToken | `String`  | Limit results by device type id.        |
+| setPageNumber      | `Integer` | Get offset from beginning of dataset.   |
+| setPageSize        | `Integer` | Get number of records per page of data. |
 
 ## Creating an Device Command
 

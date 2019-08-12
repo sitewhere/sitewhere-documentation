@@ -1,10 +1,10 @@
-# :book: Java API - Zones
+# Java API - Zones
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `zones` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -30,11 +30,11 @@ SearchResults<Zone> results = client.listZones(tenantAuthentication, searchCrite
 `ZoneSearchCriteria` defines the search criteria for quering `Zone`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setAreaToken           | `String`    | Filtrar por el área al que pertenece la zona.                  |
-| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad     | Tipo      | Descripción                                   |
+| :------------ | :-------- | :-------------------------------------------- |
+| setAreaToken  | `String`  | Filtrar por el área al que pertenece la zona. |
+| setPageNumber | `Integer` | Indicar el número de pagina del dataset.      |
+| setPageSize   | `Integer` | Indicar el número de registros por página.    |
 
 ## Obtener una Zona
 

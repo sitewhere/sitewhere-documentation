@@ -1,11 +1,11 @@
-# :book: SiteWhere User Guides
+# SiteWhere User Guides
 
 <Seo/>
 
 The following guides provide detailed information about how SiteWhere is
 architected, deployed and configured.
 
-## :book: Architecture Guide
+## Architecture Guide
 
 This guide covers core concepts of the SiteWhere 2.0 architecture and is intended
 to provide an understanding of how the system works at a low level. While knowledge
@@ -14,7 +14,7 @@ it does provide a basis for grasping how various parts of the system interact.
 
 See the [guide](./architecture/) for more information.
 
-## :book: Deployment Guide
+## Deployment Guide
 
 This guide covers the process of deploying SiteWhere including
 infrastructure components (e.g. Zookeeper, Kafka), data persistence
@@ -25,7 +25,7 @@ highly-available deployments for applications such as smart cities.
 
 See the [guide](./deployment/) for more information.
 
-## :book: System Administration Guide
+## System Administration Guide
 
 This guide covers use of the system administration application
 for tasks such as creating/configuring tenants and interacting
@@ -35,7 +35,7 @@ issuing commands to devices.
 
 See the [guide](./administration/) for more information.
 
-## :book: Device Interaction Guides
+## Device Interaction Guides
 
 This group of guides covers various SiteWhere technologies that support
 interactions with external devices. The guides include coverage of
@@ -46,7 +46,7 @@ off-the-shelf solutions.
 
 See the [guide](./devices/) for more information.
 
-## :book: Microservice Guides
+## Microservice Guides
 
 This group of guides covers the SiteWhere microservices in depth including
 aspects such as microservice configuration, Kafka interactions and available

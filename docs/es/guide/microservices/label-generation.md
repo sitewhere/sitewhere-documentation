@@ -1,4 +1,4 @@
-# :book: Label Generation Microservice
+# Label Generation Microservice
 
 <Seo/>
 

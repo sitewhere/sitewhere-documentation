@@ -1,10 +1,10 @@
-# :book: Java API - Device Events
+# Java API - Device Events
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `events` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();

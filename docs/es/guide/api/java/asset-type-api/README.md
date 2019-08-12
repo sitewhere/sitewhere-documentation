@@ -1,10 +1,10 @@
-# :book: Java API - Asset Types
+# Java API - Asset Types
 
 <Seo/>
 
 This section contains the documentation and examples of the end point `assettypes` of SiteWhere Java API.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -30,10 +30,10 @@ SearchResults<AssetType> results = client.listAssetTypes(tenantAuthentication, s
 El objeto `AssetTypeSearchCriteria` define los criterios de búsqueda para un `AssetType`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad                    | Tipo        | Descripción                                                    |
-|:-----------------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber                | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize                  | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad     | Tipo      | Descripción                                |
+| :------------ | :-------- | :----------------------------------------- |
+| setPageNumber | `Integer` | Indicar el número de pagina del dataset.   |
+| setPageSize   | `Integer` | Indicar el número de registros por página. |
 
 ## Crear un Asset Type
 

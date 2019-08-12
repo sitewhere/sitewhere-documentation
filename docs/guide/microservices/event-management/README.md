@@ -1,4 +1,4 @@
-# :book: Event Management Microservice
+# Event Management Microservice
 
 <Seo/>
 

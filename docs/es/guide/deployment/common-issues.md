@@ -1,4 +1,4 @@
-# :book: Common Issues
+# Common Issues
 
 <Seo/>
 

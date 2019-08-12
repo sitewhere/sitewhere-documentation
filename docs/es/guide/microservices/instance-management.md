@@ -1,4 +1,4 @@
-# :book: Microservicio Instance Management
+# Microservicio Instance Management
 
 <Seo/>
 
@@ -78,7 +78,7 @@ y las configuraciones de los conectores.
 
 El microservicio de gestión de instancias es responsable de conectarse con Zookeeper y crear
 el árbol base donde se almacenan todos los demás datos de configuración para la instancia.
-Para obtener más información sobre la conectividad con Zookeeper y cómo se completa la base 
+Para obtener más información sobre la conectividad con Zookeeper y cómo se completa la base
 del árbol de configuración, consulte la [Configuración de Apache Zookeper](../zookeeper-configuration.md).
 
 ## Plantillas de Instancia

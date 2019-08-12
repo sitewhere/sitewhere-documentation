@@ -1,10 +1,10 @@
-# :book: Java API - Device Commands
+# Java API - Device Commands
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `commands` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -30,11 +30,11 @@ SearchResults<DeviceCommand> results = client.listDeviceCommands(tenantAuthentic
 El objeto `DeviceCommandSearchCriteria` define los criterios de búsqueda para un `DeviceCommand`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| getDeviceTypeToken     | `String`    | Limitar el resultado por un Device Type token                  |
-| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad          | Tipo      | Descripción                                   |
+| :----------------- | :-------- | :-------------------------------------------- |
+| getDeviceTypeToken | `String`  | Limitar el resultado por un Device Type token |
+| setPageNumber      | `Integer` | Indicar el número de pagina del dataset.      |
+| setPageSize        | `Integer` | Indicar el número de registros por página.    |
 
 ## Obtener un Device Command
 

@@ -1,4 +1,4 @@
-# :book: Java API - Assets
+# Java API - Assets
 
 <Seo/>
 
@@ -18,7 +18,7 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Searching for Assets
 
-For searching `Asset` you need to provide an instance of `AssetSearchCriteria` to the method 
+For searching `Asset` you need to provide an instance of `AssetSearchCriteria` to the method
 `listAssets` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first
 page of 100 results of assets.
 
@@ -27,15 +27,15 @@ AssetSearchCriteria searchCriteria = new AssetSearchCriteria(1, 100);
 SearchResults<Asset> results = client.listAssets(tenantAuthentication, searchCriteria);
 ```
 
-`AssetSearchCriteria` defines the search criteria for quering `Asset`, the following table shows the properties, with 
+`AssetSearchCriteria` defines the search criteria for quering `Asset`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| getAssetTypeToken      | `String`    | Only match assets of the given type.                           |
-| getIncludeAssetType    | `Boolean`   | Indicates if asset type are to be returned.                    |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| Property            | Type      | Description                                 |
+| :------------------ | :-------- | :------------------------------------------ |
+| getAssetTypeToken   | `String`  | Only match assets of the given type.        |
+| getIncludeAssetType | `Boolean` | Indicates if asset type are to be returned. |
+| setPageNumber       | `Integer` | Get offset from beginning of dataset.       |
+| setPageSize         | `Integer` | Get number of records per page of data.     |
 
 ## Creating an Asset
 

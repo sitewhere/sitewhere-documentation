@@ -1,4 +1,4 @@
-# :book: Batch Operations Microservice
+# Batch Operations Microservice
 
 <Seo/>
 

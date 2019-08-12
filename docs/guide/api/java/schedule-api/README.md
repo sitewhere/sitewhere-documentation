@@ -1,4 +1,4 @@
-# :book: Java API - Schedules
+# Java API - Schedules
 
 <Seo/>
 
@@ -18,7 +18,7 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Searching for Schedules
 
-For searching `Schedule` you need to provide an instance of `ScheduleSearchCriteria` and an instance of `ScheduleResponseFormat` to the method 
+For searching `Schedule` you need to provide an instance of `ScheduleSearchCriteria` and an instance of `ScheduleResponseFormat` to the method
 `listSchedules` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to list the first
 page of 100 results of device groups.
 
@@ -28,13 +28,13 @@ ScheduleResponseFormat responseFormat = new ScheduleResponseFormat();
 SearchResults<Schedule> results = client.listSchedules(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`ScheduleSearchCriteria` defines the search criteria for quering `Schedule`, the following table shows the properties, with 
+`ScheduleSearchCriteria` defines the search criteria for quering `Schedule`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| Property      | Type      | Description                             |
+| :------------ | :-------- | :-------------------------------------- |
+| setPageNumber | `Integer` | Get offset from beginning of dataset.   |
+| setPageSize   | `Integer` | Get number of records per page of data. |
 
 ## Retrieving an Schedule
 

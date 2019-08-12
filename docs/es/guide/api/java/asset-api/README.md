@@ -1,10 +1,10 @@
-# :book: Java API - Assets
+# Java API - Assets
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `assets` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -30,12 +30,12 @@ SearchResults<Asset> results = client.listAssets(tenantAuthentication, searchCri
 El objeto `AssetSearchCriteria` define los criterios de búsqueda para un `Asset`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| getAssetTypeToken      | `String`    | Sólo conicidor assets de un tipo dado.                         |
-| getIncludeAssetType    | `Boolean`   | Indicar si el AssetType debe ser devuelto en la respuesta.     |
-| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad           | Tipo      | Descripción                                                |
+| :------------------ | :-------- | :--------------------------------------------------------- |
+| getAssetTypeToken   | `String`  | Sólo conicidor assets de un tipo dado.                     |
+| getIncludeAssetType | `Boolean` | Indicar si el AssetType debe ser devuelto en la respuesta. |
+| setPageNumber       | `Integer` | Indicar el número de pagina del dataset.                   |
+| setPageSize         | `Integer` | Indicar el número de registros por página.                 |
 
 ## Crear un Asset
 

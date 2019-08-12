@@ -1,4 +1,4 @@
-# :book: Streaming Media Microservice
+# Streaming Media Microservice
 
 <Seo/>
 

@@ -1,4 +1,4 @@
-# :book: Programación de Dispositivos Androids con el SDK de SiteWhere
+# Programación de Dispositivos Androids con el SDK de SiteWhere
 
 <Seo/>
 
@@ -8,9 +8,9 @@ Android, como así también enviar datos de mediciones a SiteWhere y también re
 
 ## Configuración del desarrollador
 
-* Installe [Java SE SDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Installe [Android Studio](http://developer.android.com/sdk/index.html).
-* Descargue Android SDK 19 (Es posible utilizar este SDK con una versión anterior).
+- Installe [Java SE SDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+- Installe [Android Studio](http://developer.android.com/sdk/index.html).
+- Descargue Android SDK 19 (Es posible utilizar este SDK con una versión anterior).
 
 ## Inicio rápido
 

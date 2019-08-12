@@ -1,4 +1,4 @@
-# :book: Guía de Integración de Dispositivos
+# Guía de Integración de Dispositivos
 
 <Seo/>
 

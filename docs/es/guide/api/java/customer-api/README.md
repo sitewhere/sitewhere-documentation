@@ -1,10 +1,10 @@
-# :book: Java API - Customers
+# Java API - Customers
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `customers` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -32,21 +32,21 @@ SearchResults<Customer> results =
 El objeto `CustomerSearchCriteria` define los criterios de búsqueda para un `Customer`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setRootOnly            | `Boolean`   | Indicates if only root elements are to be returned.            |
-| setCustomerTypeToken   | `String`    | Requerir que los clientes se de un determinado tipo.           |
-| SetParentCustomerToken | `String`    | Requerir que los clientes tengan un determinado padre.         |
-| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad              | Tipo      | Descripción                                            |
+| :--------------------- | :-------- | :----------------------------------------------------- |
+| setRootOnly            | `Boolean` | Indicates if only root elements are to be returned.    |
+| setCustomerTypeToken   | `String`  | Requerir que los clientes se de un determinado tipo.   |
+| SetParentCustomerToken | `String`  | Requerir que los clientes tengan un determinado padre. |
+| setPageNumber          | `Integer` | Indicar el número de pagina del dataset.               |
+| setPageSize            | `Integer` | Indicar el número de registros por página.             |
 
 Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
 `CustomerResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
 el formato del resultado de la respuesta.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeCustomerType | `Boolean`   | Indicar si el tipo de cliente se debe devolver en la respuesta.|
+| Propiedad              | Tipo      | Descripción                                                     |
+| :--------------------- | :-------- | :-------------------------------------------------------------- |
+| setIncludeCustomerType | `Boolean` | Indicar si el tipo de cliente se debe devolver en la respuesta. |
 
 ## Crear un Cliente
 
@@ -126,7 +126,7 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
 DeviceAssignmentSearchCriteria searchCriteria = new DeviceAssignmentSearchCriteria(1, 100);
 DeviceAssignmentResponseFormat responseFormat = new DeviceAssignmentResponseFormat();
 responseFormat.setIncludeCustomer(true);
-SearchResults<MarshaledDeviceAssignment> assignments = 
+SearchResults<MarshaledDeviceAssignment> assignments =
   client.listDeviceAssignmentsForCustomer(tenantAuthentication, token, searchCriteria, responseFormat);
 ```
 

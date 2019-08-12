@@ -1,4 +1,4 @@
-# :book: Configuration Management
+# Configuration Management
 
 <Seo/>
 

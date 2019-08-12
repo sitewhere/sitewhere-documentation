@@ -1,4 +1,4 @@
-# :book: Device Registration Microservice
+# Device Registration Microservice
 
 <Seo/>
 

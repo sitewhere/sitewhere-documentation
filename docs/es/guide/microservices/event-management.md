@@ -1,4 +1,4 @@
-# :book: Event Management Microservice
+# Event Management Microservice
 
 <Seo/>
 
@@ -10,7 +10,6 @@ incluidos en la plantilla de inquilino utilizada al crear el inquilino. Por ejem
 plantilla "Construcción" rellena el ejemplo de ubicación, medición y datos de alerta
 relevantes para las máquinas en un sitio de construcción. Si se utiliza la plantilla
 "Vacía", no se completarán los datos de gestión de eventos.
-
 
 ## Dependencias del Microservicio
 

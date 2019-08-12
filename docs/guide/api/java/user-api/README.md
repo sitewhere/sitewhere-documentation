@@ -1,4 +1,4 @@
-# :book: Java API - Users
+# Java API - Users
 
 <Seo/>
 
@@ -33,7 +33,7 @@ User createdUser = client.createUser(createRequest);
 The following table show the autorities you can assign to a user
 
 | Authority                   | Description                           |
-|:----------------------------|:--------------------------------------|
+| :-------------------------- | :------------------------------------ |
 | GRP_SERVER                  | Server administration                 |
 | AUTH_VIEW_SERVER_INFO       | View global server information        |
 | GRP_ACCESS                  | Remote access                         |

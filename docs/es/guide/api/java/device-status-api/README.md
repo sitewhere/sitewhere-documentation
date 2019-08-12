@@ -1,10 +1,10 @@
-# :book: Java API - Device Statues
+# Java API - Device Statues
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `statuses` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -30,12 +30,12 @@ SearchResults<DeviceStatus> results = client.listDeviceStatuss(tenantAuthenticat
 El objeto `DeviceStatusSearchCriteria` define los criterios de búsqueda para un `DeviceStatus`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| getDeviceTypeToken     | `String`    | Limitar los resultados por Device Type.                        |
-| getCode                | `String`    | Limitar los resultados por code.                               |
-| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad          | Tipo      | Descripción                                |
+| :----------------- | :-------- | :----------------------------------------- |
+| getDeviceTypeToken | `String`  | Limitar los resultados por Device Type.    |
+| getCode            | `String`  | Limitar los resultados por code.           |
+| setPageNumber      | `Integer` | Indicar el número de pagina del dataset.   |
+| setPageSize        | `Integer` | Indicar el número de registros por página. |
 
 ## Obtener un Device Status
 

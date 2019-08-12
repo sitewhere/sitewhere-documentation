@@ -1,4 +1,4 @@
-# :book: Sending Data to SiteWhere
+# Sending Data to SiteWhere
 
 <Seo/>
 

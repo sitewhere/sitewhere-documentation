@@ -1,10 +1,10 @@
-# :book: Java API - Scheduled Jobs
+# Java API - Scheduled Jobs
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `jobs` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -31,18 +31,18 @@ SearchResults<ScheduledJob> results = client.listScheduledJobs(tenantAuthenticat
 El objeto `ScheduledJobSearchCriteria` define los criterios de búsqueda para un `ScheduledJob`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad     | Tipo      | Descripción                                |
+| :------------ | :-------- | :----------------------------------------- |
+| setPageNumber | `Integer` | Indicar el número de pagina del dataset.   |
+| setPageSize   | `Integer` | Indicar el número de registros por página. |
 
 Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
 `ScheduledJobResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
 el formato del resultado de la respuesta.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContext      | `Boolean`   | Indica si el contexto debe ser incluido en los resultados.     |
+| Propiedad         | Tipo      | Descripción                                                |
+| :---------------- | :-------- | :--------------------------------------------------------- |
+| setIncludeContext | `Boolean` | Indica si el contexto debe ser incluido en los resultados. |
 
 ## Obtener un Scheduled Job
 

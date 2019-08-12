@@ -1,4 +1,4 @@
-# :book: Event Sources Microservice
+# Event Sources Microservice
 
 <Seo/>
 

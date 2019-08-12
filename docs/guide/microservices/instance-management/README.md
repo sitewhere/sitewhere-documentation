@@ -1,4 +1,4 @@
-# :book: Instance Management Microservice
+# Instance Management Microservice
 
 <Seo/>
 

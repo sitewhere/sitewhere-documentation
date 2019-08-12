@@ -1,4 +1,4 @@
-# :book: Web/REST Microservice
+# Web/REST Microservice
 
 <Seo/>
 

@@ -1,4 +1,4 @@
-# :book: System Administration Guide
+# System Administration Guide
 
 <Seo/>
 

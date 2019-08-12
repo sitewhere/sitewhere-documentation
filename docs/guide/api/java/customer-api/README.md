@@ -1,4 +1,4 @@
-# :book: Java API - Customers
+# Java API - Customers
 
 <Seo/>
 
@@ -28,23 +28,23 @@ CustomerResponseFormat responseFormat = new CustomerResponseFormat();
 SearchResults<Customer> results = client.listCustomers(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`CustomerSearchCriteria` defines the search criteria for quering `Customer`, the following table shows the properties, with 
+`CustomerSearchCriteria` defines the search criteria for quering `Customer`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setRootOnly            | `Boolean`   | Indicates if only root elements are to be returned.            |
-| setCustomerTypeToken   | `String`    | Require that customers have the given customer type.           |
-| SetParentCustomerToken | `String`    | Requires that customers have the given customer as a parent.   |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| Property               | Type      | Description                                                  |
+| :--------------------- | :-------- | :----------------------------------------------------------- |
+| setRootOnly            | `Boolean` | Indicates if only root elements are to be returned.          |
+| setCustomerTypeToken   | `String`  | Require that customers have the given customer type.         |
+| SetParentCustomerToken | `String`  | Requires that customers have the given customer as a parent. |
+| setPageNumber          | `Integer` | Get offset from beginning of dataset.                        |
+| setPageSize            | `Integer` | Get number of records per page of data.                      |
 
 Also you can control what information is return in the results by providing an instance of `CustomerResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeCustomerType | `Boolean`   | Indicates if customer type is to be returned.                  |
+| Property               | Type      | Description                                   |
+| :--------------------- | :-------- | :-------------------------------------------- |
+| setIncludeCustomerType | `Boolean` | Indicates if customer type is to be returned. |
 
 ## Creating an Customer
 
@@ -123,7 +123,7 @@ String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the Customer
 DeviceAssignmentSearchCriteria searchCriteria = new DeviceAssignmentSearchCriteria(1, 100);
 DeviceAssignmentResponseFormat responseFormat = new DeviceAssignmentResponseFormat();
 responseFormat.setIncludeCustomer(true);
-SearchResults<MarshaledDeviceAssignment> assignments = 
+SearchResults<MarshaledDeviceAssignment> assignments =
   client.listDeviceAssignmentsForCustomer(tenantAuthentication, token, searchCriteria, responseFormat);
 ```
 
@@ -143,7 +143,7 @@ Date startDate = cal.getTime();
 Date endDate = new Date();
 
 DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
-SearchResults<DeviceCommandInvocation> commandInvocations = 
+SearchResults<DeviceCommandInvocation> commandInvocations =
   client.listCommandInvocationsForCustomer(tenantAuthentication, token, searchCriteria);
 ```
 

@@ -1,4 +1,4 @@
-# :book: Asset Management Microservice
+# Asset Management Microservice
 
 <Seo/>
 

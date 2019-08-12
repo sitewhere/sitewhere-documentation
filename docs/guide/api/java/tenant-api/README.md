@@ -1,4 +1,4 @@
-# :book: Java API - Tenants
+# Java API - Tenants
 
 <Seo/>
 

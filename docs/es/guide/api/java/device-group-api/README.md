@@ -1,10 +1,10 @@
-# :book: Java API - Device Groups
+# Java API - Device Groups
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `devicegroups` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -30,11 +30,11 @@ SearchResults<DeviceGroup> results = client.listDeviceGroups(tenantAuthenticatio
 El objeto `DeviceGroupSearchCriteria` define los criterios de búsqueda para un `DeviceGroup`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| getRole                | `String`    | Limitar la búsqueda por un role.                               |
-| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad     | Tipo      | Descripción                                |
+| :------------ | :-------- | :----------------------------------------- |
+| getRole       | `String`  | Limitar la búsqueda por un role.           |
+| setPageNumber | `Integer` | Indicar el número de pagina del dataset.   |
+| setPageSize   | `Integer` | Indicar el número de registros por página. |
 
 ## Obtener un Device Group
 

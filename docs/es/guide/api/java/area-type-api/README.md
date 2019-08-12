@@ -1,10 +1,10 @@
-# :book: Java API - Area Types
+# Java API - Area Types
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `areatypes` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -30,11 +30,11 @@ SearchResults<AreaType> results = client.listAreaTypes(tenantAuthentication, sea
 El objeto `AreaTypeSearchCriteria` define los criterios de búsqueda para un `AreaType`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad                    | Tipo        | Descripción                                                            |
-|:-----------------------------|:------------|:-----------------------------------------------------------------------|
-| setIncludeContainedAreaTypes | `Boolean`   | Indica si los AreaType contenidos deben ser incluidos en la respuesta. |
-| setPageNumber                | `Integer`   | Indicar el número de pagina del dataset.                               |
-| setPageSize                  | `Integer`   | Indicar el número de registros por página.                             |
+| Propiedad                    | Tipo      | Descripción                                                            |
+| :--------------------------- | :-------- | :--------------------------------------------------------------------- |
+| setIncludeContainedAreaTypes | `Boolean` | Indica si los AreaType contenidos deben ser incluidos en la respuesta. |
+| setPageNumber                | `Integer` | Indicar el número de pagina del dataset.                               |
+| setPageSize                  | `Integer` | Indicar el número de registros por página.                             |
 
 ## Obtener un Area Type
 

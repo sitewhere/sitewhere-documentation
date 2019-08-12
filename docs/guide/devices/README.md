@@ -1,4 +1,4 @@
-# :book: Device Interaction Guides
+# Device Interaction Guides
 
 <Seo/>
 

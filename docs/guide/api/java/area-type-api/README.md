@@ -1,4 +1,4 @@
-# :book: Java API - Area Types
+# Java API - Area Types
 
 <Seo/>
 
@@ -18,8 +18,8 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Searching for Area Types
 
-For searching `Area Types` you need to provide an instance of `AreaTypeSearchCriteria`  to the method 
-`listAreaTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
+For searching `Area Types` you need to provide an instance of `AreaTypeSearchCriteria` to the method
+`listAreaTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to
 list the first page of 100 results of area types.
 
 ```java
@@ -27,14 +27,14 @@ AreaTypeSearchCriteria searchCriteria = new AreaTypeSearchCriteria(1, 100);
 SearchResults<AreaType> results = client.listAreaTypes(tenantAuthentication, searchCriteria);
 ```
 
-`AreaTypeSearchCriteria` defines the search criteria for quering `AreaType`, the following table shows the properties, with 
+`AreaTypeSearchCriteria` defines the search criteria for quering `AreaType`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property                     | Type        | Description                                                    |
-|:-----------------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContainedAreaTypes | `Boolean`   | Indicates if contained area types are to be returned.          |
-| setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize                  | `Integer`   | Get number of records per page of data.                        |
+| Property                     | Type      | Description                                           |
+| :--------------------------- | :-------- | :---------------------------------------------------- |
+| setIncludeContainedAreaTypes | `Boolean` | Indicates if contained area types are to be returned. |
+| setPageNumber                | `Integer` | Get offset from beginning of dataset.                 |
+| setPageSize                  | `Integer` | Get number of records per page of data.               |
 
 ## Retrieving an Area Type
 

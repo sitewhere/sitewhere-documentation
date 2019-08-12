@@ -1,4 +1,4 @@
-# :book: Event Search Microservice
+# Event Search Microservice
 
 <Seo/>
 

@@ -1,4 +1,4 @@
-# :book: User Management Microservice
+# User Management Microservice
 
 <Seo/>
 

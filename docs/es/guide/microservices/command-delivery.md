@@ -1,4 +1,4 @@
-# :book: Command Delivery Microservice
+# Command Delivery Microservice
 
 <Seo/>
 

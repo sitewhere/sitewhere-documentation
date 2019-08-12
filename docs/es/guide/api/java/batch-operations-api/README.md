@@ -1,10 +1,10 @@
-# :book: Java API - Batch Operations
+# Java API - Batch Operations
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `batch` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -50,7 +50,7 @@ BatchCommandInvocationRequest request = BatchCommandInvocationRequest.newBuilder
   .addDeviceToken("15737-UNO-7576364")
   .parameter("host", "localhost")
   .build();
-  
+
 BatchOperation batchOperation =
   client.createBatchCommandInvocation(tenantAuthentication, request);
 ```

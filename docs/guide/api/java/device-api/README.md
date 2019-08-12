@@ -1,4 +1,4 @@
-# :book: Java API - Devices
+# Java API - Devices
 
 <Seo/>
 
@@ -18,8 +18,8 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Searching for Devices
 
-For searching `Devices` you need to provide an instance of `DeviceSearchCriteria`  to the method 
-`listDevices` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
+For searching `Devices` you need to provide an instance of `DeviceSearchCriteria` to the method
+`listDevices` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to
 list the first page of 100 results of device types.
 
 ```java
@@ -28,25 +28,25 @@ DeviceResponseFormat responseFormat = new DeviceResponseFormat();
 SearchResults<Device> results = client.listDevices(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`DeviceSearchCriteria` defines the search criteria for quering `Device`, the following table shows the properties, with 
+`DeviceSearchCriteria` defines the search criteria for quering `Device`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property                     | Type        | Description                                                    |
-|:-----------------------------|:------------|:---------------------------------------------------------------|
-| setDeviceTypeToken           | `String`    | Filter by device type.                                         |
-| setExcludeAssigned           | `boolean`   | Indicates whether assigned devices should be excluded.         |
-| setStartDate                 | `Date`      | Get date range start.                                          |
-| setEndDate                   | `Date`      | Get date range end.                                            |
-| setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize                  | `Integer`   | Get number of records per page of data.                        |
+| Property           | Type      | Description                                            |
+| :----------------- | :-------- | :----------------------------------------------------- |
+| setDeviceTypeToken | `String`  | Filter by device type.                                 |
+| setExcludeAssigned | `boolean` | Indicates whether assigned devices should be excluded. |
+| setStartDate       | `Date`    | Get date range start.                                  |
+| setEndDate         | `Date`    | Get date range end.                                    |
+| setPageNumber      | `Integer` | Get offset from beginning of dataset.                  |
+| setPageSize        | `Integer` | Get number of records per page of data.                |
 
 Also you can control what information is return in the results by providing an instance of `DeviceResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeDeviceType   | `Boolean`   | Indicates if device type information is included.              |
-| setIncludeAssignment   | `Boolean`   | Indicates if assignment information is included.               |
+| Property             | Type      | Description                                       |
+| :------------------- | :-------- | :------------------------------------------------ |
+| setIncludeDeviceType | `Boolean` | Indicates if device type information is included. |
+| setIncludeAssignment | `Boolean` | Indicates if assignment information is included.  |
 
 ## Retrieving an Device
 
@@ -121,7 +121,7 @@ batch.getLocations().add(new DeviceLocationCreateRequest.Builder(22.2, 33.3).bui
 // Add other events to DeviceEventBatch
 ...
 // Submit and create the Batch Response
-DeviceEventBatchResponse response = 
+DeviceEventBatchResponse response =
   client.addMultipleEventsForDevice(tenantAuthentication, deviceToken, batch);
 ```
 

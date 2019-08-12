@@ -1,4 +1,4 @@
-# :book: Java API - Device Groups
+# Java API - Device Groups
 
 <Seo/>
 
@@ -27,14 +27,14 @@ DeviceGroupSearchCriteria searchCriteria = new DeviceGroupSearchCriteria(1, 100)
 SearchResults<DeviceGroup> results = client.listDeviceGroups(tenantAuthentication, searchCriteria);
 ```
 
-`DeviceGroupSearchCriteria` defines the search criteria for quering `DeviceGroup`, the following table shows the properties, with 
+`DeviceGroupSearchCriteria` defines the search criteria for quering `DeviceGroup`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| getRole                | `String`    | Limits search by a given role.                                 |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| Property      | Type      | Description                             |
+| :------------ | :-------- | :-------------------------------------- |
+| getRole       | `String`  | Limits search by a given role.          |
+| setPageNumber | `Integer` | Get offset from beginning of dataset.   |
+| setPageSize   | `Integer` | Get number of records per page of data. |
 
 ## Retrieving an Device Group
 

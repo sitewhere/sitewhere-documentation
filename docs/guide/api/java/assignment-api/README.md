@@ -1,4 +1,4 @@
-# :book: Java API - Device Assignments
+# Java API - Device Assignments
 
 <Seo/>
 
@@ -28,30 +28,30 @@ DeviceAssignmentResponseFormat format = new DeviceAssignmentResponseFormat();
 SearchResults<MarshaledDeviceAssignment> results = client.listDeviceAssignments(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`DeviceAssignmentSearchCriteria` defines the search criteria for quering `DeviceAssignment`, the following table shows the properties, with 
+`DeviceAssignmentSearchCriteria` defines the search criteria for quering `DeviceAssignment`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property               | Type                           | Description                                                    |
-|:-----------------------|:-------------------------------|:---------------------------------------------------------------|
-| setAssignmentStatuses  | `List<DeviceAssignmentStatus>` | Limits search the given list of device assignment statuses.    |
-| setDeviceAssignmentTokens          | `List<String>`                 | Limits search the given list of areas tokens.                  |
-| setAssetTokens         | `List<String>`                 | Limits search the given list of asset tokens.                  |
-| setCustomerTokens      | `List<String>`                 | Limits search the given list of customer tokens.               |
-| setDeviceTokens        | `List<String>`                 | Limits search the given list of device tokens.                 |
-| setDeviceTypeTokens    | `List<String>`                 | Limits search the given list of device type tokens.            |
-| setPageNumber          | `Integer`                      | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`                      | Get number of records per page of data.                        |
+| Property                  | Type                           | Description                                                 |
+| :------------------------ | :----------------------------- | :---------------------------------------------------------- |
+| setAssignmentStatuses     | `List<DeviceAssignmentStatus>` | Limits search the given list of device assignment statuses. |
+| setDeviceAssignmentTokens | `List<String>`                 | Limits search the given list of areas tokens.               |
+| setAssetTokens            | `List<String>`                 | Limits search the given list of asset tokens.               |
+| setCustomerTokens         | `List<String>`                 | Limits search the given list of customer tokens.            |
+| setDeviceTokens           | `List<String>`                 | Limits search the given list of device tokens.              |
+| setDeviceTypeTokens       | `List<String>`                 | Limits search the given list of device type tokens.         |
+| setPageNumber             | `Integer`                      | Get offset from beginning of dataset.                       |
+| setPageSize               | `Integer`                      | Get number of records per page of data.                     |
 
 Also you can control what information is return in the results by providing an instance of `DeviceAssignmentResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
-| Property                   | Type        | Description                                                    |
-|:---------------------------|:------------|:---------------------------------------------------------------|
-| setIncludeDeviceAssignment | `Boolean`   | Indicates if area is to be returned.                           |
-| setIncludeAsset            | `Boolean`   | Indicates if asset is to be returned.                          |
-| setIncludeCustomer         | `Boolean`   | Indicates if customer is to be returned.                       |
-| setIncludeDevice           | `Boolean`   | Indicates if device is to be returned.                         |
-| setIncludeDeviceType       | `Boolean`   | Indicates if device type is to be returned.                    |
+| Property                   | Type      | Description                                 |
+| :------------------------- | :-------- | :------------------------------------------ |
+| setIncludeDeviceAssignment | `Boolean` | Indicates if area is to be returned.        |
+| setIncludeAsset            | `Boolean` | Indicates if asset is to be returned.       |
+| setIncludeCustomer         | `Boolean` | Indicates if customer is to be returned.    |
+| setIncludeDevice           | `Boolean` | Indicates if device is to be returned.      |
+| setIncludeDeviceType       | `Boolean` | Indicates if device type is to be returned. |
 
 ## Creating an Device Assignment
 
@@ -146,7 +146,7 @@ SearchResults<DeviceAlertWithAsset> alerts = client.listAlertsForDeviceAssignmen
 
 ### Creating an Alert for a Device Assignment
 
-The following example creates an `Alert` of level `error` for a `DeviceAssignment`, 
+The following example creates an `Alert` of level `error` for a `DeviceAssignment`,
 with `type` **engine.overheat**, and `message` **Engine Overheat**.
 
 ```java
@@ -177,7 +177,7 @@ Date startDate = cal.getTime();
 Date endDate = new Date();
 
 DateRangeSearchCriteria searchCriteria = new DateRangeSearchCriteria(1, 100, startDate, endDate);
-SearchResults<DeviceCommandInvocation> commandInvocations = 
+SearchResults<DeviceCommandInvocation> commandInvocations =
   client.listCommandInvocationsForDeviceAssignment(tenantAuthentication, token, searchCriteria);
 ```
 
@@ -213,7 +213,7 @@ String target = "Assignment";
 String initiatorId = "REST";
 String scheduleToken = "de305d54-75b4-431b-adb2-eb6b9e546014";
 
-DeviceCommandInvocationCreateRequest.Builder builder = 
+DeviceCommandInvocationCreateRequest.Builder builder =
   new DeviceCommandInvocationCreateRequest.Builder(commandToken, target);
 DeviceCommandInvocationCreateRequest request = builder.build();
 

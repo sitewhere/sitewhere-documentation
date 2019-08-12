@@ -1,4 +1,4 @@
-# :book: Device State Microservice
+# Device State Microservice
 
 <Seo/>
 

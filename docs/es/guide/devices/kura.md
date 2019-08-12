@@ -1,4 +1,4 @@
-# :book: Programación de Dispositivos con el Kura
+# Programación de Dispositivos con el Kura
 
 <Seo/>
 
@@ -37,4 +37,3 @@ La siguiente tabla muestra los parámentro necesarios para configurar _SiteWhere
 | areaToken       | A token that specifies the `Area` being registered.        |
 | customerToken   | A token that specifies the `Customer` being registered     |
 | deviceTypeToken | A token that specifiies the `Device Type` being registered |
-

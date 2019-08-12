@@ -1,4 +1,4 @@
-# :book: Deployment Guide
+# Deployment Guide
 
 <Seo/>
 

@@ -1,4 +1,4 @@
-# :book: SiteWhere Development Guide
+# SiteWhere Development Guide
 
 <Seo/>
 

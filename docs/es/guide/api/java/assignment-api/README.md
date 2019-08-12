@@ -1,10 +1,10 @@
-# :book: Java API - Device Assignments
+# Java API - Device Assignments
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `assignments` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -31,28 +31,28 @@ SearchResults<MarshaledDeviceAssignment> results = client.listDeviceAssignments(
 El objeto `DeviceAssignmentSearchCriteria` define los criterios de búsqueda para un `DeviceAssignment`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad                 | Type                           | Descripción                                                     |
-|:--------------------------|:-------------------------------|:----------------------------------------------------------------|
-| setAssignmentStatuses     | `List<DeviceAssignmentStatus>` | Limita la búsqueda a la lista de device assignment statuses.    |
-| setDeviceAssignmentTokens | `List<String>`                 | Limita la búsqueda a la lista de areas tokens.                  |
-| setAssetTokens            | `List<String>`                 | Limita la búsqueda a la lista de asset tokens.                  |
-| setCustomerTokens         | `List<String>`                 | Limita la búsqueda a la lista de customer tokens.               |
-| setDeviceTokens           | `List<String>`                 | Limita la búsqueda a la lista de device tokens.                 |
-| setDeviceTypeTokens       | `List<String>`                 | Limita la búsqueda a la lista de device type tokens.            |
-| setPageNumber             | `Integer`                      | Indicar el número de pagina del dataset.                        |
-| setPageSize               | `Integer`                      | Indicar el número de registros por página.                      |
+| Propiedad                 | Type                           | Descripción                                                  |
+| :------------------------ | :----------------------------- | :----------------------------------------------------------- |
+| setAssignmentStatuses     | `List<DeviceAssignmentStatus>` | Limita la búsqueda a la lista de device assignment statuses. |
+| setDeviceAssignmentTokens | `List<String>`                 | Limita la búsqueda a la lista de areas tokens.               |
+| setAssetTokens            | `List<String>`                 | Limita la búsqueda a la lista de asset tokens.               |
+| setCustomerTokens         | `List<String>`                 | Limita la búsqueda a la lista de customer tokens.            |
+| setDeviceTokens           | `List<String>`                 | Limita la búsqueda a la lista de device tokens.              |
+| setDeviceTypeTokens       | `List<String>`                 | Limita la búsqueda a la lista de device type tokens.         |
+| setPageNumber             | `Integer`                      | Indicar el número de pagina del dataset.                     |
+| setPageSize               | `Integer`                      | Indicar el número de registros por página.                   |
 
 Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
 `DeviceAssignmentResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
 el formato del resultado de la respuesta.
 
-| Propiedad                  | Tipo        | Descripción                                                    |
-|:---------------------------|:------------|:---------------------------------------------------------------|
-| setIncludeDeviceAssignment | `Boolean`   | Indicates if area is to be returned.                           |
-| setIncludeAsset            | `Boolean`   | Indicates if asset is to be returned.                          |
-| setIncludeCustomer         | `Boolean`   | Indicates if customer is to be returned.                       |
-| setIncludeDevice           | `Boolean`   | Indicates if device is to be returned.                         |
-| setIncludeDeviceType       | `Boolean`   | Indicates if device type is to be returned.                    |
+| Propiedad                  | Tipo      | Descripción                                 |
+| :------------------------- | :-------- | :------------------------------------------ |
+| setIncludeDeviceAssignment | `Boolean` | Indicates if area is to be returned.        |
+| setIncludeAsset            | `Boolean` | Indicates if asset is to be returned.       |
+| setIncludeCustomer         | `Boolean` | Indicates if customer is to be returned.    |
+| setIncludeDevice           | `Boolean` | Indicates if device is to be returned.      |
+| setIncludeDeviceType       | `Boolean` | Indicates if device type is to be returned. |
 
 ## Creating an Device Assignment
 
@@ -110,7 +110,7 @@ MarshaledDeviceAssignment deletedDeviceAssignment = client.deleteDeviceAssignmen
 
 ### Liberar un Device Assignment
 
-El siguiente ejemplo *livera* la asocación de un **DeviceAssignment** existente.
+El siguiente ejemplo _livera_ la asocación de un **DeviceAssignment** existente.
 
 ```java
 String token = "e2ce4ffe-2d9c-4103-b519-1e07c58a2886"; // GUID for the DeviceAssignment
@@ -118,7 +118,7 @@ MarshaledDeviceAssignment releasedAssignment =
   client.releaseDeviceAssignment(tenantAuthentication, token);
 ```
 
-### Marcar un Device Assignment como *Perdido*
+### Marcar un Device Assignment como _Perdido_
 
 El siguiente ejemplo marca a un **DeviceAssignment** existente como **perdido**.
 

@@ -1,4 +1,4 @@
-# :book: Using SiteWhere Java API
+# Using SiteWhere Java API
 
 <Seo/>
 
@@ -37,13 +37,13 @@ ISiteWhereClient client = SiteWhereClient.newBuilder()
 
 The default settings are:
 
-| Attribute   | Value        |
-|:------------|:-------------|
-| Protocol    | HTTP         |
-| Hostname    | localhost    |
-| Port        | 80           |
-| Username    | admin        |
-| Password    | password     |
+| Attribute | Value     |
+| :-------- | :-------- |
+| Protocol  | HTTP      |
+| Hostname  | localhost |
+| Port      | 80        |
+| Username  | admin     |
+| Password  | password  |
 
 ::: warning
 Since SiteWhere 2.1.x the default `Port` number changed from 8080 to 80.

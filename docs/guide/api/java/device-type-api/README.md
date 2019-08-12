@@ -1,4 +1,4 @@
-# :book: Java API - Device Types
+# Java API - Device Types
 
 <Seo/>
 
@@ -18,8 +18,8 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Searching for Device Types
 
-For searching `Device Types` you need to provide an instance of `DeviceTypeSearchCriteria`  to the method 
-`listDeviceTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
+For searching `Device Types` you need to provide an instance of `DeviceTypeSearchCriteria` to the method
+`listDeviceTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to
 list the first page of 100 results of device types.
 
 ```java
@@ -28,20 +28,20 @@ DeviceTypeResponseFormat responseFormat = new DeviceTypeResponseFormat();
 SearchResults<DeviceType> results = client.listDeviceTypes(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`DeviceTypeSearchCriteria` defines the search criteria for quering `DeviceType`, the following table shows the properties, with 
+`DeviceTypeSearchCriteria` defines the search criteria for quering `DeviceType`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property                     | Type        | Description                                                    |
-|:-----------------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize                  | `Integer`   | Get number of records per page of data.                        |
+| Property      | Type      | Description                             |
+| :------------ | :-------- | :-------------------------------------- |
+| setPageNumber | `Integer` | Get offset from beginning of dataset.   |
+| setPageSize   | `Integer` | Get number of records per page of data. |
 
 Also you can control what information is return in the results by providing an instance of `DeviceTypeResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeAsset        | `Boolean`   | Indicates if asset is included.                                |
+| Property        | Type      | Description                     |
+| :-------------- | :-------- | :------------------------------ |
+| setIncludeAsset | `Boolean` | Indicates if asset is included. |
 
 ## Retrieving an Device Type
 

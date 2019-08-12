@@ -1,4 +1,4 @@
-# :book: Schedule Management Microservice
+# Schedule Management Microservice
 
 <Seo/>
 

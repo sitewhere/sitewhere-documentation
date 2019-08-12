@@ -1,4 +1,4 @@
-# :book: Java API - Users
+# Java API - Users
 
 <Seo/>
 
@@ -37,7 +37,7 @@ User createdUser = client.createUser(createRequest);
 La siguiente tabla muestra las autoridades que se pueden asignar a un usuario.
 
 | Authority                   | Descripción                           |
-|:----------------------------|:--------------------------------------|
+| :-------------------------- | :------------------------------------ |
 | GRP_SERVER                  | Server administration                 |
 | AUTH_VIEW_SERVER_INFO       | View global server information        |
 | GRP_ACCESS                  | Remote access                         |
@@ -53,7 +53,7 @@ La siguiente tabla muestra las autoridades que se pueden asignar a un usuario.
 | AUTH_ADMINISTER_SCHEDULES   | Administer schedules                  |
 | AUTH_SCHEDULE_COMMANDS      | Schedule batch or individial commands |
 
-## Actualizar un  User
+## Actualizar un User
 
 El siguiente ejemplo muestra cómo actualizar un `user`.
 

@@ -1,10 +1,10 @@
-# :book: Java API - Customer Types
+# Java API - Customer Types
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `customertypes` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -31,18 +31,18 @@ SearchResults<CustomerType> results = client.listCustomerTypes(tenantAuthenticat
 El objeto `CustomerTypeSearchCriteria` define los criterios de búsqueda para un `CustomerType`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad                    | Tipo        | Descripción                                                    |
-|:-----------------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber                | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize                  | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad     | Tipo      | Descripción                                |
+| :------------ | :-------- | :----------------------------------------- |
+| setPageNumber | `Integer` | Indicar el número de pagina del dataset.   |
+| setPageSize   | `Integer` | Indicar el número de registros por página. |
 
 Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
 `CustomerTypeResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
 el formato del resultado de la respuesta.
 
-| Propiedad                        | Tipo        | Descripción                                                    |
-|:---------------------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContainedCustomerTypes | `Boolean`   | Indica si los CustomerType contenidos deben ser devueltos.     |
+| Propiedad                        | Tipo      | Descripción                                                |
+| :------------------------------- | :-------- | :--------------------------------------------------------- |
+| setIncludeContainedCustomerTypes | `Boolean` | Indica si los CustomerType contenidos deben ser devueltos. |
 
 ## Obtener un Customer Type
 

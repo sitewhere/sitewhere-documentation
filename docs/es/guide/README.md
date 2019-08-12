@@ -1,4 +1,4 @@
-# :book: Guía de Usuario de SiteWhere
+# Guía de Usuario de SiteWhere
 
 <Seo/>
 

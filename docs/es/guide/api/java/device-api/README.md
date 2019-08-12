@@ -1,10 +1,10 @@
-# :book: Java API - Devices
+# Java API - Devices
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `devices` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -31,23 +31,23 @@ SearchResults<Device> results = client.listDevices(tenantAuthentication, searchC
 El objeto `DeviceSearchCriteria` define los criterios de búsqueda para un `Device`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad                    | Tipo        | Descripción                                                    |
-|:-----------------------------|:------------|:---------------------------------------------------------------|
-| setDeviceTypeToken           | `String`    | Filtrar por Device Type.                                       |
-| setExcludeAssigned           | `boolean`   | Indica si los dispositivos asignados deben ser excluidos.      |
-| setStartDate                 | `Date`      | Fecha de inicio del rango.                                     |
-| setEndDate                   | `Date`      | Fecha de fin del range.                                        |
-| setPageNumber                | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize                  | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad          | Tipo      | Descripción                                               |
+| :----------------- | :-------- | :-------------------------------------------------------- |
+| setDeviceTypeToken | `String`  | Filtrar por Device Type.                                  |
+| setExcludeAssigned | `boolean` | Indica si los dispositivos asignados deben ser excluidos. |
+| setStartDate       | `Date`    | Fecha de inicio del rango.                                |
+| setEndDate         | `Date`    | Fecha de fin del range.                                   |
+| setPageNumber      | `Integer` | Indicar el número de pagina del dataset.                  |
+| setPageSize        | `Integer` | Indicar el número de registros por página.                |
 
 Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
 `DeviceResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
 el formato del resultado de la respuesta.
 
-| Propiedad              | Tipo        | Descripción                                                       |
-|:-----------------------|:------------|:------------------------------------------------------------------|
-| setIncludeDeviceType   | `Boolean`   | Indica si la información de los Device Type deben ser incluidos.  |
-| setIncludeAssignment   | `Boolean`   | Indica si la información de las asignaciones deben ser incluidas. |
+| Propiedad            | Tipo      | Descripción                                                       |
+| :------------------- | :-------- | :---------------------------------------------------------------- |
+| setIncludeDeviceType | `Boolean` | Indica si la información de los Device Type deben ser incluidos.  |
+| setIncludeAssignment | `Boolean` | Indica si la información de las asignaciones deben ser incluidas. |
 
 ## Obtener un Device
 

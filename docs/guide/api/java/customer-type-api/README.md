@@ -1,4 +1,4 @@
-# :book: Java API - Customer Types
+# Java API - Customer Types
 
 <Seo/>
 
@@ -18,8 +18,8 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 
 ## Searching for Customer Types
 
-For searching `Customer Types` you need to provide an instance of `CustomerTypeSearchCriteria`  to the method 
-`listCustomerTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to 
+For searching `Customer Types` you need to provide an instance of `CustomerTypeSearchCriteria` to the method
+`listCustomerTypes` of `com.sitewhere.spi.ISiteWhereClient`. The example below shows how you can query SiteWhere REST API to
 list the first page of 100 results of customer types.
 
 ```java
@@ -28,20 +28,20 @@ CustomerTypeResponseFormat responseFormat = new CustomerTypeResponseFormat();
 SearchResults<CustomerType> results = client.listCustomerTypes(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`CustomerTypeSearchCriteria` defines the search criteria for quering `CustomerType`, the following table shows the properties, with 
+`CustomerTypeSearchCriteria` defines the search criteria for quering `CustomerType`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property                     | Type        | Description                                                    |
-|:-----------------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber                | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize                  | `Integer`   | Get number of records per page of data.                        |
+| Property      | Type      | Description                             |
+| :------------ | :-------- | :-------------------------------------- |
+| setPageNumber | `Integer` | Get offset from beginning of dataset.   |
+| setPageSize   | `Integer` | Get number of records per page of data. |
 
 Also you can control what information is return in the results by providing an instance of `CustomerTypeResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
-| Property                         | Type        | Description                                                    |
-|:---------------------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContainedCustomerTypes | `Boolean`   | Indicates if contained customer types are to be returned.      |
+| Property                         | Type      | Description                                               |
+| :------------------------------- | :-------- | :-------------------------------------------------------- |
+| setIncludeContainedCustomerTypes | `Boolean` | Indicates if contained customer types are to be returned. |
 
 ## Creating an Customer Type
 

@@ -1,10 +1,10 @@
-# :book: Java API - Schedules
+# Java API - Schedules
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `schedules` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -31,10 +31,10 @@ SearchResults<Schedule> results = client.listSchedules(tenantAuthentication, sea
 `ScheduleSearchCriteria` defines the search criteria for quering `Schedule`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad     | Tipo      | Descripción                                |
+| :------------ | :-------- | :----------------------------------------- |
+| setPageNumber | `Integer` | Indicar el número de pagina del dataset.   |
+| setPageSize   | `Integer` | Indicar el número de registros por página. |
 
 ## Obtener un Schedule
 

@@ -1,4 +1,4 @@
-# :book: Usando la API Java de SiteWhere
+# Usando la API Java de SiteWhere
 
 <Seo/>
 
@@ -37,20 +37,20 @@ ISiteWhereClient client = SiteWhereClient.newBuilder()
 
 La configuración por defecto es:
 
-| Attribute   | Value        |
-|:------------|:-------------|
-| Protocol    | HTTP         |
-| Hostname    | localhost    |
-| Port        | 80           |
-| Username    | admin        |
-| Password    | password     |
+| Attribute | Value     |
+| :-------- | :-------- |
+| Protocol  | HTTP      |
+| Hostname  | localhost |
+| Port      | 80        |
+| Username  | admin     |
+| Password  | password  |
 
 ::: warning
 Desde SiteWhere 2.1.x el `Port` por defecto ha cambiado de 8080 a 80.
 :::
 
 Note que el método `initialize()` debe ser llamado antes de utilizar el cliente. Éste configura
-los templates y se conecta al servidor para obtener un *JWT*.
+los templates y se conecta al servidor para obtener un _JWT_.
 
 Para cambiar los valores por defecto de la conexión, utilice:
 

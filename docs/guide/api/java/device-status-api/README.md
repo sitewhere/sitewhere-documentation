@@ -1,4 +1,4 @@
-# :book: Java API - Device Statues
+# Java API - Device Statues
 
 <Seo/>
 
@@ -27,15 +27,15 @@ DeviceStatusSearchCriteria searchCriteria = new DeviceStatusSearchCriteria(1, 10
 SearchResults<DeviceStatus> results = client.listDeviceStatuss(tenantAuthentication, searchCriteria);
 ```
 
-`DeviceStatusSearchCriteria` defines the search criteria for quering `DeviceStatus`, the following table shows the properties, with 
+`DeviceStatusSearchCriteria` defines the search criteria for quering `DeviceStatus`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| getDeviceTypeToken     | `String`    | Limit results by device type token.                            |
-| getCode                | `String`    | Limit results by code.                                         |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| Property           | Type      | Description                             |
+| :----------------- | :-------- | :-------------------------------------- |
+| getDeviceTypeToken | `String`  | Limit results by device type token.     |
+| getCode            | `String`  | Limit results by code.                  |
+| setPageNumber      | `Integer` | Get offset from beginning of dataset.   |
+| setPageSize        | `Integer` | Get number of records per page of data. |
 
 ## Retrieving an Device Status
 

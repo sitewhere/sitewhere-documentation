@@ -1,4 +1,4 @@
-# :book: Java API - Scheduled Jobs
+# Java API - Scheduled Jobs
 
 <Seo/>
 
@@ -19,7 +19,7 @@ ITenantAuthentication tenantAuthentication = SiteWhereClient.forTenant("token", 
 ## Searching for Scheduled Jobs
 
 For searching `ScheduledJob` you need to provide an instance of `ScheduledJobSearchCriteria` and
-an instance of `ScheduledJobResponseFormat` to the method  `listScheduledJobs` of `com.sitewhere.spi.ISiteWhereClient`.
+an instance of `ScheduledJobResponseFormat` to the method `listScheduledJobs` of `com.sitewhere.spi.ISiteWhereClient`.
 The example below shows how you can query SiteWhere REST API to list the first page of 100 results of device groups.
 
 ```java
@@ -28,20 +28,20 @@ ScheduledJobResponseFormat responseFormat = new ScheduledJobResponseFormat();
 SearchResults<ScheduledJob> results = client.listScheduledJobs(tenantAuthentication, searchCriteria, responseFormat);
 ```
 
-`ScheduledJobSearchCriteria` defines the search criteria for quering `ScheduledJob`, the following table shows the properties, with 
+`ScheduledJobSearchCriteria` defines the search criteria for quering `ScheduledJob`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| Property      | Type      | Description                             |
+| :------------ | :-------- | :-------------------------------------- |
+| setPageNumber | `Integer` | Get offset from beginning of dataset.   |
+| setPageSize   | `Integer` | Get number of records per page of data. |
 
 Also you can control what information is return in the results by providing an instance of `ScheduledJobResponseFormat`.
 The following table shows the properties that can be set to control the result format of the response.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeContext      | `Boolean`   | Indicates if context is to be included in the response.        |
+| Property          | Type      | Description                                             |
+| :---------------- | :-------- | :------------------------------------------------------ |
+| setIncludeContext | `Boolean` | Indicates if context is to be included in the response. |
 
 ## Retrieving an Scheduled Job
 

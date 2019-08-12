@@ -1,4 +1,4 @@
-# :book: Java API - Command Invocations
+# Java API - Command Invocations
 
 <Seo/>
 

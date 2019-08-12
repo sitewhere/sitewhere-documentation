@@ -1,10 +1,10 @@
-# :book: Java API - Areas
+# Java API - Areas
 
 <Seo/>
 
 Esta sección contiene la documentación y ejemplos del end point `areas` de la API de Java de SiteWhere.
 
-Este ejemplo asume que usted obtiene su autenticación del *tenant* ya sea por
+Este ejemplo asume que usted obtiene su autenticación del _tenant_ ya sea por
 
 ```java
 ITenantAuthentication tenantAuthentication = SiteWhereClient.defaultTenant();
@@ -31,23 +31,23 @@ SearchResults<Area> results = client.listAreas(tenantAuthentication, searchCrite
 El objeto `AreaSearchCriteria` define los criterios de búsqueda para un `Area`, la siguiente tabla
 muestra las propiedades, con su tipo y desdcripción, que pueden ser usadas para filtar los resultados.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setRootOnly            | `Boolean`   | Indica si sólo los elementos de la raiz debe ser devueltos.    |
-| setAreaTypeToken       | `String`    | Sólo coincidir con un tipo de area dado.                       |
-| setParentAreaToken     | `String`    | Sólo coincidir con un área padre dado.                         |
-| setPageNumber          | `Integer`   | Indicar el número de pagina del dataset.                       |
-| setPageSize            | `Integer`   | Indicar el número de registros por página.                     |
+| Propiedad          | Tipo      | Descripción                                                 |
+| :----------------- | :-------- | :---------------------------------------------------------- |
+| setRootOnly        | `Boolean` | Indica si sólo los elementos de la raiz debe ser devueltos. |
+| setAreaTypeToken   | `String`  | Sólo coincidir con un tipo de area dado.                    |
+| setParentAreaToken | `String`  | Sólo coincidir con un área padre dado.                      |
+| setPageNumber      | `Integer` | Indicar el número de pagina del dataset.                    |
+| setPageSize        | `Integer` | Indicar el número de registros por página.                  |
 
 Además se puede controlar que información es retornada en los resultados proveyendo una instancia de
 `AreaResponseFormat`. La siguiente tabla muestra las propiedades que pueden ser establecidas para controlar
 el formato del resultado de la respuesta.
 
-| Propiedad              | Tipo        | Descripción                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setIncludeAreaType     | `Boolean`   | Indica si los AreaTypes se incluyen en el resultado.           |
-| setIncludeAssignments  | `Boolean`   | Indica si los Assignments se incluyen en el resultado.         |
-| setIncludeZones        | `Boolean`   | Indica si las Zonas se incluyen en el resultado.               |
+| Propiedad             | Tipo      | Descripción                                            |
+| :-------------------- | :-------- | :----------------------------------------------------- |
+| setIncludeAreaType    | `Boolean` | Indica si los AreaTypes se incluyen en el resultado.   |
+| setIncludeAssignments | `Boolean` | Indica si los Assignments se incluyen en el resultado. |
+| setIncludeZones       | `Boolean` | Indica si las Zonas se incluyen en el resultado.       |
 
 ## Obtener un Area
 

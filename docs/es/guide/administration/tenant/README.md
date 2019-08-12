@@ -1,4 +1,4 @@
-# :book: Tenant Configuration
+# Tenant Configuration
 
 This guide covers administration of tenant-specific features.
 

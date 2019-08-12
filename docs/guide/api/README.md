@@ -1,4 +1,4 @@
-# :book: API Guide
+# API Guide
 
 <Seo/>
 

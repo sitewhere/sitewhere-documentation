@@ -1,4 +1,4 @@
-# :book: Architecture Guide
+# Architecture Guide
 
 <Seo/>
 
@@ -10,7 +10,7 @@ it does provide a basis for grasping how various parts of the system interact.
 For information about the functionality provided by the individual microservices
 and how to configure them, see the [microservice guides](../microservices/).
 
-## :book: Configuration Management
+## Configuration Management
 
 SiteWhere provides an externalized and highly-available configuration management
 subsystem based on [Apache Zookeeper](https://zookeeper.apache.org/). Microservices

@@ -1,4 +1,4 @@
-# :book: Java API - Zones
+# Java API - Zones
 
 <Seo/>
 
@@ -27,14 +27,14 @@ ZoneSearchCriteria searchCriteria = new ZoneSearchCriteria(1, 100);
 SearchResults<Zone> results = client.listZones(tenantAuthentication, searchCriteria);
 ```
 
-`ZoneSearchCriteria` defines the search criteria for quering `Zone`, the following table shows the properties, with 
+`ZoneSearchCriteria` defines the search criteria for quering `Zone`, the following table shows the properties, with
 thier type and description, that can be set to filter the results.
 
-| Property               | Type        | Description                                                    |
-|:-----------------------|:------------|:---------------------------------------------------------------|
-| setAreaToken           | `String`    | Filter by the area zone belongs to.                            |
-| setPageNumber          | `Integer`   | Get offset from beginning of dataset.                          |
-| setPageSize            | `Integer`   | Get number of records per page of data.                        |
+| Property      | Type      | Description                             |
+| :------------ | :-------- | :-------------------------------------- |
+| setAreaToken  | `String`  | Filter by the area zone belongs to.     |
+| setPageNumber | `Integer` | Get offset from beginning of dataset.   |
+| setPageSize   | `Integer` | Get number of records per page of data. |
 
 ## Retrieving an Zone
 

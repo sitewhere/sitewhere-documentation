@@ -1,4 +1,4 @@
-# :book: Global Configuration
+# Global Configuration
 
 This guide covers administration of global features associated with a SiteWhere
 instance.
