@@ -51,8 +51,6 @@ which allows SiteWhere instances to be easily administered from the convenience
 of a desktop application. Use one of the available Helm
 [charts](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts)
 to bootstrap a SiteWhere instance on Kubernetes, then point the administrative application
-to the instance to manage it. The new administrative application supports all of
-the new SiteWhere 2.0 features and offers automated updates to streamline the
-development process.
+to the instance to manage it.
 
 <InlineImage src="/images/platform/login.png" caption="Admnistrative Interface"/>

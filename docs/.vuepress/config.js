@@ -45,8 +45,10 @@ module.exports = {
       "/platform/": [
         "",
         "architecture",
-        "objectmodel",
-        "features",
+        "object-model",
+        "device-management",
+        "asset-management",
+        "event-management",
         "microservice-overview",
         "twelve-factor"
       ],
@@ -80,13 +82,8 @@ module.exports = {
         "scheduled-job-api/",
         "zone-api/"
       ],
-      "/guide/api/javascript/": [
-        "",
-      ],
-      "/guide/api/": [
-        "java/",
-        "javascript/"
-      ],
+      "/guide/api/javascript/": [""],
+      "/guide/api/": ["java/", "javascript/"],
       "/guide/microservices/": [
         "asset-management/",
         "batch-operations/",
@@ -135,9 +132,7 @@ module.exports = {
                 text: "Architecture Guide",
                 link: "/guide/architecture/"
               },
-              { text: "Deployment Guide", 
-                link: "/guide/deployment/"
-              },
+              { text: "Deployment Guide", link: "/guide/deployment/" },
               {
                 text: "System Administration Guide",
                 link: "/guide/administration/"
@@ -167,15 +162,17 @@ module.exports = {
         nav: [
           { text: "Plataforma", link: "/es/platform/" },
           { text: "Instalación", link: "/es/deployment/" },
-          { text: "Guías del usuario", 
+          {
+            text: "Guías del usuario",
             items: [
               {
                 text: "Guía de Arquitectura",
                 link: "/es/guide/architecture/"
               },
               {
-                text: "Guía de Despliegue", 
-                link: "/es/guide/deployment/" },
+                text: "Guía de Despliegue",
+                link: "/es/guide/deployment/"
+              },
               {
                 text: "Guía de Administración del Sistema",
                 link: "/es/guide/administration/"
@@ -208,7 +205,7 @@ module.exports = {
           "/es/guide/architecture/": ["configuration-management"],
           "/es/guide/deployment/": ["", "common-issues", "backup-restore"],
           "/es/guide/administration/": ["", "global/", "tenant/"],
-          "/es/guide/devices/": ["sending-data", "android", "kura",],
+          "/es/guide/devices/": ["sending-data", "android", "kura"],
           "/es/guide/api/java/": [
             "",
             "system-api/",
@@ -235,13 +232,8 @@ module.exports = {
             "scheduled-job-api/",
             "zone-api/"
           ],
-          "/es/guide/api/javascript/": [
-            "",
-          ],
-          "/es/guide/api/": [
-            "java/",
-            "javascript/"
-          ],
+          "/es/guide/api/javascript/": [""],
+          "/es/guide/api/": ["java/", "javascript/"],
           "/es/guide/microservices/": [
             "asset-management",
             "batch-operations",

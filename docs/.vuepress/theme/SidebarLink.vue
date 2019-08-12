@@ -88,9 +88,9 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
 @import './styles/config.styl';
 
 .sidebar .sidebar-sub-headers {
-  padding-top: 0.5rem;
-  padding-bottom: 0.6rem;
-  padding-left: 1.5rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.7rem;
+  padding-left: 1.6rem;
   font-size: 0.93em;
   line-height: 2.2;
 }
@@ -111,7 +111,7 @@ a.sidebar-link {
 
   &.active {
     font-weight: 600;
-    color: #333;
+    color: #555;
     border-left-color: $accentColor;
   }
 
