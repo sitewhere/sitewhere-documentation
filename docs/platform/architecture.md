@@ -52,13 +52,28 @@ technologies such as Apache Zookeeper and Kafka, highly available databases such
 as MongoDB, InfluxDB, and Cassandra, and other supporting technologies
 such as MQTT brokers.
 
-## Instance Management
+## Core Technologies
 
-SiteWhere supports the concept of an _instance_, which allows the distributed system
-to act as a cohesive unit with some aspects addressed at the global level. All of the
-microservices for a single SiteWhere instance must be running on the same Kubernetes
-infrastucture, though the system may be spread across tens or hundreds of machines
-to distribute the processing load.
+When deploying SiteWhere, the combination of the infrastructure required to
+run the system and the microservices that handle the processing are referred
+to as a SiteWhere _instance_. The assumption is that all infrastructure and
+microservices for an instance run on the same Kubernetes cluster, though the
+system may be spread across tens or hundreds of machines to distribute the processing
+load.
+
+Rather than reinventing the wheel, SiteWhere uses a number of proven technologies
+as part of the infrastructure for its microservice architecture. The following
+technologies address cross-cutting concerns which are common to all of the
+system microservices.
+
+### Service Mesh with Istio
+
+SiteWhere leverages [Istio](https://istio.io/) to provide a service mesh for
+the system microservices. This allows the platform to be scaled dynamically while
+also providing a great deal of control over how data is routed. Istio allows
+modern methods such as canary testing and fault injection to be used to
+provide a more robust and fault-tolerant system. It also allows for detailed
+monitoring and tracing of the data flowing between microservices.
 
 ### Centralized Configuration Management with Apache ZooKeeper
 
@@ -76,9 +91,12 @@ keeping services in sync as system configuration is updated.
 
 ### Distributed Storage with Rook.io
 
-Since many of the system components such as Zookeeper, Kafka, and various
-databases require access to persistent storage, SiteWhere uses
-[Rook.io](https://rook.io/) within Kubernetes to supply distributed,
+Many system components such as Zookeeper, Kafka, and various
+databases require access to persistent storage which is available to all
+nodes in the Kubernetes cluster. This provides resilience in cases where
+a Kubernetes node fails and pods are scheduled on other nodes to restore
+the system to a running state. SiteWhere uses [Rook.io](https://rook.io/)
+to provide a consistent approach to scalable storage. Rook supplies distributed,
 replicated block storage that is resilient to hardware failures while
 still offering good performance characteristics. As storage and throughput
 needs increase over time, new storage devices can be made available
@@ -88,12 +106,19 @@ to be resilient to failures at the node, rack, or even datacenter level.
 
 ## Event Data Processing Pipeline
 
-The event processing pipeline in SiteWhere uses [Apache Kafka](https://kafka.apache.org/)
-to provide a resilient, high-performance mechanism for progressively processing device
-event data. Microservices can plug in to key points in the event processing pipeline,
-reading data from well-known inbound topics, processing data, then sending data to well-known
-outbound topics. External entites that are interested in data at any point in the pipeline
-can act as consumers of the SiteWhere topics to use the data as it moves through the system.
+SiteWhere coordinates device event processing by arranging microservices into
+a pipeline with each microservice managing a specific stage of the process.
+This approach allows events to be processed incrementally while also allowing
+the processing load to be spread across hardware and scaled at a more fine-grained level.
+
+The event processing pipeline uses [Apache Kafka](https://kafka.apache.org/)
+to provide a resilient, high-performance mechanism for moving device event data
+between the microservices that make up the pipeline. Microservices plug in
+at key points in the event processing pipeline, reading data from well-known inbound
+topics, processing data, then sending data to well-known outbound topics.
+External entites that are interested in data at any point in the pipeline
+can act as consumers of the SiteWhere topics to consume the data as it moves
+through the system.
 
 ### Fully Asynchronous Pipeline Processing
 
@@ -121,7 +146,7 @@ services.
 
 ### Using gRPC for a Performance Boost
 
-Rather than solely using REST services based on HTTP 1.x, which tend to have significant
+Rather than using REST services based on HTTP 1.x, which tend to have significant
 connection overhead, SiteWhere uses [gRPC](https://grpc.io/) to establish a long-lived
 connection between microservices that need to communicate with each other. Since gRPC uses
 persistent HTTP2 connections, the overhead for interactions is greatly reduced, allowing
@@ -155,7 +180,7 @@ data is separated from the data of other tenants. Most platforms that offer mult
 store data for all tenants in shared tables, differentiated only by a tenant id. The shared
 approach opens up the possibility of one tenant's data corrupting another, which is not
 an acceptable risk in many IoT deployments. In addition, each tenant has its own processing
-pipelines, so in-flight data is never co-mingled either.
+pipelines, so in-flight data is never co-mingled.
 
 Having dedicated resources for tenants can be expensive in terms of memory and processing
 resources, so SiteWhere also offers the concept of _customers_ within each tenant. Customers
