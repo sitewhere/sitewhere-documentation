@@ -8,6 +8,8 @@ of SiteWhere were deployed as a single server node, the SiteWhere 2.1
 architecture is based on many microservices which are deployed into a
 [Kubernetes](https://https://kubernetes.io) infrastructure.
 
+<InlineImage src="/images/deployment/deployment.png" caption="SiteWhere Deployment Diagram"/>
+
 ## System Requirements
 
 Because SiteWhere 2.1 uses a microservices architecture, the number of
