@@ -83,6 +83,12 @@ In order to deploy SiteWhere, Helm needs to be installed. Follow
 [these](https://docs.helm.sh/using_helm/#installing-helm) instructions to install
 Helm in your environment.
 
+::: warning
+SiteWhere does not currently support Helm 3 since it has not been officially released
+and there are significant changes to the architecture and CLI commands. All instructions
+related to Helm assume that a 2.x version is being used.
+:::
+
 ## Install Istio
 
 SiteWhere 2.1 requeries [Istio](https://istio.io/), with
