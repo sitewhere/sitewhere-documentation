@@ -64,8 +64,75 @@ from the Docker team.
 to run a single-node Kubernetes cluster inside a virtual machine. Environments supported
 include [VirtualBox](https://www.virtualbox.org/),
 [VMware Fusion](https://www.vmware.com/products/fusion.html)
-and many others. For complete instuctions on installing/deploying Minikube
+and many others. For complete instructions on installing/deploying Minikube
 see their [setup guide](https://kubernetes.io/docs/setup/minikube/).
+
+If a Kubernetes cluster is installed on bare metal or on virtual machines, it’s missing an external 
+load balancer. It’s a cloud network load balancer that comes with platforms such as Azure or GCM, 
+that provides an externally-accessible IP address that sends traffic to the correct port on your cluster nodes. 
+[MetalLB](https://metallb.universe.tf/) is a load balancer designed to run on and to work with Kubernetes 
+and it will allow you to use the type LoadBalancer when you declare a service.
+
+###### Install MetalLB on Minikube
+MetalLB runs in two parts: a cluster-wide controller, and a per-machine protocol speaker. Install MetalLB by 
+applying the manifest:
+
+```bash
+$ kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.7.3/manifests/metallb.yaml
+```
+This manifest creates a bunch of resources. Most of them are related to access control, so that MetalLB can 
+read and write the Kubernetes objects it needs to do its job.
+
+The two pieces of interest are the **“controller”** deployment, and the **“speaker”** DaemonSet. By monitoring:
+
+```bash
+$ kubectl get pods -n metallb-system
+```
+similar output should appear:
+
+```bash
+NAME                          READY     STATUS    RESTARTS   AGE
+controller-7fbd769fcc-58fm8   1/1       Running   0          50m
+speaker-rctgd                 1/1       Running   0          50m
+```
+For complete instructions on installing MetalLB see their [MetalLB installation](https://metallb.universe.tf/installation/).
+
+**Apply ConfigMap**
+
+MetalLB’s configuration is a standard Kubernetes ConfigMap, config under the metallb-system namespace. It contains two pieces 
+of information: what IP addresses it’s allowed to hand out and which protocol to use for such task.
+In this configuration MetalLB is instructed to hand out address from the 192.168.99.100/28 range, using layer 2 mode (protocol: layer2).   
+In local development, Minikube IP address is used as the start of the range. 
+To get Minikube IP address use:
+
+```bash
+$ minikube ip
+```
+
+Result example:
+
+```bash
+192.168.99.100
+```
+
+Apply this configuration:
+
+```bash
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: custom-ip-space
+      protocol: layer2
+      addresses:
+      - 192.168.99.100/28
+```
+
+For complete instructions on configuration MetalLB see their [MetalLB configuration](https://metallb.universe.tf/configuration/).
 
 #### More Options
 
