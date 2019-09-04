@@ -73,7 +73,7 @@ that provides an externally-accessible IP address that sends traffic to the corr
 [MetalLB](https://metallb.universe.tf/) is a load balancer designed to run on and to work with Kubernetes 
 and it will allow you to use the type LoadBalancer when you declare a service.
 
-###### Install MetalLB on Minikube
+**Install MetalLB on Minikube**  
 MetalLB runs in two parts: a cluster-wide controller, and a per-machine protocol speaker. Install MetalLB by 
 applying the manifest:
 
@@ -138,6 +138,25 @@ For complete instructions on configuration MetalLB see their [MetalLB configurat
 
 For a complete list of other options for deploying Kubernetes, see the
 [Kubernetes Setup Guide](https://kubernetes.io/docs/setup/).
+
+**Install local docker images in minikube**  
+
+Steps  requiered to install locally generated images when minikube is used:
+
+```bash
+# Start minikube
+minikube start
+
+# Set docker env
+eval $(minikube docker-env)
+
+# Create docker image.
+./gradlew dockerImage
+
+# Install images with helm, where tag is de tag of the image.
+helm install --name sitewhere --set services.image.tag=2.1.0 sitewhere/sitewhere
+```
+
 
 ## Install Helm
 
