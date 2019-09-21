@@ -43,7 +43,7 @@ To install SiteWhere debug image set `services.debug` to `true`. For example, to
 SiteWhere _default_ profile debug images use the following command:
 
 ```bash
-helm install --name sitewhere --set services.debug=true ./sitewhere
+helm install --name sitewhere --set services.image.tag=2.1.0 --set services.debug=true ./sitewhere
 ```
 
 ## Connecting the debugger to SiteWhere
