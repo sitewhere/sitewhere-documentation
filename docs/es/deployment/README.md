@@ -206,7 +206,6 @@ and made available for use by SiteWhere.
 kubectl create -f rook/common.yaml
 kubectl create -f rook/operator.yaml
 kubectl create -f rook/cluster.yaml
-kubectl create -f rook/storageclass.yaml
 ```
 
 Note that the Rook components allow persistent information such as databases
