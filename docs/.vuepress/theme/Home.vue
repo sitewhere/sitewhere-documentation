@@ -40,7 +40,7 @@
     <Content custom/>
 
     <div  class="footer" >
-      Copyright &copy; 2018 <strong>SiteWhere LLC</strong>
+      Copyright &copy; 2020 <strong>SiteWhere LLC</strong>
     </div>
   </div>
 </template>
