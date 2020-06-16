@@ -6,3 +6,5 @@
 **/*py.class
 /.settings/
 /bin/
+.classpath
+.project
