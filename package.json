@@ -32,6 +32,8 @@
   "dependencies": {
     "acorn": "^5.7.4",
     "redoc": "^2.0.0-rc.30",
-    "roboto-fontface": "^0.10.0"
+    "roboto-fontface": "^0.10.0",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   }
 }
