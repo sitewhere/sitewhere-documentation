@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Operations that allow remote clients to interact with the core SiteWhere data model.",
-    "version": "2.0.rc2",
+    "version": "2.1.1",
     "title": "SiteWhere REST APIs",
     "termsOfService": "http://www.sitewhere.com",
     "license": {
