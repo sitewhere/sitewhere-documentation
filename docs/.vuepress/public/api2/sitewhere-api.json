@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Operations that allow remote clients to interact with the core SiteWhere data model.\n\n# Run in Postman\n\n [Run in Postman](https://app.getpostman.com/run-collection/78d8f4507adfab6ed0d8) ",
+    "description": "Operations that allow remote clients to interact with the core SiteWhere data model.\n\n# Run in Postman\nTo import this collection in Postman clic the following button\n\n [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/78d8f4507adfab6ed0d8) ",
     "version": "2.1.1",
     "title": "SiteWhere REST APIs",
     "termsOfService": "http://www.sitewhere.com",
