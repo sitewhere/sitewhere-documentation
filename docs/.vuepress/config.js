@@ -81,7 +81,8 @@ module.exports = {
             "",
             "zookeeper-configuration",
             "kafka-configuration",
-            "microservices/instance-management"
+            "microservices/instance-management",
+            "postman-configuration"
           ],
           "/es/deployment/": [""],
           "/es/development/": [""]
