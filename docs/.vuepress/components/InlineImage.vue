@@ -1,6 +1,6 @@
 <template>
   <a class="inline-image" :href="$withBase(src)">
-    <img :src="$withBase(src)" alt="" :title="caption" />
+    <img :src="$withBase(src)" alt :title="caption" />
   </a>
 </template>
 
@@ -45,6 +45,7 @@ export default {
   -ms-transition: -ms-transform 0.15s ease;
   transition: transform 0.15s ease;
   position: relative;
+  margin: 1rem 0;
 }
 
 @import "~simplelightbox/dist/simplelightbox.css";

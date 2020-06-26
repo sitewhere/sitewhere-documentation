@@ -1,4 +1,6 @@
-# Guia de Desarrollo de SiteWhere
+# Guía de Desarrollo de SiteWhere
+
+<Seo/>
 
 Esta guía proporciona información destinada a desarrolladores interesados
 en la construcción de componentes SiteWhere a partir del código fuente. Proporciona detalles
@@ -19,13 +21,13 @@ aspectos del ecosistema de desarrollo.
 
 El código fuente registrado en la rama _master_ siempre es de la
 última versión lanzada de SiteWhere. Cada versión está etiquetada y puede ser
-accedido descargando un archivo de la 
+accedido descargando un archivo de la
 [página de releases](https://github.com/sitewhere/sitewhere/releases) o
 clonando el repositorio y accediendo a la rama correspondiente al release.
 La rama para la próxima versión de SiteWhere 2.0 está disponible
 en la siguiete ubicación:
 
-[SiteWhere Branch 2.0.RC2](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.rc1)
+[SiteWhere Branch 2.1.0](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.1.0)
 
 La nueva funcionalidad siempre se desarrolla en una rama separada y es
 finalmente se fusionó con _master_ como parte del ciclo de publicación.
@@ -42,10 +44,10 @@ Con un cliente de Git instalado, comience por clonar el repositorio central de S
 Si usa el cliente de línea de comando, puede ejecutar los siguientes
 comandos para clonar el repositorio y cambiar a la rama actual:
 
-```sh
+```bash
 git clone https://github.com/sitewhere/sitewhere.git
 cd sitewhere
-git checkout --force sitewhere-2.0.rc2
+git checkout --force sitewhere-2.1.0
 ```
 
 El resultado de los comandos debería ser similar al siguiente resultado:
@@ -84,7 +86,7 @@ abajo:
 
 <InlineImage src="/images/development/docker-engine-version.png" caption="Versión del motor Docker" />
 
-Configure Docker Daemon para escuchar en el puerto TCP 2375. Este es el puerto predeterminado de la  API,
+Configure Docker Daemon para escuchar en el puerto TCP 2375. Este es el puerto predeterminado de la API,
 pero la mayoría de las instalaciones no habilitan el puerto por defecto. Un ejemplo de
 actualización necesaria para Ubuntu 16.04 se puede encontrar
 [aquí](https://www.ivankrizsan.se/2016/05/18/enabling-docker-remote-api-on-ubuntu-16-04/).
@@ -103,13 +105,16 @@ dockerProtocol=tcp
 dockerHostname=192.168.171.100
 dockerPort=2375
 dockerRepository=docker.io
+registryUsername=(your docker username)
+registryPassword=(your docker password)
+registryEmail=(your docker email address)
 ```
 
 SiteWhere incluye los artefactos de Gradle [Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html),
 por lo que no es necesario instalar Gradle de forma independiente. Para construir toda las bibliotecas núcleo,
 empaquetar los microservicios en imágenes Docker e introducirlos en su repositorio, ejecute el siguiente comando:
 
-```sh
+```bash
 gradlew clean dockerImage
 ```
 
@@ -127,7 +132,7 @@ Además de las imágenes standar de microservicio, la construcción de Gradle se
 para generar imágenes de depuración que exponen un puerto para la depuración remota de Java. Para poder
 generar imágenes de depuración, ejecute el siguiente comando:
 
-```sh
+```bash
 gradlew clean dockerImage -Pdebug
 ```
 
@@ -140,5 +145,5 @@ a un puerto diferente. El uso de las imágenes de depuración le permite conecta
 ## Próximos pasos
 
 Ahora que las imágenes de Docker se han generado para los microservicios, siga los pasos en la
-guía de implementación para usar las recetas de SiteWhere que ensamblan los microservicios en una instancia en 
+guía de implementación para usar las recetas de SiteWhere que ensamblan los microservicios en una instancia en
 funcionamiento.

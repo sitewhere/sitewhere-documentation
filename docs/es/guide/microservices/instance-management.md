@@ -1,5 +1,7 @@
 # Microservicio Instance Management
 
+<Seo/>
+
 El microservicio de gestión de instancias (_instance management_) se utiliza para iniciar
 una instancia de SiteWhere y se requiere que esté presente cuando se inicia una instancia
 SiteWhere no iniciada. El microservicio de gestión de instancias también gestiona las
@@ -76,7 +78,7 @@ y las configuraciones de los conectores.
 
 El microservicio de gestión de instancias es responsable de conectarse con Zookeeper y crear
 el árbol base donde se almacenan todos los demás datos de configuración para la instancia.
-Para obtener más información sobre la conectividad con Zookeeper y cómo se completa la base 
+Para obtener más información sobre la conectividad con Zookeeper y cómo se completa la base
 del árbol de configuración, consulte la [Configuración de Apache Zookeper](../zookeeper-configuration.md).
 
 ## Plantillas de Instancia

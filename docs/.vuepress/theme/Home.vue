@@ -10,28 +10,16 @@
       <!--
       <h1>{{ data.heroText || $title || 'Hello' }}</h1>
       -->
+      <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
 
-      <p class="description">
-        {{ data.tagline || $description || 'Welcome to your VuePress site' }}
-      </p>
- 
-      <p
-        class="action"
-        v-if="data.actionText && data.actionLink"
-      >
+      <p class="action" v-if="data.actionText && data.actionLink">
         <a class="api-button" href="api2/">REST API</a>
-        <NavLink class="action-button" :item="actionLink" />
+        <NavLink class="action-button" :item="actionLink"/>
       </p>
     </div>
 
-    <div
-      class="features"
-      v-if="data.features && data.features.length"
-    >
-      <div
-        class="feature"
-        v-for="feature in data.features"
-      >
+    <div class="features" v-if="data.features && data.features.length">
+      <div class="feature" v-for="feature in data.features">
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.details }}</p>
       </div>

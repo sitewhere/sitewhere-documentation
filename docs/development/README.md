@@ -1,5 +1,7 @@
 # SiteWhere Development Guide
 
+<Seo/>
+
 This guide provides information intended for developers interested
 in building SiteWhere components from source code. It provides details
 about downloading the source code, installing the required build tools,
@@ -25,7 +27,7 @@ by cloning the repository and checking out the branch corresponding to
 the release. The branch for the upcoming SiteWhere 2.0 release is available
 at the location below:
 
-[SiteWhere 2.0.RC2 Branch](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.0.rc1)
+[SiteWhere 2.1.0 Branch](https://github.com/sitewhere/sitewhere/tree/sitewhere-2.1.0)
 
 New functionality is always developed in a separate branch and is
 eventually merged to _master_ as part of the release cycle.
@@ -42,10 +44,10 @@ With a Git client installed, start by cloning the SiteWhere core repository.
 If using the command line client you can execute the following
 commands to clone the repository and change to the current branch:
 
-```sh
+```bash
 git clone https://github.com/sitewhere/sitewhere.git
 cd sitewhere
-git checkout --force sitewhere-2.0.rc2
+git checkout --force sitewhere-2.1.0
 ```
 
 The result of the commands should look similar to the output below:
@@ -103,6 +105,9 @@ dockerProtocol=tcp
 dockerHostname=192.168.171.100
 dockerPort=2375
 dockerRepository=docker.io
+registryUsername=(your docker username)
+registryPassword=(your docker password)
+registryEmail=(your docker email address)
 ```
 
 SiteWhere includes Gradle [Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
@@ -110,7 +115,7 @@ artifacts, so that there is no need to install Gradle independently. To build al
 libraries, package the microservices into Docker images and push them into your local
 repository, execute the following command.
 
-```sh
+```bash
 gradlew clean dockerImage
 ```
 
@@ -128,7 +133,7 @@ In addition to the standard microservice images, the Gradle build may be paramet
 to generate debug images which expose a port for remote Java debugging. In order to
 generate debug images, execute the following command:
 
-```sh
+```bash
 gradlew clean dockerImage -Pdebug
 ```
 
@@ -137,6 +142,8 @@ them with non-debug images. Note that there is a separate SiteWhere recipe for r
 the debug Docker images since the debug port for each microservice must be remapped
 to a different port. Using the debug images allows you to connect from a remote debugger
 (such as the one in Eclipse) and set breakpoints in the running microservices.
+
+Read [this](./debug.md) to connect a debugger to SiteWhere.
 
 ## Next Steps
 
