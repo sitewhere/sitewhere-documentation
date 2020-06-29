@@ -102,7 +102,7 @@ De forma predeterminada, SiteWhere también produce datos de seguimiento distrib
 [OpenTracing](http://opentracing.io/) para el análisis del rendimiento en tiempo de ejecución.
 Un servidor backend que soporta la API puede configurarse para almacenar y analizar los datos.
 
-## Lista de Princiaples Microservicios
+## Lista de Principales Microservicios
 
 Para obtener una lista de los microservicios principales incluidos con SiteWhere
 y guías detalladas para cada uno, consulte la sección
