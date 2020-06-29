@@ -193,7 +193,9 @@ module.exports = {
             "",
             "architecture",
             "objectmodel",
-            "features",
+            "device-management",
+            "asset-management",
+            "event-management",
             "microservice-overview",
             "twelve-factor"
           ],
