@@ -11,17 +11,6 @@ para que el sistema se pueda adaptar a muchos casos posibles de uso de IoT. Site
 enfoque de framework utilizando API claramente definidas para que las nuevas tecnologías pueden integrarse
 fácilmente a medida que evoluciona el ecosistema de IoT.
 
-## Kubernetes
-
-SiteWhere está compuesto de microservicios basados ​​en Java que se construyen como
-imágenes [Docker](https://www.docker.com/) y se desplieguan en Kubernetes para
-orquestación. Para simplificar la implementación, se utiliza [Helm](https://helm.sh/) para
-proporcionar plantillas estándar para varios escenarios de implementación. Los Helm
-[charts](https://github.com/sitewhere/sitewhere-recipes/tree/master/charts)
-suministran todas las dependencias necesarias para ejecutar una instancia de SiteWhere completa,
-incluyendo tanto los microservicios y los componentes de infraestructura como Apache Zookeeper, 
-Apache Kafka y Mosquitto MQTT broker.
-
 ## Microservicios
 
 Una _instancia_ de SiteWhere es un sistema distribuido compuesto de muchos microservicios,
@@ -51,22 +40,45 @@ Si se trata de un cuello de botella, se pueden ejecutar múltiples microservicio
 Por el contrario, servicios como la gestión de presencia que pueden no ser necesarios pueden dejarse
 para que la potencia de procesamiento se pueda dedicar a otros aspectos del sistema.
 
-## Gestión de instancias
 
-La arquitectura 2.0 introduce el concepto de una instancia de SiteWhere, que
-Permite que el sistema distribuido actúe como una unidad cohesiva con algunos aspectos.
-A nivel global. Todos los microservicios para un solo SiteWhere
-La instancia debe ejecutarse en la misma infraestructura de Kubernetes, aunque el sistema
-Puede distribuirse entre decenas o cientos de máquinas para distribuir el procesamiento.
-carga.
+## Kubernetes
+
+SiteWhere está compuesto de microservicios basados ​​en Java que se construyen como
+imágenes [Docker](https://www.docker.com/) y se desplieguan en Kubernetes para
+orquestación. Para simplificar la implementación, se utiliza [Helm](https://helm.sh/) para
+proporcionar plantillas estándar para varios escenarios de implementación. Los Helm
+[charts](https://github.com/sitewhere/sitewhere-recipes/tree/master/charts)
+suministran todas las dependencias necesarias para ejecutar una instancia de SiteWhere completa,
+incluyendo tanto los microservicios y los componentes de infraestructura como Apache Zookeeper, 
+Apache Kafka y Mosquitto MQTT broker.
+
+
+## Tecnologías Centrales
+
+Al implementar SiteWhere, la combinación de la infraestructura requerida para ejecutar 
+el sistema y los microservicios que manejan el procesamiento se denominan instancia de SiteWhere. 
+Se supone que toda la infraestructura y los microservicios para una instancia se ejecutan en el mismo 
+clúster de Kubernetes, aunque el sistema puede extenderse a decenas o cientos de máquinas para distribuir 
+la carga de procesamiento.
+
+En lugar de reinventar la rueda, SiteWhere utiliza una serie de tecnologías comprobadas como 
+parte de la infraestructura para su arquitectura de microservicios. Las siguientes tecnologías 
+abordan problemas transversales que son comunes a todo el sistema de microservicios.
+
+### Service Mesh con Istio
+
+SiteWhere aprovecha Istio para proporcionar un service mesh para los microservicios del sistema. 
+Esto permite que la plataforma se escale dinámicamente al tiempo que proporciona un gran control 
+sobre cómo se enrutan los datos. Istio permite que se utilicen métodos modernos como canary testing 
+y la inyección de fallas para proporcionar un sistema más robusto y tolerante a fallas. 
+También permite un monitoreo y seguimiento detallados de los datos que fluyen entre microservicios.
 
 ### Gestión de configuración centralizada con Apache ZooKeeper
 
-SiteWhere 2.0 mueve la configuración del sistema a [Apache ZooKeeper](https://zookeeper.apache.org/)
-lo que permite externalizar la gestión de la configuración.
-hecho altamente disponible. ZooKeeper contiene un jerárquico
-estructura que representa la configuración de una o más instancias de SiteWhere
-y todos los microservicios que se utilizan para realizarlos.
+La configuración de SiteWhere se almacena en Apache ZooKeeper para permitir un enfoque escalable 
+y externo a la gestión de la configuración. ZooKeeper contiene una estructura jerárquica que 
+representa la configuración para una o más instancias de SiteWhere y todos los microservicios 
+que se utilizan para realizarlas. La configuración se replica para una alta disponibilidad.
 
 Cada microservicio tiene una conexión directa a ZooKeeper y utiliza el
 Jerarquía para determinar su configuración en tiempo de ejecución. Los microservicios escuchan los cambios.
@@ -76,103 +88,97 @@ manteniendo los servicios sincronizados a medida que se actualiza la configuraci
 
 ### Almacenamiento distribuido con Rook.io
 
-Dado que muchos de los componentes del sistema, como Zookeeper, Kafka y varios
-las bases de datos requieren acceso a almacenamiento persistente, utiliza SiteWhere 2.0
-[Rook.io](https://rook.io/) dentro de Kubernetes para suministrar distribuido,
-almacenamiento de bloque replicado que es resistente a las fallas de hardware mientras
-Todavía ofreciendo buenas características de rendimiento. Como almacenamiento y rendimiento.
-las necesidades aumentan con el tiempo, los nuevos dispositivos de almacenamiento pueden estar disponibles
-dinamicamente. La arquitectura subyacente [Ceph](https://ceph.com/)
+Muchos componentes del sistema como Zookeeper, Kafka y varias
+bases de datos requieren acceso al almacenamiento persistente que está disponible para todos
+nodos en el clúster de Kubernetes. Esto proporciona resiliencia en casos donde
+un nodo de Kubernetes falla y los pods se programan en otros nodos para restaurar
+el sistema a un estado de ejecución. SiteWhere usa [Rook.io] (https://rook.io/)
+para proporcionar un enfoque coherente para el almacenamiento escalable. Rook provee
+almacenamiento de bloque replicado distribuido que es resiliente a fallas de hardware mientras
+también ofrece buenas características de rendimiento. Como las necesidades de almacenamiento y rendimiento
+aumentan con el tiempo, se pueden poner a disposición nuevos dispositivos de almacenamiento
+dinamicamente. La arquitectura subyacente [Ceph] (https://ceph.com/)
 utilizado por Rook.io puede manejar _exobytes_ de datos mientras permite datos
-para ser resistente a las fallas a nivel de nodo, rack o incluso centro de datos.
+ser resiliente a fallas a nivel de nodo, rack o incluso datacenter.
 
-## Canalización de procesamiento de datos de alto rendimiento
+## Canalización de procesamiento de datos de eventos
 
-El proceso de procesamiento de eventos en SiteWhere 2.0 ha sido completamente rediseñado y utiliza
-[Apache Kafka] (https://kafka.apache.org/) para proporcionar un rendimiento resistente y de alto rendimiento
-Mecanismo para procesar progresivamente datos de eventos del dispositivo. Los microservicios pueden conectarse a
-puntos clave en el proceso de procesamiento de eventos, lectura de datos de temas de entrada conocidos,
-procesamiento de datos, luego envío de datos a temas salientes conocidos. Entes externos que
-están interesados ​​en los datos que en cualquier punto de la tubería pueden actuar como consumidores del sitio
-Temas para utilizar los datos a medida que se mueve a través del sistema.
+SiteWhere coordina el procesamiento de eventos del dispositivo organizando microservicios en
+una tubería con cada microservicio que gestiona una etapa específica del proceso.
+Este enfoque permite que los eventos se procesen de forma incremental y también permite
+la carga de procesamiento se distribuirá a través del hardware y se escalará a un nivel más detallado.
+
+La canalización de procesamiento de eventos utiliza [Apache Kafka] (https://kafka.apache.org/)
+para proporcionar un mecanismo resiliente y de alto rendimiento para mover datos de eventos del dispositivo
+entre los microservicios que conforman la tubería. Los microservicios se conectan
+en los puntos clave de la tubería de procesamiento de eventos, leyendo datos de tópicos de entrada conocidos, 
+procesando estos datos, luego envíando estos datos a tópicos salientes bien conocidos.
+Entidades externas que están interesadas en datos en cualquier punto de la tubería
+pueden actuar como consumidores de SiteWhere en los tópicos para consumir los datos a medida que se mueven
+a través del sistema.
 
 ### Procesamiento de tubería completamente asíncrono
 
-En SiteWhere 2.0, cada conector de salida es un verdadero consumidor de Kafka con su propia compensación
-marcador en la secuencia de eventos. Este mecanismo permite a los procesadores de salida procesar datos.
-a su propio ritmo sin ralentizar a otros procesadores. También permite servicios a
-aprovechar los grupos de consumidores de Kafka para distribuir la carga entre múltiples consumidores y
-procesamiento de la escala en consecuencia.
-
-::: propina
-En la arquitectura de SiteWhere 1.x, la canalización para el procesamiento de salida utilizó un bloqueo
-enfoque que significa que cualquier procesador de salida único podría bloquear la canalización de salida.
-Esto ya no es un problema con la arquitectura 2.0.
-:::
+La tubería de procesamiento de eventos de SiteWhere aprovecha las construcciones de mensajes de Kafka para permitir
+datos de eventos del dispositivo que se procesarán de forma asincrónica. Si un microservicio se apaga y no otro,
+las réplicas están disponibles para procesar la carga, los datos se pondrán en cola hasta que arranque una réplica
+y comience a procesar nuevamente. Esto actúa como una garantía contra la pérdida de datos, ya que los datos son siempre
+respaldado por el almacenamiento de alto rendimiento de Kafka. Los microservicios de SiteWhere aprovechan el concepto grupo de consumidores de Kafka
+para distribuir la carga entre múltiples consumidores y escalar el procesamiento en consecuencia.
 
 El uso de Kafka también tiene otras ventajas que son aprovechadas por SiteWhere. Dado que todos los datos para
 El registro distribuido se almacena en el disco, es posible "reproducir" la secuencia de eventos basada
-en datos previamente recopilados. Esto es extremadamente valioso para aspectos como la depuración.
-Procesando lógica o carga probando el sistema.
+en datos previamente recopilados. Esto es extremadamente valioso para aspectos como la depuración,
+lógica de procesamiento o prueba de carga del sistema.
 
 ## Conectividad de API persistente entre microservicios
 
 Mientras que los datos de eventos del dispositivo generalmente fluyen en una tubería desde microservicio a microservicio en
 Temas de Kafka, también hay operaciones de API que deben ocurrir en tiempo real entre los
-microservicios Por ejemplo, la gestión de dispositivos y las funciones de gestión de eventos están contenidas en
-microservicios separados, por lo que cuando entran nuevos eventos en el sistema, el microservicio de procesamiento de entrada
-necesita interactuar con la administración de dispositivos para buscar dispositivos existentes en el sistema y en los eventos
-Gestión para persistir los eventos a un almacén de datos como
-[Apache Cassandra] (http://cassandra.apache.org/).
+microservicios Por ejemplo, las funciones de gestión de dispositivos y gestión de eventos están 
+contenidas en sus propios microservicios, pero son requeridos por muchos otros componentes del sistema. 
+Muchos de los microservicios de SiteWhere ofrecen API a las que pueden acceder otros microservicios 
+para soportar aspectos tales como almacenar datos persistentes o iniciar servicios específicos de microservicios.
 
 ### Usando gRPC para un aumento de rendimiento
 
 En lugar de utilizar únicamente los servicios REST basados ​​en HTTP 1.x, que tienden a tener una
-sobrecarga de conexión, SiteWhere 2.0 utiliza [gRPC] (https://grpc.io/) para establecer una
+sobrecarga de conexión, SiteWhere utiliza [gRPC] (https://grpc.io/) para establecer una
 Conexión entre microservicios que necesitan comunicarse entre sí. Desde que usa gRPC
 conexiones HTTP2 persistentes, la sobrecarga de las interacciones se reduce considerablemente, lo que permite
-para desacoplar sin una penalización de rendimiento significativa.
+para desacoplar sin una penalización de rendimiento significativa. Istio también permite 
+que las conexiones gRPC se multiplexen en múltiples réplicas de un microservicio para escalar el procesamiento 
+y ofrecer redundancia.
 
 Todo el SiteWhere [modelo de datos] (https://github.com/sitewhere/sitewhere-java-api) se ha capturado en
 Formato de [Google Protocol Buffers] (https://developers.google.com/protocol-buffers/) para que
-Puede ser utilizado dentro de los servicios de GRPC. Todas las API de SiteWhere ahora se exponen directamente como
-Los servicios gRPC también permiten un acceso de alto rendimiento y baja latencia a lo que anteriormente se
-Solo accesible vía REST. Las API de REST todavía están disponibles a través del microservicio Web / REST,
-pero utilizan las [gRPC API] (https://github.com/sitewhere/sitewhere-grpc-api) debajo de
+pueda ser utilizado dentro de los servicios de GRPC. Todas las API de SiteWhere ahora se exponen directamente como
+servicios gRPC también permiten un acceso de alto rendimiento y baja latencia a todas las funciones de la API. 
+Las API REST todavía están disponibles a través del microservicio Web / REST,
+pero utilizan las [gRPC API] (https://github.com/sitewhere/sitewhere-grpc-api) debajo
 para proporcionar un enfoque coherente para acceder a los datos.
 
-Dado que la cantidad de instancias de un microservicio determinado puede cambiar con el tiempo a medida que el servicio es
-escalada hacia arriba o hacia abajo, SiteWhere maneja automáticamente el proceso de conexión / desconexión de la
-Tubos gRPC entre microservicios. Cada cliente gRPC saliente se descompone en el conjunto
-de servicios que pueden satisfacer las solicitudes, permitiendo que las solicitudes se procesen en paralelo.
 
-## Multipropiedad Distribuida
+## Microservicios Multitenant
 
-El enfoque de SiteWhere 1.x para la multitenencia consistió en utilizar un "motor de inquilino" separado para cada inquilino.
-El motor admitía todas las tareas específicas del arrendatario, como la persistencia de datos, el procesamiento de eventos, etc.
-Desde que SiteWhere 2.0 se ha movido a una arquitectura de microservicios, el modelo multitenant ha sido
-distribuido también. SiteWhere admite dos tipos de microservicios: global y multitenant.
+SiteWhere está diseñado para proyectos de IoT a gran escala que pueden involucrar a muchos inquilinos del sistema
+compartir una sola instancia de SiteWhere. Una clave diferenciadora de SiteWhere en comparación con la mayoría
+las plataformas IoT es que cada inquilino (tenant) se ejecuta de forma aislada de otros inquilinos. Por defecto, los inquilinos 
+no comparten los recursos de la base de datos o el proceso de canalización y tienen una configuración de ciclo de vida completamente separado. 
+Con este enfoque, cada inquilino puede usar su propia tecnología base de datos, integraciones externas y otras opciones de configuración. 
+Partes del inquilino como la tubería de procesamiento puede reconfigurarse / reiniciarse sin causar una interrupción
+a otros inquilinos.
 
-### Microservicios globales
+### Privacidad de Datos
 
-Los microservicios globales no manejan tareas específicas del arrendatario. Estos servicios manejan aspectos tales
-como la gestión de usuarios en toda la instancia y la gestión de inquilinos que no son específicas para individuos
-inquilinos del sistema. El microservicio Web / REST que admite los servicios REST y el usuario Swagger
-La interfaz también es un servicio global, ya que admite un contenedor web separado para cada inquilino
-sería engorroso y rompería las aplicaciones existentes de SiteWhere 1.x. También hay una
-microservicio de administración de instancias globales que controla varios aspectos de la instancia completa
-e informes de actualizaciones a los microservicios individuales a través de Kafka.
+Una consecuencia importante de la forma en que SiteWhere maneja la multitenancy es que los datos de cada inquilino 
+están separados de los datos de otros inquilinos. La mayoría de las plataformas que ofrecen multitenancy
+almacenan datos para todos los inquilinos en tablas compartidas, diferenciadas solo por una identificación de inquilino. 
+El enfoque compartido abre la posibilidad de que los datos de un inquilino corrompan a otro, lo que no es 
+un riesgo aceptable en muchas implementaciones de IoT. Además, cada inquilino tiene sus propios canales de procesamiento,
+por lo que los datos nunca se mezclan.
 
-### Microservicios Multitenant
-
-La mayoría de los servicios de SiteWhere 2.0 son microservicios multitenant que delegan tráfico
-a los motores de inquilinos que hacen el procesamiento real. Por ejemplo, el microservicio de procesamiento de entrada
-en realidad consta de muchos motores inquilinos de procesamiento de entrada, cada uno de los cuales se configura por separado
-y se puede iniciar / detener / reconfigurar sin afectar a los motores de otros inquilinos.
-
-El nuevo enfoque de los motores de inquilinos cambia la dinámica del procesamiento de eventos de SiteWhere. Esto es ahora
-es posible detener un solo motor inquilino sin la necesidad de detener los motores inquilinos que se ejecutan en
-Otros microservicios. Por ejemplo, el procesamiento de entrada para un inquilino se puede detener
-y reconfigurado mientras el resto de la tubería del inquilino continúa procesando. Desde nuevo
-se puede permitir que los eventos se acumulen en Kafka, el motor del inquilino se puede detener, reconfigurar,
-y reinicie, luego reanude donde lo dejó sin pérdida de datos.
+Tener recursos dedicados para los inquilinos puede ser costoso en términos de memoria y recursos de procesamiento, por lo que SiteWhere también ofrece el concepto de "clientes" dentro de cada inquilino.
+Los clientes permiten que los datos se diferencien dentro de un inquilino, pero sin tener una base de datos y canalizaciones dedicadas por separado.
+En los casos en que los datos colocados son aceptables, el inquilino puede tener cualquier número de clientes, que comparten la misma base de datos y canalización de procesamiento.
+Esto permite lo mejor de ambos mundos en términos de seguridad y escalabilidad.
