@@ -7,3 +7,4 @@ una instancia de SiteWhere utilizando diferentes tecnologías.
 
 - [Usando la API Java de SiteWhere](./java/)
 - [Usando la API Javascript de SiteWhere](./javascript/)
+- [Usando la colección de Postman](./postman-configuration.md)

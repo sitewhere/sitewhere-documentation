@@ -7,4 +7,4 @@ y como se los configuran y administran en tiempo de ejecución.
 
 - [Guía de Integración de Dispositivos](./devices/README.md)
 - [Guía de Microservicios](./microservices/README.md)
-- [Configuración de Postman](./postman-configuration.md)
+

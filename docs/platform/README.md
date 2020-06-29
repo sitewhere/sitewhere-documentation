@@ -53,4 +53,4 @@ of a desktop application. Use one of the available Helm
 to bootstrap a SiteWhere instance on Kubernetes, then point the administrative application
 to the instance to manage it.
 
-<InlineImage src="/images/platform/login.png" caption="Admnistrative Interface"/>
+<InlineImage src="/images/platform/login.png" caption="Administrative Interface"/>

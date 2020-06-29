@@ -1,4 +1,4 @@
-# Configuración de Postman
+# Usando Colección de Postman
 
 ## Instalar Colección de Postman
 Para instalar la Colección de Postman, primero se debe instalar la aplicación Postman para Windows, Mac o Chrome. Se puede descargar la aplicación desde [Postman Apps](https://www.getpostman.com/apps).

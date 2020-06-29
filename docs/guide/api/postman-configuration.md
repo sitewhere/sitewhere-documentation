@@ -1,4 +1,4 @@
-# Postman Configuration
+# Using Postman Collection
 
 ## Install Postman Collection
 To install the Postman Collection, you must first install the Postman App for Windows, Mac, or Chrome. You can download any of these from [Postman Apps](https://www.getpostman.com/apps).

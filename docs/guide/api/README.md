@@ -7,3 +7,4 @@ API using different technologies.
 
 - [Using SiteWhere Java API](./java/)
 - [Using SiteWhere Javascript API](./javascript/)
+- [Using Postman Collection](./postman-configuration.md)

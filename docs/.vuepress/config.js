@@ -78,7 +78,7 @@ module.exports = {
         "zone-api/"
       ],
       "/guide/api/javascript/": [""],
-      "/guide/api/": ["java/", "javascript/"],
+      "/guide/api/": ["java/", "javascript/", "postman-configuration"],
       "/guide/microservices/": [
         "asset-management/",
         "batch-operations/",
@@ -106,8 +106,7 @@ module.exports = {
         "administration/",
         "devices/",
         "microservices/",
-        "api/",
-        "postman-configuration/"
+        "api/"
       ],
       "/deployment/": [""],
       "/development/": [""]
@@ -229,7 +228,7 @@ module.exports = {
             "zone-api/"
           ],
           "/es/guide/api/javascript/": [""],
-          "/es/guide/api/": ["java/", "javascript/"],
+          "/es/guide/api/": ["java/", "javascript/", "postman-configuration"],
           "/es/guide/microservices/": [
             "asset-management",
             "batch-operations",
@@ -257,8 +256,7 @@ module.exports = {
             "administration/",
             "devices/",
             "microservices/",
-            "api/",
-            "postman-configuration/"
+            "api/"
           ],
           "/es/deployment/": [""],
           "/es/development/": [""]
