@@ -73,7 +73,7 @@ that provides an externally-accessible IP address that sends traffic to the corr
 [MetalLB](https://metallb.universe.tf/) is a load balancer designed to run on and to work with Kubernetes 
 and it will allow you to use the type LoadBalancer when you declare a service.
 
-###### Install MetalLB on Minikube
+#### Install MetalLB on Minikube
 MetalLB runs in two parts: a cluster-wide controller, and a per-machine protocol speaker. Install MetalLB by 
 applying the manifest:
 
@@ -149,7 +149,7 @@ can be used to bootstrap the system in various configurations depending
 on the profiles and other configuration options selected.
 
 In order to deploy SiteWhere, Helm needs to be installed. Follow
-[these](https://docs.helm.sh/using_helm/#installing-helm) instructions to install
+[these](https://docs.helm.sh/using_helm/#installing-helm) instructions to install 
 Helm in your environment.
 
 ::: warning

@@ -92,12 +92,12 @@ Muchos componentes del sistema como Zookeeper, Kafka y varias
 bases de datos requieren acceso al almacenamiento persistente que está disponible para todos
 nodos en el clúster de Kubernetes. Esto proporciona resiliencia en casos donde
 un nodo de Kubernetes falla y los pods se programan en otros nodos para restaurar
-el sistema a un estado de ejecución. SiteWhere usa [Rook.io] (https://rook.io/)
+el sistema a un estado de ejecución. SiteWhere usa [Rook.io](https://rook.io/)
 para proporcionar un enfoque coherente para el almacenamiento escalable. Rook provee
 almacenamiento de bloque replicado distribuido que es resiliente a fallas de hardware mientras
 también ofrece buenas características de rendimiento. Como las necesidades de almacenamiento y rendimiento
 aumentan con el tiempo, se pueden poner a disposición nuevos dispositivos de almacenamiento
-dinamicamente. La arquitectura subyacente [Ceph] (https://ceph.com/)
+dinamicamente. La arquitectura subyacente [Ceph](https://ceph.com/)
 utilizado por Rook.io puede manejar _exobytes_ de datos mientras permite datos
 ser resiliente a fallas a nivel de nodo, rack o incluso datacenter.
 
@@ -108,7 +108,7 @@ una tubería con cada microservicio que gestiona una etapa específica del proce
 Este enfoque permite que los eventos se procesen de forma incremental y también permite
 la carga de procesamiento se distribuirá a través del hardware y se escalará a un nivel más detallado.
 
-La canalización de procesamiento de eventos utiliza [Apache Kafka] (https://kafka.apache.org/)
+La canalización de procesamiento de eventos utiliza [Apache Kafka](https://kafka.apache.org/)
 para proporcionar un mecanismo resiliente y de alto rendimiento para mover datos de eventos del dispositivo
 entre los microservicios que conforman la tubería. Los microservicios se conectan
 en los puntos clave de la tubería de procesamiento de eventos, leyendo datos de tópicos de entrada conocidos, 
@@ -143,19 +143,19 @@ para soportar aspectos tales como almacenar datos persistentes o iniciar servici
 ### Usando gRPC para un aumento de rendimiento
 
 En lugar de utilizar únicamente los servicios REST basados ​​en HTTP 1.x, que tienden a tener una
-sobrecarga de conexión, SiteWhere utiliza [gRPC] (https://grpc.io/) para establecer una
+sobrecarga de conexión, SiteWhere utiliza [gRPC](https://grpc.io/) para establecer una
 Conexión entre microservicios que necesitan comunicarse entre sí. Desde que usa gRPC
 conexiones HTTP2 persistentes, la sobrecarga de las interacciones se reduce considerablemente, lo que permite
 para desacoplar sin una penalización de rendimiento significativa. Istio también permite 
 que las conexiones gRPC se multiplexen en múltiples réplicas de un microservicio para escalar el procesamiento 
 y ofrecer redundancia.
 
-Todo el SiteWhere [modelo de datos] (https://github.com/sitewhere/sitewhere-java-api) se ha capturado en
-Formato de [Google Protocol Buffers] (https://developers.google.com/protocol-buffers/) para que
+Todo el SiteWhere [modelo de datos](https://github.com/sitewhere/sitewhere-java-api) se ha capturado en
+Formato de [Google Protocol Buffers](https://developers.google.com/protocol-buffers/) para que
 pueda ser utilizado dentro de los servicios de GRPC. Todas las API de SiteWhere ahora se exponen directamente como
 servicios gRPC también permiten un acceso de alto rendimiento y baja latencia a todas las funciones de la API. 
 Las API REST todavía están disponibles a través del microservicio Web / REST,
-pero utilizan las [gRPC API] (https://github.com/sitewhere/sitewhere-grpc-api) debajo
+pero utilizan las [gRPC API](https://github.com/sitewhere/sitewhere-grpc-api) debajo
 para proporcionar un enfoque coherente para acceder a los datos.
 
 

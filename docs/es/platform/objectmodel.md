@@ -11,7 +11,7 @@ que el mismo modelo puede representar una variedad de mercados verticales potenc
 ## Identificación de Entidad
 
 La mayoría de las entidades de SiteWhere tienen dos identificadores únicos 
-separados. El identificador principal es un [UUID] (https://en.wikipedia.org/wiki/Universally_unique_identifier) ​​
+separados. El identificador principal es un [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) ​​
 que el sistema asigna cuando se crea la entidad y no cambia durante la vida útil 
 de la entidad. Un segundo identificador, que es único dentro del tipo de entidad,
 es un _token_ que es una cadena asignada a través de las API y actualizada
