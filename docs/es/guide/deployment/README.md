@@ -1,78 +1,72 @@
-# Deployment Guide
+# Guía de Despliegue
 
 <Seo/>
 
-SiteWhere is a distributed system which is implemented in a microservice architecture
-and orchestrated using a [Kubernetes](https://kubernetes.io/) infrastructure. SiteWhere
-uses [Helm](https://helm.sh/) to provide a simple, parameterized approach for launching
-and configuring the system. A separate
-[sitewhere-k8s](https://github.com/sitewhere/sitewhere-k8s) repository contains
-the Helm charts, which are released independently of the core platform
-lifecycle.
+SiteWhere es un sistema distribuido que se implementa en una arquitectura de microservicio y 
+se orquesta usando una infraestructura [Kubernetes](https://kubernetes.io/). SiteWhere usa 
+[Helm](https://helm.sh/) para proporcionar un enfoque simple y parametrizado para iniciar y 
+configurar el sistema. Un repositorio separado [sitewhere-k8s](https://github.com/sitewhere/sitewhere-k8s) 
+contiene los gráficos Helm, que se lanzan independientemente del ciclo de vida de la plataforma central.
 
-This guide covers the artifacts and processes invoved in deploying a SiteWhere
-instance, including infrastructure components, data persistence technologies
-and the microservices which implement system functionality.
+Esta guía cubre los artefactos y procesos invocados en la implementación de una instancia de SiteWhere, 
+incluidos los componentes de infraestructura, las tecnologías de persistencia de datos y los microservicios 
+que implementan la funcionalidad del sistema.
 
-## Prerequisites
+## Prerrequisitos
 
 - Kubernetes 1.8+
 - Rook v0.9+
 
-## Chart Details
+## Detalles de Helm Charts
 
-The SiteWhere Helm chart covers the following functional areas:
+El SiteWhere Helm chart cubre las siguientes áreas funcionales:
 
 - [SiteWhere Core Infrastructure](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere-infra-core) (e.g. Kafka, Zookeeper)
 - [SiteWhere Database Infrastructure](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere-infra-database) (e.g. MongoDB, InfluxDB, Cassandra)
 - [SiteWhere Microservices](https://github.com/sitewhere/sitewhere-k8s/tree/master/charts/sitewhere) (Core system microservices)
 
-Note that the infrastructure charts are packaged separately and included as
-dependencies for the primary SiteWhere chart.
+Tenga en cuenta que los gráficos de infraestructura se empaquetan por separado y se incluyen como 
+dependencias para el gráfico primario de SiteWhere.
 
-## Installing the Chart
+## Instalando el Helm Chart
 
-### Add the SiteWhere Helm Repository
+### Agregar el Repositorio Helm de SiteWhere
 
-Before installing the SiteWhere Helm charts, add the
-[SiteWhere helm repository](https://sitewhere.io/helm-charts/index.yaml)
-to your Helm client.
+Antes de instalar los SiteWhere Helm charts, agregar el
+[repositorio Helm SiteWhere](https://sitewhere.io/helm-charts/index.yaml)
+a su cliente Helm.
 
 ```bash
 helm repo add sitewhere https://sitewhere.io/helm-charts
 ```
 
-Afterward, update your local Helm repository to pull the latest
-chart information from the index.
+Después, actualice su repositorio local de Helm para extraer la información más reciente del chart.
 
 ```bash
 helm repo update
 ```
 
-### Install SiteWhere Chart
+### Instalar el Chart de SiteWhere
 
-To install the chart with the release name `sitewhere` execute:
+Para instalar el chart con el nombre de la versión `sitewhere` ejecute:
 
 ```bash
 helm install --name sitewhere sitewhere/sitewhere
 ```
 
-Please refere to [Common Issues](./common-issues.md) if you a problem with the Deployment of SiteWhere.
+Consulte [Problemas comunes](./common-issues.md) si tiene un problema con la implementación de SiteWhere.
 
-### Install on a Developer Machine
+### Instalar en una Máquina de Desarrollador
 
-To install a version of the SiteWhere chart that uses less
-highly-available components in order to reduce the memory footprint
-and startup time, use the following command instead.
-
-You can install SiteWhere on a Developer Machine, using the non-HA configuration of MongoDB, Apache Kafka
-and Apache Zookeeper. In order to do this, you need to clone `sitewhere-k8s` repository, using
+Puede instalar SiteWhere en una máquina de desarrollador, utilizando la configuración no HA de MongoDB, 
+Apache Kafka y Apache Zookeeper. Para hacer esto, necesita clonar el repositorio `sitewhere-k8s`, usando
 
 ```bash
 git clone https://github.com/sitewhere/sitewhere-k8s.git
 ```
-
-Then, on the `charts` folder run the command:
+Para instalar una versión del chart SiteWhere que utiliza componentes con menos disponibilidad para 
+reducir la huella de memoria y el tiempo de inicio, utilice el siguiente comando en su lugar.
+Entonces, en la carpeta `charts` ejecute el comando:
 
 ```bash
 helm install --name sitewhere \
@@ -80,28 +74,28 @@ helm install --name sitewhere \
   sitewhere
 ```
 
-### Remove Installed Helm Chart
+### Eliminar Helm Chart Instalados
 
-The following command removes the artifacts added with the SiteWhere chart
-installation and releases the `sitewhere` chart name for reuse.
+El siguiente comando elimina los artefactos agregados con la instalación del chart SiteWhere 
+y libera el nombre del chart `sitewhere` para su reutilización.
 
 ```bash
 helm del sitewhere --purge
 ```
 
-This will remove sitewhere infrastructure and microservices.
+Esto eliminará la infraestructura de sitio y microservicios.
 
-### Delete SiteWhere Data
+### Eliminar Datos de SiteWhere
 
-To remove SiteWhere Persistence Volume Claims, run the command:
+Para eliminar los Persistence Volume Claims de SiteWhere, ejecute el comando:
 
 ```bash
 kubectl delete pvc -l release=sitewhere
 ```
 
-## Install Kafka Manager
+## Instalar Administrador de Kafka
 
-Assuming your sitewhere install name is `sitewhere`
+Asumiendo que el nombre de instalación de su sitio es `sitewhere`
 
 ```bash
 helm install --name kafka-manager \

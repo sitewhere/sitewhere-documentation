@@ -1,25 +1,25 @@
-# Architecture Guide
+# Guía de Arquitectura
 
 <Seo/>
 
-This guide covers core concepts of the SiteWhere 2.0 architecture and is intended
-to provide an understanding of how the system works at a low level. While knowledge
-of these concepts is not required for deploying and configuring a SiteWhere instance,
-it does provide a basis for grasping how various parts of the system interact.
+Esta guía cubre los conceptos centrales de la arquitectura SiteWhere 2.0 y está 
+destinada a proporcionar una comprensión de cómo funciona el sistema en un nivel bajo. 
+Si bien el conocimiento de estos conceptos no es necesario para implementar y configurar 
+una instancia de SiteWhere, proporciona una base para comprender cómo interactúan varias 
+partes del sistema.
 
-For information about the functionality provided by the individual microservices
-and how to configure them, see the [microservice guides](../microservices/).
+Para obtener información sobre la funcionalidad proporcionada por los microservicios 
+individuales y cómo configurarlos, consulte las [guías de microservicios](../microservices/).
 
-## Configuration Management
+## Gestión de la configuración
 
-SiteWhere provides an externalized and highly-available configuration management
-subsystem based on [Apache Zookeeper](https://zookeeper.apache.org/). Microservices
-do not contain any locally persisted configuration information, but instead
-connect to Zookeeper for their configuration when bootstrapping and continue
-listening for changes at runtime.
+SiteWhere proporciona un subsistema de gestión de configuración externo y altamente disponible 
+basado en [Apache Zookeeper](https://zookeeper.apache.org/). Los microservicios no contienen 
+ninguna información de configuración persistente localmente, sino que se conectan a Zookeeper 
+para su configuración al iniciar y continúan escuchando los cambios en tiempo de ejecución.
 
-See the configuration management [guide](./configuration-management.md) for more information.
+Consulte la [guía](./configuration-management.md) de administración de configuración para obtener más información.
 
 ::: warning
-This guide is under active development. Check back for updates.
+Esta guía está en construcción. Vuelva a consultar las actualizaciones.
 :::
