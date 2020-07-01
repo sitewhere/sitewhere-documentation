@@ -1,27 +1,27 @@
-# Common Issues
+# Problemas comunes
 
 <Seo/>
 
-## Troubleshooting Techniques
+## Técnicas de solución de problemas
 
-### Rook Instalation
+### Instalación de Rook 
 
-Verify the `rook-ceph-agent` pods are `Running`
+Verifique que los pods de `rook-ceph-agent` estén en estado `Running`
 
 ```bash
 kubectl -n rook-ceph-system get pod
 ```
 
-Verify that there are not error on `rook-ceph-agent` pods by running:
+Verifique que no haya errores en los pods `rook-ceph-agent` ejecutando:
 
 ```bash
 kubectl -n rook-ceph-system get pod -l app=rook-ceph-agent -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.containerStatuses[0].lastState.terminated.message}{"\n"}{end}'
 ```
 
-### Running on MiniKube
+### Ejecutando en MiniKube
 
-If you are running on `minikube` you can skip using `Rook.io`
-and use the `dev-values.yaml`.
+Si está ejecutando en `minikube` en en entorno de desarrollo, puede omitir el uso` Rook.io`
+y usar el `dev-values.yaml`.
 
 ```bash
 helm install --name sitewhere \
@@ -33,7 +33,7 @@ helm install --name sitewhere \
 ./sitewhere
 ```
 
-Alternative, you can use sitewhere Helm Repo with:
+Alternativamente, puede usar el Helm Repo de Sitewhere con el comando:
 
 ```bash
 helm install --name sitewhere \
@@ -46,7 +46,7 @@ helm install --name sitewhere \
 sitewhere/sitewhere
 ```
 
-### Minimal evironment with `hostpath` storageClass
+### Ambiente Mínimo con `hostpath` storageClass
 
 ```bash
 helm install --name sitewhere \
@@ -59,7 +59,7 @@ helm install --name sitewhere \
 sitewhere/sitewhere
 ```
 
-### Developer evironment with `hostpath` storageClass
+### Entorno de Desarrollo con `hostpath` storageClass
 
 ```bash
 helm install --name sitewhere \

@@ -1,17 +1,16 @@
-# Configuration Management
+# Gestión de la configuración
 
 <Seo/>
 
-The SiteWhere 2.0 architecture provides an externalized and highly-available configuration
-management subsystem based on [Apache Zookeeper](https://zookeeper.apache.org/). Rather than
-storing configuration information locally, SiteWhere microservices connect to Zookeeper
-and query for the configuration that applies to them.
+La arquitectura SiteWhere 2.0 proporciona un subsistema de administración de configuración externo y altamente 
+disponible basado en [Apache Zookeeper](https://zookeeper.apache.org/). En lugar de almacenar información de 
+configuración localmente, los microservicios de SiteWhere se conectan a Zookeeper y consultan la configuración 
+que les corresponde.
 
-## Zookeeper Infrastructure
+## Infraestructura de Zookeeper 
 
-TODO: Review
-The SiteWhere [Helm chart](https://github.com/sitewhere/sitewhere-k8s/tree/sitewhere-k8s-0.2.0/charts)
-includes a [template](https://github.com/sitewhere/sitewhere-k8s/blob/sitewhere-2.0.1/charts/sitewhere/templates/Zookeeper.yaml)
-which is used to configure the Zookeeper components the system relies on. As part of the
-list of core infrastructure services required by SiteWhere, the Zookeeper pods must have
-been successfully deployed before any SiteWhere micrsoservices are allowed to start.
+El [Helm chart](https://github.com/sitewhere/sitewhere-k8s/tree/sitewhere-k8s-0.2.0/charts) de SiteWhere
+incluye un [template](https://github.com/sitewhere/sitewhere-k8s/blob/sitewhere-2.0.1/charts/sitewhere/templates/Zookeeper.yaml)
+que se usa para configurar los componentes de Zookeeper en los que se basa el sistema. Como parte de la lista 
+de servicios de infraestructura centrales requeridos por SiteWhere, los pods de Zookeeper deben haberse 
+implementado con éxito antes de que se pueda iniciar cualquier microservicio de SiteWhere.

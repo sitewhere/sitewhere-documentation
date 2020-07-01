@@ -46,7 +46,7 @@ helm install --name sitewhere \
 sitewhere/sitewhere
 ```
 
-### Minimal evironment with `hostpath` storageClass
+### Minimal environment with `hostpath` storageClass
 
 ```bash
 helm install --name sitewhere \
@@ -59,7 +59,7 @@ helm install --name sitewhere \
 sitewhere/sitewhere
 ```
 
-### Developer evironment with `hostpath` storageClass
+### Developer environment with `hostpath` storageClass
 
 ```bash
 helm install --name sitewhere \
