@@ -1,22 +1,22 @@
-# Backup and Restore Procedures
+# Procedimientos de Copias de Seguridad y  Restauración
 
 <Seo/>
 
-This document provides procedures for backing up and restoring services
-that use persistent storage, including MongoDB and Apache Zookeeper.
+Este documento proporciona procedimientos para realizar copias de seguridad y restaurar servicios que utilizan 
+almacenamiento persistente, incluidos MongoDB y Apache Zookeeper.
 
-## Backup Procedure
+## Procedimiento de Copias de Seguridad
 
-### Create Backup PVC
+### Crear PVC de Copia de Seguridad
 
-If you plan to use `rook-ceph-block` storageClass use:
+Si planea usar el almacenamiento `rook-ceph-block` storageClass ejecute:
 
 ```bash
 kubectl apply -f utils/sitewhere-mongodb-dump-pvc-rook.yaml
 ```
 
-If you plan to use an externa NFS Server, edit the file
-`utils/sitewhere-mongodb-dump-pvc-nfs.yaml`, set the NFS Server URL and Path.
+Si planea utilizar un servidor NFS externo, edite el archivo
+`utils / sitewhere-mongodb-dump-pvc-nfs.yaml`, modifique la URL y Path del servidor NFS.
 
 ```yaml
 nfs:
@@ -24,25 +24,25 @@ nfs:
   path: "<NFS_SERVER_PATH>"
 ```
 
-Save the file and apply it to the cluster.
+Guarde el archivo y aplíquelo al clúster.
 
 ```bash
 kubectl apply -f utils/sitewhere-mongodb-dump-pvc-nfs.yaml
 ```
 
-### Gracefully Downscale SiteWhere Microservices
+### Desescalar Microservicios de SiteWhere 
 
 ```bash
 kubectl scale deploy --replicas=0 -l sitewhere.io/role=microservice
 ```
 
-### Backup MongoDB Database
+### Copia de seguridad de Base de Datos MongoDB
 
 ```bash
 kubectl apply -f utils/sitewhere-mongodb-dump-job.yaml
 ```
 
-Wait for `sitewhere-mongodump` job to be completed.
+Espere a que se complete el trabajo `sitewhere-mongodump`.
 
 ```bash
 kubectl get job
@@ -53,15 +53,15 @@ NAME                  DESIRED   SUCCESSFUL   AGE
 sitewhere-mongodump   1         1            7s
 ```
 
-Alternative, you can create a `CronJob` which will execute the backup job
-repeatibly. You can create the `CronJob` by executing:
+Alternativamente, puede crear un `CronJob` que ejecutará el trabajo de copia de seguridad repetidamente. Puede 
+crear el `CronJob` ejecutando:
 
 ```bash
 kubectl apply -f utils/sitewhere-mongodb-dump-crojob.yaml
 ```
 
-By default, it will lanch a backup job once a day, at `12:01`. You can change this behaviour
-by changing the cron exepression (`schedule`) at `utils/sitewhere-mongodb-dump-crojob.yaml`
+Por defecto, ejecutará un trabajo de respaldo una vez al día, a las `12: 01`. Puede cambiar este comportamiento 
+cambiando la expresión de cron (`schedule`) en `utils/sitewhere-mongodb-dump-crojob.yaml`
 
 ```yaml
 apiVersion: batch/v1beta1
@@ -73,13 +73,13 @@ spec:
   jobTemplate:
 ```
 
-### Copy Backup Data Outside of the Cluster
+### Copiar datos de copia de seguridad fuera del clúster
 
-If you are using `rook-ceph-block` storage class `PVC` you may need to extract the backup file
-from Kubernates. To accomplish this task we provide a `YAML` that created a `Pod` that mounts
-the `PVC` used to store the result of the backup. After you create the Pod, you can extract the
-files using `kubectl cp` command. The following commands show how to extract the result of the
-backup job/cronjob.
+Si está utilizando  `rook-ceph-block` storage class `PVC`, es posible que deba extraer el archivo de copia de 
+seguridad de Kubernates. Para llevar a cabo esta tarea, proporcionamos un `YAML` que crea un `Pod` que monta 
+el `PVC` utilizado para almacenar el resultado de la copia de seguridad. Después de crear el Pod, puede extraer 
+los archivos usando el comando `kubectl cp`. Los siguientes comandos muestran cómo extraer el resultado de la
+trabajo de respaldo / cronjob.
 
 ```bash
 kubectl apply -f utils/sitewhere-mongodb-backup-pod.yaml
@@ -87,30 +87,30 @@ kubectl cp sitewhere-backup-admin-pod:/dump <YOUR_BACKUP_DIR>
 kubectl delete -f utils/sitewhere-mongodb-backup-pod.yaml
 ```
 
-**Note:** If you are using `rook-ceph-block`, be aware of the `RWO` limitation of this storage class.
-This means that only one `Pod` can have the `sitewhere-mongodump-pvc` PVC mounted on its filesystem.
+**Nota:** Si está utilizando `rook-ceph-block`, tenga en cuenta la limitación `RWO` de esta clase de almacenamiento.
+Esto significa que solo un `Pod` puede tener el PVC `sitewhere-mongodump-pvc` montado en su sistema de archivos.
 
-### Upscale SiteWhere Microservices
+### Escalar Microservicios de SiteWhere 
 
 ```bash
 kubectl scale deploy --replicas=1 -l sitewhere.io/role=microservice
 ```
 
-## Restore Procedure
+## Procedimiento de Restauración
 
-### Gracefully Downscale SiteWhere Microservices
+### Desescalar Microservicios de SiteWhere
 
 ```bash
 kubectl scale deploy --replicas=0 -l sitewhere.io/role=microservice
 ```
 
-### Copy Backup Data into the Cluster
+### Copiar datos de copia de seguridad en el Clúster
 
-If you are using `rook-ceph-block` storage class `PVC` you may need to copy backup file
-into Kubernates. To accomplish this task we provide a `YAML` that created a `Pod` that mounts
-the `PVC` used to store the result of the backup. After you create the Pod, you can copy the
-files using `kubectl cp` command into the cluster. The following commands show how to copy your
-backup file into the cluster.
+Si está utilizando `rook-ceph-block` storage class `PVC`, es posible que deba copiar el archivo 
+de copia de seguridad en Kubernates. Para llevar a cabo esta tarea, proporcionamos un `YAML` que crea un `Pod` 
+que monta el `PVC` utilizado para almacenar el resultado de la copia de seguridad. Después de crear el Pod, 
+puede copiar los archivos usando el comando `kubectl cp` en el clúster. Los siguientes comandos muestran cómo 
+copiar su archivo de copia de seguridad en el clúster.
 
 ```bash
 kubectl apply -f utils/sitewhere-mongodb-backup-pod.yaml
@@ -118,16 +118,17 @@ kubectl cp <YOUR_BACKUP_DIR> sitewhere-backup-admin-pod:/dump
 kubectl delete -f utils/sitewhere-mongodb-backup-pod.yaml
 ```
 
-**Note:** If you are using `rook-ceph-block`, be aware of the `RWO` limitation of this storage class.
-This means that only one `Pod` can have the `sitewhere-mongodump-pvc` PVC mounted on its filesystem.
+**Nota:** Si está utilizando `rook-ceph-block`, tenga en cuenta la limitación` RWO` de esta clase de 
+almacenamiento. Esto significa que solo un `Pod` puede tener el PVC` sitewhere-mongodump-pvc` montado en su 
+sistema de archivos.
 
-### Restore MongoDB Database
+### Restaurar la base de datos MongoDB
 
 ```bash
 kubectl apply -f utils/sitewhere-mongodb-restore-job.yaml
 ```
 
-### Upscale SiteWhere Microservices
+### Escalar Microservicios de SiteWhere 
 
 ```bash
 kubectl scale deploy --replicas=1 -l sitewhere.io/role=microservice
