@@ -1,7 +1,7 @@
-# Tenant Configuration
+# Configuration de Inquilino
 
-This guide covers administration of tenant-specific features.
+Esta guía cubre la administración de características específicas del inquilino.
 
 ::: warning
-This guide is under active development. Check back for updates.
+Esta guía está en desarrollo activo. Vuelva a consultar las actualizaciones.
 :::

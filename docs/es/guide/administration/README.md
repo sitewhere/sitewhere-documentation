@@ -1,40 +1,37 @@
-# System Administration Guide
+# Guía de Administración del Sistema
 
 <Seo/>
 
-This guide covers installation and use of the SiteWhere instance administration
-application which is designed for instance configuration and tenant data
-management.
+Esta guía cubre la instalación y el uso de la aplicación de administración de instancias de SiteWhere, diseñada 
+para la configuración de instancias y la administración de datos de inquilinos.
 
-## Technologies Used
+## Tecnologías Utilizadas
 
-The administrative application is built using the following technologies:
+La aplicación administrativa se crea utilizando las siguientes tecnologías.:
 
-- [Vue.js](https://vuejs.org/) - Reactive JavaScript front-end framework.
-- [Vuetify.js](https://vuetifyjs.com) - Comprehensive Material Design framework for Vue.js
-- [Electron](https://electronjs.org/) - Packages web application as installable application with access to OS-specific resources.
+- [Vue.js](https://vuejs.org/) - Framework Progresivo en JavaScript para Front-end.
+- [Vuetify.js](https://vuetifyjs.com) - Framework con estética Material Design para Vue.js
+- [Electron](https://electronjs.org/) - Aplicación web de paquetes como aplicación instalable con acceso a recursos específicos del sistema operativo.
 
-## Installation
+## Instalación
 
-The latest versions of the administrative application are always available on the
-GitHub [releases](https://github.com/sitewhere/sitewhere-admin-ui/releases) page
-of the code repository. After downloading and running the installer for your operating
-system, the SiteWhere administrative application is ready to use.
+Las últimas versiones de la aplicación administrativa siempre están disponibles en la página de GitHub 
+[releases](https://github.com/sitewhere/sitewhere-admin-ui/releases) del repositorio de código. Después 
+de descargar y ejecutar el instalador para su sistema operativo, la aplicación administrativa SiteWhere 
+está lista para usar.
 
 ## Login
 
-The initial page shown upon opening the application is the system login page. In order
-to log in to the application, a SiteWhere instance must be available to connect to. A
-single installation of the administrative application may be used to connect to any number
-of remote SiteWhere instances by changing the connection information beneath the
-username and password.
+La página inicial que se muestra al abrir la aplicación es la página de inicio de sesión del sistema. Para 
+iniciar sesión en la aplicación, una instancia de SiteWhere debe estar disponible para conectarse. Se puede 
+usar una sola instalación de la aplicación administrativa para conectarse a cualquier número de instancias 
+remotas de SiteWhere cambiando la información de conexión debajo del nombre de usuario y contraseña.
 
-Choose the protocol, hostname and port of the instance (the defaults will work
-for a local instance with default settings). If using an instance populated with the
-default user data, a user with administrative rights will be available using the
-following credentials:
+Elija el protocolo, el nombre de host y el puerto de la instancia (los valores predeterminados funcionarán 
+para una instancia local con la configuración predeterminada). Si usa una instancia con los datos de usuario 
+predeterminados, un usuario con derechos administrativos estará disponible con las siguientes credenciales:
 
-| Username | Password   |
+| Usuario  | Password   |
 | :------- | :--------- |
 | `admin`  | `password` |
 
