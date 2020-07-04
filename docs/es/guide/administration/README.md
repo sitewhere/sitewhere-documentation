@@ -36,3 +36,13 @@ predeterminados, un usuario con derechos administrativos estará disponible con 
 | `admin`  | `password` |
 
 <InlineImage src="/images/guide/administration/login.png" caption="Administrative Login"/>
+
+## Configuración de Conexiones
+
+Desde la página de login podemos editar la configuración de las conexiones a instancias de SiteWhere haciendo clic 
+en en el lápiz a la derecha de la conexión seleccionada. Una vez abierto el popup `Edit Remote Connection Settings` 
+en la parte superior se listan las conexiones disponibles, las cuales se pueden borrar o seleccionar la conexión 
+por defecto. En la parte inferior es posible agregar una nueva conexión indicando el nombre de la misma, como también 
+protocolo HTTP, nombre del servidor y puerto, para agregar presionar el botón `+`. 
+
+<InlineImage src="/images/guide/administration/connection-settings.png" caption="Connection Settings" />

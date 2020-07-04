@@ -39,3 +39,13 @@ following credentials:
 | `admin`  | `password` |
 
 <InlineImage src="/images/guide/administration/login.png" caption="Administrative Login"/>
+
+## Connection Settings
+
+From the login we can edit the configuration of the connections to instances of SiteWhere by 
+clicking in the pencil to the right of the selected connection. Once the `Edit Remote Connection Settings` 
+is open, the available connections are listed at the top, which can be `deleted` or select 
+the `default connection`. At the bottom it is possible to `add` a new connection indicating 
+its name, as well as HTTP protocol, server name and port, and finally to add it by clicking `+`.
+
+<InlineImage src="/images/guide/administration/connection-settings.png" caption="Connection Settings" />

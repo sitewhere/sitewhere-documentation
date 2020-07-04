@@ -9,7 +9,7 @@ agregar / configurar inquilinos y configurar microservicios globales.
 
 <InlineImage src="/images/guide/administration/system-administration.png" caption="System Administration"/>
 
-## Tenant Management
+## Gestión de Inquilinos
 
 SiteWhere es un sistema multi-inquilino, lo que significa que múltiples aplicaciones aisladas pueden usar la misma 
 instancia de SiteWhere simultáneamente. A diferencia de muchas otras plataformas donde varios inquilinos 
