@@ -204,7 +204,7 @@ helm repo update
 To install the chart with the release name `sitewhere` execute:
 
 ```bash
-helm install --name sitewhere sitewhere/sitewhere
+helm install -name sitewhere sitewhere/sitewhere
 ```
 
 ## Install SiteWhere from SiteWhere Kubernetes Repository
@@ -243,7 +243,7 @@ with the Helm Chart to only install the core microservices required to bootstrap
 the system:
 
 ```bash
-helm install --name sitewhere --set services.profile=minimal ./sitewhere
+helm install -name sitewhere --set services.profile=minimal ./sitewhere
 ```
 
 In this configuration, some services will not be available and the corresponding
@@ -258,7 +258,7 @@ other than `rook-ceph-block`, for example to use `hostpath` Persistence
 Storage Class, use the following command:
 
 ```bash
-helm install --name sitewhere --set persistence.storageClass=hostpath ./sitewhere
+helm install -name sitewhere --set persistence.storageClass=hostpath ./sitewhere
 ```
 
 ## Install Rook
